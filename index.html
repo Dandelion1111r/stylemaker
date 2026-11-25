@@ -272,6 +272,80 @@ footer .meta p,footer .meta a{font-size:.72rem;letter-spacing:.14em;color:#A9A19
 footer .meta a:hover{color:var(--on-dark)}
 footer .links{display:flex;gap:1.6rem;flex-wrap:wrap;justify-content:flex-end}
 
+
+/* ===== structure: sticky step navigation, how-it-works, steps with sub-tabs ===== */
+.top{position:sticky;top:0;z-index:40;background:rgba(244,240,234,.98);backdrop-filter:saturate(1.2) blur(8px);-webkit-backdrop-filter:saturate(1.2) blur(8px);grid-template-columns:1fr auto 1fr;padding:1.1rem var(--pad)}
+.top .logo{justify-self:start;padding-left:0;font-size:1.25rem}
+.steps-nav{display:flex;gap:2.4rem;align-items:center}
+.steps-nav a,.mobile-steps a{display:inline-flex;align-items:baseline;gap:.55rem;font-size:.68rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;text-decoration:none;color:var(--soft);padding:.4rem 0;border-bottom:1px solid transparent;transition:color .25s,border-color .25s}
+.steps-nav .n,.mobile-steps .n{font-family:var(--display);font-style:italic;font-size:.95rem;letter-spacing:0;text-transform:none;color:var(--accent)}
+.steps-nav a:hover{color:var(--ink)}
+.steps-nav a.on,.mobile-steps a.on{color:var(--ink);border-color:var(--ink)}
+.steps-nav a.plain{padding-left:2.4rem;border-left:1px solid var(--line)}
+html{scroll-padding-top:5rem}
+
+.how{padding:clamp(3.5rem,8vw,6.5rem) var(--pad);border-bottom:1px solid var(--line)}
+.how-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1rem;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.how-head h2{font-size:clamp(2rem,4vw,3.4rem)}
+.how-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.how-steps li+li{border-left:1px solid var(--line)}
+.how-steps a{display:flex;flex-direction:column;gap:.9rem;padding:2.4rem clamp(1.2rem,3vw,2.8rem);text-decoration:none;height:100%;transition:background .35s}
+.how-steps a:hover{background:var(--paper)}
+.how-steps .num{font-size:2.6rem;line-height:1}
+.how-steps h3{font-size:1.7rem}
+.how-steps p{color:var(--soft);max-width:30ch}
+.how-steps .go{margin-top:auto;padding-top:1rem;font-size:.66rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase}
+.how-steps .go::after{content:" →";letter-spacing:0}
+
+.step-head{display:flex;flex-direction:column;align-items:flex-start;gap:1.1rem;margin-bottom:clamp(2rem,4vw,3rem);max-width:50rem}
+.stepno{font-size:.68rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--accent)}
+.dark .stepno{color:var(--accent)}
+.step-head .lead{max-width:44ch}
+#test .step-head{align-items:center;text-align:center;margin-left:auto;margin-right:auto}
+.status{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:space-between;padding:1.1rem 1.4rem;background:var(--paper);border:1px solid var(--line);margin-bottom:2.2rem}
+.status p{margin:0}
+.status .who{font-family:var(--display);font-size:1.25rem}
+.status .who em{color:var(--accent)}
+.subtabs{display:flex;gap:0;border-bottom:1px solid var(--line);margin-bottom:clamp(2rem,4vw,3rem);overflow-x:auto;scrollbar-width:none}
+.subtabs::-webkit-scrollbar{display:none}
+.subtabs button{background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:1.1rem 2.2rem 1.1rem 0;margin-right:2.2rem;display:flex;align-items:baseline;gap:.7rem;font-family:var(--display);font-size:clamp(1.3rem,2.2vw,1.8rem);color:var(--soft);white-space:nowrap;transition:color .25s,border-color .25s}
+.subtabs button .num{font-size:1rem}
+.subtabs button:hover{color:var(--ink)}
+.subtabs button[aria-selected="true"]{color:var(--ink);border-color:var(--ink)}
+.tabpanel{animation:fadein .5s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.intro{color:var(--soft);font-size:1.05rem;max-width:46ch}
+.choose{display:flex;flex-direction:column;gap:.4rem}
+.choose .tabs{margin-top:-.2rem}
+
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);margin-top:clamp(4rem,8vw,7rem)}
+.info-block{display:flex;flex-direction:column;gap:1.2rem;min-width:0}
+.info-block h3{font-size:clamp(1.8rem,3vw,2.6rem)}
+.info-block h3 em{color:var(--accent)}
+#faq.info-block{margin-top:clamp(4rem,8vw,7rem)}
+.info-block .tiers{margin-top:.6rem}
+.trust-list{list-style:none;margin:.6rem 0 0;padding:0;border-top:1px solid var(--line)}
+.trust-list li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:1rem;padding:1.05rem 0;border-bottom:1px solid var(--line)}
+.trust-list b{font-family:var(--display);font-weight:400;font-size:1.15rem}
+.trust-list span{color:var(--soft);font-size:.92rem}
+
+.mobile-steps{display:none}
+@media (max-width:980px){
+  .steps-nav{display:none}
+  .top{grid-template-columns:1fr auto}
+  .how-steps{grid-template-columns:1fr}
+  .how-steps li+li{border-left:0;border-top:1px solid var(--line)}
+  .how-steps a{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:.3rem 1.2rem;padding:1.6rem 0}
+  .how-steps p{flex-basis:100%;padding-left:3.6rem}
+  .how-steps .go{display:none}
+  .info-grid{grid-template-columns:1fr}
+  .mobile-steps{display:grid;grid-template-columns:repeat(3,1fr);position:sticky;bottom:0;z-index:40;background:rgba(244,240,234,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+  .mobile-steps a{justify-content:center;padding:.95rem 0;border-bottom:0;border-top:2px solid transparent;font-size:.62rem}
+  .mobile-steps a.on{border-color:var(--ink)}
+  .subtabs button{padding-right:1.2rem;margin-right:1.2rem}
+}
+@media (max-width:600px){.trust-list li{grid-template-columns:1fr;gap:.2rem}}
+
 /* reveal on scroll */
 .rv{opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -316,13 +390,13 @@ footer .links{display:flex;gap:1.6rem;flex-wrap:wrap;justify-content:flex-end}
 <a class="skip" href="#main" data-t="skip"></a>
 <div class="proto" data-t="protoBar"></div>
 <header class="top">
-  <nav aria-label="Navigation">
-    <a href="#farbe" data-t="nav1"></a>
-    <a href="#form" data-t="nav2"></a>
-    <a href="#looks" data-t="nav5"></a>
-    <a href="#trends" data-t="nav6"></a>
-  </nav>
   <a class="logo" href="#top" id="top">TON <em>sur</em> TON</a>
+  <nav class="steps-nav" aria-label="Navigation">
+    <a href="#test" data-spy="test"><span class="n">01</span><span data-t="navTest"></span></a>
+    <a href="#profil" data-spy="profil"><span class="n">02</span><span data-t="navProfil"></span></a>
+    <a href="#looks" data-spy="looks"><span class="n">03</span><span data-t="navLooks"></span></a>
+    <a href="#info" data-spy="info" class="plain"><span data-t="navInfo"></span></a>
+  </nav>
   <div class="lang" role="group" aria-label="Sprache / Limba / Language">
     <button data-lang="de" aria-pressed="true">DE</button>
     <button data-lang="ro" aria-pressed="false">RO</button>
@@ -340,17 +414,146 @@ footer .links{display:flex;gap:1.6rem;flex-wrap:wrap;justify-content:flex-end}
     </div>
     <div class="hero-meta">
       <a class="btn" href="#test" data-t="heroCta1"></a>
-      <a class="cta" href="#probe" data-t="heroCta2"></a>
+      <a class="cta" href="#ablauf" data-t="heroCta2"></a>
     </div>
   </div>
   <div class="hero-img"><img src="img/hero-woman.jpg" alt="" width="800" height="992" fetchpriority="high"></div>
 </section>
 
-<div class="manifesto"><p class="rv" data-th="manifesto"></p></div>
+<section class="how" id="ablauf" aria-labelledby="t-how">
+  <div class="how-head"><span class="label" data-t="howEyebrow"></span><h2 id="t-how" data-th="howTitle"></h2><p class="fine" data-t="howNote"></p></div>
+  <ol class="how-steps">
+    <li><a href="#test"><span class="num">01</span><h3 data-t="how1t"></h3><p data-t="how1d"></p><span class="go" data-t="how1g"></span></a></li>
+    <li><a href="#profil"><span class="num">02</span><h3 data-t="how2t"></h3><p data-t="how2d"></p><span class="go" data-t="how2g"></span></a></li>
+    <li><a href="#looks"><span class="num">03</span><h3 data-t="how3t"></h3><p data-t="how3d"></p><span class="go" data-t="how3g"></span></a></li>
+  </ol>
+</section>
 
-<section class="sec" aria-labelledby="t-for">
-  <div class="sec-head">
-    <div class="left"><span class="label" data-t="forEyebrow"></span><h2 id="t-for" data-th="forTitle"></h2></div>
+<section class="sec dark step" id="test" aria-labelledby="t-test">
+  <div class="step-head">
+    <span class="stepno"><span data-t="stepWord"></span> 01</span>
+    <h2 id="t-test" data-th="testTitle"></h2>
+    <p class="lead" data-t="testLead"></p>
+  </div>
+  <div class="quiz" id="quiz" aria-live="polite"></div>
+</section>
+
+<section class="sec step" id="profil" aria-labelledby="t-profil">
+  <div class="step-head">
+    <span class="stepno"><span data-t="stepWord"></span> 02</span>
+    <h2 id="t-profil" data-th="profTitle"></h2>
+    <p class="lead" data-t="profLead"></p>
+  </div>
+  <div class="status" id="profStatus"></div>
+  <div class="subtabs" role="tablist" data-group="prof">
+    <button role="tab" data-tab="color" aria-selected="true"><span class="num">i</span><span data-t="tabColor"></span></button>
+    <button role="tab" data-tab="shape" aria-selected="false"><span class="num">ii</span><span data-t="tabShape"></span></button>
+    <button role="tab" data-tab="drape" aria-selected="false"><span class="num">iii</span><span data-t="tabDrape"></span></button>
+  </div>
+
+  <div class="tabpanel" data-panel="prof:color">
+    <div class="feature">
+      <div class="ph"><img src="img/skin-closeup.jpg" alt="" width="800" height="992" loading="lazy"></div>
+      <div class="panel">
+        <p class="intro" data-t="ctLead"></p>
+        <div class="tabs" id="seasons" role="group"></div>
+        <div class="title-row"><h3 id="ctName"></h3><span class="label" id="ctSub"></span></div>
+        <div class="strip" id="ctBest"></div>
+        <p id="ctRule"></p>
+        <div class="minis">
+          <div><span class="label" data-t="ctNeutral"></span><div class="dots" id="ctNeutral"></div></div>
+          <div><span class="label" data-t="ctAvoid"></span><div class="dots" id="ctAvoid"></div></div>
+          <div><span class="label" data-t="ctMetal"></span><span id="ctMetal"></span></div>
+        </div>
+        <div><button class="cta" data-goto="prof:drape" data-t="goDrape"></button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpanel" data-panel="prof:shape" hidden>
+    <div class="panel">
+      <p class="intro" data-t="fgLead"></p>
+      <div class="row"><div class="tabs" id="fgGender" role="group"></div><div class="tabs" id="fgShapes" role="group"></div></div>
+      <div class="sil">
+        <div id="fgVisual"></div>
+        <div class="panel">
+          <h3 id="fgName"></h3>
+          <p class="lead" id="fgGoal"></p>
+          <dl class="kv">
+            <dt data-t="fgGood"></dt><dd id="fgGood"></dd>
+            <dt data-t="fgBad"></dt><dd id="fgBad"></dd>
+            <dt data-t="fgAcc"></dt><dd id="fgAcc"></dd>
+          </dl>
+          <p class="fine" data-t="bodyNote"></p>
+          <div><a class="cta" href="#looks" data-t="goLooks"></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpanel" data-panel="prof:drape" hidden>
+    <div class="feature">
+      <div class="drapes">
+        <div class="drape" id="dA"><div class="face"></div><div class="tag"><span data-t="dpGood"></span><span id="dATag"></span></div></div>
+        <div class="drape" id="dB"><div class="face"></div><div class="tag"><span data-t="dpBad"></span><span id="dBTag"></span></div></div>
+      </div>
+      <div class="panel">
+        <p class="intro" data-t="dpLead"></p>
+        <div class="tabs" id="dpSeasons" role="group"></div>
+        <div class="minis">
+          <div><span class="label" data-t="dpLeft"></span><div class="dots" id="dpBest"></div></div>
+          <div><span class="label" data-t="dpRight"></span><div class="dots" id="dpAvoid"></div></div>
+        </div>
+        <div class="row">
+          <label class="btn upl" for="dpFile"><span data-t="dpUpload"></span><input type="file" id="dpFile" accept="image/*"></label>
+          <span class="fine" data-t="dpPrivacy"></span>
+        </div>
+        <div class="range" id="dpRanges" hidden>
+          <span class="label" data-t="dpZoom"></span><input type="range" id="dpZoom" min="1" max="3" step="0.05" value="1.2">
+          <span class="label" data-t="dpPos"></span><input type="range" id="dpPos" min="0" max="100" step="1" value="30">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec step" id="looks" aria-labelledby="t-looks">
+  <div class="step-head">
+    <span class="stepno"><span data-t="stepWord"></span> 03</span>
+    <h2 id="t-looks" data-th="looksTitle"></h2>
+    <p class="lead" id="ofProfile"></p>
+  </div>
+  <div class="subtabs" role="tablist" data-group="looks">
+    <button role="tab" data-tab="outfits" aria-selected="true"><span class="num">i</span><span data-t="tabOutfits"></span></button>
+    <button role="tab" data-tab="season" aria-selected="false"><span class="num">ii</span><span data-t="tabSeason"></span></button>
+  </div>
+
+  <div class="tabpanel" data-panel="looks:outfits">
+    <div class="look">
+      <div class="ph"><img id="ofImg" src="img/woman-trench.jpg" alt="" width="800" height="992" loading="lazy"><div class="bar" id="ofBar"></div></div>
+      <div class="panel">
+        <div class="choose"><span class="label" data-t="ofOccL"></span><div class="tabs" id="ofOcc" role="group"></div></div>
+        <div class="choose"><span class="label" data-t="ofWeatherL"></span><div class="tabs" id="ofWeather" role="group"></div></div>
+        <ul class="olist" id="ofList"></ul>
+        <ul class="why" id="ofWhy"></ul>
+        <div><button class="cta" id="ofShuffle" data-t="ofShuffle"></button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpanel" data-panel="looks:season" hidden>
+    <p class="intro" id="trProfile"></p>
+    <div class="tfeat" id="trFeat"></div>
+    <div class="tabs" id="trFilter" role="group"></div>
+    <div class="tlist" id="trList"></div>
+    <p class="fine" style="margin-top:2rem"><span data-t="trSrc"></span> <a href="https://www.whowhatwear.com/fashion/trends/autumn-winter-2026-trends" rel="noopener">Who What Wear</a> · <a href="https://www.harrods.com/en-gb/c/stories/women/new-season-fashion-trends" rel="noopener">Harrods</a> · <a href="https://fashionunited.com/news/fashion/back-to-basics-the-quiet-sophistication-of-the-aw26-season/2026040771524" rel="noopener">FashionUnited</a> · <a href="https://www.whowhatwear.com/fashion/runway/net-a-porter-fall-2026-trends" rel="noopener">Net-a-Porter</a> · <a href="https://www2.hm.com/en_us/editorial/inspiration/men-autumn-trends.html" rel="noopener">H&amp;M</a></p>
+  </div>
+</section>
+
+<section class="sec" id="info" aria-labelledby="t-info">
+  <div class="step-head">
+    <span class="label" data-t="infoEyebrow"></span>
+    <h2 id="t-info" data-th="infoTitle"></h2>
     <p class="lead" data-t="forLead"></p>
   </div>
   <div class="trip">
@@ -358,151 +561,46 @@ footer .links{display:flex;gap:1.6rem;flex-wrap:wrap;justify-content:flex-end}
     <figure class="rv"><div class="ph"><img src="img/man-suit.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">II</span><span class="label" data-t="for2"></span></figcaption></figure>
     <figure class="rv"><div class="ph"><img src="img/mature-woman.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">III</span><span class="label" data-t="for3"></span></figcaption></figure>
   </div>
-</section>
-
-<section class="sec" id="farbe" aria-labelledby="t-farbe">
-  <div class="sec-head">
-    <div class="left"><span class="num">I</span><h2 id="t-farbe" data-th="ctTitle"></h2></div>
-    <p class="lead" data-t="ctLead"></p>
-  </div>
-  <div class="feature">
-    <div class="ph rv"><img src="img/skin-closeup.jpg" alt="" width="800" height="992" loading="lazy"></div>
-    <div class="panel">
-      <div class="tabs" id="seasons" role="group"></div>
-      <div class="title-row"><h3 id="ctName"></h3><span class="label" id="ctSub"></span></div>
-      <div class="strip" id="ctBest"></div>
-      <p id="ctRule"></p>
-      <div class="minis">
-        <div><span class="label" data-t="ctNeutral"></span><div class="dots" id="ctNeutral"></div></div>
-        <div><span class="label" data-t="ctAvoid"></span><div class="dots" id="ctAvoid"></div></div>
-        <div><span class="label" data-t="ctMetal"></span><span id="ctMetal"></span></div>
+  <div class="info-grid">
+    <div class="info-block">
+      <span class="label" data-t="freeEyebrow"></span>
+      <h3 data-th="freeTitle"></h3>
+      <div class="tiers">
+        <div class="tier"><span class="label" data-t="tFree"></span><span class="price">0 €</span><ul data-tl="tFreeList"></ul></div>
+        <div class="tier alt"><span class="label" data-t="tLater"></span><span class="price">Premium</span><ul data-tl="tLaterList"></ul></div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="sec" id="form" aria-labelledby="t-form">
-  <div class="sec-head">
-    <div class="left"><span class="num">II</span><h2 id="t-form" data-th="fgTitle"></h2></div>
-    <p class="lead" data-t="fgLead"></p>
-  </div>
-  <div class="panel">
-    <div class="row"><div class="tabs" id="fgGender" role="group"></div><div class="tabs" id="fgShapes" role="group"></div></div>
-    <div class="sil">
-      <div id="fgVisual" class="rv"></div>
-      <div class="panel">
-        <h3 id="fgName"></h3>
-        <p class="lead" id="fgGoal"></p>
-        <dl class="kv">
-          <dt data-t="fgGood"></dt><dd id="fgGood"></dd>
-          <dt data-t="fgBad"></dt><dd id="fgBad"></dd>
-          <dt data-t="fgAcc"></dt><dd id="fgAcc"></dd>
-        </dl>
-        <p class="fine" data-t="bodyNote"></p>
-      </div>
+    <div class="info-block">
+      <span class="label" data-t="dsEyebrow"></span>
+      <h3 data-th="dsTitle"></h3>
+      <ul class="trust-list">
+        <li><b data-t="tr1t"></b><span data-t="tr1d"></span></li>
+        <li><b data-t="tr2t"></b><span data-t="tr2d"></span></li>
+        <li><b data-t="tr3t"></b><span data-t="tr3d"></span></li>
+        <li><b data-t="tr4t"></b><span data-t="tr4d"></span></li>
+      </ul>
     </div>
   </div>
-</section>
-
-<section class="sec dark" id="test" aria-labelledby="t-test">
-  <div class="sec-head">
-    <div class="left"><span class="num">III</span><h2 id="t-test" data-th="testTitle"></h2></div>
-    <p class="lead" data-t="testLead"></p>
+  <div class="info-block" id="faq">
+    <span class="label">FAQ</span>
+    <h3 data-th="faqTitle"></h3>
+    <div class="faq" id="faqList"></div>
   </div>
-  <div class="quiz" id="quiz" aria-live="polite"></div>
-</section>
-
-<section class="sec" id="probe" aria-labelledby="t-probe">
-  <div class="sec-head">
-    <div class="left"><span class="num">IV</span><h2 id="t-probe" data-th="dpTitle"></h2></div>
-    <p class="lead" data-t="dpLead"></p>
-  </div>
-  <div class="feature">
-    <div class="drapes">
-      <div class="drape" id="dA"><div class="face"></div><div class="tag"><span data-t="dpGood"></span><span id="dATag"></span></div></div>
-      <div class="drape" id="dB"><div class="face"></div><div class="tag"><span data-t="dpBad"></span><span id="dBTag"></span></div></div>
-    </div>
-    <div class="panel">
-      <div class="tabs" id="dpSeasons" role="group"></div>
-      <div class="minis">
-        <div><span class="label" data-t="dpLeft"></span><div class="dots" id="dpBest"></div></div>
-        <div><span class="label" data-t="dpRight"></span><div class="dots" id="dpAvoid"></div></div>
-      </div>
-      <div class="row">
-        <label class="btn upl" for="dpFile"><span data-t="dpUpload"></span><input type="file" id="dpFile" accept="image/*"></label>
-        <span class="fine" data-t="dpPrivacy"></span>
-      </div>
-      <div class="range" id="dpRanges" hidden>
-        <span class="label" data-t="dpZoom"></span><input type="range" id="dpZoom" min="1" max="3" step="0.05" value="1.2">
-        <span class="label" data-t="dpPos"></span><input type="range" id="dpPos" min="0" max="100" step="1" value="30">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="looks" aria-labelledby="t-looks">
-  <div class="sec-head">
-    <div class="left"><span class="num">V</span><h2 id="t-looks" data-th="ofTitle"></h2></div>
-    <p class="lead" id="ofProfile"></p>
-  </div>
-  <div class="look">
-    <div class="ph rv"><img id="ofImg" src="img/woman-trench.jpg" alt="" width="800" height="992" loading="lazy"><div class="bar" id="ofBar"></div></div>
-    <div class="panel">
-      <div class="tabs" id="ofOcc" role="group"></div>
-      <div class="tabs" id="ofWeather" role="group"></div>
-      <ul class="olist" id="ofList"></ul>
-      <ul class="why" id="ofWhy"></ul>
-      <div><button class="cta" id="ofShuffle" data-t="ofShuffle"></button></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="trends" aria-labelledby="t-trends">
-  <div class="sec-head">
-    <div class="left"><span class="num">VI</span><h2 id="t-trends" data-th="trTitle"></h2></div>
-    <p class="lead" id="trProfile"></p>
-  </div>
-  <div class="tfeat" id="trFeat"></div>
-  <div class="tabs" id="trFilter" role="group" style="margin-bottom:0"></div>
-  <div class="tlist" id="trList"></div>
-  <p class="fine" style="margin-top:2rem"><span data-t="trSrc"></span> <a href="https://www.whowhatwear.com/fashion/trends/autumn-winter-2026-trends" rel="noopener">Who What Wear</a> · <a href="https://www.harrods.com/en-gb/c/stories/women/new-season-fashion-trends" rel="noopener">Harrods</a> · <a href="https://fashionunited.com/news/fashion/back-to-basics-the-quiet-sophistication-of-the-aw26-season/2026040771524" rel="noopener">FashionUnited</a> · <a href="https://www.whowhatwear.com/fashion/runway/net-a-porter-fall-2026-trends" rel="noopener">Net-a-Porter</a> · <a href="https://www2.hm.com/en_us/editorial/inspiration/men-autumn-trends.html" rel="noopener">H&amp;M</a></p>
-</section>
-
-<section class="sec" aria-labelledby="t-free">
-  <div class="sec-head">
-    <div class="left"><span class="label" data-t="freeEyebrow"></span><h2 id="t-free" data-th="freeTitle"></h2></div>
-    <p class="lead" data-t="freeLead"></p>
-  </div>
-  <div class="tiers">
-    <div class="tier"><span class="label" data-t="tFree"></span><span class="price">0 €</span><ul data-tl="tFreeList"></ul></div>
-    <div class="tier alt"><span class="label" data-t="tLater"></span><span class="price">Premium</span><ul data-tl="tLaterList"></ul></div>
-  </div>
-</section>
-
-<section class="sec dark" aria-labelledby="t-ds">
-  <div class="sec-head">
-    <div class="left"><span class="label" data-t="dsEyebrow"></span><h2 id="t-ds" data-th="dsTitle"></h2></div>
-  </div>
-  <div class="trusts">
-    <div class="trust"><span class="num">01</span><h3 data-t="tr1t"></h3><p class="fine" data-t="tr1d"></p></div>
-    <div class="trust"><span class="num">02</span><h3 data-t="tr2t"></h3><p class="fine" data-t="tr2d"></p></div>
-    <div class="trust"><span class="num">03</span><h3 data-t="tr3t"></h3><p class="fine" data-t="tr3d"></p></div>
-    <div class="trust"><span class="num">04</span><h3 data-t="tr4t"></h3><p class="fine" data-t="tr4d"></p></div>
-  </div>
-</section>
-
-<section class="sec" id="faq" aria-labelledby="t-faq">
-  <div class="sec-head"><div class="left"><span class="label">FAQ</span><h2 id="t-faq" data-th="faqTitle"></h2></div></div>
-  <div class="faq" id="faqList"></div>
 </section>
 </main>
+
+<nav class="mobile-steps" aria-label="Steps">
+  <a href="#test" data-spy="test"><span class="n">01</span><span data-t="navTest"></span></a>
+  <a href="#profil" data-spy="profil"><span class="n">02</span><span data-t="navProfil"></span></a>
+  <a href="#looks" data-spy="looks"><span class="n">03</span><span data-t="navLooks"></span></a>
+</nav>
 
 <footer>
   <span class="logo">TON <em>sur</em> TON</span>
   <div class="meta">
     <p data-t="disclaimer"></p>
     <p data-t="credit"></p>
-    <div class="links"><a href="impressum.html" data-t="legalImp"></a><a href="datenschutz.html" data-t="legalDs"></a><a href="https://github.com/Dandelion1111r/ton-sur-ton">GitHub</a><span><a href="https://www.pexels.com" rel="noopener" data-t="photos"></a></span></div>
+    <div class="links"><a href="impressum.html" data-t="legalImp"></a><a href="datenschutz.html" data-t="legalDs"></a><a href="https://github.com/Dandelion1111r/ton-sur-ton">GitHub</a><a href="https://www.pexels.com" rel="noopener" data-t="photos"></a></div>
   </div>
 </footer>
 <script>
@@ -804,12 +902,22 @@ const TRENDS = [
 /* ---------- interface text ---------- */
 const T = {
 de:{
+  navTest:"Test",navProfil:"Profil",navLooks:"Looks",navInfo:"Info",
+  howEyebrow:"In drei Schritten",howTitle:"So funktioniert <em>Ton sur Ton</em>",howNote:"Kostenlos · ohne Anmeldung · drei Minuten",
+  how1t:"Der Test",how1d:"Elf Fragen zu Haut, Haar, Augen und Figur.",how1g:"Test beginnen",
+  how2t:"Dein Profil",how2d:"Deine Farben, deine Form und die Probe am eigenen Gesicht.",how2g:"Profil ansehen",
+  how3t:"Deine Looks",how3d:"Outfits für jeden Anlass und die Trends der Saison, für dich gefiltert.",how3g:"Looks ansehen",
+  stepWord:"Schritt",profTitle:"Dein <em>Profil</em>",profLead:"Farbe, Form und Probe. Alles, was dir steht, an einem Ort.",
+  tabColor:"Farbe",tabShape:"Form",tabDrape:"Farbprobe",goDrape:"An deinem Gesicht testen",goLooks:"Weiter zu deinen Looks",
+  looksTitle:"Deine <em>Looks</em>",tabOutfits:"Outfits",tabSeason:"Die Saison",ofOccL:"Anlass",ofWeatherL:"Wetter",
+  infoEyebrow:"Das Haus",infoTitle:"Für sie. Für ihn. <em>Für jedes Alter.</em>",
+  profDemo:"Du siehst ein <em>Beispielprofil</em>.",profDemoBtn:"Test machen",profMine:(s,sh)=>`Dein Profil: <em>${s}</em> · ${sh}`,profRedo:"Test wiederholen",rNext:"Weiter zu deinem Profil",
   skip:"Zum Inhalt springen",protoBar:"Konzept-Prototyp · Deine Angaben bleiben in deinem Browser",
   nav1:"Farbe",nav2:"Form",nav5:"Looks",nav6:"Saison",
   heroEyebrow:"Persönliche Stilberatung · Sie & Er",
   heroTitle:"<span>Dein Stil.</span><span><em>Präzise.</em></span>",
   heroLead:"Farben, Schnitte und Looks, die wirklich zu dir passen. In drei Minuten.",
-  heroCta1:"Stil-Test beginnen",heroCta2:"Farbprobe",
+  heroCta1:"Stil-Test beginnen",heroCta2:"So funktioniert es",
   manifesto:"Nicht mehr kaufen. <em>Besser wählen.</em>",
   forEyebrow:"Für alle",forTitle:"Für sie. Für ihn. <em>Für jedes Alter.</em>",forLead:"Echte Menschen, echte Körper. Stil kennt keine Norm.",for1:"Sie",for2:"Er",for3:"Zeitlos",
   ctTitle:"Die <em>Farbe</em>",ctLead:"Vier Farbtypen. Einer davon ist deiner.",ctNeutral:"Basis",ctAvoid:"Meiden",ctMetal:"Metall",
@@ -860,12 +968,22 @@ de:{
   disclaimer:"Konzept-Prototyp. Keine veröffentlichte App.",credit:"Konzept & Design · Raluca Jidvian · 2026",legalImp:"Impressum",legalDs:"Datenschutz",photos:"Fotos: Pexels"
 },
 ro:{
+  navTest:"Test",navProfil:"Profil",navLooks:"Ținute",navInfo:"Info",
+  howEyebrow:"În trei pași",howTitle:"Cum funcționează <em>Ton sur Ton</em>",howNote:"Gratuit · fără cont · trei minute",
+  how1t:"Testul",how1d:"Unsprezece întrebări despre piele, păr, ochi și siluetă.",how1g:"Începe testul",
+  how2t:"Profilul tău",how2d:"Culorile tale, silueta ta și proba pe propriul chip.",how2g:"Vezi profilul",
+  how3t:"Ținutele tale",how3d:"Ținute pentru orice ocazie și tendințele sezonului, filtrate pentru tine.",how3g:"Vezi ținutele",
+  stepWord:"Pasul",profTitle:"Profilul <em>tău</em>",profLead:"Culoare, siluetă și probă. Tot ce ți se potrivește, într-un singur loc.",
+  tabColor:"Culoare",tabShape:"Siluetă",tabDrape:"Proba culorilor",goDrape:"Încearcă pe chipul tău",goLooks:"Mai departe la ținute",
+  looksTitle:"Ținutele <em>tale</em>",tabOutfits:"Ținute",tabSeason:"Sezonul",ofOccL:"Ocazie",ofWeatherL:"Vreme",
+  infoEyebrow:"Casa",infoTitle:"Pentru ea. Pentru el. <em>La orice vârstă.</em>",
+  profDemo:"Vezi un <em>exemplu de profil</em>.",profDemoBtn:"Fă testul",profMine:(s,sh)=>`Profilul tău: <em>${s}</em> · ${sh}`,profRedo:"Refă testul",rNext:"Mai departe la profilul tău",
   skip:"Sari la conținut",protoBar:"Prototip de concept · Datele tale rămân în browser",
   nav1:"Culoare",nav2:"Siluetă",nav5:"Ținute",nav6:"Sezon",
   heroEyebrow:"Consultanță de stil personală · Ea & El",
   heroTitle:"<span>Stilul tău.</span><span><em>Precis.</em></span>",
   heroLead:"Culori, croieli și ținute care ți se potrivesc cu adevărat. În trei minute.",
-  heroCta1:"Începe testul",heroCta2:"Proba culorilor",
+  heroCta1:"Începe testul",heroCta2:"Cum funcționează",
   manifesto:"Nu cumpăra mai mult. <em>Alege mai bine.</em>",
   forEyebrow:"Pentru toți",forTitle:"Pentru ea. Pentru el. <em>La orice vârstă.</em>",forLead:"Oameni reali, corpuri reale. Stilul nu are tipare.",for1:"Ea",for2:"El",for3:"Atemporal",
   ctTitle:"<em>Culoarea</em>",ctLead:"Patru tipuri de culori. Unul dintre ele e al tău.",ctNeutral:"Bază",ctAvoid:"De evitat",ctMetal:"Metal",
@@ -916,12 +1034,22 @@ ro:{
   disclaimer:"Prototip de concept. Nu este o aplicație publicată.",credit:"Concept & design · Raluca Jidvian · 2026",legalImp:"Impressum",legalDs:"Protecția datelor",photos:"Fotografii: Pexels"
 },
 en:{
+  navTest:"Test",navProfil:"Profile",navLooks:"Looks",navInfo:"Info",
+  howEyebrow:"In three steps",howTitle:"How <em>Ton sur Ton</em> works",howNote:"Free · no sign-up · three minutes",
+  how1t:"The test",how1d:"Eleven questions about skin, hair, eyes and shape.",how1g:"Begin the test",
+  how2t:"Your profile",how2d:"Your colours, your shape and the drape on your own face.",how2g:"See your profile",
+  how3t:"Your looks",how3d:"Outfits for every occasion and the season's trends, filtered for you.",how3g:"See your looks",
+  stepWord:"Step",profTitle:"Your <em>Profile</em>",profLead:"Colour, shape and drape. Everything that suits you, in one place.",
+  tabColor:"Colour",tabShape:"Shape",tabDrape:"Colour drape",goDrape:"Try it on your face",goLooks:"On to your looks",
+  looksTitle:"Your <em>Looks</em>",tabOutfits:"Outfits",tabSeason:"The season",ofOccL:"Occasion",ofWeatherL:"Weather",
+  infoEyebrow:"The house",infoTitle:"For her. For him. <em>For every age.</em>",
+  profDemo:"You're viewing a <em>sample profile</em>.",profDemoBtn:"Take the test",profMine:(s,sh)=>`Your profile: <em>${s}</em> · ${sh}`,profRedo:"Retake the test",rNext:"On to your profile",
   skip:"Skip to content",protoBar:"Concept prototype · Your details stay in your browser",
   nav1:"Colour",nav2:"Shape",nav5:"Looks",nav6:"Season",
   heroEyebrow:"Personal styling · Her & Him",
   heroTitle:"<span>Your style.</span><span><em>Precisely.</em></span>",
   heroLead:"Colours, cuts and looks that truly suit you. In three minutes.",
-  heroCta1:"Begin the style test",heroCta2:"Colour drape",
+  heroCta1:"Begin the style test",heroCta2:"How it works",
   manifesto:"Don't buy more. <em>Choose better.</em>",
   forEyebrow:"For everyone",forTitle:"For her. For him. <em>For every age.</em>",forLead:"Real people, real bodies. Style has no standard size.",for1:"Her",for2:"Him",for3:"Timeless",
   ctTitle:"The <em>Colour</em>",ctLead:"Four colour types. One of them is yours.",ctNeutral:"Base",ctAvoid:"Avoid",ctMetal:"Metal",
@@ -1018,7 +1146,29 @@ function applyLang(){
   renderAll();
 }
 document.querySelectorAll(".lang button").forEach(b => b.onclick = () => { lang = b.dataset.lang; store.set("styleai-lang", lang); applyLang(); });
-function renderAll(){ renderSeasons(); renderFigure(); renderQuiz(); renderDrape(); renderOutfit(); renderTrends(); }
+function renderAll(){ renderSeasons(); renderFigure(); renderQuiz(); renderDrape(); renderOutfit(); renderTrends(); renderStatus(); }
+
+/* ---------- structure: tabs, jumps, status, scroll spy ---------- */
+function openTab(group, key){
+  document.querySelectorAll(`.subtabs[data-group="${group}"] button`).forEach(b => b.setAttribute("aria-selected", b.dataset.tab===key));
+  document.querySelectorAll(`[data-panel^="${group}:"]`).forEach(p => p.hidden = p.dataset.panel !== `${group}:${key}`);
+}
+document.querySelectorAll(".subtabs").forEach(g => g.querySelectorAll("button").forEach(b => b.onclick = () => openTab(g.dataset.group, b.dataset.tab)));
+document.addEventListener("click", e => {
+  const el = e.target.closest("[data-goto]"); if(!el) return;
+  e.preventDefault(); const [g,k] = el.dataset.goto.split(":"); openTab(g,k);
+  document.getElementById(g==="prof"?"profil":"looks").scrollIntoView({behavior:"smooth"});
+});
+function renderStatus(){
+  const t = L(), p = P(), el = $("#profStatus");
+  if(p.demo){ el.innerHTML = `<p class="who">${t.profDemo}</p><a class="btn" href="#test">${esc(t.profDemoBtn)}</a>`; return; }
+  el.innerHTML = `<p class="who">${t.profMine(esc(X(SEASONS[p.season].name)), esc(X(SHAPES[p.g][p.shape].name)))}</p><button class="cta" id="profRedo">${esc(t.profRedo)}</button>`;
+  $("#profRedo").onclick = () => { st = {i:0,a:{}}; saveQ(); renderQuiz(); $("#test").scrollIntoView({behavior:"smooth"}); };
+}
+if("IntersectionObserver" in window){
+  const spy = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) document.querySelectorAll("[data-spy]").forEach(a => a.classList.toggle("on", a.dataset.spy===e.target.id)); }), {rootMargin:"-45% 0px -50% 0px"});
+  ["test","profil","looks","info"].forEach(id => spy.observe(document.getElementById(id)));
+}
 
 /* ---------- colour types ---------- */
 let ctSeason = P().season, ctPick = 0;
@@ -1174,7 +1324,7 @@ function renderResult(){
     </div>
     ${hTip}${r.neutral?`<p class="fine">${esc(t.rNeutralNote)}</p>`:""}
     <p class="fine">${esc(t.rFine)}</p>
-    <div class="qnav"><div style="display:flex;gap:1rem;flex-wrap:wrap"><a class="btn" href="#looks">${esc(t.rToOutfits)}</a><a class="btn line" href="#probe">${esc(t.rToDrape)}</a></div>
+    <div class="qnav"><div style="display:flex;gap:1rem;flex-wrap:wrap"><a class="btn" href="#profil">${esc(t.rNext)}</a><a class="btn line" href="#looks">${esc(t.rToOutfits)}</a></div>
       <div style="display:flex;gap:1.5rem"><button class="cta" id="q-copy">${esc(t.rCopy)}</button><button class="cta" id="q-redo">${esc(t.rRedo)}</button></div></div>
     <span class="copied" id="q-copied" hidden>${esc(t.rCopied)}</span>
     <p class="fine" id="q-sum" hidden>${esc(summary)}</p></div>`;
@@ -1186,7 +1336,7 @@ function renderResult(){
   };
   /* the rest of the page follows the new profile */
   if(!syncedOnce){ syncedOnce = true; ctSeason = r.season; fgG = r.g; fgShape = r.shape; dpSeason = r.season; renderSeasons(); renderFigure(); renderDrape(); }
-  renderOutfit(); renderTrends();
+  renderOutfit(); renderTrends(); renderStatus();
 }
 let syncedOnce = false;
 
