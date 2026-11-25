@@ -1,6 +1,6 @@
-// STYLE AI service worker: keeps the prototype usable offline.
+// Ton sur Ton service worker: keeps the prototype usable offline.
 // Same-origin files only; nothing is sent anywhere.
-const CACHE = "styleai-v2";
+const CACHE = "tonsurton-v3";
 const CORE = [
   "./", "index.html", "impressum.html", "datenschutz.html",
   "img/hero-woman.jpg", "img/woman-suit.jpg", "img/man-suit.jpg", "img/mature-woman.jpg", "img/skin-closeup.jpg", "img/woman-trench.jpg", "img/man-street.jpg", "img/man-coat.jpg", "img/knit.jpg", "img/plaid.jpg",

@@ -1,10 +1,10 @@
-# STYLE AI
+# TON *sur* TON
 
 **Konzept-Prototyp einer Styling-App für Frauen und Männer: Farbtyp, Figur, Stil-Test, Farbprobe mit Foto, Outfits und Trends, auf Deutsch, Rumänisch und Englisch.**
 
 [Prototyp ansehen →](https://dandelion1111r.github.io/style-ai/)
 
-![STYLE AI: Kenne deine Farben. Verstehe deine Figur. Trag, was zu dir passt.](og-image.png)
+![Ton sur Ton: Kenne deine Farben. Verstehe deine Figur. Trag, was zu dir passt.](og-image.png)
 
 ## Funktionen
 
@@ -33,7 +33,7 @@ Lokal ansehen: `index.html` im Browser öffnen.
 
 ## Hinweise
 
-STYLE AI ist ein Konzept-Prototyp und keine echte App. Es werden keine Daten übertragen. Die Empfehlungen sind allgemeine Stilregeln und ersetzen keine persönliche Beratung.
+Ton sur Ton ist ein Konzept-Prototyp und keine echte App. Es werden keine Daten übertragen. Die Empfehlungen sind allgemeine Stilregeln und ersetzen keine persönliche Beratung.
 
 ## Credits
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>STYLE AI – Konzept-Prototyp</title>
+<title>Ton sur Ton – Konzept-Prototyp</title>
 <meta name="description" content="Interaktiver Konzept-Prototyp einer Styling-App für Frauen und Männer: Farbtyp, Figur, Stil-Test, Farbprobe mit Foto, Outfits und Trends. Konzept und Design: Raluca Jidvian.">
 <link rel="canonical" href="https://dandelion1111r.github.io/style-ai/">
 <meta name="author" content="Raluca Jidvian">
@@ -14,10 +14,10 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="STYLE AI">
+<meta name="apple-mobile-web-app-title" content="Ton sur Ton">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="STYLE AI">
-<meta property="og:title" content="STYLE AI – Kenne deine Farben">
+<meta property="og:site_name" content="Ton sur Ton">
+<meta property="og:title" content="Ton sur Ton – Dein Stil. Präzise.">
 <meta property="og:description" content="Konzept-Prototyp einer Styling-App für Frauen und Männer: Farbtyp, Figur, Stil und Outfits. Konzept und Design: Raluca Jidvian.">
 <meta property="og:url" content="https://dandelion1111r.github.io/style-ai/">
 <meta property="og:image" content="https://dandelion1111r.github.io/style-ai/og-image.png">
@@ -41,7 +41,7 @@
 @font-face{font-family:"DM Mono";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/dm-mono-latin-ext-400-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"DM Mono";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/dm-mono-latin-400-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
-/* STYLE AI · editorial luxury: ivory paper, ink, one champagne accent.
+/* Ton sur Ton · editorial luxury: ivory paper, ink, one champagne accent.
    Big photography, very little text, hairlines instead of boxes. */
 :root{
   --bg:#F4F0EA;--paper:#FBF9F5;--ink:#141210;--soft:#6F675F;--line:#DCD4C8;--accent:#A9834F;--dark:#141210;--on-dark:#EFE9E0;
@@ -92,6 +92,7 @@ p{margin:0}
 .top nav a,.lang button{font-size:.68rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;text-decoration:none;color:var(--soft);transition:color .25s}
 .top nav a:hover{color:var(--ink)}
 .logo{font-family:var(--display);font-size:1.45rem;letter-spacing:.42em;text-decoration:none;white-space:nowrap;padding-left:.42em}
+.logo em{font-style:italic;text-transform:none;letter-spacing:.04em;margin:0 .18em 0 -.1em}
 .lang{display:flex;gap:1.1rem;justify-content:flex-end}
 .lang button{background:none;border:0;padding:.3rem 0;border-bottom:1px solid transparent}
 .lang button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
@@ -321,7 +322,7 @@ footer .links{display:flex;gap:1.6rem;flex-wrap:wrap;justify-content:flex-end}
     <a href="#looks" data-t="nav5"></a>
     <a href="#trends" data-t="nav6"></a>
   </nav>
-  <a class="logo" href="#top" id="top">STYLE AI</a>
+  <a class="logo" href="#top" id="top">TON <em>sur</em> TON</a>
   <div class="lang" role="group" aria-label="Sprache / Limba / Language">
     <button data-lang="de" aria-pressed="true">DE</button>
     <button data-lang="ro" aria-pressed="false">RO</button>
@@ -497,7 +498,7 @@ footer .links{display:flex;gap:1.6rem;flex-wrap:wrap;justify-content:flex-end}
 </main>
 
 <footer>
-  <span class="logo">STYLE AI</span>
+  <span class="logo">TON <em>sur</em> TON</span>
   <div class="meta">
     <p data-t="disclaimer"></p>
     <p data-t="credit"></p>
@@ -836,7 +837,7 @@ de:{
   rNeutralNote:"Dein Unterton ist neutral. Auch Farben des Nachbartyps stehen dir. Die Farbprobe entscheidet.",
   rFine:"Eine Orientierung, keine Diagnose. Licht, Make-up und gefärbtes Haar verändern das Ergebnis.",
   rCopy:"Profil kopieren",rRedo:"Neu beginnen",rToDrape:"Zur Farbprobe",rToOutfits:"Meine Looks",rCopied:"Kopiert.",
-  rSummary:(s,sub,sh,st)=>`Mein STYLE AI Profil: ${s} (${sub}), Form ${sh}${st?`, Stil ${st}`:""}.`,
+  rSummary:(s,sub,sh,st)=>`Mein Ton sur Ton Profil: ${s} (${sub}), Form ${sh}${st?`, Stil ${st}`:""}.`,
   dpTitle:"Die <em>Probe</em>",dpLead:"Ein Gesicht. Zwei Farben. Der Unterschied ist sofort sichtbar.",
   dpGood:"Deine Farbe",dpBad:"Nicht deine",dpLeft:"Deine Farben",dpRight:"Zum Vergleich",dpUpload:"Eigenes Foto",dpPrivacy:"Bleibt in deinem Browser. Wird nicht gespeichert.",dpZoom:"Zoom",dpPos:"Ausschnitt",
   ofTitle:"Die <em>Looks</em>",ofShuffle:"Andere Farben",
@@ -850,7 +851,7 @@ de:{
   tr1t:"Dein Foto bleibt bei dir",tr1d:"Nur in deinem Browser. Kein Upload.",tr2t:"Kein KI-Training",tr2d:"Deine Bilder trainieren keine Modelle.",tr3t:"Gewicht optional",tr3d:"Nie angezeigt, nie geteilt.",tr4t:"DSGVO",tr4d:"In der App: Server in der EU, jederzeit löschbar.",
   faqTitle:"Fragen",
   FAQ:[
-   ["Ist STYLE AI kostenlos?","Ja. Test, Palette, Farbprobe, Looks und Trends sind kostenlos und bleiben es."],
+   ["Ist Ton sur Ton kostenlos?","Ja. Test, Palette, Farbprobe, Looks und Trends sind kostenlos und bleiben es."],
    ["Auch für Männer?","Ja. Formen, Looks und Trends gibt es getrennt für Frauen und Männer."],
    ["Wie genau ist das Ergebnis?","Eine gute Orientierung. Am sichersten ist die Farbprobe mit einem Foto bei Tageslicht."],
    ["Brauche ich ein Foto?","Nein. Das Foto brauchst du nur für die Farbprobe."],
@@ -892,7 +893,7 @@ ro:{
   rNeutralNote:"Subtonul tău e neutru. Îți stau bine și culori din tipul vecin. Proba culorilor decide.",
   rFine:"O orientare, nu un diagnostic. Lumina, machiajul și părul vopsit schimbă rezultatul.",
   rCopy:"Copiază profilul",rRedo:"Ia-o de la capăt",rToDrape:"La proba culorilor",rToOutfits:"Ținutele mele",rCopied:"Copiat.",
-  rSummary:(s,sub,sh,st)=>`Profilul meu STYLE AI: ${s} (${sub}), siluetă ${sh}${st?`, stil ${st}`:""}.`,
+  rSummary:(s,sub,sh,st)=>`Profilul meu Ton sur Ton: ${s} (${sub}), siluetă ${sh}${st?`, stil ${st}`:""}.`,
   dpTitle:"<em>Proba</em>",dpLead:"Un chip. Două culori. Diferența se vede imediat.",
   dpGood:"Culoarea ta",dpBad:"Nu e a ta",dpLeft:"Culorile tale",dpRight:"Pentru comparație",dpUpload:"Poza ta",dpPrivacy:"Rămâne în browser. Nu se salvează.",dpZoom:"Zoom",dpPos:"Încadrare",
   ofTitle:"<em>Ținutele</em>",ofShuffle:"Alte culori",
@@ -906,7 +907,7 @@ ro:{
   tr1t:"Poza rămâne la tine",tr1d:"Doar în browserul tău. Nu se încarcă nicăieri.",tr2t:"Fără antrenare AI",tr2d:"Pozele tale nu antrenează niciun model.",tr3t:"Greutatea e opțională",tr3d:"Nu apare și nu se partajează.",tr4t:"GDPR",tr4d:"În aplicație: servere în UE, ștergere oricând.",
   faqTitle:"Întrebări",
   FAQ:[
-   ["Este STYLE AI gratuit?","Da. Testul, paleta, proba culorilor, ținutele și tendințele sunt gratuite și rămân așa."],
+   ["Este Ton sur Ton gratuit?","Da. Testul, paleta, proba culorilor, ținutele și tendințele sunt gratuite și rămân așa."],
    ["Și pentru bărbați?","Da. Siluetele, ținutele și tendințele sunt separate pentru femei și bărbați."],
    ["Cât de exact e rezultatul?","Un bun punct de plecare. Cel mai sigur e proba culorilor cu o poză la lumina zilei."],
    ["Am nevoie de o poză?","Nu. Poza îți trebuie doar pentru proba culorilor."],
@@ -948,7 +949,7 @@ en:{
   rNeutralNote:"Your undertone is neutral. Colours from the neighbouring type suit you too. The drape decides.",
   rFine:"A guide, not a diagnosis. Lighting, make-up and dyed hair change the result.",
   rCopy:"Copy profile",rRedo:"Start again",rToDrape:"Colour drape",rToOutfits:"My looks",rCopied:"Copied.",
-  rSummary:(s,sub,sh,st)=>`My STYLE AI profile: ${s} (${sub}), shape ${sh}${st?`, style ${st}`:""}.`,
+  rSummary:(s,sub,sh,st)=>`My Ton sur Ton profile: ${s} (${sub}), shape ${sh}${st?`, style ${st}`:""}.`,
   dpTitle:"The <em>Drape</em>",dpLead:"One face. Two colours. The difference shows at once.",
   dpGood:"Your colour",dpBad:"Not yours",dpLeft:"Your colours",dpRight:"For comparison",dpUpload:"Your own photo",dpPrivacy:"Stays in your browser. Never saved.",dpZoom:"Zoom",dpPos:"Framing",
   ofTitle:"The <em>Looks</em>",ofShuffle:"Other colours",
@@ -962,7 +963,7 @@ en:{
   tr1t:"Your photo stays with you",tr1d:"Only in your browser. No upload.",tr2t:"No AI training",tr2d:"Your images train no models.",tr3t:"Weight optional",tr3d:"Never shown, never shared.",tr4t:"GDPR",tr4d:"In the app: EU servers, delete any time.",
   faqTitle:"Questions",
   FAQ:[
-   ["Is STYLE AI free?","Yes. Test, palette, drape, looks and trends are free, and stay free."],
+   ["Is Ton sur Ton free?","Yes. Test, palette, drape, looks and trends are free, and stay free."],
    ["For men too?","Yes. Shapes, looks and trends are separate for women and men."],
    ["How accurate is it?","A strong guide. The surest way is the colour drape with a daylight photo."],
    ["Do I need a photo?","No. You only need one for the colour drape."],
