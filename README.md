@@ -2,7 +2,7 @@
 
 **Konzept-Prototyp einer Styling-App für Frauen und Männer: Farbtyp, Figur, Stil-Test, Farbprobe mit Foto, Outfits und Trends, auf Deutsch, Rumänisch und Englisch.**
 
-[Prototyp ansehen →](https://dandelion1111r.github.io/style-ai/)
+[Prototyp ansehen →](https://dandelion1111r.github.io/ton-sur-ton/)
 
 ![Ton sur Ton: Kenne deine Farben. Verstehe deine Figur. Trag, was zu dir passt.](og-image.png)
 
