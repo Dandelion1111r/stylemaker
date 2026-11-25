@@ -1,8 +1,9 @@
 // STYLE AI service worker: keeps the prototype usable offline.
 // Same-origin files only; nothing is sent anywhere.
-const CACHE = "styleai-v1";
+const CACHE = "styleai-v2";
 const CORE = [
   "./", "index.html", "impressum.html", "datenschutz.html",
+  "img/hero-woman.jpg", "img/woman-suit.jpg", "img/man-suit.jpg", "img/mature-woman.jpg", "img/skin-closeup.jpg", "img/woman-trench.jpg", "img/man-street.jpg", "img/man-coat.jpg", "img/knit.jpg", "img/plaid.jpg",
   "favicon.svg", "favicon-32.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png",
   "fonts/bodoni-moda-latin-400-normal.woff2", "fonts/bodoni-moda-latin-ext-400-normal.woff2",
   "fonts/bodoni-moda-latin-500-normal.woff2", "fonts/bodoni-moda-latin-ext-500-normal.woff2",

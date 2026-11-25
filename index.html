@@ -7,8 +7,7 @@
 <meta name="description" content="Interaktiver Konzept-Prototyp einer Styling-App für Frauen und Männer: Farbtyp, Figur, Stil-Test, Farbprobe mit Foto, Outfits und Trends. Konzept und Design: Raluca Jidvian.">
 <link rel="canonical" href="https://dandelion1111r.github.io/style-ai/">
 <meta name="author" content="Raluca Jidvian">
-<meta name="theme-color" content="#F6F3EF" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#17130F" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F4F0EA" media="(prefers-color-scheme: light)">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -42,514 +41,469 @@
 @font-face{font-family:"DM Mono";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/dm-mono-latin-ext-400-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"DM Mono";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/dm-mono-latin-400-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
-/* Layout: editorial two-column sections (label column + content column), like SKIN AI.
-   The colour drape and the silhouette are the bold objects; everything else stays quiet. */
+/* STYLE AI · editorial luxury: ivory paper, ink, one champagne accent.
+   Big photography, very little text, hairlines instead of boxes. */
 :root{
-  --bg:#F6F3EF;--surface:#FFFFFF;--ink:#221D19;--muted:#5E554E;--line:#E3DCD4;
-  --accent:#8A4B2C;--accent-soft:#F3E8E0;--warn:#8F5A1F;
-  --ok:#3D6A4C;--ok-bg:#E7F1EA;--mid:#8A5A1E;--mid-bg:#F7EDDF;
+  --bg:#F4F0EA;--paper:#FBF9F5;--ink:#141210;--soft:#6F675F;--line:#DCD4C8;--accent:#A9834F;--dark:#141210;--on-dark:#EFE9E0;
   --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
   --body:"Jost","Avenir Next","Segoe UI",system-ui,sans-serif;
-  --mono:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
-  --s1:.5rem;--s2:1rem;--s3:1.5rem;--s4:2.5rem;--s5:4.5rem;--radius:6px;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  --pad:clamp(20px,5vw,72px);--gap:clamp(4rem,10vw,9rem);
   color-scheme:light;
 }
-@media (prefers-color-scheme:dark){:root{
-  --bg:#17130F;--surface:#211B16;--ink:#F2ECE6;--muted:#B8ACA2;--line:#382F28;
-  --accent:#E3A882;--accent-soft:#33251C;--warn:#E5B07A;--ok:#8FC6A0;--ok-bg:#1F2E24;--mid:#E6B676;--mid-bg:#33281A;color-scheme:dark}}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:1rem}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-img{max-width:100%}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:400;font-size:1rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
 [hidden]{display:none!important}
-.wrap{max-width:72rem;margin:0 auto}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;text-wrap:balance;margin:0}
-h1{font-size:clamp(2.4rem,5.2vw,4.25rem);letter-spacing:-.01em}
-h1 span{display:block}
-h1 em{color:var(--accent)}
-h2{font-size:clamp(1.9rem,3.4vw,2.75rem)}
-h3{font-size:1.35rem;line-height:1.25}
-p{margin:0;max-width:62ch}
-a{color:var(--accent)}
-.eyebrow{font-weight:500;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-.mono{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
-.muted{color:var(--muted)}
-.fine{font-size:.88rem;color:var(--muted)}
-button,input,select{font:inherit}
+button,input{font:inherit;color:inherit}
 button{cursor:pointer}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.skip{position:absolute;left:-999px;top:0;z-index:50;background:var(--ink);color:var(--bg);padding:.6rem 1rem;border-radius:0 0 6px 0}
+a{color:inherit}
+:focus-visible{outline:1px solid var(--accent);outline-offset:4px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.04;margin:0;letter-spacing:-.015em;text-wrap:balance}
+h1{font-size:clamp(3.2rem,8.4vw,8.2rem)}
+h2{font-size:clamp(2.4rem,5.2vw,4.6rem)}
+h3{font-size:clamp(1.4rem,2vw,1.9rem);line-height:1.15}
+em{font-style:italic}
+h1 span{display:block}
+.dark .dot{border-color:rgba(255,255,255,.28)}
+p{margin:0}
+.label{font-size:.7rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--soft)}
+.num{font-family:var(--display);font-style:italic;color:var(--accent);font-size:1.1rem;letter-spacing:.02em}
+.lead{font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--soft);max-width:34ch;line-height:1.6}
+.fine{font-size:.82rem;color:var(--soft)}
+.skip{position:absolute;left:-999px;top:0;z-index:50;background:var(--ink);color:var(--bg);padding:.6rem 1rem}
 .skip:focus{left:0}
-.proto-bar{background:var(--ink);color:var(--bg);font-size:.82rem;line-height:1.5;padding:.6rem max(16px,env(safe-area-inset-left,0px));margin:0 calc(-1*max(16px,env(safe-area-inset-left,0px)));text-align:center}
+.proto{background:var(--ink);color:var(--on-dark);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;text-align:center;padding:.55rem var(--pad)}
+
+/* links that act as buttons */
+.cta{display:inline-flex;align-items:center;gap:.9rem;font-size:.74rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;text-decoration:none;padding:1rem 0;border:0;background:none;border-bottom:1px solid currentColor}
+.cta::after{content:"→";letter-spacing:0;font-size:1rem;transition:transform .35s}
+.cta:hover::after{transform:translateX(6px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.8rem;font-size:.72rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;text-decoration:none;padding:1.1rem 2.1rem;border:1px solid var(--ink);background:var(--ink);color:var(--bg);transition:background .3s,color .3s}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn.line{background:transparent;color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:var(--bg)}
+.btn[disabled]{opacity:.25;pointer-events:none}
 
 /* header */
-.top{display:flex;justify-content:space-between;align-items:center;gap:var(--s2) var(--s4);flex-wrap:wrap;padding-block:1.25rem;border-bottom:1px solid var(--line)}
-.logo{font-family:var(--display);font-weight:500;font-size:1.35rem;letter-spacing:.28em;color:var(--ink);text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:.6rem}
-.logo .mark{width:1.5rem;height:1.5rem;color:var(--ink)}
-.logo .mark-dot{fill:var(--accent)}
-.hdr-right{display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap}
-.top nav{display:flex;gap:var(--s3);flex-wrap:wrap}
-.top nav a{color:var(--muted);text-decoration:none;font-size:.92rem}
+.top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1.6rem var(--pad);border-bottom:1px solid var(--line)}
+.top nav{display:flex;gap:2rem}
+.top nav a,.lang button{font-size:.68rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;text-decoration:none;color:var(--soft);transition:color .25s}
 .top nav a:hover{color:var(--ink)}
-.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px}
-.lang button{background:transparent;border:0;color:var(--muted);padding:.25rem .7rem;border-radius:999px;font-size:.8rem;font-weight:500;letter-spacing:.08em}
-.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.logo{font-family:var(--display);font-size:1.45rem;letter-spacing:.42em;text-decoration:none;white-space:nowrap;padding-left:.42em}
+.lang{display:flex;gap:1.1rem;justify-content:flex-end}
+.lang button{background:none;border:0;padding:.3rem 0;border-bottom:1px solid transparent}
+.lang button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
 
 /* hero */
-.hero{display:grid;grid-template-columns:7fr 5fr;gap:var(--s5);align-items:center;padding-block:var(--s5)}
-.hero-copy{min-width:0;display:flex;flex-direction:column;gap:var(--s3)}
-.lead{font-size:1.15rem;color:var(--muted)}
-.btns{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
-.btn{border:1px solid var(--ink);background:var(--ink);color:var(--bg);padding:.8rem 1.5rem;border-radius:999px;font-weight:500;font-size:.95rem;text-decoration:none;display:inline-block}
-.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
-.btn.ghost:hover{border-color:var(--ink)}
-.btn:not(.ghost):hover{opacity:.9}
-.btn[disabled]{opacity:.3;cursor:not-allowed}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
-.profile{padding:var(--s3);display:flex;flex-direction:column;gap:var(--s2);min-width:0}
-.profile .ph{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:var(--s2);border-bottom:1px solid var(--line)}
-.profile dl{margin:0;display:grid;grid-template-columns:auto 1fr}
-.profile dt,.profile dd{padding-block:.7rem;border-bottom:1px solid var(--line);margin:0}
-.profile dt{color:var(--muted);font-size:.92rem;padding-right:var(--s2)}
-.profile dd{text-align:right;font-weight:500;min-width:0}
-.profile dt:last-of-type,.profile dd:last-of-type{border-bottom:0}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 110px);border-bottom:1px solid var(--line)}
+.hero-copy{display:flex;flex-direction:column;justify-content:space-between;gap:3rem;padding:clamp(3rem,7vw,6rem) var(--pad)}
+.hero-copy h1 em{color:var(--accent)}
+.hero-copy .stack{display:flex;flex-direction:column;gap:2rem}
+.hero-img{position:relative;overflow:hidden;background:#d9d6d1}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hero-meta{display:flex;justify-content:space-between;gap:2rem;align-items:flex-end;flex-wrap:wrap}
 
-/* swatches */
-.sws{display:flex;flex-wrap:wrap;gap:.45rem}
-.sw{width:2rem;height:2rem;border-radius:50%;border:1px solid rgba(0,0,0,.14);flex:none;padding:0;background:var(--c)}
-button.sw{cursor:pointer}
-button.sw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--ink)}
-.sw.sm{width:1.35rem;height:1.35rem}
-.sw.x{position:relative;opacity:.85}
-.sw.x::after{content:"";position:absolute;left:50%;top:-10%;width:1.5px;height:120%;background:var(--ink);transform:rotate(45deg)}
-.dot{display:inline-block;width:.85rem;height:.85rem;border-radius:50%;border:1px solid rgba(0,0,0,.15);background:var(--c);vertical-align:-.1em;flex:none}
+/* generic section */
+.sec{padding:var(--gap) var(--pad);border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem 4rem;align-items:end;margin-bottom:clamp(3rem,6vw,5rem)}
+.sec-head .left{display:flex;flex-direction:column;gap:1.4rem}
+.sec-head .lead{justify-self:end}
+.dark{background:var(--dark);color:var(--on-dark);border-color:#2a2622}
+.dark .label,.dark .lead,.dark .fine{color:#A9A196}
 
-/* sections */
-section{display:grid;grid-template-columns:4fr 8fr;gap:var(--s3) var(--s5);padding-block:var(--s5);border-top:1px solid var(--line)}
-section>*{min-width:0}
-.sec-head{display:flex;flex-direction:column;gap:var(--s2);align-self:start}
-section.wide{grid-template-columns:1fr}
-section.wide .sec-head{max-width:46rem}
+/* manifesto */
+.manifesto{padding:var(--gap) var(--pad);text-align:center;border-bottom:1px solid var(--line)}
+.manifesto p{font-family:var(--display);font-size:clamp(1.8rem,3.6vw,3.3rem);line-height:1.2;max-width:22ch;margin:0 auto}
+.manifesto p em{color:var(--accent)}
 
-.steps{list-style:none;margin:0;padding:0;display:grid;counter-reset:s}
-.steps li{display:grid;grid-template-columns:4rem 1fr;gap:var(--s2);padding-block:var(--s3);border-bottom:1px solid var(--line)}
-.steps li:first-child{padding-top:0}
-.steps li:last-child{border-bottom:0;padding-bottom:0}
-.steps li::before{counter-increment:s;content:"0" counter(s);font-family:var(--display);font-size:1.9rem;line-height:1;color:var(--accent)}
-.steps li div{display:flex;flex-direction:column;gap:.35rem;min-width:0}
+/* triptych */
+.trip{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,28px)}
+.trip figure{margin:0;display:flex;flex-direction:column;gap:1rem}
+.trip .ph{overflow:hidden;aspect-ratio:4/5;background:#ddd}
+.trip img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.trip figure:hover img{transform:scale(1.04)}
+.trip figure:nth-child(2){margin-top:clamp(2rem,6vw,6rem)}
+.trip figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
 
-/* tabs / pills */
-.pills{display:flex;flex-wrap:wrap;gap:.5rem}
-.pill{background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:.45rem 1rem;font-size:.92rem}
-.pill:hover{border-color:var(--ink)}
-.pill[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.tabgroup{display:flex;flex-direction:column;gap:.6rem}
-.split{display:grid;grid-template-columns:5fr 7fr;gap:var(--s5);align-items:start}
-.split>*{min-width:0}
-.detail{display:flex;flex-direction:column;gap:var(--s3)}
-.detail h3{font-size:1.75rem}
-.kv{display:grid;grid-template-columns:8.5rem 1fr;margin:0}
-.kv dt,.kv dd{margin:0;padding-block:.75rem;border-top:1px solid var(--line)}
-.kv dt{font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-top:.95rem}
-.kv dd{min-width:0}
-.kv ul{margin:0;padding-left:1.1rem}
-.visual{padding:0;overflow:hidden;display:flex;justify-content:center;align-items:center;background:var(--accent-soft)}
-.visual svg{width:100%;height:auto;display:block}
-.cap-label{font-family:var(--mono);font-size:.75rem;fill:var(--ink)}
+/* split feature */
+.feature{display:grid;grid-template-columns:5fr 7fr;gap:clamp(2rem,6vw,7rem);align-items:start}
+.feature>*{min-width:0}
+.feature .ph{overflow:hidden;aspect-ratio:4/5;background:#ddd;position:sticky;top:2rem}
+.feature .ph img{width:100%;height:100%;object-fit:cover}
+.panel{display:flex;flex-direction:column;gap:2.4rem}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem 2rem;border-bottom:1px solid var(--line)}
+.tabs button{background:none;border:0;padding:.9rem 0;margin-bottom:-1px;border-bottom:1px solid transparent;font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--soft);transition:color .25s,border-color .25s}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
+.dark .tabs{border-color:#2f2a25}
+.dark .tabs button[aria-pressed="true"]{color:var(--on-dark);border-color:var(--on-dark)}
+.title-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.title-row h3{font-size:clamp(2rem,3.4vw,3rem)}
 
-/* quiz */
-.quiz{padding:var(--s4)}
-.progress{height:2px;background:var(--line);margin-bottom:var(--s3);border-radius:2px;overflow:hidden}
-.progress i{display:block;height:100%;background:var(--accent);transition:width .3s}
-.qmeta{display:flex;justify-content:space-between;gap:var(--s2);margin-bottom:.75rem}
-.quiz h3{margin-bottom:var(--s3);font-size:1.6rem}
-.opts{display:grid;gap:.6rem}
-.opts.two{grid-template-columns:1fr 1fr}
-.opt{text-align:left;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);padding:.85rem 1.1rem;display:flex;align-items:center;gap:.8rem}
-.opt::before{content:"";flex:none;width:.9rem;height:.9rem;border:1px solid var(--muted);border-radius:50%}
-.opts.multi .opt::before{border-radius:3px}
-.opt:hover{border-color:var(--accent)}
-.opt[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
-.opt[aria-pressed="true"]::before{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent-soft)}
-.qnav{display:flex;justify-content:space-between;gap:var(--s2);margin-top:var(--s4);flex-wrap:wrap}
-.start{display:flex;flex-direction:column;gap:var(--s3)}
-.bul{margin:0;padding:0;list-style:none;display:grid;gap:.5rem}
-.bul li{display:flex;gap:.75rem}
-.bul li::before{content:"";flex:none;width:.4rem;height:.4rem;margin-top:.65rem;border-radius:50%;background:var(--accent)}
-.field{display:flex;flex-direction:column;gap:.35rem}
-.field input{color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:.75rem .9rem;width:100%;max-width:14rem}
-.fields{display:flex;gap:var(--s3);flex-wrap:wrap}
+/* palette strip */
+.strip{display:grid;grid-template-columns:repeat(8,1fr);gap:0;height:clamp(110px,14vw,170px)}
+.strip button{border:0;padding:0;background:var(--c);position:relative;transition:flex .3s}
+.strip button::after{content:attr(data-n);position:absolute;left:.6rem;bottom:.55rem;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.92);opacity:0;transition:opacity .25s;text-shadow:0 1px 2px rgba(0,0,0,.25);text-align:left;line-height:1.3;max-width:90%}
+.strip button:hover::after,.strip button[aria-pressed="true"]::after{opacity:1}
+.strip button.light::after{color:rgba(20,18,16,.8);text-shadow:none}
+.strip button[aria-pressed="true"]{box-shadow:inset 0 -3px 0 var(--ink)}
+.minis{display:flex;gap:2.5rem;flex-wrap:wrap}
+.minis>div{display:flex;flex-direction:column;gap:.7rem}
+.dots{display:flex;gap:.4rem}
+.dot{width:1.6rem;height:1.6rem;border-radius:50%;background:var(--c);border:1px solid rgba(0,0,0,.1);position:relative;flex:none}
+.dot.sm{width:.8rem;height:.8rem}
+.dot.x::after{content:"";position:absolute;left:50%;top:-12%;width:1px;height:124%;background:var(--ink);transform:rotate(45deg)}
+.kv{display:grid;grid-template-columns:9rem 1fr;border-top:1px solid var(--line)}
+.kv dt,.kv dd{margin:0;padding:1.1rem 0;border-bottom:1px solid var(--line)}
+.kv dt{font-size:.66rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--soft);padding-top:1.35rem}
+.kv ul{margin:0;padding:0;list-style:none;display:grid;gap:.35rem}
 
-/* result */
-.result{display:flex;flex-direction:column;gap:var(--s3)}
-.chips{display:flex;flex-wrap:wrap;gap:.5rem}
-.chip{border:1px solid var(--accent);color:var(--accent);border-radius:999px;padding:.25rem .85rem;font-size:.88rem;font-weight:500}
-.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);padding-block:var(--s3);border-block:1px solid var(--line)}
-.rgrid>div{min-width:0;display:flex;flex-direction:column;gap:.6rem}
-.rlist{margin:0;padding:0;list-style:none;display:grid;gap:.45rem}
-.rlist li{display:flex;gap:.6rem;align-items:baseline}
-.note{border-left:2px solid var(--warn);padding-left:var(--s2)}
-.note b{color:var(--warn);font-weight:500}
-.copied{font-size:.88rem;color:var(--accent)}
+/* silhouette */
+.sil{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr);gap:clamp(2rem,4vw,4rem);align-items:start}
+.sil svg{width:100%;height:auto}
+.body-line{fill:none;stroke:var(--ink);stroke-width:1}
+.guide{stroke:var(--accent);stroke-width:1;stroke-dasharray:2 6}
+.cap{font-family:var(--mono);font-size:11px;fill:var(--soft);letter-spacing:.08em}
 
-/* photo drape */
-.drape-wrap{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
-.drape{position:relative;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;background:var(--c);transition:background .35s;border:1px solid var(--line)}
-.drape .face{position:absolute;left:50%;top:10%;width:62%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;overflow:hidden;background:#D8CEC6;box-shadow:0 0 0 6px rgba(255,255,255,.25)}
-.drape .face img{width:100%;height:100%;object-fit:cover;transform-origin:center}
-.drape .face svg{width:100%;height:100%}
-.drape .tag{position:absolute;left:.75rem;bottom:.75rem;background:rgba(255,255,255,.92);color:#221D19;border-radius:999px;padding:.25rem .8rem;font-size:.82rem;font-weight:500}
-.drape .tag.bad{background:rgba(34,29,25,.85);color:#fff}
-.dctl{display:flex;flex-direction:column;gap:var(--s2);margin-top:var(--s3)}
-.dctl label.upl{align-self:flex-start}
-.dctl input[type=file]{position:absolute;width:1px;height:1px;opacity:0}
-.range{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
-.range input{flex:1 1 10rem;accent-color:var(--accent)}
+/* quiz (dark chapter) */
+.quiz{max-width:46rem;margin:0 auto;min-height:24rem}
+.progress{height:1px;background:#2f2a25;margin-bottom:2.5rem}
+.progress i{display:block;height:100%;background:var(--accent);transition:width .4s}
+.qmeta{display:flex;justify-content:space-between;margin-bottom:1.2rem}
+.quiz h3{font-size:clamp(1.8rem,3.2vw,2.6rem);margin-bottom:2.4rem}
+.opts{display:grid;gap:0;border-top:1px solid #2f2a25}
+.opts.two{grid-template-columns:1fr 1fr;column-gap:2rem}
+.opt{text-align:left;background:none;border:0;border-bottom:1px solid #2f2a25;padding:1.15rem 0;display:flex;justify-content:space-between;gap:1rem;color:var(--on-dark);transition:color .2s,padding .3s}
+.opt::after{content:"";width:.55rem;height:.55rem;border:1px solid #6d655c;border-radius:50%;flex:none;margin-top:.45rem}
+.opt:hover{padding-left:.5rem}
+.opt[aria-pressed="true"]{color:var(--accent)}
+.opt[aria-pressed="true"]::after{background:var(--accent);border-color:var(--accent)}
+.qnav{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:3rem;flex-wrap:wrap}
+.dark .btn{background:var(--on-dark);color:var(--ink);border-color:var(--on-dark)}
+.dark .btn:hover{background:transparent;color:var(--on-dark)}
+.dark .btn.line{background:transparent;color:var(--on-dark);border-color:#5b544c}
+.dark .btn.line:hover{border-color:var(--on-dark)}
+.dark .cta{color:var(--on-dark)}
+.start{display:flex;flex-direction:column;gap:2.2rem;text-align:center;align-items:center}
+.start h3{margin:0}
+.fields{display:flex;gap:2.5rem;flex-wrap:wrap}
+.field{display:flex;flex-direction:column;gap:.5rem}
+.field input{background:transparent;border:0;border-bottom:1px solid #5b544c;padding:.6rem 0;width:12rem;font-family:var(--display);font-size:1.8rem;color:var(--on-dark)}
+.field input:focus{outline:none;border-color:var(--accent)}
+.result{display:flex;flex-direction:column;gap:2.6rem}
+.result .hd{display:flex;flex-direction:column;gap:.8rem}
+.result h3{margin:0;font-size:clamp(2.2rem,4vw,3.4rem)}
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem 3rem;border-top:1px solid #2f2a25;padding-top:2.4rem}
+.rgrid>div{display:flex;flex-direction:column;gap:.9rem;min-width:0}
+.rlist{margin:0;padding:0;list-style:none;display:grid;gap:.5rem}
+.rlist li{display:flex;gap:.7rem;align-items:center}
+.result .strip{height:70px}
+.copied{font-size:.8rem;color:var(--accent)}
+
+/* drape */
+.drapes{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.5vw,20px)}
+.drape{position:relative;aspect-ratio:4/5;background:var(--c);transition:background .5s;overflow:hidden}
+.drape .face{position:absolute;left:50%;top:12%;width:64%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;overflow:hidden;background:#cfc8c0}
+.drape .face img{width:100%;height:100%;object-fit:cover}
+.drape .tag{position:absolute;left:0;right:0;bottom:0;padding:.9rem 1rem;display:flex;justify-content:space-between;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.95);background:linear-gradient(transparent,rgba(0,0,0,.28))}
+.upl input{position:absolute;width:1px;height:1px;opacity:0}
+.range{display:grid;grid-template-columns:auto 1fr;gap:.8rem 1.4rem;align-items:center}
+.range input{accent-color:var(--ink)}
 
 /* outfits */
-.outfit{display:grid;grid-template-columns:10rem 1fr;gap:var(--s4);padding:var(--s4);align-items:start}
-.outfit>*{min-width:0}
-.fig svg{width:100%;height:auto}
-.olist{margin:0;padding:0;list-style:none;display:grid}
-.olist li{display:grid;grid-template-columns:7.5rem 1fr;gap:.5rem;padding-block:.6rem;border-top:1px solid var(--line)}
-.olist li:first-child{border-top:0;padding-top:0}
-.olist .slot{font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-top:.2rem}
-.olist .it{display:flex;gap:.55rem;align-items:baseline;flex-wrap:wrap}
-.olist small{color:var(--muted)}
-.why{margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--line);display:flex;flex-direction:column;gap:.6rem}
-.octl{display:grid;gap:var(--s2);margin-bottom:var(--s3)}
+.look{display:grid;grid-template-columns:5fr 7fr;gap:clamp(2rem,6vw,7rem);align-items:start}
+.look>*{min-width:0}
+.look .ph{aspect-ratio:4/5;overflow:hidden;background:#ddd;position:relative}
+.look .ph img{width:100%;height:100%;object-fit:cover;transition:opacity .5s}
+.look .ph .bar{position:absolute;left:0;right:0;bottom:0;display:flex;height:12px}
+.look .ph .bar i{flex:1;background:var(--c)}
+.olist{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.olist li{display:grid;grid-template-columns:8rem 1fr auto;gap:1rem;align-items:baseline;padding:1.05rem 0;border-bottom:1px solid var(--line)}
+.olist .slot{font-size:.64rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+.olist .it{font-family:var(--display);font-size:1.25rem;line-height:1.25}
+.olist .col{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--soft);white-space:nowrap}
+.why{display:grid;gap:.6rem;margin:0;padding:0;list-style:none}
+.why li{display:grid;grid-template-columns:1.6rem 1fr;color:var(--soft);font-size:.95rem}
+.why li::before{content:"—";color:var(--accent)}
+.row{display:flex;gap:2.5rem;flex-wrap:wrap;align-items:flex-end;justify-content:space-between}
 
 /* trends */
-.trends{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
-.trend{padding:var(--s3);display:flex;flex-direction:column;gap:.6rem;min-width:0}
-.trend h3{font-size:1.3rem}
-.badge{align-self:flex-start;font-size:.78rem;font-weight:500;border-radius:999px;padding:.15rem .7rem}
-.badge.yes{color:var(--ok);background:var(--ok-bg)}
-.badge.adapt{color:var(--mid);background:var(--mid-bg)}
-.tip{border-left:2px solid var(--accent);padding-left:.8rem;font-size:.95rem}
+.tfeat{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,28px);margin-bottom:clamp(3rem,6vw,5rem)}
+.tcard{display:flex;flex-direction:column;gap:1rem;min-width:0}
+.tcard .ph{aspect-ratio:3/4;overflow:hidden;background:#ddd}
+.tcard img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.tcard:hover img{transform:scale(1.04)}
+.tcard h3{font-size:1.35rem}
+.tag{font-size:.6rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase}
+.tag.yes{color:var(--accent)}
+.tag.adapt{color:var(--soft)}
+.tip{font-size:.92rem;color:var(--soft)}
+.tlist{border-top:1px solid var(--line)}
+.tlist article{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) 9rem;gap:2rem;padding:1.5rem 0;border-bottom:1px solid var(--line);align-items:baseline}
+.tlist h3{font-size:1.35rem}
 
-/* phones */
-.phones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4);justify-items:center}
-.phones figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:var(--s2);width:100%;max-width:290px}
-.phones figcaption{font-size:.92rem;color:var(--muted);text-align:center;max-width:24ch}
-.phone{width:100%;aspect-ratio:9/19;border-radius:44px;background:#1E1915;padding:9px;box-shadow:0 40px 60px -40px rgba(34,29,25,.55)}
-.screen{height:100%;border-radius:35px;background:#FAF8F5;color:#221D19;overflow:hidden;display:flex;flex-direction:column;font-size:.78rem;line-height:1.4}
-.notch{flex:none;width:86px;height:22px;background:#1E1915;border-radius:0 0 14px 14px;margin:0 auto}
-.sbody{flex:1;min-height:0;padding:14px 14px 10px;display:flex;flex-direction:column;gap:10px;overflow:hidden}
-.a-h{font-family:var(--display);font-size:1.4rem;line-height:1.15}
-.a-h2{font-family:var(--display);font-size:1.1rem;line-height:1.2}
-.a-muted{color:#7A6E66;font-size:.72rem}
-.a-label{font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#8A4B2C;margin-bottom:4px}
-.acard{background:#FFFFFF;border:1px solid #ECE4DC;border-radius:16px;padding:11px 12px}
-.a-row{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.a-items{list-style:none;margin:0;padding:0;display:grid;gap:6px}
-.a-items li{display:flex;gap:8px;align-items:center}
-.a-items i{flex:none;width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.12)}
-.a-pal{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.a-pal i{aspect-ratio:1;border-radius:50%;border:1px solid rgba(0,0,0,.1)}
-.a-warn{align-self:flex-start;font-size:.68rem;font-weight:500;color:#8A5A1E;background:#F7EDDF;border-radius:999px;padding:3px 9px}
-.a-ok{align-self:flex-start;font-size:.68rem;font-weight:500;color:#3F6B4E;background:#E5F0E8;border-radius:999px;padding:3px 9px}
-.a-ad{font-size:.6rem;color:#7A6E66;border:1px solid #E3D9D0;border-radius:4px;padding:1px 5px}
-.a-btn{margin-top:auto;text-align:center;background:#221D19;color:#FAF8F5;border-radius:999px;padding:9px;font-weight:500}
-.a-prod{display:flex;justify-content:center;background:#F2ECE6;border-radius:16px;padding:8px}
-.tabbar{flex:none;display:flex;justify-content:space-around;padding:9px 6px 16px;border-top:1px solid #ECE4DC;background:#FFFFFF;font-size:.62rem;color:#8A7E76}
-.tabbar .on{color:#8A4B2C;font-weight:500}
-
-/* trust + faq + tiers */
-.trusts{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4) var(--s3)}
-.trust{display:flex;flex-direction:column;gap:.5rem;min-width:0}
-.trust svg{width:28px;height:28px;fill:none;stroke:var(--accent);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;margin-bottom:.25rem}
-.faq{border-top:1px solid var(--line)}
+/* membership, privacy, faq */
+.tiers{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.tier{padding:3rem 0;display:flex;flex-direction:column;gap:1.6rem}
+.tier+.tier{border-left:1px solid var(--line);padding-left:clamp(2rem,4vw,4rem)}
+.price{font-family:var(--display);font-size:clamp(3rem,6vw,5rem);line-height:1}
+.tier ul{margin:0;padding:0;list-style:none;display:grid;gap:.7rem}
+.tier li{display:grid;grid-template-columns:1.6rem 1fr}
+.tier li::before{content:"—";color:var(--accent)}
+.tier.alt{color:var(--soft)}
+.trusts{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem;border-top:1px solid #2f2a25;padding-top:2.5rem}
+.trust{display:flex;flex-direction:column;gap:.8rem}
+.trust h3{font-size:1.3rem}
+.faq{border-top:1px solid var(--line);max-width:56rem}
 .faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:var(--s2);padding-block:1.1rem;font-family:var(--display);font-size:1.2rem;line-height:1.3}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:2rem;padding:1.4rem 0;font-family:var(--display);font-size:clamp(1.2rem,1.8vw,1.5rem)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--body);font-size:1.4rem;color:var(--accent);flex:none;transition:transform .25s}
+.faq summary::after{content:"+";font-family:var(--body);font-weight:300;font-size:1.5rem;line-height:1;color:var(--accent);transition:transform .3s}
 .faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{padding-bottom:1.2rem}
-.tiers{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
-.tier{padding:var(--s4) var(--s3);display:flex;flex-direction:column;gap:var(--s2);min-width:0}
-.tier.main{border-color:var(--accent)}
-.tier.alt{background:transparent}
-.tier ul{margin:var(--s1) 0 0;padding:0;list-style:none;display:grid;gap:.6rem}
-.tier li{display:flex;gap:.7rem}
-.tier li::before{content:"✓";color:var(--accent);flex:none}
-.tier.alt li::before{content:"+";color:var(--muted)}
-.price{font-family:var(--display);font-size:2.6rem;line-height:1}
+.faq details p{padding:0 0 1.5rem;color:var(--soft);max-width:60ch}
 
-footer{border-top:1px solid var(--line);padding-block:var(--s4);display:grid;grid-template-columns:4fr 8fr;gap:var(--s2) var(--s5)}
-footer>div{display:flex;flex-direction:column;gap:var(--s1);min-width:0}
-footer .legal-links{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;font-size:.85rem}
-footer .legal-links a{color:var(--muted);padding-block:.4rem}
+footer{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end;padding:4rem var(--pad) 3rem;background:var(--dark);color:var(--on-dark)}
+footer .logo{font-size:clamp(2.2rem,6vw,5rem);letter-spacing:.3em}
+footer .meta{display:flex;flex-direction:column;gap:.6rem;align-items:flex-end;text-align:right}
+footer .meta p,footer .meta a{font-size:.72rem;letter-spacing:.14em;color:#A9A196;text-decoration:none}
+footer .meta a:hover{color:var(--on-dark)}
+footer .links{display:flex;gap:1.6rem;flex-wrap:wrap;justify-content:flex-end}
 
-@media (max-width:900px){
-  section,footer{grid-template-columns:1fr}
-  .hero{grid-template-columns:1fr;gap:var(--s4);padding-block:var(--s4)}
-  .split{grid-template-columns:1fr;gap:var(--s3)}
-  .phones{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;justify-content:flex-start;padding-bottom:var(--s2);gap:var(--s3)}
-  .phones figure{flex:none;width:250px;scroll-snap-align:center}
-  .trends{grid-template-columns:1fr}
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .top{grid-template-columns:auto 1fr;gap:1rem}
+  .top nav{display:none}
+  .logo{justify-self:start;padding-left:0;font-size:1.15rem}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-img{aspect-ratio:4/5;order:-1}
+  .sec-head,.feature,.look,.sil{grid-template-columns:1fr}
+  .sec-head .lead{justify-self:start}
+  .feature .ph{position:relative;top:0;max-width:30rem}
+  .trip{grid-template-columns:1fr 1fr}
+  .trip figure:nth-child(2){margin-top:0}
+  .trip figure:nth-child(3){display:none}
+  .tfeat{grid-template-columns:1fr 1fr}
+  .trusts{grid-template-columns:1fr 1fr}
+  .tlist article{grid-template-columns:1fr;gap:.5rem}
 }
 @media (max-width:600px){
-  .top nav{display:none}
-  .rgrid,.tiers,.opts.two,.trusts{grid-template-columns:1fr}
-  .quiz{padding:var(--s3)}
-  .quiz h3{font-size:1.35rem}
-  section{padding-block:var(--s4)}
+  .strip{grid-template-columns:repeat(4,1fr);height:auto}
+  .strip button{aspect-ratio:1}
+  .opts.two,.rgrid,.tiers,.trusts,.drapes{grid-template-columns:1fr 1fr}
+  .opts.two{grid-template-columns:1fr}
+  .rgrid{grid-template-columns:1fr}
+  .tiers{grid-template-columns:1fr}
+  .tier+.tier{border-left:0;border-top:1px solid var(--line);padding-left:0}
+  .trusts{grid-template-columns:1fr}
   .kv{grid-template-columns:1fr}
-  .kv dt{padding-bottom:0}
-  .kv dd{border-top:0;padding-top:.25rem}
-  .outfit{grid-template-columns:1fr;padding:var(--s3)}
-  .fig{max-width:9rem;margin:0 auto}
-  .olist li{grid-template-columns:1fr;gap:.1rem}
-  .drape-wrap{gap:.6rem}
-  .drape .tag{font-size:.72rem;left:.5rem;bottom:.5rem}
+  .kv dt{padding-bottom:0;border-bottom:0}
+  .olist li{grid-template-columns:1fr auto}
+  .olist .slot{grid-column:1/-1}
+  footer{grid-template-columns:1fr}
+  footer .meta{align-items:flex-start;text-align:left}
+  footer .links{justify-content:flex-start}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main" data-t="skip"></a>
-<aside class="proto-bar" aria-label="Info" data-t="protoBar"></aside>
-<div class="wrap">
+<div class="proto" data-t="protoBar"></div>
 <header class="top">
-  <a class="logo" href="#top" id="top"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 9.5a2.6 2.6 0 1 1 2.6-2.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M16 9.5v2L4 22.5h24L16 11.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="16" cy="26.5" r="2.2" class="mark-dot"/></svg><span>STYLE AI</span></a>
-  <div class="hdr-right">
-    <nav aria-label="Navigation">
-      <a href="#farbtypen" data-t="nav1"></a>
-      <a href="#figur" data-t="nav2"></a>
-      <a href="#test" data-t="nav3"></a>
-      <a href="#farbprobe" data-t="nav4"></a>
-      <a href="#outfits" data-t="nav5"></a>
-      <a href="#trends" data-t="nav6"></a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <div class="lang" role="group" aria-label="Sprache / Limba / Language">
-      <button data-lang="de" aria-pressed="true">DE</button>
-      <button data-lang="ro" aria-pressed="false">RO</button>
-      <button data-lang="en" aria-pressed="false">EN</button>
-    </div>
+  <nav aria-label="Navigation">
+    <a href="#farbe" data-t="nav1"></a>
+    <a href="#form" data-t="nav2"></a>
+    <a href="#looks" data-t="nav5"></a>
+    <a href="#trends" data-t="nav6"></a>
+  </nav>
+  <a class="logo" href="#top" id="top">STYLE AI</a>
+  <div class="lang" role="group" aria-label="Sprache / Limba / Language">
+    <button data-lang="de" aria-pressed="true">DE</button>
+    <button data-lang="ro" aria-pressed="false">RO</button>
+    <button data-lang="en" aria-pressed="false">EN</button>
   </div>
 </header>
 
 <main id="main">
-<div class="hero">
+<section class="hero">
   <div class="hero-copy">
-    <span class="eyebrow" data-t="heroEyebrow"></span>
-    <h1 data-th="heroTitle"></h1>
-    <p class="lead" data-t="heroLead"></p>
-    <div class="btns">
+    <span class="label" data-t="heroEyebrow"></span>
+    <div class="stack">
+      <h1 data-th="heroTitle"></h1>
+      <p class="lead" data-t="heroLead"></p>
+    </div>
+    <div class="hero-meta">
       <a class="btn" href="#test" data-t="heroCta1"></a>
-      <a class="btn ghost" href="#farbprobe" data-t="heroCta2"></a>
+      <a class="cta" href="#probe" data-t="heroCta2"></a>
     </div>
   </div>
-  <aside class="card profile" aria-labelledby="pf-title">
-    <div class="ph"><span class="eyebrow" id="pf-title" data-t="pfTitle"></span><span class="mono">v1</span></div>
-    <dl>
-      <dt data-t="pfSeason"></dt><dd data-t="pfSeasonV"></dd>
-      <dt data-t="pfShape"></dt><dd data-t="pfShapeV"></dd>
-      <dt data-t="pfStyle"></dt><dd data-t="pfStyleV"></dd>
-      <dt data-t="pfMetal"></dt><dd data-t="pfMetalV"></dd>
-    </dl>
-    <div class="sws" id="heroSw" aria-hidden="true"></div>
-  </aside>
-</div>
-
-<section id="ablauf">
-  <div class="sec-head"><span class="eyebrow" data-t="howEyebrow"></span><h2 data-t="howTitle"></h2></div>
-  <ol class="steps">
-    <li><div><h3 data-t="s1t"></h3><p class="muted" data-t="s1d"></p></div></li>
-    <li><div><h3 data-t="s2t"></h3><p class="muted" data-t="s2d"></p></div></li>
-    <li><div><h3 data-t="s3t"></h3><p class="muted" data-t="s3d"></p></div></li>
-  </ol>
+  <div class="hero-img"><img src="img/hero-woman.jpg" alt="" width="800" height="992" fetchpriority="high"></div>
 </section>
 
-<section id="app" class="wide">
-  <div class="sec-head"><span class="eyebrow" data-t="appEyebrow"></span><h2 data-t="appTitle"></h2><p class="muted" data-t="appSub"></p></div>
-  <div class="phones">
-    <figure>
-      <div class="phone"><div class="screen"><div class="notch"></div>
-        <div class="sbody">
-          <div><div class="a-muted" data-t="a1Date"></div><div class="a-h" data-t="a1Hello"></div></div>
-          <div class="acard">
-            <div class="a-label" data-t="a1Look"></div>
-            <ul class="a-items">
-              <li><i style="background:#9DB7D5"></i><span data-t="a1i1"></span></li>
-              <li><i style="background:#6E7F91"></i><span data-t="a1i2"></span></li>
-              <li><i style="background:#A8A29E"></i><span data-t="a1i3"></span></li>
-              <li><i style="background:#3B4A63"></i><span data-t="a1i4"></span></li>
-              <li><i style="background:#C9CDD2"></i><span data-t="a1i5"></span></li>
-            </ul>
-          </div>
-          <div class="acard" style="background:#F2ECE6;border-color:#F2ECE6"><div class="a-label" data-t="a1Why"></div><div data-t="a1WhyV"></div></div>
-          <div class="a-btn" data-t="a1Btn"></div>
-        </div>
-        <nav class="tabbar" aria-hidden="true"><span class="on" data-t="tToday"></span><span data-t="tStyle"></span><span data-t="tCloset"></span><span data-t="tShop"></span></nav>
-      </div></div>
-      <figcaption data-t="c1"></figcaption>
-    </figure>
-    <figure>
-      <div class="phone"><div class="screen"><div class="notch"></div>
-        <div class="sbody">
-          <div class="a-prod" aria-hidden="true"><svg viewBox="0 0 120 120" width="100" height="100"><path d="M42 20h36l14 16-6 74H34l-6-74z" fill="#C68E4E"/><path d="M42 20l18 30 18-30" fill="none" stroke="#9A6A35" stroke-width="2"/><path d="M60 50v60" stroke="#9A6A35" stroke-width="1.5"/><circle cx="66" cy="66" r="2.4" fill="#5C3E1E"/><circle cx="66" cy="82" r="2.4" fill="#5C3E1E"/></svg></div>
-          <div><div class="a-muted" data-t="a2Scan"></div><div class="a-h2" data-t="a2Name"></div></div>
-          <span class="a-warn" data-t="a2Warn"></span>
-          <div class="acard"><div class="a-label" data-t="a2Alt"></div><div class="a-row"><span data-t="a2AltV"></span><i style="width:18px;height:18px;border-radius:50%;background:#A8A29E;border:1px solid rgba(0,0,0,.1)"></i></div></div>
-          <div class="acard"><div class="a-label" data-t="a2Combo"></div><div data-t="a2ComboV"></div></div>
-          <div class="acard a-row"><div><div data-t="a2Shop"></div><b data-t="a2Price"></b></div><span class="a-ad" data-t="a2Ad"></span></div>
-        </div>
-        <nav class="tabbar" aria-hidden="true"><span data-t="tToday"></span><span data-t="tStyle"></span><span data-t="tCloset"></span><span class="on" data-t="tShop"></span></nav>
-      </div></div>
-      <figcaption data-t="c2"></figcaption>
-    </figure>
-    <figure>
-      <div class="phone"><div class="screen"><div class="notch"></div>
-        <div class="sbody">
-          <div class="a-h" data-t="a3Title"></div>
-          <div class="acard"><div class="a-h2" data-t="a3Season"></div><div class="a-muted" data-t="a3SeasonD"></div>
-            <div class="a-pal" style="margin-top:8px" aria-hidden="true"><i style="background:#E8B8C4"></i><i style="background:#C48C9A"></i><i style="background:#B5527A"></i><i style="background:#B8A8D9"></i><i style="background:#8E6B8F"></i><i style="background:#9DB7D5"></i><i style="background:#5B88A8"></i><i style="background:#9FB8AD"></i></div></div>
-          <div class="acard"><div class="a-row"><div><div class="a-label" data-t="a3Shape"></div><b data-t="a3ShapeV"></b></div><div><div class="a-label" data-t="a3Metal"></div><b data-t="a3MetalV"></b></div></div></div>
-          <div class="acard"><div class="a-label" data-t="a3Tip"></div><div data-t="a3TipV"></div></div>
-          <div class="a-btn" data-t="a3Btn"></div>
-        </div>
-        <nav class="tabbar" aria-hidden="true"><span data-t="tToday"></span><span class="on" data-t="tStyle"></span><span data-t="tCloset"></span><span data-t="tShop"></span></nav>
-      </div></div>
-      <figcaption data-t="c3"></figcaption>
-    </figure>
+<div class="manifesto"><p class="rv" data-th="manifesto"></p></div>
+
+<section class="sec" aria-labelledby="t-for">
+  <div class="sec-head">
+    <div class="left"><span class="label" data-t="forEyebrow"></span><h2 id="t-for" data-th="forTitle"></h2></div>
+    <p class="lead" data-t="forLead"></p>
+  </div>
+  <div class="trip">
+    <figure class="rv"><div class="ph"><img src="img/woman-suit.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">I</span><span class="label" data-t="for1"></span></figcaption></figure>
+    <figure class="rv"><div class="ph"><img src="img/man-suit.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">II</span><span class="label" data-t="for2"></span></figcaption></figure>
+    <figure class="rv"><div class="ph"><img src="img/mature-woman.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">III</span><span class="label" data-t="for3"></span></figcaption></figure>
   </div>
 </section>
 
-<section id="farbtypen" class="wide">
-  <div class="sec-head"><span class="eyebrow" data-t="ctEyebrow"></span><h2 data-t="ctTitle"></h2><p class="muted" data-t="ctSub"></p></div>
-  <div class="split">
-    <div class="card visual" id="ctVisual"></div>
-    <div class="detail">
-      <div class="pills" id="seasons" role="group"></div>
-      <div><h3 id="ctName"></h3><span class="mono" id="ctSub2"></span></div>
-      <dl class="kv">
-        <dt data-t="ctSigns"></dt><dd id="ctSigns"></dd>
-        <dt data-t="ctBest"></dt><dd><div class="sws" id="ctBest"></div><span class="fine" id="ctPick"></span></dd>
-        <dt data-t="ctNeutral"></dt><dd><div class="sws" id="ctNeutral"></div></dd>
-        <dt data-t="ctMetal"></dt><dd id="ctMetal"></dd>
-        <dt data-t="ctAvoid"></dt><dd><div class="sws" id="ctAvoid"></div></dd>
-        <dt data-t="ctRule"></dt><dd id="ctRule"></dd>
-      </dl>
-    </div>
+<section class="sec" id="farbe" aria-labelledby="t-farbe">
+  <div class="sec-head">
+    <div class="left"><span class="num">I</span><h2 id="t-farbe" data-th="ctTitle"></h2></div>
+    <p class="lead" data-t="ctLead"></p>
   </div>
-</section>
-
-<section id="figur" class="wide">
-  <div class="sec-head"><span class="eyebrow" data-t="fgEyebrow"></span><h2 data-t="fgTitle"></h2><p class="muted" data-t="fgSub"></p></div>
-  <div class="split">
-    <div class="card visual" id="fgVisual"></div>
-    <div class="detail">
-      <div class="tabgroup"><span class="mono" data-t="fgFor"></span><div class="pills" id="fgGender" role="group"></div></div>
-      <div class="tabgroup"><span class="mono" data-t="fgShapes"></span><div class="pills" id="fgShapes" role="group"></div></div>
-      <h3 id="fgName"></h3>
-      <dl class="kv">
-        <dt data-t="fgSigns"></dt><dd id="fgSigns"></dd>
-        <dt data-t="fgGoal"></dt><dd id="fgGoal"></dd>
-        <dt data-t="fgGood"></dt><dd id="fgGood"></dd>
-        <dt data-t="fgBad"></dt><dd id="fgBad"></dd>
-        <dt data-t="fgAcc"></dt><dd id="fgAcc"></dd>
-      </dl>
-    </div>
-  </div>
-  <p class="note" data-th="bodyNote"></p>
-</section>
-
-<section id="test">
-  <div class="sec-head"><span class="eyebrow" data-t="testEyebrow"></span><h2 data-t="testTitle"></h2><p class="muted" data-t="testSub"></p></div>
-  <div class="card quiz" id="quiz" aria-live="polite"></div>
-</section>
-
-<section id="farbprobe" class="wide">
-  <div class="sec-head"><span class="eyebrow" data-t="dpEyebrow"></span><h2 data-t="dpTitle"></h2><p class="muted" data-t="dpSub"></p></div>
-  <div class="split">
-    <div>
-      <div class="drape-wrap">
-        <div class="drape" id="dA"><div class="face"></div><span class="tag" id="dATag"></span></div>
-        <div class="drape" id="dB"><div class="face"></div><span class="tag bad" id="dBTag"></span></div>
+  <div class="feature">
+    <div class="ph rv"><img src="img/skin-closeup.jpg" alt="" width="800" height="992" loading="lazy"></div>
+    <div class="panel">
+      <div class="tabs" id="seasons" role="group"></div>
+      <div class="title-row"><h3 id="ctName"></h3><span class="label" id="ctSub"></span></div>
+      <div class="strip" id="ctBest"></div>
+      <p id="ctRule"></p>
+      <div class="minis">
+        <div><span class="label" data-t="ctNeutral"></span><div class="dots" id="ctNeutral"></div></div>
+        <div><span class="label" data-t="ctAvoid"></span><div class="dots" id="ctAvoid"></div></div>
+        <div><span class="label" data-t="ctMetal"></span><span id="ctMetal"></span></div>
       </div>
     </div>
-    <div class="detail">
-      <div class="dctl">
-        <label class="btn upl" for="dpFile"><span data-t="dpUpload"></span></label>
-        <input type="file" id="dpFile" accept="image/*">
-        <p class="fine" data-t="dpPrivacy"></p>
-        <div class="tabgroup"><span class="mono" data-t="dpSeason"></span><div class="pills" id="dpSeasons" role="group"></div></div>
-        <div class="tabgroup"><span class="mono" data-t="dpLeft"></span><div class="sws" id="dpBest"></div></div>
-        <div class="tabgroup"><span class="mono" data-t="dpRight"></span><div class="sws" id="dpAvoid"></div></div>
-        <div class="range" id="dpRanges" hidden>
-          <span class="mono" data-t="dpZoom"></span><input type="range" id="dpZoom" min="1" max="2.5" step="0.05" value="1.2">
-          <span class="mono" data-t="dpPos"></span><input type="range" id="dpPos" min="0" max="100" step="1" value="30">
-        </div>
+  </div>
+</section>
+
+<section class="sec" id="form" aria-labelledby="t-form">
+  <div class="sec-head">
+    <div class="left"><span class="num">II</span><h2 id="t-form" data-th="fgTitle"></h2></div>
+    <p class="lead" data-t="fgLead"></p>
+  </div>
+  <div class="panel">
+    <div class="row"><div class="tabs" id="fgGender" role="group"></div><div class="tabs" id="fgShapes" role="group"></div></div>
+    <div class="sil">
+      <div id="fgVisual" class="rv"></div>
+      <div class="panel">
+        <h3 id="fgName"></h3>
+        <p class="lead" id="fgGoal"></p>
+        <dl class="kv">
+          <dt data-t="fgGood"></dt><dd id="fgGood"></dd>
+          <dt data-t="fgBad"></dt><dd id="fgBad"></dd>
+          <dt data-t="fgAcc"></dt><dd id="fgAcc"></dd>
+        </dl>
+        <p class="fine" data-t="bodyNote"></p>
       </div>
-      <dl class="kv">
-        <dt data-t="dpHow"></dt><dd data-t="dpHowV"></dd>
-        <dt data-t="dpLook"></dt><dd data-t="dpLookV"></dd>
-      </dl>
     </div>
   </div>
 </section>
 
-<section id="outfits" class="wide">
-  <div class="sec-head"><span class="eyebrow" data-t="ofEyebrow"></span><h2 data-t="ofTitle"></h2><p class="muted" data-t="ofSub"></p></div>
-  <div class="octl">
-    <div class="tabgroup"><span class="mono" data-t="ofOcc"></span><div class="pills" id="ofOcc" role="group"></div></div>
-    <div class="tabgroup"><span class="mono" data-t="ofWeather"></span><div class="pills" id="ofWeather" role="group"></div></div>
-    <p class="fine" id="ofProfile"></p>
+<section class="sec dark" id="test" aria-labelledby="t-test">
+  <div class="sec-head">
+    <div class="left"><span class="num">III</span><h2 id="t-test" data-th="testTitle"></h2></div>
+    <p class="lead" data-t="testLead"></p>
   </div>
-  <div class="card outfit">
-    <div class="fig" id="ofFig" aria-hidden="true"></div>
-    <div>
+  <div class="quiz" id="quiz" aria-live="polite"></div>
+</section>
+
+<section class="sec" id="probe" aria-labelledby="t-probe">
+  <div class="sec-head">
+    <div class="left"><span class="num">IV</span><h2 id="t-probe" data-th="dpTitle"></h2></div>
+    <p class="lead" data-t="dpLead"></p>
+  </div>
+  <div class="feature">
+    <div class="drapes">
+      <div class="drape" id="dA"><div class="face"></div><div class="tag"><span data-t="dpGood"></span><span id="dATag"></span></div></div>
+      <div class="drape" id="dB"><div class="face"></div><div class="tag"><span data-t="dpBad"></span><span id="dBTag"></span></div></div>
+    </div>
+    <div class="panel">
+      <div class="tabs" id="dpSeasons" role="group"></div>
+      <div class="minis">
+        <div><span class="label" data-t="dpLeft"></span><div class="dots" id="dpBest"></div></div>
+        <div><span class="label" data-t="dpRight"></span><div class="dots" id="dpAvoid"></div></div>
+      </div>
+      <div class="row">
+        <label class="btn upl" for="dpFile"><span data-t="dpUpload"></span><input type="file" id="dpFile" accept="image/*"></label>
+        <span class="fine" data-t="dpPrivacy"></span>
+      </div>
+      <div class="range" id="dpRanges" hidden>
+        <span class="label" data-t="dpZoom"></span><input type="range" id="dpZoom" min="1" max="3" step="0.05" value="1.2">
+        <span class="label" data-t="dpPos"></span><input type="range" id="dpPos" min="0" max="100" step="1" value="30">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="looks" aria-labelledby="t-looks">
+  <div class="sec-head">
+    <div class="left"><span class="num">V</span><h2 id="t-looks" data-th="ofTitle"></h2></div>
+    <p class="lead" id="ofProfile"></p>
+  </div>
+  <div class="look">
+    <div class="ph rv"><img id="ofImg" src="img/woman-trench.jpg" alt="" width="800" height="992" loading="lazy"><div class="bar" id="ofBar"></div></div>
+    <div class="panel">
+      <div class="tabs" id="ofOcc" role="group"></div>
+      <div class="tabs" id="ofWeather" role="group"></div>
       <ul class="olist" id="ofList"></ul>
-      <div class="why"><span class="eyebrow" data-t="ofWhy"></span><ul class="bul" id="ofWhy"></ul></div>
-      <div class="btns" style="margin-top:var(--s3)"><button class="btn ghost" id="ofShuffle" data-t="ofShuffle"></button></div>
+      <ul class="why" id="ofWhy"></ul>
+      <div><button class="cta" id="ofShuffle" data-t="ofShuffle"></button></div>
     </div>
   </div>
 </section>
 
-<section id="trends" class="wide">
-  <div class="sec-head"><span class="eyebrow" data-t="trEyebrow"></span><h2 data-t="trTitle"></h2><p class="muted" data-t="trSub"></p></div>
-  <div class="tabgroup" style="margin-bottom:var(--s3)"><div class="pills" id="trFilter" role="group"></div><p class="fine" id="trProfile"></p></div>
-  <div class="trends" id="trList"></div>
-  <p class="fine" style="margin-top:var(--s3)"><span data-t="trSrc"></span> <a href="https://www.whowhatwear.com/fashion/trends/autumn-winter-2026-trends" rel="noopener">Who What Wear</a> · <a href="https://www.harrods.com/en-gb/c/stories/women/new-season-fashion-trends" rel="noopener">Harrods</a> · <a href="https://fashionunited.com/news/fashion/back-to-basics-the-quiet-sophistication-of-the-aw26-season/2026040771524" rel="noopener">FashionUnited</a> · <a href="https://www.whowhatwear.com/fashion/runway/net-a-porter-fall-2026-trends" rel="noopener">Net-a-Porter</a> · <a href="https://www2.hm.com/en_us/editorial/inspiration/men-autumn-trends.html" rel="noopener">H&amp;M</a> · <a href="https://thewed.com/magazine/groom-trends-from-the-fall-winter-2026-menswear-season" rel="noopener">The Wed</a></p>
+<section class="sec" id="trends" aria-labelledby="t-trends">
+  <div class="sec-head">
+    <div class="left"><span class="num">VI</span><h2 id="t-trends" data-th="trTitle"></h2></div>
+    <p class="lead" id="trProfile"></p>
+  </div>
+  <div class="tfeat" id="trFeat"></div>
+  <div class="tabs" id="trFilter" role="group" style="margin-bottom:0"></div>
+  <div class="tlist" id="trList"></div>
+  <p class="fine" style="margin-top:2rem"><span data-t="trSrc"></span> <a href="https://www.whowhatwear.com/fashion/trends/autumn-winter-2026-trends" rel="noopener">Who What Wear</a> · <a href="https://www.harrods.com/en-gb/c/stories/women/new-season-fashion-trends" rel="noopener">Harrods</a> · <a href="https://fashionunited.com/news/fashion/back-to-basics-the-quiet-sophistication-of-the-aw26-season/2026040771524" rel="noopener">FashionUnited</a> · <a href="https://www.whowhatwear.com/fashion/runway/net-a-porter-fall-2026-trends" rel="noopener">Net-a-Porter</a> · <a href="https://www2.hm.com/en_us/editorial/inspiration/men-autumn-trends.html" rel="noopener">H&amp;M</a></p>
 </section>
 
-<section id="preise">
-  <div class="sec-head"><span class="eyebrow" data-t="freeEyebrow"></span><h2 data-t="freeTitle"></h2><p class="muted" data-t="freeSub"></p></div>
+<section class="sec" aria-labelledby="t-free">
+  <div class="sec-head">
+    <div class="left"><span class="label" data-t="freeEyebrow"></span><h2 id="t-free" data-th="freeTitle"></h2></div>
+    <p class="lead" data-t="freeLead"></p>
+  </div>
   <div class="tiers">
-    <div class="card tier main"><span class="eyebrow" data-t="tFree"></span><span class="price">0 €</span><ul data-tl="tFreeList"></ul></div>
-    <div class="card tier alt"><span class="eyebrow" data-t="tLater"></span><span class="price muted">Premium</span><ul class="muted" data-tl="tLaterList"></ul></div>
+    <div class="tier"><span class="label" data-t="tFree"></span><span class="price">0 €</span><ul data-tl="tFreeList"></ul></div>
+    <div class="tier alt"><span class="label" data-t="tLater"></span><span class="price">Premium</span><ul data-tl="tLaterList"></ul></div>
   </div>
 </section>
 
-<section id="datenschutz">
-  <div class="sec-head"><span class="eyebrow" data-t="dsEyebrow"></span><h2 data-t="dsTitle"></h2><p class="muted" data-t="dsSub"></p></div>
+<section class="sec dark" aria-labelledby="t-ds">
+  <div class="sec-head">
+    <div class="left"><span class="label" data-t="dsEyebrow"></span><h2 id="t-ds" data-th="dsTitle"></h2></div>
+  </div>
   <div class="trusts">
-    <div class="trust"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-2.5h6L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><h3 data-t="tr1t"></h3><p class="muted" data-t="tr1d"></p></div>
-    <div class="trust"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M4 4l16 16"/></svg><h3 data-t="tr2t"></h3><p class="muted" data-t="tr2d"></p></div>
-    <div class="trust"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M7 8l5-5 5 5"/><path d="M5 21h14"/></svg><h3 data-t="tr3t"></h3><p class="muted" data-t="tr3d"></p></div>
-    <div class="trust"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><h3 data-t="tr4t"></h3><p class="muted" data-t="tr4d"></p></div>
+    <div class="trust"><span class="num">01</span><h3 data-t="tr1t"></h3><p class="fine" data-t="tr1d"></p></div>
+    <div class="trust"><span class="num">02</span><h3 data-t="tr2t"></h3><p class="fine" data-t="tr2d"></p></div>
+    <div class="trust"><span class="num">03</span><h3 data-t="tr3t"></h3><p class="fine" data-t="tr3d"></p></div>
+    <div class="trust"><span class="num">04</span><h3 data-t="tr4t"></h3><p class="fine" data-t="tr4d"></p></div>
   </div>
 </section>
 
-<section id="faq">
-  <div class="sec-head"><span class="eyebrow">FAQ</span><h2 data-t="faqTitle"></h2></div>
+<section class="sec" id="faq" aria-labelledby="t-faq">
+  <div class="sec-head"><div class="left"><span class="label">FAQ</span><h2 id="t-faq" data-th="faqTitle"></h2></div></div>
   <div class="faq" id="faqList"></div>
 </section>
 </main>
 
 <footer>
-  <div><span class="logo"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 9.5a2.6 2.6 0 1 1 2.6-2.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M16 9.5v2L4 22.5h24L16 11.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="16" cy="26.5" r="2.2" class="mark-dot"/></svg><span>STYLE AI</span></span></div>
-  <div>
-    <p class="muted" data-t="disclaimer"></p>
-    <p class="fine" data-t="credit"></p>
-    <p class="legal-links"><a href="impressum.html" data-t="legalImp"></a><a href="datenschutz.html" data-t="legalDs"></a><a href="https://github.com/Dandelion1111r/style-ai">GitHub</a></p>
+  <span class="logo">STYLE AI</span>
+  <div class="meta">
+    <p data-t="disclaimer"></p>
+    <p data-t="credit"></p>
+    <div class="links"><a href="impressum.html" data-t="legalImp"></a><a href="datenschutz.html" data-t="legalDs"></a><a href="https://github.com/Dandelion1111r/style-ai">GitHub</a><span><a href="https://www.pexels.com" rel="noopener" data-t="photos"></a></span></div>
   </div>
 </footer>
-</div>
 <script>
 (() => {
 /* ---------- data: colour types ---------- */
@@ -849,37 +803,22 @@ const TRENDS = [
 /* ---------- interface text ---------- */
 const T = {
 de:{
-  skip:"Zum Inhalt springen",protoBar:"Konzept-Prototyp · keine echte App · deine Eingaben und dein Foto bleiben in deinem Browser",
-  nav1:"Farbtypen",nav2:"Figur",nav3:"Stil-Test",nav4:"Farbprobe",nav5:"Outfits",nav6:"Trends",
-  heroEyebrow:"Persönliche Stilberatung für Frauen und Männer",
-  heroTitle:"<span>Kenne deine Farben.</span><span><em>Verstehe deine Figur.</em></span><span>Trag, was zu dir passt.</span>",
-  heroLead:"Ein Test von drei Minuten zeigt dir deinen Farbtyp, deine Figur und deinen Stil. Dazu Outfits für jeden Anlass, die passenden Accessoires und die Trends der Saison, gefiltert für dich.",
-  heroCta1:"Stil-Test starten",heroCta2:"Farbprobe mit Foto",
-  pfTitle:"Beispielprofil",pfSeason:"Farbtyp",pfSeasonV:"Sommer · kühl, gedeckt",pfShape:"Figur",pfShapeV:"Sanduhr",pfStyle:"Stil",pfStyleV:"Klassisch, minimal",pfMetal:"Metall",pfMetalV:"Silber, Roségold",
-  howEyebrow:"So funktioniert's",howTitle:"In drei Schritten zu deinem Stil",
-  s1t:"Dich beschreiben",s1d:"Elf Fragen zu Haut, Haar, Augen, Figur und Größe. Ein Foto ist freiwillig.",
-  s2t:"Profil erhalten",s2d:"Dein Farbtyp mit Palette, deine Figur mit Schnitten, die dir schmeicheln, und dein Stil, einfach erklärt.",
-  s3t:"Outfits und Trends",s3d:"Komplette Looks mit Schuhen, Tasche und Schmuck für jeden Anlass, dazu die Trends der Saison, angepasst an dich.",
-  appEyebrow:"Die App",appTitle:"So sieht STYLE AI auf dem Handy aus",appSub:"Ein erster Entwurf der wichtigsten Bildschirme. Alle Inhalte sind Beispiele.",
-  a1Date:"Mittwoch, 25. November · 6 °C",a1Hello:"Guten Morgen",a1Look:"Dein Outfit für heute",
-  a1i1:"Rollkragen in Puderblau",a1i2:"Stoffhose in Graublau",a1i3:"Wollmantel in Taupe-Grau",a1i4:"Stiefeletten in Marine",a1i5:"Silberne Ohrringe",
-  a1Why:"Warum es passt",a1WhyV:"Puderblau am Gesicht ist eine deiner besten Farben. Der lange Mantel bleibt offen, damit die Taille sichtbar ist.",a1Btn:"Anderes Outfit",
-  tToday:"Heute",tStyle:"Mein Stil",tCloset:"Schrank",tShop:"Shop",
-  a2Scan:"Shop-Scanner",a2Name:"Wollmantel · Camel",a2Warn:"Nicht in deiner Palette",a2Alt:"Besser für dich",a2AltV:"Derselbe Schnitt in Taupe-Grau",a2Combo:"Passt zu deinem Schrank",a2ComboV:"Kombinierbar mit 5 Teilen, die du schon hast.",a2Shop:"Bei 4 Händlern",a2Price:"ab 129 €",a2Ad:"Werbelink",
-  a3Title:"Mein Stil",a3Season:"Sommer",a3SeasonD:"kühl · hell · gedeckt",a3Shape:"Figur",a3ShapeV:"Sanduhr",a3Metal:"Metall",a3MetalV:"Silber",a3Tip:"Trend für dich",a3TipV:"Statt Purpur: Lavendel. Die Saisonfarbe in deiner Version.",a3Btn:"Farbprobe mit Foto",
-  c1:"Heute: dein Outfit nach Wetter und Kalender",c2:"Shop-Scanner: passt das zu mir?",c3:"Mein Stil: Palette, Figur und Trends",
-  ctEyebrow:"Farbtypen",ctTitle:"Welche Farben lassen dich strahlen?",ctSub:"Die vier Farbtypen nach Unterton (warm oder kühl), Helligkeit und Klarheit. Tippe eine Farbe an, um sie am Kragen zu sehen.",
-  ctSigns:"Merkmale",ctBest:"Beste Farben",ctNeutral:"Basisfarben",ctMetal:"Metall",ctAvoid:"Eher meiden",ctRule:"Faustregel",ctPicked:"Am Kragen: ",
-  fgEyebrow:"Figur",fgTitle:"Schnitte, die dir schmeicheln",fgSub:"Fünf Grundformen für Frauen und Männer. Es geht nicht darum, etwas zu verstecken, sondern um Balance.",
-  fgFor:"Für",fgShapes:"Figurtyp",fgSigns:"Merkmale",fgGoal:"Ziel",fgGood:"Das passt",fgBad:"Eher meiden",fgAcc:"Accessoires",
-  gw:"Frauen",gm:"Männer",gw1:"Frau",gm1:"Mann",
-  lblShoulder:"Schultern",lblWaist:"Taille",lblHip:"Hüfte",
-  bodyNote:"<b>Jeder Körper ist richtig.</b> Die Figurtypen sind nur ein Werkzeug für die Auswahl von Schnitten. Trag, worin du dich wohlfühlst.",
-  testEyebrow:"Stil-Test",testTitle:"Welcher Typ bist du?",testSub:"Dauert etwa drei Minuten. Deine Antworten bleiben in deinem Browser.",
-  qStartMeta:"11 Fragen · etwa 3 Minuten",qStartTitle:"Antworte bei Tageslicht, ohne Make-up und mit deiner natürlichen Haarfarbe im Kopf.",
-  qStartList:["Dein Farbtyp mit Palette, Basisfarben und Metall","Deine Figur und die Schnitte, die dir stehen","Deine Basis-Garderobe, Accessoires und die Trends für dich"],
-  qStartBtn:"Test starten",qOf:(a,b)=>`Frage ${a} von ${b}`,qMulti:"Mehrfachauswahl",qBack:"Zurück",qNext:"Weiter",qDone:"Ergebnis ansehen",qSkip:"Überspringen",
-  fHeight:"Größe in cm",fWeight:"Gewicht in kg (freiwillig)",fNote:"Die Größe hilft bei Längen und Proportionen. Das Gewicht ist freiwillig, wird nirgends angezeigt und bleibt in deinem Browser. In der App hilft es später bei der Größenberatung.",
+  skip:"Zum Inhalt springen",protoBar:"Konzept-Prototyp · Deine Angaben bleiben in deinem Browser",
+  nav1:"Farbe",nav2:"Form",nav5:"Looks",nav6:"Saison",
+  heroEyebrow:"Persönliche Stilberatung · Sie & Er",
+  heroTitle:"<span>Dein Stil.</span><span><em>Präzise.</em></span>",
+  heroLead:"Farben, Schnitte und Looks, die wirklich zu dir passen. In drei Minuten.",
+  heroCta1:"Stil-Test beginnen",heroCta2:"Farbprobe",
+  manifesto:"Nicht mehr kaufen. <em>Besser wählen.</em>",
+  forEyebrow:"Für alle",forTitle:"Für sie. Für ihn. <em>Für jedes Alter.</em>",forLead:"Echte Menschen, echte Körper. Stil kennt keine Norm.",for1:"Sie",for2:"Er",for3:"Zeitlos",
+  ctTitle:"Die <em>Farbe</em>",ctLead:"Vier Farbtypen. Einer davon ist deiner.",ctNeutral:"Basis",ctAvoid:"Meiden",ctMetal:"Metall",
+  fgTitle:"Die <em>Form</em>",fgLead:"Fünf Silhouetten. Kein Ideal, nur Balance.",fgGood:"Trag",fgBad:"Meide",fgAcc:"Details",
+  bodyNote:"Jeder Körper ist richtig. Die Formen sind nur ein Werkzeug.",
+  gw:"Sie",gm:"Er",gw1:"Frau",gm1:"Mann",lblShoulder:"Schultern",lblWaist:"Taille",lblHip:"Hüfte",
+  testTitle:"Der <em>Test</em>",testLead:"Elf Fragen. Drei Minuten. Dein Profil.",
+  qStartMeta:"11 Fragen · 3 Minuten",qStartTitle:"Bei Tageslicht. Ohne Make-up. Mit deiner natürlichen Haarfarbe im Kopf.",qStartBtn:"Beginnen",
+  qOf:(a,b)=>`${a} / ${b}`,qMulti:"Mehrfachauswahl",qBack:"Zurück",qNext:"Weiter",qDone:"Mein Profil",qSkip:"Überspringen",
+  fHeight:"Größe · cm",fWeight:"Gewicht · kg, optional",fNote:"Das Gewicht wird nie angezeigt und bleibt in deinem Browser.",
   Q:[
    ["Für wen ist das Profil?",["Frau","Mann"]],
    ["Wie groß bist du?",[]],
@@ -893,79 +832,49 @@ de:{
    ["Deine Taille?",["Deutlich schmaler als Brust und Hüfte","Etwas schmaler","Kaum schmaler, eher gerade","Der Bauch ist die vollste Stelle"]],
    ["Welche Stile gefallen dir?",[]]
   ],
-  rEyebrow:"Dein Profil",rColors:"Deine Farben",rNeutral:"Basis",rAvoid:"Eher meiden",rMetal:"Metall",rShape:"Deine Figur",rCapsule:"Deine Basis-Garderobe",rStylePieces:"Typische Teile für deinen Stil",rTrends:"Trends für dich",rAcc:"Accessoires",
-  rNeutralNote:"<b>Dein Unterton ist eher neutral.</b> Du kannst auch Farben aus dem Nachbartyp tragen. Die Farbprobe mit Foto hilft dir bei der Entscheidung.",
-  rFine:"Das Ergebnis basiert nur auf deinen Antworten und ist eine Orientierung. Licht, Make-up und gefärbte Haare können es verändern.",
-  rCopy:"Ergebnis kopieren",rRedo:"Test wiederholen",rToDrape:"Zur Farbprobe",rToOutfits:"Outfits ansehen",rCopied:"Kopiert. Du kannst es jetzt teilen.",
-  rSummary:(s,sub,sh,st)=>`Mein STYLE AI Profil: ${s} (${sub}), Figur ${sh}${st?`, Stil: ${st}`:""}.`,
-  dpEyebrow:"Farbprobe",dpTitle:"Halte deine Farben ans Gesicht",dpSub:"Wie bei der Farbberatung mit Tüchern: Lade ein Foto hoch und vergleiche eine deiner besten Farben mit einer, die du eher meiden solltest.",
-  dpUpload:"Foto auswählen",dpPrivacy:"Dein Foto wird nicht hochgeladen und nicht gespeichert. Es bleibt nur auf dieser Seite, bis du sie schließt.",
-  dpSeason:"Farbtyp",dpLeft:"Links: beste Farben",dpRight:"Rechts: eher meiden",dpZoom:"Zoom",dpPos:"Ausschnitt",
-  dpHow:"So geht's",dpHowV:"Ein Foto bei Tageslicht, von vorn, ohne Make-up und ohne Filter. Haare am besten zurück.",
-  dpLook:"Worauf achten",dpLookV:"Die richtige Farbe lässt die Haut ebenmäßig und die Augen klar wirken. Die falsche betont Schatten, Rötungen oder lässt dich blass wirken.",
-  dpGood:"Steht dir",dpBad:"Eher nicht",
-  ofEyebrow:"Outfits",ofTitle:"Was ziehe ich heute an?",ofSub:"Wähle Anlass und Wetter. Das Outfit richtet sich nach deinem Profil: Farben, Figur und Größe.",
-  ofOcc:"Anlass",ofWeather:"Wetter",ofWhy:"Warum es funktioniert",ofShuffle:"Andere Farben",
-  ofDemo:(g,s,sh)=>`Beispielprofil: ${g} · ${s} · ${sh}. Mach den Stil-Test, damit die Outfits zu dir passen.`,
-  ofMine:(g,s,sh)=>`Nach deinem Profil: ${g} · ${s} · ${sh}.`,
-  whyColor:c=>`Farbe nah am Gesicht: ${c}, eine deiner besten Farben.`,whyBase:(a,b)=>`Basis: ${a} und ${b} halten den Look ruhig und passen zu allem.`,whyMetal:m=>`Metall: ${m}.`,
-  trEyebrow:"Trends Herbst/Winter 2026/27",trTitle:"Die Trends der Saison, in deiner Version",trSub:"Nicht jeder Trend passt zu jedem. Hier siehst du, welche du direkt tragen kannst und wie du die anderen für dich anpasst.",
-  trAll:"Alle",trYes:"Passt zu dir",trAdapt:"Mit Anpassung",trSrc:"Quellen: Laufsteg- und Saisonberichte von",
-  trDemo:(s,sh)=>`Bewertet für das Beispielprofil (${s}, ${sh}). Nach dem Stil-Test für dich.`,trMine:(s,sh)=>`Bewertet für dein Profil: ${s}, ${sh}.`,
-  freeEyebrow:"Ohne Abo",freeTitle:"Alles Wichtige ist kostenlos",freeSub:"Die App startet kostenlos, ohne Kreditkarte und ohne Testphase. Später kommen optionale Zusatzfunktionen für alle, die mehr möchten.",
-  tFree:"Kostenlos",tLater:"Später · optional",
-  tFreeList:["Stil-Test mit Farbtyp, Figur und Stil","Farbpalette mit Basisfarben und Metall","Farbprobe mit deinem Foto","Outfits für fünf Anlässe","Trends der Saison, angepasst an dich"],
-  tLaterList:["KI-Analyse deines Fotos","Virtuelle Anprobe auf deinem Foto","Digitaler Kleiderschrank mit Outfit des Tages","Shop-Scanner im Laden","Packliste für Reisen"],
-  dsEyebrow:"Datenschutz",dsTitle:"Dein Foto, deine Daten",dsSub:"Fotos und Angaben zum Körper sind sensibel. Diese Grundsätze gelten von Anfang an.",
-  tr1t:"Foto bleibt bei dir",tr1d:"Im Prototyp wird dein Foto nur in deinem Browser angezeigt, nicht hochgeladen und nicht gespeichert.",
-  tr2t:"Kein KI-Training",tr2d:"Fotos werden nicht zum Training von KI-Modellen verwendet und nicht an Dritte verkauft.",
-  tr3t:"Gewicht ist freiwillig",tr3d:"Du musst kein Gewicht angeben. Wenn doch, wird es nirgends angezeigt und bleibt in deinem Browser.",
-  tr4t:"Geschützt nach DSGVO",tr4d:"In der App liegen Fotos verschlüsselt auf Servern in der EU und lassen sich jederzeit löschen.",
-  faqTitle:"Häufige Fragen",
+  rEyebrow:"Dein Profil",rColors:"Deine Farben",rNeutral:"Basis",rAvoid:"Meiden",rMetal:"Metall",rShape:"Deine Form",rCapsule:"Deine Garderobe",rStylePieces:"Dein Stil",rTrends:"Für dich in dieser Saison",rAcc:"Details",
+  rNeutralNote:"Dein Unterton ist neutral. Auch Farben des Nachbartyps stehen dir. Die Farbprobe entscheidet.",
+  rFine:"Eine Orientierung, keine Diagnose. Licht, Make-up und gefärbtes Haar verändern das Ergebnis.",
+  rCopy:"Profil kopieren",rRedo:"Neu beginnen",rToDrape:"Zur Farbprobe",rToOutfits:"Meine Looks",rCopied:"Kopiert.",
+  rSummary:(s,sub,sh,st)=>`Mein STYLE AI Profil: ${s} (${sub}), Form ${sh}${st?`, Stil ${st}`:""}.`,
+  dpTitle:"Die <em>Probe</em>",dpLead:"Ein Gesicht. Zwei Farben. Der Unterschied ist sofort sichtbar.",
+  dpGood:"Deine Farbe",dpBad:"Nicht deine",dpLeft:"Deine Farben",dpRight:"Zum Vergleich",dpUpload:"Eigenes Foto",dpPrivacy:"Bleibt in deinem Browser. Wird nicht gespeichert.",dpZoom:"Zoom",dpPos:"Ausschnitt",
+  ofTitle:"Die <em>Looks</em>",ofShuffle:"Andere Farben",
+  ofDemo:(g,s,sh)=>`Beispiel: ${g}, ${s}, ${sh}. Nach dem Test siehst du deine eigenen Looks.`,ofMine:(g,s,sh)=>`Für dich: ${g}, ${s}, ${sh}.`,
+  whyColor:c=>`${c} am Gesicht, eine deiner Farben.`,whyBase:(a,b)=>`${a} und ${b} als ruhige Basis.`,whyMetal:m=>`Metall: ${m}.`,
+  trTitle:"Die <em>Saison</em>",trAll:"Alle",trYes:"Für dich",trAdapt:"Angepasst",trSrc:"Quellen:",
+  trDemo:()=>"Herbst/Winter 2026/27, bewertet für das Beispielprofil.",trMine:(s,sh)=>`Herbst/Winter 2026/27, bewertet für dich: ${s}, ${sh}.`,
+  freeEyebrow:"Mitgliedschaft",freeTitle:"Das Wesentliche. <em>Kostenlos.</em>",freeLead:"Ohne Abo, ohne Karte. Premium später, optional.",
+  tFree:"Kostenlos",tLater:"Später",tFreeList:["Stil-Test und Profil","Farbpalette und Farbprobe","Looks für fünf Anlässe","Die Saison, für dich gefiltert"],tLaterList:["KI-Analyse deines Fotos","Virtuelle Anprobe","Digitaler Kleiderschrank","Shop-Scanner"],
+  dsEyebrow:"Diskretion",dsTitle:"Dein Bild <em>gehört dir.</em>",
+  tr1t:"Dein Foto bleibt bei dir",tr1d:"Nur in deinem Browser. Kein Upload.",tr2t:"Kein KI-Training",tr2d:"Deine Bilder trainieren keine Modelle.",tr3t:"Gewicht optional",tr3d:"Nie angezeigt, nie geteilt.",tr4t:"DSGVO",tr4d:"In der App: Server in der EU, jederzeit löschbar.",
+  faqTitle:"Fragen",
   FAQ:[
-   ["Ist STYLE AI kostenlos?","Ja. Stil-Test, Farbpalette, Farbprobe, Outfits und Trends sind kostenlos. Später kommen optionale Premium-Funktionen dazu. Was heute kostenlos ist, bleibt kostenlos."],
-   ["Gibt es STYLE AI auch für Männer?","Ja, von Anfang an. Figurtypen, Outfits, Basis-Garderobe und Trends gibt es getrennt für Frauen und Männer."],
-   ["Wie genau ist die Farbanalyse?","Der Test ist eine gute Orientierung. Licht, Make-up und gefärbte Haare können das Ergebnis verändern. Am sichersten ist die Farbprobe mit einem Foto bei Tageslicht."],
-   ["Muss ich ein Foto hochladen?","Nein. Profil und Outfits entstehen auch nur aus dem Fragebogen. Das Foto brauchst du nur für die Farbprobe."],
-   ["Warum fragt die App nach meinem Gewicht?","Die Angabe ist freiwillig. In der App soll sie später zusammen mit der Größe helfen, die richtige Kleidergröße bei verschiedenen Marken zu finden."],
-   ["Woher kommen die Trends?","Aus Laufsteg- und Saisonberichten zu Herbst/Winter 2026/27. Die Quellen stehen unter den Trends."],
-   ["In welchen Sprachen gibt es STYLE AI?","Auf Deutsch, Rumänisch und Englisch."]
+   ["Ist STYLE AI kostenlos?","Ja. Test, Palette, Farbprobe, Looks und Trends sind kostenlos und bleiben es."],
+   ["Auch für Männer?","Ja. Formen, Looks und Trends gibt es getrennt für Frauen und Männer."],
+   ["Wie genau ist das Ergebnis?","Eine gute Orientierung. Am sichersten ist die Farbprobe mit einem Foto bei Tageslicht."],
+   ["Brauche ich ein Foto?","Nein. Das Foto brauchst du nur für die Farbprobe."],
+   ["Welche Sprachen?","Deutsch, Rumänisch und Englisch."]
   ],
-  disclaimer:"STYLE AI ist ein Konzept-Prototyp und keine veröffentlichte App. Die Empfehlungen sind allgemeine Stilregeln und ersetzen keine persönliche Beratung.",
-  credit:"Konzept & Design: Raluca Jidvian · 2026",legalImp:"Impressum",legalDs:"Datenschutz"
+  disclaimer:"Konzept-Prototyp. Keine veröffentlichte App.",credit:"Konzept & Design · Raluca Jidvian · 2026",legalImp:"Impressum",legalDs:"Datenschutz",photos:"Fotos: Pexels"
 },
 ro:{
-  skip:"Sari la conținut",protoBar:"Prototip de concept · nu este o aplicație reală · răspunsurile și poza ta rămân în browserul tău",
-  nav1:"Tipuri de culori",nav2:"Siluetă",nav3:"Testul de stil",nav4:"Proba culorilor",nav5:"Ținute",nav6:"Tendințe",
-  heroEyebrow:"Consultanță de stil personală, pentru femei și bărbați",
-  heroTitle:"<span>Cunoaște-ți culorile.</span><span><em>Înțelege-ți silueta.</em></span><span>Poartă ce ți se potrivește.</span>",
-  heroLead:"Un test de trei minute îți arată tipul de culori, silueta și stilul tău. Plus ținute pentru orice ocazie, accesoriile potrivite și tendințele sezonului, filtrate pentru tine.",
-  heroCta1:"Începe testul",heroCta2:"Proba culorilor cu poză",
-  pfTitle:"Exemplu de profil",pfSeason:"Tip de culori",pfSeasonV:"Vară · rece, estompat",pfShape:"Siluetă",pfShapeV:"Clepsidră",pfStyle:"Stil",pfStyleV:"Clasic, minimalist",pfMetal:"Metal",pfMetalV:"Argintiu, aur roz",
-  howEyebrow:"Cum funcționează",howTitle:"Trei pași până la stilul tău",
-  s1t:"Te descrii",s1d:"Unsprezece întrebări despre piele, păr, ochi, siluetă și înălțime. Poza este opțională.",
-  s2t:"Primești profilul",s2d:"Tipul tău de culori cu paleta, silueta cu croielile care te avantajează și stilul tău, explicate simplu.",
-  s3t:"Ținute și tendințe",s3d:"Ținute complete, cu pantofi, geantă și bijuterii, pentru orice ocazie, plus tendințele sezonului adaptate ție.",
-  appEyebrow:"Aplicația",appTitle:"Așa arată STYLE AI pe telefon",appSub:"O primă schiță a ecranelor principale. Toate conținuturile sunt exemple.",
-  a1Date:"Miercuri, 25 noiembrie · 6 °C",a1Hello:"Bună dimineața",a1Look:"Ținuta ta de azi",
-  a1i1:"Helancă bleu pudrat",a1i2:"Pantaloni gri-albaștri",a1i3:"Palton gri taupe",a1i4:"Botine bleumarin",a1i5:"Cercei argintii",
-  a1Why:"De ce merge",a1WhyV:"Bleu pudrat lângă față e una dintre cele mai bune culori ale tale. Paltonul lung rămâne deschis, ca talia să se vadă.",a1Btn:"Altă ținută",
-  tToday:"Azi",tStyle:"Stilul meu",tCloset:"Garderobă",tShop:"Magazin",
-  a2Scan:"Scanner în magazin",a2Name:"Palton de lână · camel",a2Warn:"Nu e în paleta ta",a2Alt:"Mai bine pentru tine",a2AltV:"Aceeași croială în gri taupe",a2Combo:"Se potrivește cu garderoba ta",a2ComboV:"Se combină cu 5 piese pe care le ai deja.",a2Shop:"La 4 magazine",a2Price:"de la 129 €",a2Ad:"Link afiliat",
-  a3Title:"Stilul meu",a3Season:"Vară",a3SeasonD:"rece · luminos · estompat",a3Shape:"Siluetă",a3ShapeV:"Clepsidră",a3Metal:"Metal",a3MetalV:"Argintiu",a3Tip:"Tendință pentru tine",a3TipV:"În loc de violet: lavandă. Culoarea sezonului în varianta ta.",a3Btn:"Proba culorilor cu poză",
-  c1:"Azi: ținuta ta după vreme și calendar",c2:"Scanner în magazin: mi se potrivește?",c3:"Stilul meu: paletă, siluetă și tendințe",
-  ctEyebrow:"Tipuri de culori",ctTitle:"Ce culori te fac să strălucești?",ctSub:"Cele patru tipuri de culori, după subton (cald sau rece), luminozitate și claritate. Atinge o culoare ca s-o vezi la guler.",
-  ctSigns:"Semne",ctBest:"Cele mai bune culori",ctNeutral:"Culori de bază",ctMetal:"Metal",ctAvoid:"Mai bine evită",ctRule:"Regula de bază",ctPicked:"La guler: ",
-  fgEyebrow:"Siluetă",fgTitle:"Croieli care te avantajează",fgSub:"Cinci forme de bază, pentru femei și bărbați. Nu e vorba să ascunzi ceva, ci despre echilibru.",
-  fgFor:"Pentru",fgShapes:"Tip de siluetă",fgSigns:"Semne",fgGoal:"Scop",fgGood:"Ce merge",fgBad:"Mai bine evită",fgAcc:"Accesorii",
-  gw:"Femei",gm:"Bărbați",gw1:"Femeie",gm1:"Bărbat",
-  lblShoulder:"Umeri",lblWaist:"Talie",lblHip:"Șold",
-  bodyNote:"<b>Orice corp e în regulă.</b> Tipurile de siluetă sunt doar un instrument pentru alegerea croielilor. Poartă ce te face să te simți bine.",
-  testEyebrow:"Testul de stil",testTitle:"Ce tip ești?",testSub:"Durează aproximativ trei minute. Răspunsurile rămân în browserul tău.",
-  qStartMeta:"11 întrebări · aproximativ 3 minute",qStartTitle:"Răspunde la lumina zilei, fără machiaj, gândindu-te la culoarea naturală a părului.",
-  qStartList:["Tipul tău de culori, cu paleta, culorile de bază și metalul","Silueta ta și croielile care îți stau bine","Garderoba de bază, accesoriile și tendințele pentru tine"],
-  qStartBtn:"Începe testul",qOf:(a,b)=>`Întrebarea ${a} din ${b}`,qMulti:"Alegere multiplă",qBack:"Înapoi",qNext:"Mai departe",qDone:"Vezi rezultatul",qSkip:"Sari peste",
-  fHeight:"Înălțime în cm",fWeight:"Greutate în kg (opțional)",fNote:"Înălțimea ajută la lungimi și proporții. Greutatea e opțională, nu apare nicăieri și rămâne în browserul tău. În aplicație va ajuta mai târziu la alegerea mărimii.",
+  skip:"Sari la conținut",protoBar:"Prototip de concept · Datele tale rămân în browser",
+  nav1:"Culoare",nav2:"Siluetă",nav5:"Ținute",nav6:"Sezon",
+  heroEyebrow:"Consultanță de stil personală · Ea & El",
+  heroTitle:"<span>Stilul tău.</span><span><em>Precis.</em></span>",
+  heroLead:"Culori, croieli și ținute care ți se potrivesc cu adevărat. În trei minute.",
+  heroCta1:"Începe testul",heroCta2:"Proba culorilor",
+  manifesto:"Nu cumpăra mai mult. <em>Alege mai bine.</em>",
+  forEyebrow:"Pentru toți",forTitle:"Pentru ea. Pentru el. <em>La orice vârstă.</em>",forLead:"Oameni reali, corpuri reale. Stilul nu are tipare.",for1:"Ea",for2:"El",for3:"Atemporal",
+  ctTitle:"<em>Culoarea</em>",ctLead:"Patru tipuri de culori. Unul dintre ele e al tău.",ctNeutral:"Bază",ctAvoid:"De evitat",ctMetal:"Metal",
+  fgTitle:"<em>Silueta</em>",fgLead:"Cinci siluete. Niciun ideal, doar echilibru.",fgGood:"Poartă",fgBad:"Evită",fgAcc:"Detalii",
+  bodyNote:"Orice corp e frumos. Siluetele sunt doar un instrument.",
+  gw:"Ea",gm:"El",gw1:"Femeie",gm1:"Bărbat",lblShoulder:"Umeri",lblWaist:"Talie",lblHip:"Șold",
+  testTitle:"<em>Testul</em>",testLead:"Unsprezece întrebări. Trei minute. Profilul tău.",
+  qStartMeta:"11 întrebări · 3 minute",qStartTitle:"La lumina zilei. Fără machiaj. Gândindu-te la culoarea naturală a părului.",qStartBtn:"Începe",
+  qOf:(a,b)=>`${a} / ${b}`,qMulti:"Alegere multiplă",qBack:"Înapoi",qNext:"Mai departe",qDone:"Profilul meu",qSkip:"Sari peste",
+  fHeight:"Înălțime · cm",fWeight:"Greutate · kg, opțional",fNote:"Greutatea nu apare nicăieri și rămâne în browserul tău.",
   Q:[
    ["Pentru cine este profilul?",["Femeie","Bărbat"]],
    ["Ce înălțime ai?",[]],
@@ -979,79 +888,49 @@ ro:{
    ["Talia ta?",["Vizibil mai îngustă decât bustul și șoldurile","Puțin mai îngustă","Aproape deloc mai îngustă, mai degrabă dreaptă","Abdomenul e zona cea mai plină"]],
    ["Ce stiluri îți plac?",[]]
   ],
-  rEyebrow:"Profilul tău",rColors:"Culorile tale",rNeutral:"Bază",rAvoid:"Mai bine evită",rMetal:"Metal",rShape:"Silueta ta",rCapsule:"Garderoba ta de bază",rStylePieces:"Piese tipice pentru stilul tău",rTrends:"Tendințe pentru tine",rAcc:"Accesorii",
-  rNeutralNote:"<b>Subtonul tău e mai degrabă neutru.</b> Poți purta și culori din tipul vecin. Proba culorilor cu poză te ajută să decizi.",
-  rFine:"Rezultatul se bazează doar pe răspunsurile tale și este orientativ. Lumina, machiajul și părul vopsit îl pot schimba.",
-  rCopy:"Copiază rezultatul",rRedo:"Refă testul",rToDrape:"La proba culorilor",rToOutfits:"Vezi ținutele",rCopied:"Copiat. Îl poți trimite mai departe.",
-  rSummary:(s,sub,sh,st)=>`Profilul meu STYLE AI: ${s} (${sub}), siluetă ${sh}${st?`, stil: ${st}`:""}.`,
-  dpEyebrow:"Proba culorilor",dpTitle:"Apropie culorile de față",dpSub:"Ca la consultanța de culoare cu eșarfe: încarcă o poză și compară una dintre cele mai bune culori ale tale cu una pe care mai bine o eviți.",
-  dpUpload:"Alege o poză",dpPrivacy:"Poza nu se încarcă nicăieri și nu se salvează. Rămâne doar pe această pagină, până o închizi.",
-  dpSeason:"Tip de culori",dpLeft:"Stânga: cele mai bune culori",dpRight:"Dreapta: mai bine evită",dpZoom:"Zoom",dpPos:"Încadrare",
-  dpHow:"Cum faci",dpHowV:"O poză la lumina zilei, din față, fără machiaj și fără filtre. Cel mai bine cu părul strâns.",
-  dpLook:"La ce să fii atent(ă)",dpLookV:"Culoarea potrivită face pielea uniformă și ochii clari. Cea nepotrivită accentuează umbrele și roșeața sau te face să pari palid(ă).",
-  dpGood:"Îți stă bine",dpBad:"Mai puțin",
-  ofEyebrow:"Ținute",ofTitle:"Ce mă îmbrac azi?",ofSub:"Alege ocazia și vremea. Ținuta se adaptează profilului tău: culori, siluetă și înălțime.",
-  ofOcc:"Ocazie",ofWeather:"Vreme",ofWhy:"De ce funcționează",ofShuffle:"Alte culori",
-  ofDemo:(g,s,sh)=>`Exemplu de profil: ${g} · ${s} · ${sh}. Fă testul de stil ca ținutele să ți se potrivească.`,
-  ofMine:(g,s,sh)=>`După profilul tău: ${g} · ${s} · ${sh}.`,
-  whyColor:c=>`Culoarea de lângă față: ${c}, una dintre cele mai bune pentru tine.`,whyBase:(a,b)=>`Baza: ${a} și ${b} păstrează ținuta calmă și se potrivesc cu orice.`,whyMetal:m=>`Metal: ${m}.`,
-  trEyebrow:"Tendințe toamnă/iarnă 2026/27",trTitle:"Tendințele sezonului, în varianta ta",trSub:"Nu orice tendință se potrivește oricui. Aici vezi pe care le poți purta direct și cum le adaptezi pe celelalte.",
-  trAll:"Toate",trYes:"Ți se potrivește",trAdapt:"Cu adaptare",trSrc:"Surse: rapoarte de pe podiumuri și de sezon de la",
-  trDemo:(s,sh)=>`Evaluat pentru exemplul de profil (${s}, ${sh}). După testul de stil, pentru tine.`,trMine:(s,sh)=>`Evaluat pentru profilul tău: ${s}, ${sh}.`,
-  freeEyebrow:"Fără abonament",freeTitle:"Tot ce contează este gratuit",freeSub:"Aplicația pornește gratuit, fără card și fără perioadă de probă. Mai târziu vor exista funcții suplimentare, opționale, pentru cine vrea mai mult.",
-  tFree:"Gratuit",tLater:"Mai târziu · opțional",
-  tFreeList:["Testul de stil: tip de culori, siluetă și stil","Paleta de culori, cu culori de bază și metal","Proba culorilor cu poza ta","Ținute pentru cinci ocazii","Tendințele sezonului, adaptate ție"],
-  tLaterList:["Analiza pozei cu AI","Proba virtuală pe poza ta","Garderobă digitală, cu ținuta zilei","Scanner în magazin","Listă de bagaj pentru călătorii"],
-  dsEyebrow:"Protecția datelor",dsTitle:"Poza ta, datele tale",dsSub:"Pozele și datele despre corp sunt sensibile. Aceste principii se aplică de la început.",
-  tr1t:"Poza rămâne la tine",tr1d:"În prototip, poza ta se afișează doar în browserul tău, nu se încarcă și nu se salvează.",
-  tr2t:"Fără antrenare AI",tr2d:"Pozele nu sunt folosite pentru antrenarea modelelor AI și nu sunt vândute altor firme.",
-  tr3t:"Greutatea e opțională",tr3d:"Nu trebuie să îți spui greutatea. Dacă o faci, nu apare nicăieri și rămâne în browserul tău.",
-  tr4t:"Protejat conform GDPR",tr4d:"În aplicație, pozele sunt criptate pe servere din UE și se pot șterge oricând.",
-  faqTitle:"Întrebări frecvente",
+  rEyebrow:"Profilul tău",rColors:"Culorile tale",rNeutral:"Bază",rAvoid:"De evitat",rMetal:"Metal",rShape:"Silueta ta",rCapsule:"Garderoba ta",rStylePieces:"Stilul tău",rTrends:"Pentru tine în acest sezon",rAcc:"Detalii",
+  rNeutralNote:"Subtonul tău e neutru. Îți stau bine și culori din tipul vecin. Proba culorilor decide.",
+  rFine:"O orientare, nu un diagnostic. Lumina, machiajul și părul vopsit schimbă rezultatul.",
+  rCopy:"Copiază profilul",rRedo:"Ia-o de la capăt",rToDrape:"La proba culorilor",rToOutfits:"Ținutele mele",rCopied:"Copiat.",
+  rSummary:(s,sub,sh,st)=>`Profilul meu STYLE AI: ${s} (${sub}), siluetă ${sh}${st?`, stil ${st}`:""}.`,
+  dpTitle:"<em>Proba</em>",dpLead:"Un chip. Două culori. Diferența se vede imediat.",
+  dpGood:"Culoarea ta",dpBad:"Nu e a ta",dpLeft:"Culorile tale",dpRight:"Pentru comparație",dpUpload:"Poza ta",dpPrivacy:"Rămâne în browser. Nu se salvează.",dpZoom:"Zoom",dpPos:"Încadrare",
+  ofTitle:"<em>Ținutele</em>",ofShuffle:"Alte culori",
+  ofDemo:(g,s,sh)=>`Exemplu: ${g}, ${s}, ${sh}. După test vezi ținutele tale.`,ofMine:(g,s,sh)=>`Pentru tine: ${g}, ${s}, ${sh}.`,
+  whyColor:c=>`${c} lângă față, una dintre culorile tale.`,whyBase:(a,b)=>`${a} și ${b}, o bază calmă.`,whyMetal:m=>`Metal: ${m}.`,
+  trTitle:"<em>Sezonul</em>",trAll:"Toate",trYes:"Pentru tine",trAdapt:"Adaptat",trSrc:"Surse:",
+  trDemo:()=>"Toamnă/iarnă 2026/27, evaluat pentru exemplul de profil.",trMine:(s,sh)=>`Toamnă/iarnă 2026/27, evaluat pentru tine: ${s}, ${sh}.`,
+  freeEyebrow:"Acces",freeTitle:"Esențialul. <em>Gratuit.</em>",freeLead:"Fără abonament, fără card. Premium mai târziu, opțional.",
+  tFree:"Gratuit",tLater:"Mai târziu",tFreeList:["Testul de stil și profilul","Paleta și proba culorilor","Ținute pentru cinci ocazii","Sezonul, filtrat pentru tine"],tLaterList:["Analiza pozei cu AI","Proba virtuală","Garderobă digitală","Scanner în magazin"],
+  dsEyebrow:"Discreție",dsTitle:"Imaginea ta <em>îți aparține.</em>",
+  tr1t:"Poza rămâne la tine",tr1d:"Doar în browserul tău. Nu se încarcă nicăieri.",tr2t:"Fără antrenare AI",tr2d:"Pozele tale nu antrenează niciun model.",tr3t:"Greutatea e opțională",tr3d:"Nu apare și nu se partajează.",tr4t:"GDPR",tr4d:"În aplicație: servere în UE, ștergere oricând.",
+  faqTitle:"Întrebări",
   FAQ:[
-   ["Este STYLE AI gratuit?","Da. Testul de stil, paleta, proba culorilor, ținutele și tendințele sunt gratuite. Mai târziu vor exista funcții Premium opționale. Ce este gratuit acum rămâne gratuit."],
-   ["Există STYLE AI și pentru bărbați?","Da, de la început. Siluetele, ținutele, garderoba de bază și tendințele sunt separate pentru femei și bărbați."],
-   ["Cât de exactă este analiza culorilor?","Testul este un bun punct de plecare. Lumina, machiajul și părul vopsit pot schimba rezultatul. Cel mai sigur e proba culorilor cu o poză făcută la lumina zilei."],
-   ["Trebuie să încarc o poză?","Nu. Profilul și ținutele se creează și doar din chestionar. Poza îți trebuie doar pentru proba culorilor."],
-   ["De ce întreabă aplicația de greutate?","E opțional. În aplicație, împreună cu înălțimea, va ajuta mai târziu la alegerea mărimii potrivite la diferite branduri."],
-   ["De unde vin tendințele?","Din rapoartele de pe podiumuri și de sezon pentru toamnă/iarnă 2026/27. Sursele sunt sub tendințe."],
-   ["În ce limbi este disponibil STYLE AI?","În germană, română și engleză."]
+   ["Este STYLE AI gratuit?","Da. Testul, paleta, proba culorilor, ținutele și tendințele sunt gratuite și rămân așa."],
+   ["Și pentru bărbați?","Da. Siluetele, ținutele și tendințele sunt separate pentru femei și bărbați."],
+   ["Cât de exact e rezultatul?","Un bun punct de plecare. Cel mai sigur e proba culorilor cu o poză la lumina zilei."],
+   ["Am nevoie de o poză?","Nu. Poza îți trebuie doar pentru proba culorilor."],
+   ["În ce limbi?","Germană, română și engleză."]
   ],
-  disclaimer:"STYLE AI este un prototip de concept, nu o aplicație publicată. Recomandările sunt reguli generale de stil și nu înlocuiesc o consultanță personală.",
-  credit:"Concept și design: Raluca Jidvian · 2026",legalImp:"Impressum",legalDs:"Protecția datelor"
+  disclaimer:"Prototip de concept. Nu este o aplicație publicată.",credit:"Concept & design · Raluca Jidvian · 2026",legalImp:"Impressum",legalDs:"Protecția datelor",photos:"Fotografii: Pexels"
 },
 en:{
-  skip:"Skip to content",protoBar:"Concept prototype · not a real app · your answers and your photo stay in your browser",
-  nav1:"Colour types",nav2:"Body shape",nav3:"Style test",nav4:"Colour drape",nav5:"Outfits",nav6:"Trends",
-  heroEyebrow:"Personal styling for women and men",
-  heroTitle:"<span>Know your colours.</span><span><em>Understand your shape.</em></span><span>Wear what suits you.</span>",
-  heroLead:"A three-minute test shows your colour type, body shape and style. Plus outfits for every occasion, the right accessories and this season's trends, filtered for you.",
-  heroCta1:"Start the style test",heroCta2:"Colour drape with a photo",
-  pfTitle:"Sample profile",pfSeason:"Colour type",pfSeasonV:"Summer · cool, soft",pfShape:"Body shape",pfShapeV:"Hourglass",pfStyle:"Style",pfStyleV:"Classic, minimal",pfMetal:"Metal",pfMetalV:"Silver, rose gold",
-  howEyebrow:"How it works",howTitle:"Three steps to your style",
-  s1t:"Describe yourself",s1d:"Eleven questions about skin, hair, eyes, shape and height. A photo is optional.",
-  s2t:"Get your profile",s2d:"Your colour type with its palette, your body shape with the cuts that flatter it, and your style, simply explained.",
-  s3t:"Outfits and trends",s3d:"Complete looks with shoes, bag and jewellery for every occasion, plus the season's trends adapted to you.",
-  appEyebrow:"The app",appTitle:"What STYLE AI looks like on a phone",appSub:"A first draft of the main screens. All content is sample content.",
-  a1Date:"Wednesday, 25 November · 6 °C",a1Hello:"Good morning",a1Look:"Your outfit for today",
-  a1i1:"Powder blue roll neck",a1i2:"Grey blue trousers",a1i3:"Taupe grey wool coat",a1i4:"Navy ankle boots",a1i5:"Silver earrings",
-  a1Why:"Why it works",a1WhyV:"Powder blue near your face is one of your best colours. The long coat stays open so your waist shows.",a1Btn:"Another outfit",
-  tToday:"Today",tStyle:"My style",tCloset:"Closet",tShop:"Shop",
-  a2Scan:"Shop scanner",a2Name:"Wool coat · camel",a2Warn:"Not in your palette",a2Alt:"Better for you",a2AltV:"The same cut in taupe grey",a2Combo:"Works with your closet",a2ComboV:"Goes with 5 pieces you already own.",a2Shop:"At 4 retailers",a2Price:"from €129",a2Ad:"Affiliate link",
-  a3Title:"My style",a3Season:"Summer",a3SeasonD:"cool · light · soft",a3Shape:"Body shape",a3ShapeV:"Hourglass",a3Metal:"Metal",a3MetalV:"Silver",a3Tip:"A trend for you",a3TipV:"Instead of purple: lavender. The season's colour, your version.",a3Btn:"Colour drape with a photo",
-  c1:"Today: your outfit for the weather and your calendar",c2:"Shop scanner: does this suit me?",c3:"My style: palette, shape and trends",
-  ctEyebrow:"Colour types",ctTitle:"Which colours make you glow?",ctSub:"The four colour types, based on undertone (warm or cool), lightness and clarity. Tap a colour to see it at the collar.",
-  ctSigns:"Signs",ctBest:"Best colours",ctNeutral:"Base colours",ctMetal:"Metal",ctAvoid:"Better avoid",ctRule:"Rule of thumb",ctPicked:"At the collar: ",
-  fgEyebrow:"Body shape",fgTitle:"Cuts that flatter you",fgSub:"Five basic shapes for women and men. It's not about hiding anything, it's about balance.",
-  fgFor:"For",fgShapes:"Body shape",fgSigns:"Signs",fgGoal:"Goal",fgGood:"What works",fgBad:"Better avoid",fgAcc:"Accessories",
-  gw:"Women",gm:"Men",gw1:"Woman",gm1:"Man",
-  lblShoulder:"Shoulders",lblWaist:"Waist",lblHip:"Hips",
-  bodyNote:"<b>Every body is right.</b> Body shapes are just a tool for choosing cuts. Wear what you feel good in.",
-  testEyebrow:"Style test",testTitle:"What's your type?",testSub:"Takes about three minutes. Your answers stay in your browser.",
-  qStartMeta:"11 questions · about 3 minutes",qStartTitle:"Answer in daylight, without make-up, thinking of your natural hair colour.",
-  qStartList:["Your colour type with palette, base colours and metal","Your body shape and the cuts that suit you","Your basic wardrobe, accessories and the trends for you"],
-  qStartBtn:"Start the test",qOf:(a,b)=>`Question ${a} of ${b}`,qMulti:"Choose several",qBack:"Back",qNext:"Next",qDone:"See my result",qSkip:"Skip",
-  fHeight:"Height in cm",fWeight:"Weight in kg (optional)",fNote:"Height helps with lengths and proportions. Weight is optional, never shown and stays in your browser. In the app it will later help with sizing.",
+  skip:"Skip to content",protoBar:"Concept prototype · Your details stay in your browser",
+  nav1:"Colour",nav2:"Shape",nav5:"Looks",nav6:"Season",
+  heroEyebrow:"Personal styling · Her & Him",
+  heroTitle:"<span>Your style.</span><span><em>Precisely.</em></span>",
+  heroLead:"Colours, cuts and looks that truly suit you. In three minutes.",
+  heroCta1:"Begin the style test",heroCta2:"Colour drape",
+  manifesto:"Don't buy more. <em>Choose better.</em>",
+  forEyebrow:"For everyone",forTitle:"For her. For him. <em>For every age.</em>",forLead:"Real people, real bodies. Style has no standard size.",for1:"Her",for2:"Him",for3:"Timeless",
+  ctTitle:"The <em>Colour</em>",ctLead:"Four colour types. One of them is yours.",ctNeutral:"Base",ctAvoid:"Avoid",ctMetal:"Metal",
+  fgTitle:"The <em>Shape</em>",fgLead:"Five silhouettes. No ideal, only balance.",fgGood:"Wear",fgBad:"Avoid",fgAcc:"Details",
+  bodyNote:"Every body is right. Shapes are just a tool.",
+  gw:"Her",gm:"Him",gw1:"Woman",gm1:"Man",lblShoulder:"Shoulders",lblWaist:"Waist",lblHip:"Hips",
+  testTitle:"The <em>Test</em>",testLead:"Eleven questions. Three minutes. Your profile.",
+  qStartMeta:"11 questions · 3 minutes",qStartTitle:"In daylight. No make-up. Thinking of your natural hair colour.",qStartBtn:"Begin",
+  qOf:(a,b)=>`${a} / ${b}`,qMulti:"Choose several",qBack:"Back",qNext:"Next",qDone:"My profile",qSkip:"Skip",
+  fHeight:"Height · cm",fWeight:"Weight · kg, optional",fNote:"Your weight is never shown and stays in your browser.",
   Q:[
    ["Who is this profile for?",["Woman","Man"]],
    ["How tall are you?",[]],
@@ -1065,46 +944,31 @@ en:{
    ["Your waist?",["Clearly narrower than bust and hips","Slightly narrower","Hardly narrower, rather straight","My stomach is the fullest part"]],
    ["Which styles do you like?",[]]
   ],
-  rEyebrow:"Your profile",rColors:"Your colours",rNeutral:"Base",rAvoid:"Better avoid",rMetal:"Metal",rShape:"Your body shape",rCapsule:"Your basic wardrobe",rStylePieces:"Typical pieces for your style",rTrends:"Trends for you",rAcc:"Accessories",
-  rNeutralNote:"<b>Your undertone is rather neutral.</b> You can also wear colours from the neighbouring type. The colour drape with a photo helps you decide.",
-  rFine:"The result is based only on your answers and is a guide. Lighting, make-up and dyed hair can change it.",
-  rCopy:"Copy result",rRedo:"Retake the test",rToDrape:"Go to the colour drape",rToOutfits:"See outfits",rCopied:"Copied. You can share it now.",
-  rSummary:(s,sub,sh,st)=>`My STYLE AI profile: ${s} (${sub}), body shape ${sh}${st?`, style: ${st}`:""}.`,
-  dpEyebrow:"Colour drape",dpTitle:"Hold your colours to your face",dpSub:"Like a colour consultation with fabric drapes: upload a photo and compare one of your best colours with one you'd better avoid.",
-  dpUpload:"Choose a photo",dpPrivacy:"Your photo is not uploaded or saved. It only stays on this page until you close it.",
-  dpSeason:"Colour type",dpLeft:"Left: best colours",dpRight:"Right: better avoid",dpZoom:"Zoom",dpPos:"Framing",
-  dpHow:"How to",dpHowV:"A daylight photo, facing the camera, no make-up and no filters. Hair pulled back works best.",
-  dpLook:"What to look for",dpLookV:"The right colour evens out your skin and makes your eyes look clear. The wrong one brings out shadows and redness or makes you look pale.",
-  dpGood:"Suits you",dpBad:"Less so",
-  ofEyebrow:"Outfits",ofTitle:"What should I wear today?",ofSub:"Choose the occasion and the weather. The outfit follows your profile: colours, shape and height.",
-  ofOcc:"Occasion",ofWeather:"Weather",ofWhy:"Why it works",ofShuffle:"Other colours",
-  ofDemo:(g,s,sh)=>`Sample profile: ${g} · ${s} · ${sh}. Take the style test so the outfits fit you.`,
-  ofMine:(g,s,sh)=>`Based on your profile: ${g} · ${s} · ${sh}.`,
-  whyColor:c=>`Colour near your face: ${c}, one of your best.`,whyBase:(a,b)=>`Base: ${a} and ${b} keep the look calm and go with everything.`,whyMetal:m=>`Metal: ${m}.`,
-  trEyebrow:"Trends autumn/winter 2026/27",trTitle:"The season's trends, your version",trSub:"Not every trend suits everyone. See which ones you can wear right away and how to adapt the rest.",
-  trAll:"All",trYes:"Suits you",trAdapt:"With a tweak",trSrc:"Sources: runway and season reports from",
-  trDemo:(s,sh)=>`Rated for the sample profile (${s}, ${sh}). After the style test, for you.`,trMine:(s,sh)=>`Rated for your profile: ${s}, ${sh}.`,
-  freeEyebrow:"No subscription",freeTitle:"Everything that matters is free",freeSub:"The app starts free, with no card and no trial period. Optional extras come later for anyone who wants more.",
-  tFree:"Free",tLater:"Later · optional",
-  tFreeList:["Style test: colour type, shape and style","Colour palette with base colours and metal","Colour drape with your photo","Outfits for five occasions","Season trends adapted to you"],
-  tLaterList:["AI analysis of your photo","Virtual try-on on your photo","Digital closet with outfit of the day","In-store shop scanner","Packing list for trips"],
-  dsEyebrow:"Privacy",dsTitle:"Your photo, your data",dsSub:"Photos and body details are sensitive. These principles apply from day one.",
-  tr1t:"Your photo stays with you",tr1d:"In the prototype your photo is only shown in your browser, not uploaded and not saved.",
-  tr2t:"No AI training",tr2d:"Photos are not used to train AI models and are not sold to third parties.",
-  tr3t:"Weight is optional",tr3d:"You don't have to give your weight. If you do, it's never shown and stays in your browser.",
-  tr4t:"Protected under GDPR",tr4d:"In the app, photos are stored encrypted on servers in the EU and can be deleted at any time.",
-  faqTitle:"Frequently asked questions",
+  rEyebrow:"Your profile",rColors:"Your colours",rNeutral:"Base",rAvoid:"Avoid",rMetal:"Metal",rShape:"Your shape",rCapsule:"Your wardrobe",rStylePieces:"Your style",rTrends:"For you this season",rAcc:"Details",
+  rNeutralNote:"Your undertone is neutral. Colours from the neighbouring type suit you too. The drape decides.",
+  rFine:"A guide, not a diagnosis. Lighting, make-up and dyed hair change the result.",
+  rCopy:"Copy profile",rRedo:"Start again",rToDrape:"Colour drape",rToOutfits:"My looks",rCopied:"Copied.",
+  rSummary:(s,sub,sh,st)=>`My STYLE AI profile: ${s} (${sub}), shape ${sh}${st?`, style ${st}`:""}.`,
+  dpTitle:"The <em>Drape</em>",dpLead:"One face. Two colours. The difference shows at once.",
+  dpGood:"Your colour",dpBad:"Not yours",dpLeft:"Your colours",dpRight:"For comparison",dpUpload:"Your own photo",dpPrivacy:"Stays in your browser. Never saved.",dpZoom:"Zoom",dpPos:"Framing",
+  ofTitle:"The <em>Looks</em>",ofShuffle:"Other colours",
+  ofDemo:(g,s,sh)=>`Sample: ${g}, ${s}, ${sh}. After the test you'll see your own looks.`,ofMine:(g,s,sh)=>`For you: ${g}, ${s}, ${sh}.`,
+  whyColor:c=>`${c} near your face, one of your colours.`,whyBase:(a,b)=>`${a} and ${b} as a calm base.`,whyMetal:m=>`Metal: ${m}.`,
+  trTitle:"The <em>Season</em>",trAll:"All",trYes:"For you",trAdapt:"Adapted",trSrc:"Sources:",
+  trDemo:()=>"Autumn/winter 2026/27, rated for the sample profile.",trMine:(s,sh)=>`Autumn/winter 2026/27, rated for you: ${s}, ${sh}.`,
+  freeEyebrow:"Membership",freeTitle:"The essentials. <em>Free.</em>",freeLead:"No subscription, no card. Premium later, optional.",
+  tFree:"Free",tLater:"Later",tFreeList:["Style test and profile","Colour palette and drape","Looks for five occasions","The season, filtered for you"],tLaterList:["AI photo analysis","Virtual try-on","Digital wardrobe","In-store scanner"],
+  dsEyebrow:"Discretion",dsTitle:"Your image <em>is yours.</em>",
+  tr1t:"Your photo stays with you",tr1d:"Only in your browser. No upload.",tr2t:"No AI training",tr2d:"Your images train no models.",tr3t:"Weight optional",tr3d:"Never shown, never shared.",tr4t:"GDPR",tr4d:"In the app: EU servers, delete any time.",
+  faqTitle:"Questions",
   FAQ:[
-   ["Is STYLE AI free?","Yes. The style test, palette, colour drape, outfits and trends are free. Optional premium features come later. What's free today stays free."],
-   ["Is STYLE AI for men too?","Yes, from the start. Body shapes, outfits, basic wardrobe and trends are separate for women and men."],
-   ["How accurate is the colour analysis?","The test is a good guide. Lighting, make-up and dyed hair can change the result. The surest way is the colour drape with a daylight photo."],
-   ["Do I have to upload a photo?","No. Your profile and outfits come from the questionnaire alone. You only need a photo for the colour drape."],
-   ["Why does the app ask for my weight?","It's optional. In the app, together with height, it will later help find the right size across brands."],
-   ["Where do the trends come from?","From runway and season reports for autumn/winter 2026/27. The sources are listed below the trends."],
-   ["Which languages is STYLE AI available in?","German, Romanian and English."]
+   ["Is STYLE AI free?","Yes. Test, palette, drape, looks and trends are free, and stay free."],
+   ["For men too?","Yes. Shapes, looks and trends are separate for women and men."],
+   ["How accurate is it?","A strong guide. The surest way is the colour drape with a daylight photo."],
+   ["Do I need a photo?","No. You only need one for the colour drape."],
+   ["Which languages?","German, Romanian and English."]
   ],
-  disclaimer:"STYLE AI is a concept prototype, not a published app. The recommendations are general style rules and do not replace personal advice.",
-  credit:"Concept & design: Raluca Jidvian · 2026",legalImp:"Legal notice",legalDs:"Privacy"
+  disclaimer:"Concept prototype. Not a published app.",credit:"Concept & design · Raluca Jidvian · 2026",legalImp:"Legal notice",legalDs:"Privacy",photos:"Photos: Pexels"
 }};
 /* ---------- helpers & state ---------- */
 const store = {
@@ -1135,7 +999,11 @@ function pills(el, items, cur, onPick){
 }
 function swatch(sw, opts={}){
   const tag = opts.btn ? "button" : "span";
-  return `<${tag} class="sw${opts.sm?" sm":""}${opts.x?" x":""}" style="--c:${sw[0]}" title="${esc(cn(sw))}" aria-label="${esc(cn(sw))}"${opts.btn?` type="button" data-i="${opts.i}" aria-pressed="${!!opts.on}"`:""}></${tag}>`;
+  return `<${tag} class="dot${opts.sm?" sm":""}${opts.x?" x":""}" style="--c:${sw[0]}" title="${esc(cn(sw))}" aria-label="${esc(cn(sw))}"${opts.btn?` type="button" data-i="${opts.i}" aria-pressed="${!!opts.on}"`:""}></${tag}>`;
+}
+const isLight = hex => { const n = parseInt(hex.slice(1),16); return ((n>>16)*299 + ((n>>8)&255)*587 + (n&255)*114)/1000 > 175; };
+function strip(list, cur){
+  return list.map((c,i) => `<button type="button" class="${isLight(c[0])?"light":""}" style="--c:${c[0]}" data-i="${i}" data-n="${esc(cn(c))}" aria-label="${esc(cn(c))}" aria-pressed="${i===cur}"></button>`).join("");
 }
 
 /* ---------- language ---------- */
@@ -1145,7 +1013,6 @@ function applyLang(){
   document.querySelectorAll("[data-th]").forEach(n => n.innerHTML = L()[n.dataset.th]);
   document.querySelectorAll("[data-tl]").forEach(n => n.innerHTML = L()[n.dataset.tl].map(x=>`<li>${esc(x)}</li>`).join(""));
   document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang===lang));
-  $("#heroSw").innerHTML = SEASONS.summer.best.map(s => swatch(s,{sm:true})).join("");
   $("#faqList").innerHTML = L().FAQ.map(([q,a]) => `<details><summary>${esc(q)}</summary><p class="muted">${esc(a)}</p></details>`).join("");
   renderAll();
 }
@@ -1154,26 +1021,14 @@ function renderAll(){ renderSeasons(); renderFigure(); renderQuiz(); renderDrape
 
 /* ---------- colour types ---------- */
 let ctSeason = P().season, ctPick = 0;
-function drapeSvg(color){
-  return `<svg viewBox="0 0 400 440" role="img" aria-label="${esc(L().ctPicked)}">
-    <path d="M30 440 Q40 330 200 300 Q360 330 370 440 Z" fill="${color}"/>
-    <path d="M168 248 h64 v62 q-32 22 -64 0 z" fill="#E4D2C4"/>
-    <ellipse cx="200" cy="170" rx="72" ry="92" fill="#EADBCF"/>
-    <path d="M128 160 Q130 72 200 70 Q270 72 272 160 Q262 108 200 104 Q138 108 128 160 Z" fill="#7C6A5E"/>
-    <path d="M150 300 L200 360 L250 300" fill="none" stroke="rgba(0,0,0,.14)" stroke-width="2"/>
-  </svg>`;
-}
 function renderSeasons(){
   const s = SEASONS[ctSeason];
   pills($("#seasons"), SKEYS.map(k => [k, X(SEASONS[k].name)]), ctSeason, k => { ctSeason = k; ctPick = 0; renderSeasons(); });
-  $("#seasons").setAttribute("aria-label", L().ctEyebrow);
-  $("#ctName").textContent = X(s.name); $("#ctSub2").textContent = X(s.sub);
-  $("#ctSigns").textContent = X(s.signs); $("#ctRule").textContent = X(s.rule); $("#ctMetal").textContent = X(s.metal);
-  $("#ctBest").innerHTML = s.best.map((c,i) => swatch(c,{btn:true,i,on:i===ctPick})).join("");
+  $("#ctName").textContent = X(s.name); $("#ctSub").textContent = X(s.sub);
+  $("#ctRule").textContent = X(s.rule); $("#ctMetal").textContent = X(s.metal);
+  $("#ctBest").innerHTML = strip(s.best, ctPick);
   $("#ctNeutral").innerHTML = s.neutral.map(c => swatch(c)).join("");
   $("#ctAvoid").innerHTML = s.avoid.map(c => swatch(c,{x:true})).join("");
-  $("#ctPick").textContent = L().ctPicked + cn(s.best[ctPick]);
-  $("#ctVisual").innerHTML = drapeSvg(s.best[ctPick][0]);
   $("#ctBest").querySelectorAll("button").forEach(b => b.onclick = () => { ctPick = +b.dataset.i; renderSeasons(); });
 }
 
@@ -1190,11 +1045,11 @@ function bodySvg(p, g){
   const right = [[c+neck,y.neck],[c+neck+4,y.sh-12],[c+S,y.sh],[c+S-4,y.sh+18],[c+B,y.bu],[c+W,y.wa],[c+H,y.hi],[c+H*.8,y.hi+50],[c+H*.5,y.kn],[c+20,y.an]];
   const left = right.map(([x,yy]) => [2*c-x,yy]).reverse();
   const path = smooth(right) + " L" + left.map(p=>p.join(" ")).join(" L") + " Z";
-  const line = (yy,w,lbl) => `<line x1="${c-w-14}" y1="${yy}" x2="${c+w+14}" y2="${yy}" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 5"/><text x="${c+w+20}" y="${yy+4}" class="cap-label">${esc(lbl)}</text>`;
+  const line = (yy,w,lbl) => `<line class="guide" x1="${c-w-14}" y1="${yy}" x2="${c+w+14}" y2="${yy}"/><text x="${c+w+22}" y="${yy+4}" class="cap">${esc(lbl.toUpperCase())}</text>`;
   return `<svg viewBox="0 0 330 520" role="img" aria-label="${esc(X(SHAPES[g][fgShape].name))}">
-    <circle cx="${c}" cy="58" r="${g==="m"?30:28}" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5"/>
-    <path d="${path}" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5" stroke-linejoin="round"/>
-    <line x1="${c}" y1="${y.hi+38}" x2="${c}" y2="${y.an}" stroke="var(--ink)" stroke-width="1.2"/>
+    <circle class="body-line" cx="${c}" cy="58" r="${g==="m"?30:28}"/>
+    <path class="body-line" d="${path}" stroke-linejoin="round"/>
+    <line class="body-line" x1="${c}" y1="${y.hi+38}" x2="${c}" y2="${y.an}"/>
     ${line(y.sh,S,L().lblShoulder)}${line(y.wa,W,L().lblWaist)}${line(y.hi,H,L().lblHip)}
   </svg>`;
 }
@@ -1203,9 +1058,9 @@ function renderFigure(){
   pills($("#fgShapes"), SHKEYS.map(k => [k, X(SHAPES[fgG][k].name)]), fgShape, k => { fgShape = k; renderFigure(); });
   const s = SHAPES[fgG][fgShape];
   $("#fgName").textContent = X(s.name);
-  $("#fgSigns").textContent = X(s.signs); $("#fgGoal").textContent = X(s.goal); $("#fgAcc").textContent = X(s.acc);
-  $("#fgGood").innerHTML = `<ul>${X(s.good).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
-  $("#fgBad").innerHTML = `<ul>${X(s.bad).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
+  $("#fgGoal").textContent = X(s.goal); $("#fgAcc").textContent = X(s.acc);
+  $("#fgGood").innerHTML = `<ul>${X(s.good).slice(0,3).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
+  $("#fgBad").innerHTML = `<ul>${X(s.bad).slice(0,2).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
   $("#fgVisual").innerHTML = bodySvg(s.p, fgG);
 }
 
@@ -1234,24 +1089,23 @@ function qOptions(i){
 function renderQuiz(){
   const t = L();
   if(st.i < 0){
-    qEl.innerHTML = `<div class="start"><span class="mono">${esc(t.qStartMeta)}</span><h3>${esc(t.qStartTitle)}</h3>
-      <ul class="bul">${t.qStartList.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
-      <div class="btns"><button class="btn" id="q-start">${esc(t.qStartBtn)}</button></div></div>`;
+    qEl.innerHTML = `<div class="start"><span class="label">${esc(t.qStartMeta)}</span><h3>${esc(t.qStartTitle)}</h3>
+      <button class="btn" id="q-start">${esc(t.qStartBtn)}</button></div>`;
     $("#q-start").onclick = () => { st = {i:0,a:{}}; saveQ(); renderQuiz(); };
     return;
   }
   if(st.i >= QL.length) return renderResult();
   const q = QL[st.i], title = t.Q[st.i][0];
   const head = `<div class="progress"><i style="width:${Math.round(st.i/QL.length*100)}%"></i></div>
-    <div class="qmeta"><span class="mono">${esc(t.qOf(st.i+1, QL.length))}</span>${q.multi?`<span class="mono">${esc(t.qMulti)}</span>`:""}</div><h3>${esc(title)}</h3>`;
+    <div class="qmeta"><span class="label">${esc(t.qOf(st.i+1, QL.length))}</span>${q.multi?`<span class="label">${esc(t.qMulti)}</span>`:""}</div><h3>${esc(title)}</h3>`;
   const isLast = st.i === QL.length-1;
   if(q.form){
     const v = st.a.size || {};
     qEl.innerHTML = head + `<div class="fields">
-        <label class="field"><span class="mono">${esc(t.fHeight)}</span><input type="number" id="f-h" inputmode="numeric" min="120" max="230" value="${esc(v.h||"")}" placeholder="170"></label>
-        <label class="field"><span class="mono">${esc(t.fWeight)}</span><input type="number" id="f-w" inputmode="numeric" min="30" max="250" value="${esc(v.w||"")}"></label>
+        <label class="field"><span class="label">${esc(t.fHeight)}</span><input type="number" id="f-h" inputmode="numeric" min="120" max="230" value="${esc(v.h||"")}" placeholder="170"></label>
+        <label class="field"><span class="label">${esc(t.fWeight)}</span><input type="number" id="f-w" inputmode="numeric" min="30" max="250" value="${esc(v.w||"")}"></label>
       </div><p class="fine" style="margin-top:var(--s2)">${esc(t.fNote)}</p>
-      <div class="qnav"><button class="btn ghost" id="q-back">${esc(t.qBack)}</button><div class="btns"><button class="btn ghost" id="q-skip">${esc(t.qSkip)}</button><button class="btn" id="q-next">${esc(t.qNext)}</button></div></div>`;
+      <div class="qnav"><button class="cta" id="q-back">${esc(t.qBack)}</button><div style="display:flex;gap:1.5rem;align-items:center"><button class="cta" id="q-skip">${esc(t.qSkip)}</button><button class="btn" id="q-next">${esc(t.qNext)}</button></div></div>`;
     const keep = () => { st.a.size = {h: $("#f-h").value, w: $("#f-w").value}; };
     $("#q-back").onclick = () => { keep(); st.i--; saveQ(); renderQuiz(); };
     $("#q-skip").onclick = () => { st.a.size = {}; st.i++; saveQ(); renderQuiz(); };
@@ -1260,7 +1114,7 @@ function renderQuiz(){
   }
   const opts = qOptions(st.i), sel = st.a[q.k] || [];
   qEl.innerHTML = head + `<div class="opts${q.multi||opts.length>4?" two":""}${q.multi?" multi":""}">${opts.map((o,j)=>`<button class="opt" data-j="${j}" aria-pressed="${sel.includes(j)}">${esc(o)}</button>`).join("")}</div>
-    <div class="qnav"><button class="btn ghost" id="q-back">${esc(t.qBack)}</button>
+    <div class="qnav"><button class="cta" id="q-back">${esc(t.qBack)}</button>
     <button class="btn" id="q-next" ${sel.length?"":"disabled"}>${esc(isLast?t.qDone:t.qNext)}</button></div>`;
   qEl.querySelectorAll(".opt").forEach(b => b.onclick = () => {
     const j = +b.dataset.j;
@@ -1300,32 +1154,29 @@ function renderResult(){
   profile = r; store.set("styleai-profile", r);
   const s = SEASONS[r.season], sh = SHAPES[r.g][r.shape];
   const styleNames = r.styles.map(k => X(STYLES.find(x=>x[0]===k)[1]));
-  const capsule = CAPSULE[r.g].map(([n,role]) => { const c = roleColor(r.season, role); return `<li>${swatch(c,{sm:true})}<span>${esc(X(n))} <small class="muted">· ${esc(cn(c))}</small></span></li>`; }).join("");
-  const pieces = r.styles.map(k => { const row = STYLES.find(x=>x[0]===k); return `<li><span><b>${esc(X(row[1]))}:</b> ${esc(X(r.g==="m"?row[3]:row[2]))}</span></li>`; }).join("");
-  const tr = fitsFor(r).filter(([,f]) => f[0]==="yes").slice(0,3).map(([x,f]) => `<li><span><b>${esc(X(x.name))}</b> · ${esc(X(f[1]))}</span></li>`).join("");
-  const hTip = r.hc!=="mid" ? `<p class="note">${esc(X(HEIGHT[r.g][r.hc]))}</p>` : "";
+  const capsule = CAPSULE[r.g].map(([n,role]) => { const c = roleColor(r.season, role); return `<li>${swatch(c,{sm:true})}<span>${esc(X(n))} <span class="fine">· ${esc(cn(c))}</span></span></li>`; }).join("");
+  const pieces = r.styles.map(k => { const row = STYLES.find(x=>x[0]===k); return `<li><span><em>${esc(X(row[1]))}</em> — ${esc(X(r.g==="m"?row[3]:row[2]))}</span></li>`; }).join("");
+  const tr = fitsFor(r).filter(([,f]) => f[0]==="yes").slice(0,3).map(([x,f]) => `<li><span><em>${esc(X(x.name))}</em> — ${esc(X(f[1]))}</span></li>`).join("");
+  const hTip = r.hc!=="mid" ? `<p class="fine">${esc(X(HEIGHT[r.g][r.hc]))}</p>` : "";
   const summary = t.rSummary(X(s.name), X(s.sub), X(sh.name), styleNames.join(", "));
   qEl.innerHTML = `<div class="result">
-    <span class="eyebrow">${esc(t.rEyebrow)}</span>
-    <h3>${esc(X(s.name))} · ${esc(X(sh.name))}</h3>
-    <div class="chips"><span class="chip">${esc(X(s.sub))}</span>${styleNames.map(x=>`<span class="chip">${esc(x)}</span>`).join("")}</div>
+    <div class="hd"><span class="label">${esc(t.rEyebrow)}</span><h3>${esc(X(s.name))} <em>·</em> ${esc(X(sh.name))}</h3>
+      <span class="label">${esc(X(s.sub))}${styleNames.length?` · ${esc(styleNames.join(", "))}`:""}</span></div>
+    <div class="strip" aria-label="${esc(t.rColors)}">${strip(s.best, -1)}</div>
     <div class="rgrid">
-      <div><span class="eyebrow">${esc(t.rColors)}</span><div class="sws">${s.best.map(c=>swatch(c)).join("")}</div>
-        <span class="mono">${esc(t.rNeutral)}</span><div class="sws">${s.neutral.map(c=>swatch(c,{sm:true})).join("")}</div>
-        <span class="mono">${esc(t.rAvoid)}</span><div class="sws">${s.avoid.map(c=>swatch(c,{sm:true,x:true})).join("")}</div>
-        <p class="fine">${esc(t.rMetal)}: ${esc(X(s.metal))}. ${esc(X(s.rule))}</p></div>
-      <div><span class="eyebrow">${esc(t.rShape)}</span><p>${esc(X(sh.goal))}</p>
-        <ul class="bul">${X(sh.good).slice(0,3).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
-        <p class="fine">${esc(t.rAcc)}: ${esc(X(sh.acc))}</p></div>
-      <div><span class="eyebrow">${esc(t.rCapsule)}</span><ul class="rlist">${capsule}</ul></div>
-      <div>${pieces?`<span class="eyebrow">${esc(t.rStylePieces)}</span><ul class="bul">${pieces}</ul>`:""}
-        ${tr?`<span class="eyebrow">${esc(t.rTrends)}</span><ul class="bul">${tr}</ul>`:""}</div>
+      <div><span class="label">${esc(t.rShape)}</span><p>${esc(X(sh.goal))}</p><ul class="rlist">${X(sh.good).slice(0,3).map(x=>`<li>— ${esc(x)}</li>`).join("")}</ul></div>
+      <div><span class="label">${esc(t.rNeutral)} · ${esc(t.rAvoid)} · ${esc(t.rMetal)}</span>
+        <div class="dots">${s.neutral.map(c=>swatch(c)).join("")}</div><div class="dots">${s.avoid.map(c=>swatch(c,{x:true})).join("")}</div><p class="fine">${esc(X(s.metal))}</p></div>
+      <div><span class="label">${esc(t.rCapsule)}</span><ul class="rlist">${capsule}</ul></div>
+      <div>${pieces?`<span class="label">${esc(t.rStylePieces)}</span><ul class="rlist">${pieces}</ul>`:""}
+        ${tr?`<span class="label">${esc(t.rTrends)}</span><ul class="rlist">${tr}</ul>`:""}</div>
     </div>
-    ${hTip}${r.neutral?`<p class="note">${t.rNeutralNote}</p>`:""}
+    ${hTip}${r.neutral?`<p class="fine">${esc(t.rNeutralNote)}</p>`:""}
     <p class="fine">${esc(t.rFine)}</p>
-    <div class="btns"><button class="btn" id="q-copy">${esc(t.rCopy)}</button><a class="btn ghost" href="#farbprobe">${esc(t.rToDrape)}</a><a class="btn ghost" href="#outfits">${esc(t.rToOutfits)}</a><button class="btn ghost" id="q-redo">${esc(t.rRedo)}</button></div>
+    <div class="qnav"><div style="display:flex;gap:1rem;flex-wrap:wrap"><a class="btn" href="#looks">${esc(t.rToOutfits)}</a><a class="btn line" href="#probe">${esc(t.rToDrape)}</a></div>
+      <div style="display:flex;gap:1.5rem"><button class="cta" id="q-copy">${esc(t.rCopy)}</button><button class="cta" id="q-redo">${esc(t.rRedo)}</button></div></div>
     <span class="copied" id="q-copied" hidden>${esc(t.rCopied)}</span>
-    <p class="mono" id="q-sum" hidden>${esc(summary)}</p></div>`;
+    <p class="fine" id="q-sum" hidden>${esc(summary)}</p></div>`;
   $("#q-redo").onclick = () => { st = {i:0,a:{}}; saveQ(); renderQuiz(); };
   $("#q-copy").onclick = () => {
     const ok = () => { $("#q-copied").hidden = false; };
@@ -1333,30 +1184,32 @@ function renderResult(){
     try{ navigator.clipboard.writeText(summary).then(ok, fb); }catch(e){ fb(); }
   };
   /* the rest of the page follows the new profile */
-  if(!syncedOnce){ syncedOnce = true; ctSeason = r.season; fgG = r.g; fgShape = r.shape; dpSeason = r.season; trFilter = r.g; renderSeasons(); renderFigure(); renderDrape(); }
+  if(!syncedOnce){ syncedOnce = true; ctSeason = r.season; fgG = r.g; fgShape = r.shape; dpSeason = r.season; renderSeasons(); renderFigure(); renderDrape(); }
   renderOutfit(); renderTrends();
 }
 let syncedOnce = false;
 
 /* ---------- colour drape with photo ---------- */
 let dpSeason = P().season, dpA = 0, dpB = 0, photoUrl = null;
-const faceSvg = `<svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#D8CEC6"/><ellipse cx="50" cy="46" rx="22" ry="28" fill="#EADBCF"/><path d="M26 42 Q28 14 50 14 Q72 14 74 42 Q68 26 50 25 Q32 26 26 42Z" fill="#7C6A5E"/><path d="M38 72 h24 v20 h-24z" fill="#E4D2C4"/></svg>`;
+const DEMO_FACE = {src:"img/mature-woman.jpg", z:2.3, ox:"64%", oy:"30%"};
 function renderDrape(){
-  const s = SEASONS[dpSeason], t = L();
+  const s = SEASONS[dpSeason];
   pills($("#dpSeasons"), SKEYS.map(k => [k, X(SEASONS[k].name)]), dpSeason, k => { dpSeason = k; dpA = 0; dpB = 0; renderDrape(); });
   $("#dpBest").innerHTML = s.best.map((c,i) => swatch(c,{btn:true,i,on:i===dpA})).join("");
   $("#dpAvoid").innerHTML = s.avoid.map((c,i) => swatch(c,{btn:true,i,on:i===dpB})).join("");
   $("#dpBest").querySelectorAll("button").forEach(b => b.onclick = () => { dpA = +b.dataset.i; renderDrape(); });
   $("#dpAvoid").querySelectorAll("button").forEach(b => b.onclick = () => { dpB = +b.dataset.i; renderDrape(); });
   $("#dA").style.setProperty("--c", s.best[dpA][0]); $("#dB").style.setProperty("--c", s.avoid[dpB][0]);
-  $("#dATag").textContent = `${t.dpGood} · ${cn(s.best[dpA])}`; $("#dBTag").textContent = `${t.dpBad} · ${cn(s.avoid[dpB])}`;
-  const inner = photoUrl ? `<img src="${photoUrl}" alt="">` : faceSvg;
-  document.querySelectorAll(".drape .face").forEach(f => { if(f.dataset.src !== (photoUrl||"")){ f.innerHTML = inner; f.dataset.src = photoUrl||""; } });
+  $("#dATag").textContent = cn(s.best[dpA]); $("#dBTag").textContent = cn(s.avoid[dpB]);
+  const src = photoUrl || DEMO_FACE.src;
+  document.querySelectorAll(".drape .face").forEach(f => { if(f.dataset.src !== src){ f.innerHTML = `<img src="${src}" alt="">`; f.dataset.src = src; } });
   applyFrame();
 }
 function applyFrame(){
-  const z = $("#dpZoom").value, pos = $("#dpPos").value;
-  document.querySelectorAll(".drape .face img").forEach(i => { i.style.transform = `scale(${z})`; i.style.objectPosition = `50% ${pos}%`; });
+  document.querySelectorAll(".drape .face img").forEach(i => {
+    if(photoUrl){ i.style.transformOrigin = "50% 50%"; i.style.transform = `scale(${$("#dpZoom").value})`; i.style.objectPosition = `50% ${$("#dpPos").value}%`; }
+    else { i.style.transformOrigin = `${DEMO_FACE.ox} ${DEMO_FACE.oy}`; i.style.transform = `scale(${DEMO_FACE.z})`; i.style.objectPosition = "50% 0%"; }
+  });
 }
 $("#dpFile").onchange = e => {
   const f = e.target.files && e.target.files[0]; if(!f) return;
@@ -1368,47 +1221,29 @@ $("#dpZoom").oninput = applyFrame; $("#dpPos").oninput = applyFrame;
 /* ---------- outfits ---------- */
 let ofOcc = "buero", ofW = "cold", ofShift = 0;
 const pick = (item, w) => (item && (item.de !== undefined)) ? item : (item ? item[w] : null);
-function figureSvg(parts, g){
-  const c = n => parts[n] ? parts[n].c : null;
-  const top = c("top"), bottom = c("bottom"), dress = c("dress"), suit = c("suit"), layer = c("layer"), shoes = c("shoes") || "#555", bag = c("bag"), acc = c("acc"), metal = c("metal");
-  const wide = g==="m" ? 30 : 26, body = suit || top || dress || "#ccc";
-  let s = `<svg viewBox="0 0 140 300"><circle cx="70" cy="24" r="14" fill="#EADBCF"/><rect x="64" y="36" width="12" height="10" fill="#E4D2C4"/>`;
-  if(dress && !suit){ s += `<path d="M${70-wide} 46 h${wide*2} l${g==="m"?0:12} 128 h-${wide*2+(g==="m"?0:24)} z" fill="${dress}"/>`; s += `<rect x="56" y="174" width="10" height="84" fill="#E4D2C4"/><rect x="74" y="174" width="10" height="84" fill="#E4D2C4"/>`; }
-  else {
-    const leg = suit || bottom || "#555";
-    s += `<rect x="${70-wide+4}" y="118" width="${wide-5}" height="140" rx="3" fill="${leg}"/><rect x="71" y="118" width="${wide-5}" height="140" rx="3" fill="${leg}"/>`;
-    s += `<rect x="${70-wide}" y="46" width="${wide*2}" height="78" rx="8" fill="${body}"/>`;
-    if(suit && top) s += `<path d="M62 46 L70 74 L78 46 Z" fill="${top}"/>`;
-    if(acc && suit) s += `<path d="M68 52 h4 l2 26 l-4 5 l-4 -5 z" fill="${acc}"/>`;
-  }
-  if(layer) s += `<path d="M${70-wide-4} 44 h${wide-2} v${g==="m"?120:132} h-${wide-2} z" fill="${layer}" opacity=".95"/><path d="M${72} 44 h${wide+2} v${g==="m"?120:132} h-${wide-2} z" fill="${layer}" opacity=".95"/>`;
-  if(acc && !suit) s += g==="m" ? `<rect x="${70+wide-12}" y="56" width="8" height="8" rx="1" fill="${acc}"/>` : "";
-  s += `<rect x="52" y="258" width="16" height="10" rx="4" fill="${shoes}"/><rect x="72" y="258" width="16" height="10" rx="4" fill="${shoes}"/>`;
-  if(bag) s += `<rect x="${70+wide+6}" y="128" width="22" height="18" rx="3" fill="${bag}" stroke="rgba(0,0,0,.15)"/><path d="M${70+wide+10} 128 q7 -10 14 0" fill="none" stroke="${bag}" stroke-width="2"/>`;
-  if(metal) s += `<circle cx="${70-wide-6}" cy="${g==="m"?120:30}" r="3.5" fill="${metal}" stroke="rgba(0,0,0,.2)"/>`;
-  return s + `</svg>`;
-}
+const LOOK_IMG = {w:{buero:"woman-suit",alltag:"woman-trench",abend:"hero-woman",hochzeit:"mature-woman",interview:"woman-suit"},
+                 m:{buero:"man-coat",alltag:"man-street",abend:"man-coat",hochzeit:"man-suit",interview:"man-suit"}};
 function renderOutfit(){
   const t = L(), p = P(), s = SEASONS[p.season], o = OUT[p.g][ofOcc];
   pills($("#ofOcc"), OCC.map(([k,n]) => [k, X(n)]), ofOcc, k => { ofOcc = k; renderOutfit(); });
   pills($("#ofWeather"), WEATHER.map(([k,n]) => [k, X(n)]), ofW, k => { ofW = k; renderOutfit(); });
   $("#ofProfile").textContent = (p.demo ? t.ofDemo : t.ofMine)(gName(p.g), X(s.name), X(SHAPES[p.g][p.shape].name));
-  const parts = {}; let rows = "", nearFace = null;
+  const want = `img/${LOOK_IMG[p.g][ofOcc]}.jpg`; if(!$("#ofImg").src.endsWith(want)) $("#ofImg").src = want;
+  const cols = []; let rows = "", nearFace = null;
   o.items.forEach(([slot, item, role]) => {
     const it = pick(item, ofW); if(!it) return;
     const col = roleColor(p.season, role, ofShift);
-    parts[slot] = {c: col[0]};
+    if(role!=="metal") cols.push(col[0]);
     if(!nearFace && role[0]==="a" && ["top","dress","acc"].includes(slot)) nearFace = col;
-    const colTxt = role==="metal" ? "" : `<small>${esc(cn(col))}</small>`;
-    rows += `<li><span class="slot">${esc(X(SLOTS[slot]))}</span><span class="it"><span class="dot" style="--c:${col[0]}"></span><span>${esc(X(it))}</span>${colTxt}</span></li>`;
+    rows += `<li><span class="slot">${esc(X(SLOTS[slot]))}</span><span class="it">${esc(X(it))}</span><span class="col"><span class="dot sm" style="--c:${col[0]}"></span>${esc(role==="metal" ? "" : cn(col))}</span></li>`;
   });
   $("#ofList").innerHTML = rows;
-  $("#ofFig").innerHTML = figureSvg(parts, p.g);
+  $("#ofBar").innerHTML = cols.map(c => `<i style="--c:${c}"></i>`).join("");
   const why = [];
   if(nearFace) why.push(t.whyColor(cn(nearFace)));
   why.push(t.whyBase(cn(s.neutral[3]), cn(s.neutral[1])));
   why.push(t.whyMetal(X(s.metal)));
-  const sh = SHAPES[p.g][p.shape]; why.push(`${X(sh.name)}: ${X(sh.goal)}`);
+  const sh = SHAPES[p.g][p.shape]; why.push(X(sh.goal));
   if(p.hc && p.hc!=="mid") why.push(X(HEIGHT[p.g][p.hc]));
   why.push(X(o.rule));
   $("#ofWhy").innerHTML = why.map(x=>`<li>${esc(x)}</li>`).join("");
@@ -1416,20 +1251,25 @@ function renderOutfit(){
 $("#ofShuffle").onclick = () => { ofShift = (ofShift+1) % 8; renderOutfit(); };
 
 /* ---------- trends ---------- */
-let trFilter = P().g;
+let trFilter = "all";
+const FEAT = [[0,"plaid"],[3,"knit"],[7,"man-street"],[8,"man-coat"]];
 function renderTrends(){
   const t = L(), p = P();
-  pills($("#trFilter"), [["all",t.trAll],["w",t.gw],["m",t.gm]], trFilter, k => { trFilter = k; renderTrends(); });
   const sName = X(SEASONS[p.season].name), shName = X(SHAPES[p.g][p.shape].name);
   $("#trProfile").textContent = (p.demo ? t.trDemo : t.trMine)(sName, shName);
-  const list = TRENDS.filter(tr => trFilter==="all" || tr.g==="b" || tr.g===trFilter);
-  $("#trList").innerHTML = list.map(tr => {
-    const f = tr.fit({...p, g: trFilter==="all" ? p.g : trFilter});
-    const who = tr.g==="w" ? t.gw : tr.g==="m" ? t.gm : `${t.gw} · ${t.gm}`;
-    return `<article class="card trend"><span class="mono">${esc(who)}</span><h3>${esc(X(tr.name))}</h3><p class="muted">${esc(X(tr.desc))}</p>
-      <span class="badge ${f[0]}">${esc(f[0]==="yes"?t.trYes:t.trAdapt)}</span><p class="tip">${esc(X(f[1]))}</p></article>`;
-  }).join("");
+  const fit = tr => tr.fit({...p, g: tr.g==="b" ? p.g : tr.g});
+  $("#trFeat").innerHTML = FEAT.map(([i,img]) => { const tr = TRENDS[i], f = fit(tr);
+    return `<article class="tcard"><div class="ph"><img src="img/${img}.jpg" alt="" loading="lazy" width="800" height="992"></div>
+      <span class="tag ${f[0]}">${esc(f[0]==="yes"?t.trYes:t.trAdapt)}</span><h3>${esc(X(tr.name))}</h3><p class="tip">${esc(X(f[1]))}</p></article>`; }).join("");
+  pills($("#trFilter"), [["all",t.trAll],["w",t.gw],["m",t.gm]], trFilter, k => { trFilter = k; renderTrends(); });
+  const featIdx = FEAT.map(x=>x[0]);
+  $("#trList").innerHTML = TRENDS.map((tr,i) => [tr,i]).filter(([tr,i]) => !featIdx.includes(i) && (trFilter==="all" || tr.g==="b" || tr.g===trFilter)).map(([tr]) => { const f = fit(tr);
+    return `<article><h3>${esc(X(tr.name))}</h3><p class="tip">${esc(X(f[1]))}</p><span class="tag ${f[0]}">${esc(f[0]==="yes"?t.trYes:t.trAdapt)}</span></article>`; }).join("");
 }
+
+/* reveal on scroll */
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12}) : null;
+document.querySelectorAll(".rv").forEach(n => io ? io.observe(n) : n.classList.add("in"));
 
 applyLang();
 if(st.i >= QL.length) syncedOnce = true;
