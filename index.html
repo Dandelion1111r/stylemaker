@@ -7,7 +7,8 @@
 <meta name="description" content="Interaktiver Konzept-Prototyp einer Styling-App für Frauen und Männer: Farbtyp, Figur, Stil-Test, Farbprobe mit Foto, Outfits und Trends. Konzept und Design: Raluca Jidvian.">
 <link rel="canonical" href="https://dandelion1111r.github.io/ton-sur-ton/">
 <meta name="author" content="Raluca Jidvian">
-<meta name="theme-color" content="#F4F0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#F6F3EF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17130F" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -41,7 +42,7 @@
 @font-face{font-family:"DM Mono";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/dm-mono-latin-ext-400-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"DM Mono";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/dm-mono-latin-400-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
-/* Ton sur Ton · editorial luxury: ivory paper, ink, one champagne accent.
+/* TON SUR TON · editorial luxury: ivory paper, ink, one champagne accent.
    Big photography, very little text, hairlines instead of boxes. */
 :root{
   --bg:#F4F0EA;--paper:#FBF9F5;--ink:#141210;--soft:#6F675F;--line:#DCD4C8;--accent:#A9834F;--dark:#141210;--on-dark:#EFE9E0;
@@ -383,6 +384,77 @@ html{scroll-padding-top:5rem}
   footer .meta{align-items:flex-start;text-align:left}
   footer .links{justify-content:flex-start}
 }
+
+/* ---------- new modules ---------- */
+.subtabs button{padding-right:1.6rem;margin-right:1.6rem}
+.status .acts{display:flex;gap:1.6rem;align-items:center;flex-wrap:wrap}
+.adopt[disabled]{opacity:1;border-color:var(--line);color:var(--accent);pointer-events:none}
+.adopt[disabled]::before{content:"✓";margin-right:-.2rem}
+.fit{margin-top:clamp(3rem,6vw,5rem);padding-top:clamp(2rem,4vw,3rem);border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(2rem,4vw,4rem)}
+.fit-head{display:flex;flex-direction:column;gap:.8rem}
+.fit-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(1.5rem,3vw,3rem)}
+.fit-list li{display:grid;grid-template-columns:2.4rem 1fr;gap:.2rem .6rem;padding:1.2rem 0;border-bottom:1px solid var(--line)}
+.fit-list .num{font-family:var(--mono,"DM Mono"),monospace;font-size:.72rem;color:var(--accent);padding-top:.35rem;grid-row:span 2}
+.fit-list h4{margin:0;font-family:var(--display);font-weight:400;font-size:1.2rem}
+.fit-list p{margin:0;color:var(--soft);font-size:.92rem}
+.face-vis svg{width:100%;max-width:22rem;height:auto;display:block;margin:0 auto}
+.body-line.thin{stroke-width:.8}
+.chk-stage{position:relative;aspect-ratio:4/5;background:var(--paper);border:1px solid var(--line);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.chk-stage canvas{width:100%;height:100%;object-fit:contain;cursor:crosshair;display:block}
+.chk-empty{display:flex;flex-direction:column;align-items:center;gap:1rem;cursor:pointer;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--soft)}
+.chk-empty .plus{font-family:var(--display);font-size:3.4rem;line-height:1;color:var(--accent);letter-spacing:0}
+.chk-mark{position:absolute;width:2.2rem;height:2.2rem;margin:-1.1rem 0 0 -1.1rem;border:1px solid #fff;border-radius:50%;box-shadow:0 0 0 1px rgba(0,0,0,.45);pointer-events:none}
+.pickc{position:relative;cursor:pointer}
+.pickc input{width:1.6rem;height:1.6rem;border:1px solid var(--line);border-radius:50%;padding:0;background:none;cursor:pointer;-webkit-appearance:none;appearance:none;overflow:hidden}
+.pickc input::-webkit-color-swatch-wrapper{padding:0}.pickc input::-webkit-color-swatch{border:0;border-radius:50%}.pickc input::-moz-color-swatch{border:0;border-radius:50%}
+.verdict{display:grid;grid-template-columns:auto 1fr;gap:1.4rem;align-items:start;padding:1.6rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.verdict h3{font-size:clamp(1.6rem,2.6vw,2.2rem);margin:.3rem 0 .5rem}
+.verdict p{margin:0;color:var(--soft)}
+.verdict.yes h3{color:var(--ink)}.verdict.yes h3::after{content:" ✓";color:var(--accent)}
+.verdict.mid h3{color:var(--soft)}
+.verdict.no h3{color:var(--soft);font-style:italic}
+.dot.big{width:4.2rem;height:4.2rem}
+#chkResult{display:flex;flex-direction:column;gap:1.6rem}
+.info-grid.flush{margin-top:0}
+.count{font-family:var(--display);font-size:1.5rem;margin:0}
+.ward{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.ward-item{width:100%;display:grid;grid-template-columns:1.4rem 1fr auto;gap:1rem;align-items:center;padding:.95rem 0;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;cursor:pointer;color:var(--ink);font:inherit}
+.ward-item .box{width:1rem;height:1rem;border:1px solid var(--ink);display:inline-flex;align-items:center;justify-content:center;font-size:.7rem}
+.ward-item[aria-pressed="true"] .box{background:var(--ink);color:var(--bg)}
+.ward-item[aria-pressed="true"] .box::after{content:"✓"}
+.ward-item[aria-pressed="true"] .it{color:var(--soft);text-decoration:line-through;text-decoration-color:var(--line)}
+.ward-item .it{font-family:var(--display);font-size:1.15rem}
+.ward-item .col{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--soft);white-space:nowrap}
+#pkList .col{gap:.25rem}
+#compare{margin-top:clamp(4rem,8vw,7rem)}
+.cmp-wrap{overflow-x:auto;margin-top:.6rem}
+.cmp{width:100%;border-collapse:collapse;min-width:34rem}
+.cmp th,.cmp td{padding:1rem .8rem;border-bottom:1px solid var(--line);text-align:center;font-weight:400}
+.cmp thead th{font-size:.64rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--soft);vertical-align:bottom}
+.cmp tbody th{text-align:left;font-family:var(--display);font-size:1.08rem;padding-left:0}
+.cmp .us{background:var(--paper)}
+.cmp thead .us{color:var(--ink);border-bottom:2px solid var(--ink)}
+.cmp .m{display:inline-block;width:.7rem;height:.7rem;border-radius:50%;vertical-align:middle}.cmp .m.y{background:var(--accent)}.cmp .m.p{border:1px solid var(--accent);background:linear-gradient(90deg,var(--accent) 50%,transparent 50%)}.cmp .m.n{width:.9rem;height:1px;border-radius:0;background:var(--line)}
+.pass{display:none}
+@media (max-width:980px){.fit{grid-template-columns:1fr}}
+@media (max-width:600px){.fit-list{grid-template-columns:1fr}.subtabs button{font-size:1.15rem}.cmp tbody th{font-size:.95rem}}
+@media print{
+  @page{margin:16mm}
+  body>*:not(.pass){display:none!important}
+  body{background:#fff}
+  .pass{display:block;color:#141210;font-family:var(--body,"Jost"),sans-serif;font-size:10.5pt;line-height:1.45}
+  .pass header{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #141210;padding-bottom:4mm;margin-bottom:8mm;font-size:8pt;letter-spacing:.2em;text-transform:uppercase}
+  .pass .logo{font-family:var(--display);font-size:14pt;letter-spacing:.18em}
+  .pass h1{font-family:var(--display);font-weight:400;font-size:26pt;margin:0}
+  .pass .sub{margin:1mm 0 6mm;color:#6F675F;letter-spacing:.14em;text-transform:uppercase;font-size:8pt}
+  .pass h2{font-size:7.5pt;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#6F675F;margin:6mm 0 2.5mm}
+  .pass .pcs{display:flex;flex-wrap:wrap;gap:2mm 5mm}
+  .pass .pc{display:inline-flex;align-items:center;gap:1.6mm;font-size:9pt}
+  .pass .pc i{width:5mm;height:5mm;border-radius:50%;border:.2mm solid rgba(0,0,0,.15);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .pass .cols{display:grid;grid-template-columns:1fr 1fr;gap:8mm}
+  .pass ul{margin:0;padding-left:4mm}
+  .pass footer{margin-top:10mm;padding-top:3mm;border-top:.2mm solid #DCD4C8;font-size:7.5pt;color:#6F675F}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -448,7 +520,8 @@ html{scroll-padding-top:5rem}
   <div class="subtabs" role="tablist" data-group="prof">
     <button role="tab" data-tab="color" aria-selected="true"><span class="num">i</span><span data-t="tabColor"></span></button>
     <button role="tab" data-tab="shape" aria-selected="false"><span class="num">ii</span><span data-t="tabShape"></span></button>
-    <button role="tab" data-tab="drape" aria-selected="false"><span class="num">iii</span><span data-t="tabDrape"></span></button>
+    <button role="tab" data-tab="face" aria-selected="false"><span class="num">iii</span><span data-t="tabFace"></span></button>
+    <button role="tab" data-tab="drape" aria-selected="false"><span class="num">iv</span><span data-t="tabDrape"></span></button>
   </div>
 
   <div class="tabpanel" data-panel="prof:color">
@@ -465,7 +538,7 @@ html{scroll-padding-top:5rem}
           <div><span class="label" data-t="ctAvoid"></span><div class="dots" id="ctAvoid"></div></div>
           <div><span class="label" data-t="ctMetal"></span><span id="ctMetal"></span></div>
         </div>
-        <div><button class="cta" data-goto="prof:drape" data-t="goDrape"></button></div>
+        <div class="row"><button class="btn line adopt" id="ctAdopt" type="button"></button><button class="cta" data-goto="prof:drape" data-t="goDrape"></button></div>
       </div>
     </div>
   </div>
@@ -485,7 +558,29 @@ html{scroll-padding-top:5rem}
             <dt data-t="fgAcc"></dt><dd id="fgAcc"></dd>
           </dl>
           <p class="fine" data-t="bodyNote"></p>
-          <div><a class="cta" href="#looks" data-t="goLooks"></a></div>
+          <div class="row"><button class="btn line adopt" id="fgAdopt" type="button"></button><button class="cta" data-goto="prof:face" data-t="goFace"></button></div>
+        </div>
+      </div>
+      <div class="fit" id="fgFit"></div>
+    </div>
+  </div>
+
+  <div class="tabpanel" data-panel="prof:face" hidden>
+    <div class="panel">
+      <p class="intro" data-t="faceLead"></p>
+      <div class="row"><div class="tabs" id="fcGender" role="group"></div><div class="tabs" id="fcShapes" role="group"></div></div>
+      <div class="sil">
+        <div id="fcVisual" class="face-vis"></div>
+        <div class="panel">
+          <h3 id="fcName"></h3>
+          <p class="lead" id="fcSigns"></p>
+          <dl class="kv">
+            <dt data-t="faceGlasses"></dt><dd id="fcGlasses"></dd>
+            <dt id="fcNeckL"></dt><dd id="fcNeck"></dd>
+            <dt id="fcHairL"></dt><dd id="fcHair"></dd>
+          </dl>
+          <p class="fine" data-t="faceHow"></p>
+          <div class="row"><button class="btn line adopt" id="fcAdopt" type="button"></button><button class="cta" data-goto="prof:drape" data-t="goDrape"></button></div>
         </div>
       </div>
     </div>
@@ -508,6 +603,7 @@ html{scroll-padding-top:5rem}
           <label class="btn upl" for="dpFile"><span data-t="dpUpload"></span><input type="file" id="dpFile" accept="image/*"></label>
           <span class="fine" data-t="dpPrivacy"></span>
         </div>
+        <div><a class="cta" href="#looks" data-t="goLooks"></a></div>
         <div class="range" id="dpRanges" hidden>
           <span class="label" data-t="dpZoom"></span><input type="range" id="dpZoom" min="1" max="3" step="0.05" value="1.2">
           <span class="label" data-t="dpPos"></span><input type="range" id="dpPos" min="0" max="100" step="1" value="30">
@@ -525,7 +621,9 @@ html{scroll-padding-top:5rem}
   </div>
   <div class="subtabs" role="tablist" data-group="looks">
     <button role="tab" data-tab="outfits" aria-selected="true"><span class="num">i</span><span data-t="tabOutfits"></span></button>
-    <button role="tab" data-tab="season" aria-selected="false"><span class="num">ii</span><span data-t="tabSeason"></span></button>
+    <button role="tab" data-tab="check" aria-selected="false"><span class="num">ii</span><span data-t="tabCheck"></span></button>
+    <button role="tab" data-tab="ward" aria-selected="false"><span class="num">iii</span><span data-t="tabWard"></span></button>
+    <button role="tab" data-tab="season" aria-selected="false"><span class="num">iv</span><span data-t="tabSeason"></span></button>
   </div>
 
   <div class="tabpanel" data-panel="looks:outfits">
@@ -537,6 +635,47 @@ html{scroll-padding-top:5rem}
         <ul class="olist" id="ofList"></ul>
         <ul class="why" id="ofWhy"></ul>
         <div><button class="cta" id="ofShuffle" data-t="ofShuffle"></button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpanel" data-panel="looks:check" hidden>
+    <div class="feature">
+      <div class="chk-stage" id="chkStage">
+        <canvas id="chkCanvas" hidden></canvas>
+        <label class="chk-empty" id="chkEmpty" for="chkFile"><span class="plus">+</span><span data-t="chkUpload"></span></label>
+        <span class="chk-mark" id="chkMark" hidden></span>
+      </div>
+      <div class="panel">
+        <p class="intro" data-t="chkLead"></p>
+        <div class="row">
+          <label class="btn upl" for="chkFile"><span data-t="chkUpload"></span><input type="file" id="chkFile" accept="image/*"></label>
+          <label class="cta pickc"><span data-t="chkPick"></span><input type="color" id="chkColor" value="#8a6d5a"></label>
+        </div>
+        <p class="fine" data-t="chkTap"></p>
+        <div id="chkResult" aria-live="polite"></div>
+        <p class="fine" data-t="dpPrivacy"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpanel" data-panel="looks:ward" hidden>
+    <div class="info-grid flush">
+      <div class="info-block">
+        <span class="label" data-t="wardTitle"></span>
+        <p class="intro" data-t="wardLead"></p>
+        <p class="count" id="wdCount"></p>
+        <ul class="ward" id="wdList"></ul>
+        <p class="fine" id="wdNext"></p>
+      </div>
+      <div class="info-block">
+        <span class="label" data-t="packTitle"></span>
+        <p class="intro" data-t="packLead"></p>
+        <div class="choose"><span class="label" data-t="packDays"></span><div class="tabs" id="pkDays" role="group"></div></div>
+        <div class="choose"><span class="label" data-t="packWeather"></span><div class="tabs" id="pkWeather" role="group"></div></div>
+        <ul class="olist" id="pkList"></ul>
+        <p class="count" id="pkTotal"></p>
+        <p class="fine" data-t="packRule"></p>
       </div>
     </div>
   </div>
@@ -581,6 +720,12 @@ html{scroll-padding-top:5rem}
       </ul>
     </div>
   </div>
+  <div class="info-block" id="compare">
+    <span class="label" data-t="cmpEyebrow"></span>
+    <h3 data-th="cmpTitle"></h3>
+    <div class="cmp-wrap"><table class="cmp" id="cmpTable"></table></div>
+    <p class="fine" data-t="cmpNote"></p>
+  </div>
   <div class="info-block" id="faq">
     <span class="label">FAQ</span>
     <h3 data-th="faqTitle"></h3>
@@ -588,6 +733,8 @@ html{scroll-padding-top:5rem}
   </div>
 </section>
 </main>
+
+<section class="pass" id="pass" aria-hidden="true"></section>
 
 <nav class="mobile-steps" aria-label="Steps">
   <a href="#test" data-spy="test"><span class="n">01</span><span data-t="navTest"></span></a>
@@ -899,6 +1046,112 @@ const TRENDS = [
   desc:L3("Locker zu Strick und Hemd, auch ohne Anzug.","Purtată relaxat, cu pulover și cămașă, chiar și fără costum.","Worn loosely with knitwear and a shirt, even without a suit."),
   fit:p=>(p.styles||[]).some(s=>["klassisch","elegant","kreativ"].includes(s)) ? ["yes",L3("Passt zu deinem Stil, auch im Alltag.","Se potrivește stilului tău, și în fiecare zi.","Fits your style, even day to day.")] : ["adapt",L3("Probier eine Strickkrawatte zum Pullover, das wirkt lässiger.","Încearcă o cravată tricotată cu pulover, pare mai relaxat.","Try a knit tie with a jumper, it feels more relaxed.")]}
 ];
+
+/* ---------- data: face shapes ---------- */
+const FACES = {
+ oval:{name:L3("Oval","Oval","Oval"),
+  signs:L3("Etwas länger als breit, das Kinn sanft gerundet.","Puțin mai lungă decât lată, cu bărbia ușor rotunjită.","Slightly longer than wide, with a softly rounded chin."),
+  glasses:L3("Fast jede Form. Achte nur darauf, dass die Fassung so breit ist wie dein Gesicht.","Aproape orice formă. Ai grijă doar ca rama să fie cât fața de lată.","Almost any shape. Just keep the frame as wide as your face."),
+  neck:{w:L3("Jeder Ausschnitt steht dir. Ohrringe in jeder Form.","Orice decolteu îți stă bine. Cercei de orice formă.","Every neckline works. Earrings in any shape."),m:L3("Jeder Kragen. Krawatte in klassischer Breite.","Orice guler. Cravată de lățime clasică.","Any collar. A tie of classic width.")},
+  hair:{w:L3("Fast jede Frisur, auch kurz oder streng zurückgebunden.","Aproape orice coafură, chiar scurtă sau strânsă la spate.","Almost any cut, even short or sleeked back."),m:L3("Fast jeder Schnitt. Bart optional, kurz und gepflegt.","Aproape orice tunsoare. Barba e opțională, scurtă și îngrijită.","Almost any cut. A beard is optional, kept short and neat.")},
+  path:"M100 22 C150 22 166 80 164 130 C162 190 136 238 100 238 C64 238 38 190 36 130 C34 80 50 22 100 22 Z"},
+ rund:{name:L3("Rund","Rotund","Round"),
+  signs:L3("Breite und Länge fast gleich, weiche Wangen, rundes Kinn.","Lățimea și lungimea aproape egale, obraji moi, bărbie rotundă.","Width and length almost equal, soft cheeks, a round chin."),
+  glasses:L3("Eckige oder rechteckige Fassungen, etwas breiter als das Gesicht.","Rame pătrate sau dreptunghiulare, puțin mai late decât fața.","Square or rectangular frames, slightly wider than the face."),
+  neck:{w:L3("V-Ausschnitt und lange Ketten strecken. Längliche Ohrringe.","Decolteul în V și colierele lungi alungesc. Cercei alungiți.","V-necks and long necklaces add length. Elongated earrings."),m:L3("Spitzer Kragen, offener Hemdkragen oder V-Ausschnitt.","Guler ascuțit, cămașă descheiată la gât sau decolteu în V.","A pointed collar, an open shirt collar or a V-neck.")},
+  hair:{w:L3("Volumen am Oberkopf, Längen über die Schulter, Seitenscheitel.","Volum în creștet, lungimi peste umăr, cărare laterală.","Volume on top, lengths past the shoulder, a side parting."),m:L3("Höhe oben, Seiten kurz. Ein kurzer Kinnbart streckt.","Volum sus, părțile laterale scurte. O barbă scurtă pe bărbie alungește.","Height on top, short sides. A short chin beard adds length.")},
+  path:"M100 30 C152 30 172 76 172 130 C172 188 144 230 100 230 C56 230 28 188 28 130 C28 76 48 30 100 30 Z"},
+ eckig:{name:L3("Eckig","Pătrat","Square"),
+  signs:L3("Kräftige Kieferlinie, Stirn und Kinn fast gleich breit.","Linia maxilarului puternică, fruntea și bărbia aproape la fel de late.","A strong jawline, forehead and jaw almost the same width."),
+  glasses:L3("Runde oder ovale Fassungen mildern die Kanten.","Ramele rotunde sau ovale îndulcesc unghiurile.","Round or oval frames soften the angles."),
+  neck:{w:L3("Runder Ausschnitt, U-Boot, weiche Kragen. Runde Ohrringe.","Decolteu rotund, în barcă, gulere moi. Cercei rotunzi.","Round and boat necks, soft collars. Round earrings."),m:L3("Weicher Kragen, Rollkragen oder runder Ausschnitt.","Guler moale, helancă sau decolteu rotund.","A soft collar, a roll neck or a crew neck.")},
+  hair:{w:L3("Weiche Wellen und Stufen um das Kinn. Kein harter, gerader Pony.","Valuri moi și straturi în jurul bărbiei. Fără breton drept și dur.","Soft waves and layers around the chin. No hard, blunt fringe."),m:L3("Etwas Länge und Textur oben, der Bart bleibt kurz.","Puțină lungime și textură sus, barba rămâne scurtă.","Some length and texture on top, keep the beard short.")},
+  path:"M46 40 C46 28 56 22 70 22 L130 22 C144 22 154 28 154 40 L158 168 C158 210 140 236 100 236 C60 236 42 210 42 168 Z"},
+ herz:{name:L3("Herz","Inimă","Heart"),
+  signs:L3("Breite Stirn, schmales, eher spitzes Kinn.","Frunte lată, bărbie îngustă, mai degrabă ascuțită.","A wide forehead and a narrow, rather pointed chin."),
+  glasses:L3("Unten betonte oder randlose Fassungen, leichte Pilotenform.","Rame accentuate jos sau fără ramă, formă ușor aviator.","Bottom-heavy or rimless frames, a light aviator shape."),
+  neck:{w:L3("Runder oder Carré-Ausschnitt. Ohrringe, die unten breiter werden.","Decolteu rotund sau pătrat. Cercei care se lărgesc spre bază.","Round or square necklines. Earrings that widen at the bottom."),m:L3("Klassischer Kragen und Strick mit Struktur am Hals.","Guler clasic și tricotaje cu textură la gât.","A classic collar and textured knits at the neck.")},
+  hair:{w:L3("Volumen auf Kinnhöhe und ein seitlicher Pony.","Volum la nivelul bărbiei și breton lateral.","Volume at chin level and a side fringe."),m:L3("Oben mittellang, Seiten nicht zu kurz. Ein Vollbart gleicht das Kinn aus.","Sus lungime medie, părțile laterale nu prea scurte. O barbă plină echilibrează bărbia.","Medium length on top, sides not too short. A full beard balances the chin.")},
+  path:"M100 22 C160 22 172 66 168 104 C162 158 128 214 100 238 C72 214 38 158 32 104 C28 66 40 22 100 22 Z"},
+ lang:{name:L3("Länglich","Alungit","Long"),
+  signs:L3("Deutlich länger als breit, Wangen eher gerade.","Vizibil mai lungă decât lată, cu obrajii mai degrabă drepți.","Clearly longer than wide, with fairly straight cheeks."),
+  glasses:L3("Große, hohe Fassungen mit betontem Steg.","Rame mari și înalte, cu puntea accentuată.","Large, deep frames with a defined bridge."),
+  neck:{w:L3("Rollkragen, U-Boot und Tücher. Kreolen und Ohrstecker.","Helancă, decolteu în barcă și eșarfe. Cercei rotunzi și mici.","Roll necks, boat necks and scarves. Hoops and studs."),m:L3("Breite Kragen, Rollkragen und grober Strick.","Gulere late, helancă și tricotaje groase.","Spread collars, roll necks and chunky knits.")},
+  hair:{w:L3("Pony und Volumen an den Seiten, Längen bis Kinn oder Schulter.","Breton și volum lateral, lungimi până la bărbie sau umăr.","A fringe and volume at the sides, lengths to the chin or shoulder."),m:L3("Oben eher flach, an den Seiten etwas Volumen. Bart an den Wangen voller.","Sus mai plat, puțin volum lateral. Barba mai plină pe obraji.","Flatter on top, a little volume at the sides. A fuller beard on the cheeks.")},
+  path:"M100 14 C142 14 152 70 152 130 C152 200 132 246 100 246 C68 246 48 200 48 130 C48 70 58 14 100 14 Z"}
+};
+const FKEYS = ["oval","rund","eckig","herz","lang"];
+
+/* ---------- data: fit rules ---------- */
+const FIT = {
+ w:[
+  [L3("Die Drittel-Regel","Regula treimilor","The rule of thirds"),L3("Teile den Look in ein Drittel zu zwei Dritteln, nicht in Hälften. Etwa kurzes Oberteil zu hoher Hose.","Împarte ținuta într-o treime și două treimi, nu în jumătăți. De exemplu, un top scurt cu pantaloni cu talie înaltă.","Split the look one third to two thirds, not in halves. A short top with high-waisted trousers, for example.")],
+  [L3("Die Taille","Talia","The waist"),L3("Zeig sie mit Gürtel, Wickelschnitt oder halb eingestecktem Oberteil.","Pune-o în valoare cu o curea, o croială petrecută sau un top băgat pe jumătate.","Show it with a belt, a wrap cut or a half-tucked top.")],
+  [L3("Die Schulternaht","Cusătura umărului","The shoulder seam"),L3("Sie sitzt genau auf dem Schulterknochen, außer bei bewusst lockeren Schnitten.","Stă exact pe osul umărului, cu excepția croielilor lejere intenționate.","It sits right on the shoulder bone, except in deliberately loose cuts.")],
+  [L3("Die Saumlänge","Lungimea tivului","The hem"),L3("Ende an der schmalsten Stelle: unter dem Knie, an der Wade oder am Knöchel.","Tivul se oprește în cel mai îngust punct: sub genunchi, la gambă sau la gleznă.","End at the narrowest point: below the knee, at the calf or at the ankle.")],
+  [L3("Die Hosenlänge","Lungimea pantalonilor","Trouser length"),L3("Weite Hosen fast bis zum Boden, mit Schuh gemessen. Gerade Hosen enden am Knöchel.","Pantalonii largi aproape până la podea, măsurați cu pantoful. Cei drepți se opresc la gleznă.","Wide trousers almost to the floor, measured with shoes. Straight ones end at the ankle.")],
+  [L3("Ein Blickfang","Un singur punct de atracție","One focal point"),L3("Pro Look nur ein Star: eine Farbe, ein Muster oder ein Schmuckstück.","O singură vedetă pe ținută: o culoare, un model sau o bijuterie.","One star per look: a colour, a pattern or a piece of jewellery.")]
+ ],
+ m:[
+  [L3("Die Schulter","Umărul","The shoulder"),L3("Die Naht endet am Schulterknochen. Keine Delle am Oberarm.","Cusătura se oprește la osul umărului. Fără adâncitură pe braț.","The seam ends at the shoulder bone. No dent at the upper arm.")],
+  [L3("Der Kragen","Gulerul","The collar"),L3("Der Sakkokragen liegt am Hemdkragen an, ohne Spalt.","Gulerul sacoului stă lipit de gulerul cămășii, fără spațiu.","The jacket collar rests on the shirt collar, with no gap.")],
+  [L3("Der Ärmel","Mâneca","The sleeve"),L3("Ein bis eineinhalb Zentimeter Hemdmanschette bleiben sichtbar.","Se vede un centimetru, un centimetru și jumătate din manșeta cămășii.","One to one and a half centimetres of shirt cuff should show.")],
+  [L3("Die Länge","Lungimea","The length"),L3("Das Sakko bedeckt den Po. Der Saum liegt etwa auf Höhe der Daumen.","Sacoul acoperă fesele. Tivul ajunge cam la nivelul degetului mare.","The jacket covers the seat. The hem sits roughly level with your thumbs.")],
+  [L3("Die Hose","Pantalonii","The trousers"),L3("Der Saum berührt den Schuh nur leicht: ein kleiner Knick oder keiner.","Tivul atinge ușor pantoful: o cută mică sau deloc.","The hem just touches the shoe: a slight break or none.")],
+  [L3("Die Knöpfe","Nasturii","The buttons"),L3("Im Stehen geschlossen, der unterste Knopf bleibt immer offen.","Încheiat în picioare, nasturele de jos rămâne mereu descheiat.","Fastened when standing, the bottom button always stays open.")],
+  [L3("Die Lederregel","Regula pielii","The leather rule"),L3("Gürtel und Schuhe in derselben Farbe, das Uhrarmband passend, ein einziges Metall.","Cureaua și pantofii de aceeași culoare, brățara ceasului asortată, un singur metal.","Belt and shoes in the same colour, a matching watch strap, one metal only.")]
+ ]
+};
+
+/* ---------- extra occasion: christening & family celebration ---------- */
+OCC.push(["fest",L3("Taufe & Familienfest","Botez & petrecere în familie","Christening & family party")]);
+OUT.w.fest = {rule:L3("Taufe: festlich, aber ruhig. Knie und Schultern bedeckt, kein Weiß.","La botez: festiv, dar sobru. Genunchii și umerii acoperiți, fără alb.","Christening: festive but calm. Knees and shoulders covered, no white."),items:[
+  ["dress",{cold:L3("Strickkleid in Midilänge","Rochie tricotată midi","Midi knit dress"),mild:L3("Midikleid mit Ärmeln","Rochie midi cu mâneci","Midi dress with sleeves"),warm:L3("Fließendes Midikleid","Rochie midi fluidă","Flowing midi dress")},"a0"],
+  ["layer",{cold:L3("Wollmantel","Palton de lână","Wool coat"),mild:L3("Kurzer Blazer","Blazer scurt","Cropped blazer"),warm:L3("Leichte Strickjacke","Cardigan subțire","Light cardigan")},"n1"],
+  ["shoes",L3("Pumps mit Blockabsatz","Pantofi cu toc gros","Block-heel pumps"),"n2"],
+  ["bag",L3("Kleine Henkeltasche","Geantă mică cu mâner","Small top-handle bag"),"n2"],
+  ["metal",L3("Perlen oder feine Kette","Perle sau lănțișor fin","Pearls or a fine chain"),"metal"]]};
+OUT.m.fest = {rule:L3("Taufe: Sakko statt Anzug genügt, die Krawatte ist optional.","La botez: ajunge un sacou în loc de costum, cravata e opțională.","Christening: a blazer instead of a suit is enough, the tie is optional."),items:[
+  ["layer",L3("Sakko","Sacou","Blazer"),"n2"],
+  ["top",L3("Hemd","Cămașă","Shirt"),"n0"],
+  ["bottom",L3("Stoffhose","Pantaloni de stofă","Tailored trousers"),"n3"],
+  ["acc",L3("Einstecktuch","Batistă de buzunar","Pocket square"),"a0"],
+  ["shoes",L3("Loafer oder Derby","Loafers sau Derby","Loafers or Derbies"),"n3"],
+  ["metal",L3("Uhr und Ledergürtel","Ceas și curea din piele","Watch and leather belt"),"metal"]]};
+
+/* ---------- data: the ten-piece wardrobe ---------- */
+const WARD = {
+ w:[[L3("Blazer","Blazer","Blazer"),"n1"],[L3("Weiße Bluse","Cămașă albă","White shirt"),"n0"],[L3("Feinstrickpullover","Pulover fin","Fine-knit jumper"),"a0"],[L3("Gerade Hose","Pantaloni drepți","Straight trousers"),"n3"],[L3("Dunkle Jeans","Blugi închiși","Dark jeans"),"n3"],[L3("Midikleid","Rochie midi","Midi dress"),"a1"],[L3("Wollmantel","Palton de lână","Wool coat"),"n1"],[L3("Loafer","Loafers","Loafers"),"n3"],[L3("Weiße Sneaker","Sneakers albi","White sneakers"),"n0"],[L3("Ledertasche","Geantă din piele","Leather bag"),"n2"]],
+ m:[[L3("Sakko","Sacou","Blazer"),"n2"],[L3("Weißes Hemd","Cămașă albă","White shirt"),"n0"],[L3("Strickpullover","Pulover","Knit jumper"),"a0"],[L3("Chino","Pantaloni chino","Chinos"),"n1"],[L3("Dunkle Jeans","Blugi închiși","Dark jeans"),"n3"],[L3("Overshirt","Overshirt","Overshirt"),"a1"],[L3("Wollmantel","Palton de lână","Wool coat"),"n1"],[L3("Derby-Schuhe","Pantofi Derby","Derby shoes"),"n3"],[L3("Weiße Sneaker","Sneakers albi","White sneakers"),"n0"],[L3("Ledergürtel","Curea din piele","Leather belt"),"n3"]]
+};
+
+/* ---------- data: packing ---------- */
+const PACK = {
+ top:{cold:L3("Pullover","Pulover","Jumper"),mild:L3("Langarmshirt","Bluză cu mânecă lungă","Long-sleeve top"),warm:L3("T-Shirt","Tricou","T-shirt")},
+ bottom:{cold:L3("Wollhose","Pantaloni de lână","Wool trousers"),mild:L3("Hose oder Jeans","Pantaloni sau blugi","Trousers or jeans"),warm:L3("Leichte Hose oder Rock","Pantaloni subțiri sau fustă","Light trousers or skirt")},
+ bottomM:{cold:L3("Wollhose","Pantaloni de lână","Wool trousers"),mild:L3("Chino oder Jeans","Chino sau blugi","Chinos or jeans"),warm:L3("Leichte Chino","Chino subțiri","Light chinos")},
+ layer:{cold:L3("Warmer Mantel","Palton călduros","Warm coat"),mild:L3("Trench oder Blazer","Trenci sau blazer","Trench or blazer"),warm:L3("Leichtes Hemd zum Überziehen","Cămașă lejeră de pus peste","Light overshirt")},
+ evening:{w:L3("Kleid für den Abend","Rochie pentru seară","Evening dress"),m:L3("Schönes Hemd für den Abend","Cămașă elegantă pentru seară","Smart shirt for the evening")},
+ shoes1:{cold:L3("Stiefeletten","Botine","Ankle boots"),mild:L3("Loafer","Loafers","Loafers"),warm:L3("Sandalen","Sandale","Sandals")},
+ shoes2:L3("Sneaker","Sneakers","Sneakers"),
+ bag:{w:L3("Tasche, die zu allem passt","Geantă care merge cu orice","A bag that goes with everything"),m:L3("Weekender oder Rucksack","Geantă weekend sau rucsac","Weekender or backpack")},
+ extra:{cold:L3("Schal und Handschuhe","Fular și mănuși","Scarf and gloves"),mild:L3("Leichter Schal","Eșarfă subțire","Light scarf"),warm:L3("Sonnenbrille und Hut","Ochelari de soare și pălărie","Sunglasses and a hat")}
+};
+
+/* ---------- data: comparison ---------- */
+/* columns: colour-analysis apps · wardrobe apps · Ton sur Ton ; 2 = yes, 1 = partly, 0 = no */
+const COMPARE = [
+ [L3("Farbtyp und Palette","Tipul de culoare și paleta","Colour type and palette"),2,1,2],
+ [L3("Figur und Passform, mit Erklärung","Silueta și croiala, cu explicații","Body shape and fit, explained"),1,0,2],
+ [L3("Gesicht: Brille, Kragen, Frisur","Fața: ochelari, guler, coafură","Face: glasses, collar, hair"),1,0,2],
+ [L3("Gleich gut für Frauen und Männer","La fel de bun pentru femei și bărbați","Equally good for women and men"),1,1,2],
+ [L3("Ganze Looks mit Schuhen, Tasche, Schmuck","Ținute complete cu pantofi, geantă, bijuterii","Full looks with shoes, bag, jewellery"),0,2,2],
+ [L3("Das Warum zu jeder Empfehlung","Explicația pentru fiecare recomandare","The why behind every suggestion"),0,0,2],
+ [L3("Farb-Check für ein Kleidungsstück","Verificarea culorii unei haine","Colour check for a single piece"),1,0,2],
+ [L3("Trends, für dich gefiltert","Tendințe filtrate pentru tine","Trends filtered for you"),0,1,2],
+ [L3("Sofort nutzbar, ohne den Schrank zu fotografieren","Utilă imediat, fără să-ți fotografiezi dulapul","Useful at once, no wardrobe photos needed"),2,0,2],
+ [L3("Ohne Konto, Foto bleibt bei dir","Fără cont, poza rămâne la tine","No account, your photo stays with you"),0,0,2]
+];
 /* ---------- interface text ---------- */
 const T = {
 de:{
@@ -1099,6 +1352,104 @@ en:{
   ],
   disclaimer:"Concept prototype. Not a published app.",credit:"Concept & design · Raluca Jidvian · 2026",legalImp:"Legal notice",legalDs:"Privacy",photos:"Photos: Pexels"
 }};
+
+/* ---------- interface text: new modules ---------- */
+Object.assign(T.de, {
+  profLead:"Farbe, Form, Gesicht und Probe. Alles, was dir steht, an einem Ort.",how2d:"Farben, Form und Gesicht. Dazu die Probe am eigenen Foto.",
+  how3d:"Looks für jeden Anlass, der Farb-Check, deine Garderobe und die Saison.",
+  tabFace:"Gesicht",goFace:"Weiter zum Gesicht",tabCheck:"Farb-Check",tabWard:"Garderobe",
+  faceLead:"Fünf Gesichtsformen. Für Brille, Kragen und Frisur.",faceHow:"Haare zurück, gerade in den Spiegel schauen.",
+  faceSigns:"Merkmale",faceGlasses:"Brille",faceNeckW:"Ausschnitt",faceNeckM:"Kragen",faceHairW:"Frisur",faceHairM:"Haar & Bart",
+  fitW:"Die Proportionen",fitM:"Die Passform",fitLeadW:"Sechs Regeln, die jeder Stilistin vertraut sind.",fitLeadM:"Sieben Regeln für Anzug, Sakko und Leder.",
+  adopt:"Das bin ich",adopted:"In dein Profil übernommen.",
+  chkLead:"Ein Foto vom Teil, das du kaufen willst. Wir sagen dir, ob die Farbe dir steht.",chkUpload:"Foto wählen",chkTap:"Tippe auf die Farbe im Bild.",chkPick:"Oder Farbe wählen",
+  chkFor:s=>`Geprüft für: ${s}`,chkYes:"Deine Farbe",chkYesD:n=>`Sehr nah an ${n} aus deiner Palette. Trag sie nah am Gesicht.`,
+  chkMid:"Mit Abstand",chkMidD:"Nicht in deiner Palette. Trag sie weiter unten: Hose, Schuhe, Tasche.",
+  chkNo:"Lieber nicht",chkNoD:n=>`Nah an ${n}, einer Farbe zum Meiden. Lass das Teil hängen oder trag es fern vom Gesicht.`,
+  chkPair:"Dazu passt",chkEmpty:"Noch keine Farbe gewählt.",
+  wardTitle:"Die Garderobe",wardLead:"Zehn Teile, aus denen fast jeder Look entsteht. Markiere, was du hast.",
+  wardHave:(a,b)=>`${a} von ${b} vorhanden`,wardBuy:"Als Nächstes",wardDone:"Komplett. Kaufe nur noch, was wirklich fehlt.",
+  packTitle:"Der Koffer",packLead:"Wenige Teile, alle in deinen Farben.",packDays:"Tage",packWeather:"Wetter",
+  packTotal:n=>`${n} Kombinationen`,packRule:"Zwei Basisfarben und ein Akzent: so passt alles zu allem.",
+  cmpEyebrow:"Im Vergleich",cmpTitle:"Was uns <em>unterscheidet</em>",cmpCols:["Farb-Apps","Kleiderschrank-Apps","Ton sur Ton"],
+  cmpNote:"Typische Funktionen der bekanntesten Apps, Stand 2026. Eigene Auswertung.",cmpY:"Ja",cmpP:"Teilweise",cmpN:"Nein",
+  passBtn:"Stil-Pass als PDF",passTitle:"Der Stil-Pass",passDemo:"Beispielprofil",
+  tFreeList:["Stil-Test und Profil","Palette, Farbprobe und Farb-Check","Form, Passform und Gesicht","Looks für sechs Anlässe","Garderobe, Koffer und Saison","Stil-Pass als PDF"],
+  tLaterList:["KI-Analyse deines Fotos","Virtuelle Anprobe mit Größenhinweis","Digitaler Kleiderschrank","Shops in deiner Nähe"],
+  FAQ:[
+   ["Ist Ton sur Ton kostenlos?","Ja. Alles auf dieser Seite ist kostenlos und ohne Konto."],
+   ["Auch für Männer?","Ja. Formen, Passform, Looks und Trends gibt es getrennt für Frauen und Männer."],
+   ["Wie genau ist das Ergebnis?","Eine gute Orientierung. Am sichersten ist die Farbprobe mit einem Foto bei Tageslicht."],
+   ["Kann ich das Ergebnis ändern?","Ja. Wähle im Profil einen anderen Farbtyp, eine andere Form oder Gesichtsform und tippe auf „Das bin ich“."],
+   ["Wie funktioniert der Farb-Check?","Fotografiere das Teil im Laden und tippe auf die Farbe. Die Seite vergleicht sie mit deiner Palette, direkt im Browser."],
+   ["Kann ich mein Profil speichern?","Es bleibt in deinem Browser. Als Datei bekommst du es über „Stil-Pass als PDF“."],
+   ["Welche Sprachen?","Deutsch, Rumänisch und Englisch."]
+  ]
+});
+Object.assign(T.ro, {
+  profLead:"Culoare, siluetă, chip și probă. Tot ce ți se potrivește, într-un singur loc.",how2d:"Culori, siluetă și chip. Plus proba pe propria poză.",
+  how3d:"Ținute pentru orice ocazie, verificarea culorii, garderoba și sezonul.",
+  tabFace:"Chip",goFace:"Mai departe la chip",tabCheck:"Verifică o culoare",tabWard:"Garderobă",
+  faceLead:"Cinci forme de chip. Pentru ochelari, guler și coafură.",faceHow:"Părul strâns, privește drept în oglindă.",
+  faceSigns:"Semne",faceGlasses:"Ochelari",faceNeckW:"Decolteu",faceNeckM:"Guler",faceHairW:"Coafură",faceHairM:"Păr & barbă",
+  fitW:"Proporțiile",fitM:"Croiala",fitLeadW:"Șase reguli pe care orice stilist le știe.",fitLeadM:"Șapte reguli pentru costum, sacou și piele.",
+  adopt:"Asta sunt eu",adopted:"Salvat în profilul tău.",
+  chkLead:"O poză cu piesa pe care vrei s-o cumperi. Îți spunem dacă îți stă culoarea.",chkUpload:"Alege o poză",chkTap:"Atinge culoarea din imagine.",chkPick:"Sau alege o culoare",
+  chkFor:s=>`Verificat pentru: ${s}`,chkYes:"Culoarea ta",chkYesD:n=>`Foarte aproape de ${n} din paleta ta. Poart-o aproape de față.`,
+  chkMid:"Cu distanță",chkMidD:"Nu e în paleta ta. Poart-o mai jos: pantaloni, pantofi, geantă.",
+  chkNo:"Mai bine nu",chkNoD:n=>`Aproape de ${n}, o culoare de evitat. Las-o pe raft sau poart-o departe de față.`,
+  chkPair:"Se asortează cu",chkEmpty:"Nicio culoare aleasă încă.",
+  wardTitle:"Garderoba",wardLead:"Zece piese din care iese aproape orice ținută. Bifează ce ai deja.",
+  wardHave:(a,b)=>`Ai ${a} din ${b}`,wardBuy:"Următoarea piesă",wardDone:"Completă. De acum cumpără doar ce lipsește cu adevărat.",
+  packTitle:"Bagajul",packLead:"Puține piese, toate în culorile tale.",packDays:"Zile",packWeather:"Vreme",
+  packTotal:n=>`${n} combinații`,packRule:"Două culori de bază și un accent: așa merge totul cu tot.",
+  cmpEyebrow:"Comparație",cmpTitle:"Ce ne <em>deosebește</em>",cmpCols:["Aplicații de culoare","Aplicații de garderobă","Ton sur Ton"],
+  cmpNote:"Funcțiile tipice ale celor mai cunoscute aplicații, în 2026. Analiză proprie.",cmpY:"Da",cmpP:"Parțial",cmpN:"Nu",
+  passBtn:"Pașaportul de stil (PDF)",passTitle:"Pașaportul de stil",passDemo:"Exemplu de profil",
+  tFreeList:["Testul de stil și profilul","Paleta, proba și verificarea culorii","Silueta, croiala și chipul","Ținute pentru șase ocazii","Garderoba, bagajul și sezonul","Pașaportul de stil în PDF"],
+  tLaterList:["Analiza pozei cu AI","Proba virtuală cu indicator de mărime","Garderobă digitală","Magazine din apropiere"],
+  FAQ:[
+   ["Ton sur Ton este gratuit?","Da. Tot ce e pe această pagină e gratuit și fără cont."],
+   ["Și pentru bărbați?","Da. Siluetele, croiala, ținutele și tendințele sunt separate pentru femei și bărbați."],
+   ["Cât de exact este rezultatul?","O orientare bună. Cel mai sigur e proba culorilor cu o poză la lumina zilei."],
+   ["Pot schimba rezultatul?","Da. În profil alege alt tip de culoare, altă siluetă sau formă a chipului și apasă „Asta sunt eu”."],
+   ["Cum funcționează verificarea culorii?","Fotografiezi piesa în magazin și atingi culoarea. Pagina o compară cu paleta ta, direct în browser."],
+   ["Îmi pot salva profilul?","Rămâne în browserul tău. Ca fișier îl primești prin „Pașaportul de stil (PDF)”."],
+   ["Ce limbi?","Germană, română și engleză."]
+  ]
+});
+Object.assign(T.en, {
+  profLead:"Colour, shape, face and drape. Everything that suits you, in one place.",how2d:"Colours, shape and face. Plus the drape on your own photo.",
+  how3d:"Looks for every occasion, the colour check, your wardrobe and the season.",
+  tabFace:"Face",goFace:"On to your face",tabCheck:"Colour check",tabWard:"Wardrobe",
+  faceLead:"Five face shapes. For glasses, collars and hair.",faceHow:"Hair back, look straight into the mirror.",
+  faceSigns:"Signs",faceGlasses:"Glasses",faceNeckW:"Neckline",faceNeckM:"Collar",faceHairW:"Hair",faceHairM:"Hair & beard",
+  fitW:"Proportions",fitM:"The fit",fitLeadW:"Six rules every stylist knows.",fitLeadM:"Seven rules for suits, blazers and leather.",
+  adopt:"That's me",adopted:"Saved to your profile.",
+  chkLead:"A photo of the piece you want to buy. We tell you whether the colour suits you.",chkUpload:"Choose a photo",chkTap:"Tap the colour in the image.",chkPick:"Or pick a colour",
+  chkFor:s=>`Checked for: ${s}`,chkYes:"Your colour",chkYesD:n=>`Very close to ${n} from your palette. Wear it near your face.`,
+  chkMid:"At a distance",chkMidD:"Not in your palette. Wear it lower down: trousers, shoes, a bag.",
+  chkNo:"Better not",chkNoD:n=>`Close to ${n}, a colour to avoid. Leave it on the rail or wear it away from your face.`,
+  chkPair:"Pairs with",chkEmpty:"No colour chosen yet.",
+  wardTitle:"The wardrobe",wardLead:"Ten pieces behind almost every look. Mark what you own.",
+  wardHave:(a,b)=>`${a} of ${b} owned`,wardBuy:"Next to buy",wardDone:"Complete. From now on, buy only what is truly missing.",
+  packTitle:"The suitcase",packLead:"Few pieces, all in your colours.",packDays:"Days",packWeather:"Weather",
+  packTotal:n=>`${n} combinations`,packRule:"Two base colours and one accent: everything goes with everything.",
+  cmpEyebrow:"Compared",cmpTitle:"What sets us <em>apart</em>",cmpCols:["Colour apps","Wardrobe apps","Ton sur Ton"],
+  cmpNote:"Typical features of the best-known apps, as of 2026. Our own review.",cmpY:"Yes",cmpP:"Partly",cmpN:"No",
+  passBtn:"Style pass as PDF",passTitle:"The style pass",passDemo:"Sample profile",
+  tFreeList:["Style test and profile","Palette, drape and colour check","Shape, fit and face","Looks for six occasions","Wardrobe, suitcase and season","Style pass as PDF"],
+  tLaterList:["AI photo analysis","Virtual try-on with size hints","Digital wardrobe","Shops near you"],
+  FAQ:[
+   ["Is Ton sur Ton free?","Yes. Everything on this page is free and needs no account."],
+   ["For men too?","Yes. Shapes, fit, looks and trends are separate for women and men."],
+   ["How accurate is it?","A good guide. The drape with a daylight photo is the surest test."],
+   ["Can I change my result?","Yes. In your profile pick another colour type, body or face shape and tap “That's me”."],
+   ["How does the colour check work?","Photograph the piece in the shop and tap its colour. The page compares it with your palette, right in your browser."],
+   ["Can I save my profile?","It stays in your browser. As a file, use “Style pass as PDF”."],
+   ["Which languages?","German, Romanian and English."]
+  ]
+});
 /* ---------- helpers & state ---------- */
 const store = {
   get(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } },
@@ -1146,7 +1497,7 @@ function applyLang(){
   renderAll();
 }
 document.querySelectorAll(".lang button").forEach(b => b.onclick = () => { lang = b.dataset.lang; store.set("styleai-lang", lang); applyLang(); });
-function renderAll(){ renderSeasons(); renderFigure(); renderQuiz(); renderDrape(); renderOutfit(); renderTrends(); renderStatus(); }
+function renderAll(){ renderSeasons(); renderFigure(); renderFace(); renderQuiz(); renderDrape(); renderOutfit(); renderCheck(); renderWard(); renderTrends(); renderCompare(); renderStatus(); renderPass(); renderAdopt(); }
 
 /* ---------- structure: tabs, jumps, status, scroll spy ---------- */
 function openTab(group, key){
@@ -1161,8 +1512,11 @@ document.addEventListener("click", e => {
 });
 function renderStatus(){
   const t = L(), p = P(), el = $("#profStatus");
-  if(p.demo){ el.innerHTML = `<p class="who">${t.profDemo}</p><a class="btn" href="#test">${esc(t.profDemoBtn)}</a>`; return; }
-  el.innerHTML = `<p class="who">${t.profMine(esc(X(SEASONS[p.season].name)), esc(X(SHAPES[p.g][p.shape].name)))}</p><button class="cta" id="profRedo">${esc(t.profRedo)}</button>`;
+  const pass = `<button class="cta" id="profPass">${esc(t.passBtn)}</button>`;
+  if(p.demo){ el.innerHTML = `<p class="who">${t.profDemo}</p><div class="acts">${pass}<a class="btn" href="#test">${esc(t.profDemoBtn)}</a></div>`; }
+  else el.innerHTML = `<p class="who">${t.profMine(esc(X(SEASONS[p.season].name)), esc(X(SHAPES[p.g][p.shape].name)))}</p><div class="acts">${pass}<button class="cta" id="profRedo">${esc(t.profRedo)}</button></div>`;
+  $("#profPass").onclick = () => { renderPass(); window.print(); };
+  if(p.demo) return;
   $("#profRedo").onclick = () => { st = {i:0,a:{}}; saveQ(); renderQuiz(); $("#test").scrollIntoView({behavior:"smooth"}); };
 }
 if("IntersectionObserver" in window){
@@ -1181,6 +1535,7 @@ function renderSeasons(){
   $("#ctNeutral").innerHTML = s.neutral.map(c => swatch(c)).join("");
   $("#ctAvoid").innerHTML = s.avoid.map(c => swatch(c,{x:true})).join("");
   $("#ctBest").querySelectorAll("button").forEach(b => b.onclick = () => { ctPick = +b.dataset.i; renderSeasons(); });
+  renderAdopt();
 }
 
 /* ---------- body shapes ---------- */
@@ -1213,6 +1568,7 @@ function renderFigure(){
   $("#fgGood").innerHTML = `<ul>${X(s.good).slice(0,3).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
   $("#fgBad").innerHTML = `<ul>${X(s.bad).slice(0,2).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
   $("#fgVisual").innerHTML = bodySvg(s.p, fgG);
+  renderFit(); renderAdopt();
 }
 
 /* ---------- quiz ---------- */
@@ -1302,6 +1658,7 @@ function roleColor(season, role, shift=0){
 function fitsFor(p){ return TRENDS.filter(tr => tr.g==="b" || tr.g===p.g).map(tr => [tr, tr.fit(p)]); }
 function renderResult(){
   const t = L(), r = score();
+  if(profile && profile.face) r.face = profile.face;
   profile = r; store.set("styleai-profile", r);
   const s = SEASONS[r.season], sh = SHAPES[r.g][r.shape];
   const styleNames = r.styles.map(k => X(STYLES.find(x=>x[0]===k)[1]));
@@ -1336,7 +1693,7 @@ function renderResult(){
   };
   /* the rest of the page follows the new profile */
   if(!syncedOnce){ syncedOnce = true; ctSeason = r.season; fgG = r.g; fgShape = r.shape; dpSeason = r.season; renderSeasons(); renderFigure(); renderDrape(); }
-  renderOutfit(); renderTrends(); renderStatus();
+  renderOutfit(); renderTrends(); renderStatus(); renderCheck(); renderWard(); renderPass(); renderAdopt();
 }
 let syncedOnce = false;
 
@@ -1372,8 +1729,8 @@ $("#dpZoom").oninput = applyFrame; $("#dpPos").oninput = applyFrame;
 /* ---------- outfits ---------- */
 let ofOcc = "buero", ofW = "cold", ofShift = 0;
 const pick = (item, w) => (item && (item.de !== undefined)) ? item : (item ? item[w] : null);
-const LOOK_IMG = {w:{buero:"woman-suit",alltag:"woman-trench",abend:"hero-woman",hochzeit:"mature-woman",interview:"woman-suit"},
-                 m:{buero:"man-coat",alltag:"man-street",abend:"man-coat",hochzeit:"man-suit",interview:"man-suit"}};
+const LOOK_IMG = {w:{buero:"woman-suit",alltag:"woman-trench",abend:"hero-woman",hochzeit:"mature-woman",interview:"woman-suit",fest:"mature-woman"},
+                 m:{buero:"man-coat",alltag:"man-street",abend:"man-coat",hochzeit:"man-suit",interview:"man-suit",fest:"man-suit"}};
 function renderOutfit(){
   const t = L(), p = P(), s = SEASONS[p.season], o = OUT[p.g][ofOcc];
   pills($("#ofOcc"), OCC.map(([k,n]) => [k, X(n)]), ofOcc, k => { ofOcc = k; renderOutfit(); });
@@ -1422,6 +1779,155 @@ function renderTrends(){
 const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12}) : null;
 document.querySelectorAll(".rv").forEach(n => io ? io.observe(n) : n.classList.add("in"));
 
+
+/* ---------- profile corrections ---------- */
+function adoptProfile(patch){
+  const base = {...P(), ...patch}; delete base.demo;
+  profile = base; store.set("styleai-profile", profile);
+  renderOutfit(); renderTrends(); renderStatus(); renderWard(); renderCheck(); renderPass(); renderAdopt();
+}
+function renderAdopt(){
+  const t = L(), p = P();
+  const set = (el, same, fn) => { if(!el) return; el.textContent = same && !p.demo ? t.adopted : t.adopt; el.disabled = same && !p.demo; el.onclick = fn; };
+  set($("#ctAdopt"), ctSeason===p.season, () => adoptProfile({season:ctSeason}));
+  set($("#fgAdopt"), fgShape===p.shape && fgG===p.g, () => adoptProfile({g:fgG, shape:fgShape}));
+  set($("#fcAdopt"), fcFace===p.face, () => adoptProfile({face:fcFace}));
+}
+
+/* ---------- fit rules ---------- */
+function renderFit(){
+  const t = L(), g = fgG;
+  $("#fgFit").innerHTML = `<div class="fit-head"><span class="label">${esc(g==="m"?t.fitM:t.fitW)}</span><p class="intro">${esc(g==="m"?t.fitLeadM:t.fitLeadW)}</p></div>
+    <ol class="fit-list">${FIT[g].map(([h,d],i) => `<li><span class="num">${String(i+1).padStart(2,"0")}</span><h4>${esc(X(h))}</h4><p>${esc(X(d))}</p></li>`).join("")}</ol>`;
+}
+
+/* ---------- face shapes ---------- */
+let fcFace = P().face || "oval";
+function faceSvg(k){
+  return `<svg viewBox="0 0 200 260" role="img" aria-label="${esc(X(FACES[k].name))}">
+    <line class="guide" x1="100" y1="4" x2="100" y2="256"/><line class="guide" x1="10" y1="118" x2="190" y2="118"/>
+    <path class="body-line" d="${FACES[k].path}"/>
+  </svg>`;
+}
+function renderFace(){
+  const t = L(), f = FACES[fcFace], g = fgG;
+  pills($("#fcGender"), [["w",t.gw],["m",t.gm]], fgG, k => { fgG = k; renderFigure(); renderFit(); renderFace(); renderAdopt(); });
+  pills($("#fcShapes"), FKEYS.map(k => [k, X(FACES[k].name)]), fcFace, k => { fcFace = k; renderFace(); renderAdopt(); });
+  $("#fcName").textContent = X(f.name); $("#fcSigns").textContent = X(f.signs);
+  $("#fcGlasses").textContent = X(f.glasses);
+  $("#fcNeckL").textContent = g==="m" ? t.faceNeckM : t.faceNeckW; $("#fcNeck").textContent = X(f.neck[g]);
+  $("#fcHairL").textContent = g==="m" ? t.faceHairM : t.faceHairW; $("#fcHair").textContent = X(f.hair[g]);
+  $("#fcVisual").innerHTML = faceSvg(fcFace);
+}
+
+/* ---------- colour check ---------- */
+const hexRgb = h => { const n = parseInt(h.slice(1),16); return [n>>16,(n>>8)&255,n&255]; };
+const rgbHex = c => "#" + c.map(v => Math.round(v).toString(16).padStart(2,"0")).join("");
+function lab([r,g,b]){
+  const f = v => { v/=255; return v>.04045 ? ((v+.055)/1.055)**2.4 : v/12.92; };
+  const R=f(r),G=f(g),B=f(b);
+  const x=(R*.4124+G*.3576+B*.1805)/.95047, y=R*.2126+G*.7152+B*.0722, z=(R*.0193+G*.1192+B*.9505)/1.08883;
+  const h = v => v>.008856 ? Math.cbrt(v) : 7.787*v+16/116;
+  return [116*h(y)-16, 500*(h(x)-h(y)), 200*(h(y)-h(z))];
+}
+const dE = (a,b) => { const p=lab(hexRgb(a)), q=lab(hexRgb(b)); return Math.hypot(p[0]-q[0],p[1]-q[1],p[2]-q[2]); };
+let chkHex = null;
+function nearest(list, hex){ return list.map(sw => [sw, dE(sw[0], hex)]).sort((a,b) => a[1]-b[1])[0]; }
+function renderCheck(){
+  const t = L(), p = P(), s = SEASONS[p.season], el = $("#chkResult");
+  if(!chkHex){ el.innerHTML = `<p class="fine">${esc(t.chkFor(X(s.name)))}</p>`; return; }
+  const good = nearest([...s.best, ...s.neutral], chkHex), bad = nearest(s.avoid, chkHex);
+  let v, d;
+  if(good[1] < 16 && good[1] <= bad[1]){ v = "yes"; d = t.chkYesD(cn(good[0])); }
+  else if(bad[1] < 16 || bad[1] < good[1]){ v = "no"; d = t.chkNoD(cn(bad[0])); }
+  else { v = "mid"; d = t.chkMidD; }
+  const pairs = [s.neutral[0], s.neutral[3], s.best[(s.best.indexOf(good[0])+4+8)%8] || s.best[0]];
+  el.innerHTML = `<div class="verdict ${v}">
+      <span class="dot big" style="--c:${chkHex}"></span>
+      <div><span class="label">${esc(t.chkFor(X(s.name)))}</span><h3>${esc(v==="yes"?t.chkYes:v==="no"?t.chkNo:t.chkMid)}</h3><p>${esc(d)}</p></div>
+    </div>
+    <div class="minis"><div><span class="label">${esc(t.chkPair)}</span><div class="dots">${pairs.map(c=>swatch(c)).join("")}</div></div>
+      <div><span class="label">${esc(t.ctMetal)}</span><span>${esc(X(s.metal))}</span></div></div>`;
+}
+function chkSample(x, y){
+  const cv = $("#chkCanvas"), ctx = cv.getContext("2d"), r = 6;
+  const d = ctx.getImageData(Math.max(0,x-r), Math.max(0,y-r), r*2, r*2).data; let a=[0,0,0], n=0;
+  for(let i=0;i<d.length;i+=4){ a[0]+=d[i]; a[1]+=d[i+1]; a[2]+=d[i+2]; n++; }
+  chkHex = rgbHex(a.map(v => v/n)); $("#chkColor").value = chkHex; renderCheck();
+}
+$("#chkFile").onchange = e => {
+  const f = e.target.files && e.target.files[0]; if(!f) return;
+  const img = new Image(), url = URL.createObjectURL(f);
+  img.onload = () => {
+    const cv = $("#chkCanvas"), w = 900, h = Math.round(img.height * w / img.width);
+    cv.width = w; cv.height = h; cv.getContext("2d").drawImage(img, 0, 0, w, h);
+    cv.hidden = false; $("#chkEmpty").hidden = true; URL.revokeObjectURL(url);
+    placeMark(.5, .5); chkSample(w/2|0, h/2|0);
+  };
+  img.src = url;
+};
+function placeMark(fx, fy){ const m = $("#chkMark"); m.hidden = false; m.style.left = fx*100+"%"; m.style.top = fy*100+"%"; }
+$("#chkCanvas").onclick = e => {
+  const cv = e.currentTarget, b = cv.getBoundingClientRect(), fx = (e.clientX-b.left)/b.width, fy = (e.clientY-b.top)/b.height;
+  placeMark(fx, fy); chkSample(fx*cv.width|0, fy*cv.height|0);
+};
+$("#chkColor").oninput = e => { chkHex = e.target.value; renderCheck(); };
+
+/* ---------- wardrobe & suitcase ---------- */
+let have = store.get("styleai-have") || {};
+let pkDays = 5, pkW = "mild";
+function renderWard(){
+  const t = L(), p = P(), list = WARD[p.g], key = p.g;
+  const own = have[key] || [];
+  $("#wdList").innerHTML = list.map(([n,role],i) => { const c = roleColor(p.season, role), on = own.includes(i);
+    return `<li><button type="button" class="ward-item" data-i="${i}" aria-pressed="${on}"><span class="box" aria-hidden="true"></span><span class="it">${esc(X(n))}</span><span class="col"><span class="dot sm" style="--c:${c[0]}"></span>${esc(cn(c))}</span></button></li>`; }).join("");
+  $("#wdList").querySelectorAll("button").forEach(b => b.onclick = () => {
+    const i = +b.dataset.i, cur = new Set(have[key] || []); cur.has(i) ? cur.delete(i) : cur.add(i);
+    have[key] = [...cur]; store.set("styleai-have", have); renderWard();
+  });
+  $("#wdCount").textContent = t.wardHave(own.length, list.length);
+  const miss = list.map((x,i) => i).filter(i => !own.includes(i));
+  $("#wdNext").innerHTML = miss.length ? `<span class="label">${esc(t.wardBuy)}</span> ${miss.slice(0,3).map(i => esc(X(list[i][0]))).join(" · ")}` : esc(t.wardDone);
+
+  pills($("#pkDays"), [3,5,7,10].map(d => [d, String(d)]), pkDays, k => { pkDays = k; renderWard(); });
+  pills($("#pkWeather"), WEATHER.map(([k,n]) => [k, X(n)]), pkW, k => { pkW = k; renderWard(); });
+  const d = pkDays, tops = Math.min(6, Math.ceil(d*.6)+1), bottoms = d<=3 ? 1 : d<=7 ? 2 : 3;
+  const rows = [
+    [tops, X(PACK.top[pkW]), ["a0","n0","a1","n1","a0","n2"].slice(0,tops)],
+    [bottoms, X((p.g==="m"?PACK.bottomM:PACK.bottom)[pkW]), ["n3","n1","n2"].slice(0,bottoms)],
+    [1, X(PACK.layer[pkW]), ["n1"]],
+    [1, X(PACK.evening[p.g]), ["a0"]],
+    [2, `${X(PACK.shoes1[pkW])}, ${X(PACK.shoes2)}`, ["n3","n0"]],
+    [1, X(PACK.bag[p.g]), ["n2"]],
+    [1, X(PACK.extra[pkW]), ["metal"]]
+  ];
+  $("#pkList").innerHTML = rows.map(([n,label,roles]) => `<li><span class="slot">${n}×</span><span class="it">${esc(label)}</span><span class="col">${roles.map(r => `<span class="dot sm" style="--c:${roleColor(p.season,r)[0]}"></span>`).join("")}</span></li>`).join("");
+  $("#pkTotal").textContent = t.packTotal(tops*bottoms + 1);
+}
+
+/* ---------- comparison ---------- */
+function renderCompare(){
+  const t = L(), mark = v => v===2 ? `<span class="m y" aria-label="${esc(t.cmpY)}"></span>` : v===1 ? `<span class="m p" aria-label="${esc(t.cmpP)}"></span>` : `<span class="m n" aria-label="${esc(t.cmpN)}"></span>`;
+  $("#cmpTable").innerHTML = `<thead><tr><th></th>${t.cmpCols.map((c,i) => `<th scope="col"${i===2?' class="us"':""}>${esc(c)}</th>`).join("")}</tr></thead>
+    <tbody>${COMPARE.map(([lbl,...v]) => `<tr><th scope="row">${esc(X(lbl))}</th>${v.map((x,i) => `<td${i===2?' class="us"':""}>${mark(x)}</td>`).join("")}</tr>`).join("")}</tbody>`;
+}
+
+/* ---------- style pass (print / PDF) ---------- */
+function renderPass(){
+  const t = L(), p = P(), s = SEASONS[p.season], sh = SHAPES[p.g][p.shape], f = FACES[p.face || "oval"];
+  const li = a => a.map(x => `<li>${esc(x)}</li>`).join("");
+  const sw = list => list.map(c => `<span class="pc"><i style="background:${c[0]}"></i>${esc(cn(c))}</span>`).join("");
+  $("#pass").innerHTML = `<header><span class="logo">TON <em>sur</em> TON</span><span>${esc(t.passTitle)}${p.demo?` · ${esc(t.passDemo)}`:""} · ${new Date().toLocaleDateString(lang)}</span></header>
+    <h1>${esc(X(s.name))} · ${esc(X(sh.name))}</h1><p class="sub">${esc(gName(p.g))} · ${esc(X(s.sub))}</p>
+    <h2>${esc(t.rColors)}</h2><div class="pcs">${sw(s.best)}</div>
+    <div class="cols"><div><h2>${esc(t.rNeutral)}</h2><div class="pcs">${sw(s.neutral)}</div></div><div><h2>${esc(t.rAvoid)}</h2><div class="pcs">${sw(s.avoid)}</div></div></div>
+    <p><b>${esc(t.rMetal)}:</b> ${esc(X(s.metal))}. ${esc(X(s.rule))}</p>
+    <div class="cols"><div><h2>${esc(t.rShape)}</h2><p>${esc(X(sh.goal))}</p><ul>${li(X(sh.good).slice(0,4))}</ul></div>
+      <div><h2>${esc(t.tabFace)}: ${esc(X(f.name))}</h2><ul><li>${esc(t.faceGlasses)}: ${esc(X(f.glasses))}</li><li>${esc(X(f.neck[p.g]))}</li><li>${esc(X(f.hair[p.g]))}</li></ul></div></div>
+    <h2>${esc(p.g==="m"?t.fitM:t.fitW)}</h2><ul>${FIT[p.g].map(([h,d]) => `<li><b>${esc(X(h))}.</b> ${esc(X(d))}</li>`).join("")}</ul>
+    <h2>${esc(t.wardTitle)}</h2><div class="pcs">${WARD[p.g].map(([n,r]) => { const c = roleColor(p.season,r); return `<span class="pc"><i style="background:${c[0]}"></i>${esc(X(n))}</span>`; }).join("")}</div>
+    <footer>${esc(t.rFine)} · dandelion1111r.github.io/ton-sur-ton</footer>`;
+}
 applyLang();
 if(st.i >= QL.length) syncedOnce = true;
 if("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) navigator.serviceWorker.register("sw.js").catch(() => {});
