@@ -4,7 +4,7 @@
 
 [Prototyp ansehen →](https://dandelion1111r.github.io/ton-sur-ton/)
 
-![Ton sur Ton: Kenne deine Farben. Verstehe deine Figur. Trag, was zu dir passt.](og-image.png)
+![Stylemaker: Kenne deine Farben. Verstehe deine Figur. Trag, was zu dir passt.](og-image.png)
 
 ## Funktionen
 
@@ -33,7 +33,7 @@ Lokal ansehen: `index.html` im Browser öffnen.
 
 ## Hinweise
 
-Ton sur Ton ist ein Konzept-Prototyp und keine echte App. Es werden keine Daten übertragen. Die Empfehlungen sind allgemeine Stilregeln und ersetzen keine persönliche Beratung.
+Stylemaker ist ein Konzept-Prototyp und keine echte App. Es werden keine Daten übertragen. Die Empfehlungen sind allgemeine Stilregeln und ersetzen keine persönliche Beratung.
 
 ## Credits
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ton sur Ton · App</title>
+<title>Stylemaker · App</title>
 <meta name="description" content="Interaktiver Konzept-Prototyp einer Styling-App für Frauen und Männer: Farbtyp, Figur, Stil-Test, Farbprobe mit Foto, Outfits und Trends. Konzept und Design: Raluca Jidvian.">
 <link rel="canonical" href="https://dandelion1111r.github.io/ton-sur-ton/">
 <meta name="author" content="Raluca Jidvian">
@@ -15,10 +15,10 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Ton sur Ton">
+<meta name="apple-mobile-web-app-title" content="Stylemaker">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Ton sur Ton">
-<meta property="og:title" content="Ton sur Ton – Dein Stil. Präzise.">
+<meta property="og:site_name" content="Stylemaker">
+<meta property="og:title" content="Stylemaker – Dein Stil. Präzise.">
 <meta property="og:description" content="Konzept-Prototyp einer Styling-App für Frauen und Männer: Farbtyp, Figur, Stil und Outfits. Konzept und Design: Raluca Jidvian.">
 <meta property="og:url" content="https://dandelion1111r.github.io/ton-sur-ton/">
 <meta property="og:image" content="https://dandelion1111r.github.io/ton-sur-ton/og-image.png">
@@ -42,7 +42,7 @@
 @font-face{font-family:"DM Mono";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/dm-mono-latin-ext-400-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"DM Mono";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/dm-mono-latin-400-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
-/* TON SUR TON · editorial luxury: ivory paper, ink, one champagne accent.
+/* STYLEMAKER · editorial luxury: ivory paper, ink, one champagne accent.
    Big photography, very little text, hairlines instead of boxes. */
 :root{
   --bg:#F4F0EA;--paper:#FBF9F5;--ink:#141210;--soft:#6F675F;--line:#DCD4C8;--accent:#A9834F;--dark:#141210;--on-dark:#EFE9E0;
@@ -93,7 +93,7 @@ p{margin:0}
 .top nav a,.lang button{font-size:.68rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;text-decoration:none;color:var(--soft);transition:color .25s}
 .top nav a:hover{color:var(--ink)}
 .logo{font-family:var(--display);font-size:1.45rem;letter-spacing:.42em;text-decoration:none;white-space:nowrap;padding-left:.42em}
-.logo em{font-style:italic;text-transform:none;letter-spacing:.04em;margin:0 .18em 0 -.1em}
+.logo em{font-style:italic;text-transform:none;letter-spacing:.02em;margin:0 0 0 -.12em;color:var(--accent)}
 .lang{display:flex;gap:1.1rem;justify-content:flex-end}
 .lang button{background:none;border:0;padding:.3rem 0;border-bottom:1px solid transparent}
 .lang button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
@@ -574,7 +574,7 @@ html{scroll-padding-top:5rem}
 <body class="is-app">
 <a class="skip" href="#main" data-t="skip"></a>
 <header class="app-top">
-  <a class="logo" href="index.html">TON <em>sur</em> TON</a>
+  <a class="logo" href="index.html">STYLE<em>maker</em></a>
   <div class="lang" role="group" aria-label="Sprache / Limba / Language">
     <button data-lang="de" aria-pressed="true">DE</button>
     <button data-lang="ro" aria-pressed="false">RO</button>
@@ -819,7 +819,7 @@ html{scroll-padding-top:5rem}
         </div>
       </div>
     </section>
-    <div class="app-foot"><a href="index.html">TON <em>sur</em> TON</a><a href="impressum.html" data-t="legalImp"></a><a href="datenschutz.html" data-t="legalDs"></a><span data-t="disclaimer"></span></div>
+    <div class="app-foot"><a href="index.html">STYLE<em>maker</em></a><a href="impressum.html" data-t="legalImp"></a><a href="datenschutz.html" data-t="legalDs"></a><span data-t="disclaimer"></span></div>
   </main>
 </div>
 
@@ -1213,7 +1213,7 @@ const PACK = {
 };
 
 /* ---------- data: comparison ---------- */
-/* columns: colour-analysis apps · wardrobe apps · Ton sur Ton ; 2 = yes, 1 = partly, 0 = no */
+/* columns: colour-analysis apps · wardrobe apps · Stylemaker ; 2 = yes, 1 = partly, 0 = no */
 const COMPARE = [
  [L3("Farbtyp und Palette","Tipul de culoare și paleta","Colour type and palette"),2,1,2],
  [L3("Figur und Passform, mit Erklärung","Silueta și croiala, cu explicații","Body shape and fit, explained"),1,0,2],
@@ -1226,6 +1226,16 @@ const COMPARE = [
  [L3("Sofort nutzbar, ohne den Schrank zu fotografieren","Utilă imediat, fără să-ți fotografiezi dulapul","Useful at once, no wardrobe photos needed"),2,0,2],
  [L3("Ohne Konto, Foto bleibt bei dir","Fără cont, poza rămâne la tine","No account, your photo stays with you"),0,0,2]
 ];
+
+/* ---------- more style words for the test (appended: answer indices stay valid) ---------- */
+STYLES.push(
+ ["chic",L3("Chic","Chic","Chic"),L3("Kamelmantel, Seidentuch, Ballerinas","Palton camel, eșarfă de mătase, balerini","Camel coat, silk scarf, ballet flats"),L3("Rollkragen, Kamelmantel, Wildlederloafer","Helancă, palton camel, loafers din piele întoarsă","Roll neck, camel coat, suede loafers")],
+ ["boho",L3("Boho","Boho","Boho"),L3("Fließendes Maxikleid, Fransentasche, Stiefeletten","Rochie maxi fluidă, geantă cu franjuri, botine","Flowing maxi dress, fringed bag, ankle boots"),L3("Leinenhemd, Lederarmbänder, Wildlederboots","Cămașă de in, brățări din piele, ghete din piele întoarsă","Linen shirt, leather bracelets, suede boots")],
+ ["preppy",L3("Preppy","Preppy","Preppy"),L3("Blazer, Faltenrock, Loafer","Blazer, fustă plisată, loafers","Blazer, pleated skirt, loafers"),L3("Poloshirt, Chino, Bootsschuhe","Tricou polo, pantaloni chino, mocasini","Polo shirt, chinos, boat shoes")],
+ ["sporty",L3("Sportlich","Sport","Sporty"),L3("Leggings, Oversize-Hoodie, Retro-Sneaker","Colanți, hanorac oversize, sneakers retro","Leggings, oversized hoodie, retro sneakers"),L3("Trainingsjacke, Jogginghose, Laufschuhe","Bluză de trening, pantaloni jogger, pantofi de alergare","Track jacket, joggers, running shoes")],
+ ["edgy",L3("Edgy","Edgy","Edgy"),L3("Lederjacke, Bikerboots, Silberschmuck","Geacă de piele, bocanci biker, bijuterii argintii","Leather jacket, biker boots, silver jewellery"),L3("Lederjacke, schwarze Jeans, Chelsea Boots","Geacă de piele, blugi negri, ghete Chelsea","Leather jacket, black jeans, Chelsea boots")],
+ ["raffiniert",L3("Raffiniert","Sofisticat","Sophisticated"),L3("Kaschmir, Hosenanzug, feiner Goldschmuck","Cașmir, costum cu pantaloni, bijuterii fine","Cashmere, trouser suit, fine jewellery"),L3("Kaschmirpullover, Wollhose, Lederhandschuhe","Pulover de cașmir, pantaloni de lână, mănuși de piele","Cashmere jumper, wool trousers, leather gloves")]
+);
 
 /* ---------- data: beauty & grooming by colour type ---------- */
 /* swatch format as palette: [hex, de, ro, en] */
@@ -1263,7 +1273,7 @@ const BEAUTY = {
 const T = {
 de:{
   navTest:"Test",navProfil:"Profil",navLooks:"Looks",navInfo:"Info",
-  howEyebrow:"In drei Schritten",howTitle:"So funktioniert <em>Ton sur Ton</em>",howNote:"Kostenlos · ohne Anmeldung · zwei Minuten",
+  howEyebrow:"In drei Schritten",howTitle:"So funktioniert <em>Stylemaker</em>",howNote:"Kostenlos · ohne Anmeldung · zwei Minuten",
   how1t:"Der Test",how1d:"Elf Fragen zu Haut, Haar, Augen und Figur.",how1g:"Test beginnen",
   how2t:"Dein Profil",how2d:"Deine Farben, deine Form und die Probe am eigenen Gesicht.",how2g:"Profil ansehen",
   how3t:"Deine Looks",how3d:"Outfits für jeden Anlass und die Trends der Saison, für dich gefiltert.",how3g:"Looks ansehen",
@@ -1305,7 +1315,7 @@ de:{
   rNeutralNote:"Dein Unterton ist neutral. Auch Farben des Nachbartyps stehen dir. Die Farbprobe entscheidet.",
   rFine:"Eine Orientierung, keine Diagnose. Licht, Make-up und gefärbtes Haar verändern das Ergebnis.",
   rCopy:"Profil kopieren",rRedo:"Neu beginnen",rToDrape:"Zur Farbprobe",rToOutfits:"Meine Looks",rCopied:"Kopiert.",
-  rSummary:(s,sub,sh,st)=>`Mein Ton sur Ton Profil: ${s} (${sub}), Form ${sh}${st?`, Stil ${st}`:""}.`,
+  rSummary:(s,sub,sh,st)=>`Mein Stylemaker Profil: ${s} (${sub}), Form ${sh}${st?`, Stil ${st}`:""}.`,
   dpTitle:"Die <em>Probe</em>",dpLead:"Ein Gesicht. Zwei Farben. Der Unterschied ist sofort sichtbar.",
   dpGood:"Deine Farbe",dpBad:"Nicht deine",dpLeft:"Deine Farben",dpRight:"Zum Vergleich",dpUpload:"Eigenes Foto",dpPrivacy:"Bleibt in deinem Browser. Wird nicht gespeichert.",dpZoom:"Zoom",dpPos:"Ausschnitt",
   ofTitle:"Die <em>Looks</em>",ofShuffle:"Andere Farben",
@@ -1319,7 +1329,7 @@ de:{
   tr1t:"Dein Foto bleibt bei dir",tr1d:"Nur in deinem Browser. Kein Upload.",tr2t:"Kein KI-Training",tr2d:"Deine Bilder trainieren keine Modelle.",tr3t:"Gewicht optional",tr3d:"Nie angezeigt, nie geteilt.",tr4t:"DSGVO",tr4d:"In der App: Server in der EU, jederzeit löschbar.",
   faqTitle:"Fragen",
   FAQ:[
-   ["Ist Ton sur Ton kostenlos?","Ja. Test, Palette, Farbprobe, Looks und Trends sind kostenlos und bleiben es."],
+   ["Ist Stylemaker kostenlos?","Ja. Test, Palette, Farbprobe, Looks und Trends sind kostenlos und bleiben es."],
    ["Auch für Männer?","Ja. Formen, Looks und Trends gibt es getrennt für Frauen und Männer."],
    ["Wie genau ist das Ergebnis?","Eine gute Orientierung. Am sichersten ist die Farbprobe mit einem Foto bei Tageslicht."],
    ["Brauche ich ein Foto?","Nein. Das Foto brauchst du nur für die Farbprobe."],
@@ -1329,7 +1339,7 @@ de:{
 },
 ro:{
   navTest:"Test",navProfil:"Profil",navLooks:"Ținute",navInfo:"Info",
-  howEyebrow:"În trei pași",howTitle:"Cum funcționează <em>Ton sur Ton</em>",howNote:"Gratuit · fără cont · două minute",
+  howEyebrow:"În trei pași",howTitle:"Cum funcționează <em>Stylemaker</em>",howNote:"Gratuit · fără cont · două minute",
   how1t:"Testul",how1d:"Unsprezece întrebări despre piele, păr, ochi și siluetă.",how1g:"Începe testul",
   how2t:"Profilul tău",how2d:"Culorile tale, silueta ta și proba pe propriul chip.",how2g:"Vezi profilul",
   how3t:"Ținutele tale",how3d:"Ținute pentru orice ocazie și tendințele sezonului, filtrate pentru tine.",how3g:"Vezi ținutele",
@@ -1371,7 +1381,7 @@ ro:{
   rNeutralNote:"Subtonul tău e neutru. Îți stau bine și culori din tipul vecin. Proba culorilor decide.",
   rFine:"O orientare, nu un diagnostic. Lumina, machiajul și părul vopsit schimbă rezultatul.",
   rCopy:"Copiază profilul",rRedo:"Ia-o de la capăt",rToDrape:"La proba culorilor",rToOutfits:"Ținutele mele",rCopied:"Copiat.",
-  rSummary:(s,sub,sh,st)=>`Profilul meu Ton sur Ton: ${s} (${sub}), siluetă ${sh}${st?`, stil ${st}`:""}.`,
+  rSummary:(s,sub,sh,st)=>`Profilul meu Stylemaker: ${s} (${sub}), siluetă ${sh}${st?`, stil ${st}`:""}.`,
   dpTitle:"<em>Proba</em>",dpLead:"Un chip. Două culori. Diferența se vede imediat.",
   dpGood:"Culoarea ta",dpBad:"Nu e a ta",dpLeft:"Culorile tale",dpRight:"Pentru comparație",dpUpload:"Poza ta",dpPrivacy:"Rămâne în browser. Nu se salvează.",dpZoom:"Zoom",dpPos:"Încadrare",
   ofTitle:"<em>Ținutele</em>",ofShuffle:"Alte culori",
@@ -1385,7 +1395,7 @@ ro:{
   tr1t:"Poza rămâne la tine",tr1d:"Doar în browserul tău. Nu se încarcă nicăieri.",tr2t:"Fără antrenare AI",tr2d:"Pozele tale nu antrenează niciun model.",tr3t:"Greutatea e opțională",tr3d:"Nu apare și nu se partajează.",tr4t:"GDPR",tr4d:"În aplicație: servere în UE, ștergere oricând.",
   faqTitle:"Întrebări",
   FAQ:[
-   ["Este Ton sur Ton gratuit?","Da. Testul, paleta, proba culorilor, ținutele și tendințele sunt gratuite și rămân așa."],
+   ["Este Stylemaker gratuit?","Da. Testul, paleta, proba culorilor, ținutele și tendințele sunt gratuite și rămân așa."],
    ["Și pentru bărbați?","Da. Siluetele, ținutele și tendințele sunt separate pentru femei și bărbați."],
    ["Cât de exact e rezultatul?","Un bun punct de plecare. Cel mai sigur e proba culorilor cu o poză la lumina zilei."],
    ["Am nevoie de o poză?","Nu. Poza îți trebuie doar pentru proba culorilor."],
@@ -1395,7 +1405,7 @@ ro:{
 },
 en:{
   navTest:"Test",navProfil:"Profile",navLooks:"Looks",navInfo:"Info",
-  howEyebrow:"In three steps",howTitle:"How <em>Ton sur Ton</em> works",howNote:"Free · no sign-up · two minutes",
+  howEyebrow:"In three steps",howTitle:"How <em>Stylemaker</em> works",howNote:"Free · no sign-up · two minutes",
   how1t:"The test",how1d:"Eleven questions about skin, hair, eyes and shape.",how1g:"Begin the test",
   how2t:"Your profile",how2d:"Your colours, your shape and the drape on your own face.",how2g:"See your profile",
   how3t:"Your looks",how3d:"Outfits for every occasion and the season's trends, filtered for you.",how3g:"See your looks",
@@ -1437,7 +1447,7 @@ en:{
   rNeutralNote:"Your undertone is neutral. Colours from the neighbouring type suit you too. The drape decides.",
   rFine:"A guide, not a diagnosis. Lighting, make-up and dyed hair change the result.",
   rCopy:"Copy profile",rRedo:"Start again",rToDrape:"Colour drape",rToOutfits:"My looks",rCopied:"Copied.",
-  rSummary:(s,sub,sh,st)=>`My Ton sur Ton profile: ${s} (${sub}), shape ${sh}${st?`, style ${st}`:""}.`,
+  rSummary:(s,sub,sh,st)=>`My Stylemaker profile: ${s} (${sub}), shape ${sh}${st?`, style ${st}`:""}.`,
   dpTitle:"The <em>Drape</em>",dpLead:"One face. Two colours. The difference shows at once.",
   dpGood:"Your colour",dpBad:"Not yours",dpLeft:"Your colours",dpRight:"For comparison",dpUpload:"Your own photo",dpPrivacy:"Stays in your browser. Never saved.",dpZoom:"Zoom",dpPos:"Framing",
   ofTitle:"The <em>Looks</em>",ofShuffle:"Other colours",
@@ -1451,7 +1461,7 @@ en:{
   tr1t:"Your photo stays with you",tr1d:"Only in your browser. No upload.",tr2t:"No AI training",tr2d:"Your images train no models.",tr3t:"Weight optional",tr3d:"Never shown, never shared.",tr4t:"GDPR",tr4d:"In the app: EU servers, delete any time.",
   faqTitle:"Questions",
   FAQ:[
-   ["Is Ton sur Ton free?","Yes. Test, palette, drape, looks and trends are free, and stay free."],
+   ["Is Stylemaker free?","Yes. Test, palette, drape, looks and trends are free, and stay free."],
    ["For men too?","Yes. Shapes, looks and trends are separate for women and men."],
    ["How accurate is it?","A strong guide. The surest way is the colour drape with a daylight photo."],
    ["Do I need a photo?","No. You only need one for the colour drape."],
@@ -1478,13 +1488,13 @@ Object.assign(T.de, {
   wardHave:(a,b)=>`${a} von ${b} vorhanden`,wardBuy:"Als Nächstes",wardDone:"Komplett. Kaufe nur noch, was wirklich fehlt.",
   packTitle:"Der Koffer",packLead:"Wenige Teile, alle in deinen Farben.",packDays:"Tage",packWeather:"Wetter",
   packTotal:n=>`${n} Kombinationen`,packRule:"Zwei Basisfarben und ein Akzent: so passt alles zu allem.",
-  cmpEyebrow:"Im Vergleich",cmpTitle:"Was uns <em>unterscheidet</em>",cmpCols:["Farb-Apps","Kleiderschrank-Apps","Ton sur Ton"],
+  cmpEyebrow:"Im Vergleich",cmpTitle:"Was uns <em>unterscheidet</em>",cmpCols:["Farb-Apps","Kleiderschrank-Apps","Stylemaker"],
   cmpNote:"Typische Funktionen der bekanntesten Apps, Stand 2026. Eigene Auswertung.",cmpY:"Ja",cmpP:"Teilweise",cmpN:"Nein",
   passBtn:"Stil-Pass als PDF",passTitle:"Der Stil-Pass",passDemo:"Beispielprofil",
   tFreeList:["Stil-Test und Stilformel","Palette, Farbprobe und Farb-Check","Form, Passform und Gesicht","Looks für sechs Anlässe","Garderobe, Koffer und Saison","Stil-Pass als PDF"],
   tLaterList:["KI-Analyse deines Fotos","Virtuelle Anprobe mit Größenhinweis","Digitaler Kleiderschrank","Shops in deiner Nähe"],
   FAQ:[
-   ["Ist Ton sur Ton kostenlos?","Ja. Alles auf dieser Seite ist kostenlos und ohne Konto."],
+   ["Ist Stylemaker kostenlos?","Ja. Alles auf dieser Seite ist kostenlos und ohne Konto."],
    ["Auch für Männer?","Ja. Formen, Passform, Looks und Trends gibt es getrennt für Frauen und Männer."],
    ["Wie genau ist das Ergebnis?","Eine gute Orientierung. Am sichersten ist die Farbprobe mit einem Foto bei Tageslicht."],
    ["Kann ich das Ergebnis ändern?","Ja. Wähle im Profil einen anderen Farbtyp, eine andere Form oder Gesichtsform und tippe auf „Das bin ich“."],
@@ -1510,13 +1520,13 @@ Object.assign(T.ro, {
   wardHave:(a,b)=>`Ai ${a} din ${b}`,wardBuy:"Următoarea piesă",wardDone:"Completă. De acum cumpără doar ce lipsește cu adevărat.",
   packTitle:"Bagajul",packLead:"Puține piese, toate în culorile tale.",packDays:"Zile",packWeather:"Vreme",
   packTotal:n=>`${n} combinații`,packRule:"Două culori de bază și un accent: așa merge totul cu tot.",
-  cmpEyebrow:"Comparație",cmpTitle:"Ce ne <em>deosebește</em>",cmpCols:["Aplicații de culoare","Aplicații de garderobă","Ton sur Ton"],
+  cmpEyebrow:"Comparație",cmpTitle:"Ce ne <em>deosebește</em>",cmpCols:["Aplicații de culoare","Aplicații de garderobă","Stylemaker"],
   cmpNote:"Funcțiile tipice ale celor mai cunoscute aplicații, în 2026. Analiză proprie.",cmpY:"Da",cmpP:"Parțial",cmpN:"Nu",
   passBtn:"Pașaportul de stil (PDF)",passTitle:"Pașaportul de stil",passDemo:"Exemplu de profil",
   tFreeList:["Testul de stil și formula ta","Paleta, proba și verificarea culorii","Silueta, croiala și chipul","Ținute pentru șase ocazii","Garderoba, bagajul și sezonul","Pașaportul de stil în PDF"],
   tLaterList:["Analiza pozei cu AI","Proba virtuală cu indicator de mărime","Garderobă digitală","Magazine din apropiere"],
   FAQ:[
-   ["Ton sur Ton este gratuit?","Da. Tot ce e pe această pagină e gratuit și fără cont."],
+   ["Stylemaker este gratuit?","Da. Tot ce e pe această pagină e gratuit și fără cont."],
    ["Și pentru bărbați?","Da. Siluetele, croiala, ținutele și tendințele sunt separate pentru femei și bărbați."],
    ["Cât de exact este rezultatul?","O orientare bună. Cel mai sigur e proba culorilor cu o poză la lumina zilei."],
    ["Pot schimba rezultatul?","Da. În profil alege alt tip de culoare, altă siluetă sau formă a chipului și apasă „Asta sunt eu”."],
@@ -1542,13 +1552,13 @@ Object.assign(T.en, {
   wardHave:(a,b)=>`${a} of ${b} owned`,wardBuy:"Next to buy",wardDone:"Complete. From now on, buy only what is truly missing.",
   packTitle:"The suitcase",packLead:"Few pieces, all in your colours.",packDays:"Days",packWeather:"Weather",
   packTotal:n=>`${n} combinations`,packRule:"Two base colours and one accent: everything goes with everything.",
-  cmpEyebrow:"Compared",cmpTitle:"What sets us <em>apart</em>",cmpCols:["Colour apps","Wardrobe apps","Ton sur Ton"],
+  cmpEyebrow:"Compared",cmpTitle:"What sets us <em>apart</em>",cmpCols:["Colour apps","Wardrobe apps","Stylemaker"],
   cmpNote:"Typical features of the best-known apps, as of 2026. Our own review.",cmpY:"Yes",cmpP:"Partly",cmpN:"No",
   passBtn:"Style pass as PDF",passTitle:"The style pass",passDemo:"Sample profile",
   tFreeList:["Style test and formula","Palette, drape and colour check","Shape, fit and face","Looks for six occasions","Wardrobe, suitcase and season","Style pass as PDF"],
   tLaterList:["AI photo analysis","Virtual try-on with size hints","Digital wardrobe","Shops near you"],
   FAQ:[
-   ["Is Ton sur Ton free?","Yes. Everything on this page is free and needs no account."],
+   ["Is Stylemaker free?","Yes. Everything on this page is free and needs no account."],
    ["For men too?","Yes. Shapes, fit, looks and trends are separate for women and men."],
    ["How accurate is it?","A good guide. The drape with a daylight photo is the surest test."],
    ["Can I change my result?","Yes. In your profile pick another colour type, body or face shape and tap “That's me”."],
@@ -2109,7 +2119,7 @@ function renderPass(){
   const t = L(), p = P(), s = SEASONS[p.season], sh = SHAPES[p.g][p.shape], f = FACES[p.face || "oval"];
   const li = a => a.map(x => `<li>${esc(x)}</li>`).join("");
   const sw = list => list.map(c => `<span class="pc"><i style="background:${c[0]}"></i>${esc(cn(c))}</span>`).join("");
-  $("#pass").innerHTML = `<header><span class="logo">TON <em>sur</em> TON</span><span>${esc(t.passTitle)}${p.demo?` · ${esc(t.passDemo)}`:""} · ${new Date().toLocaleDateString(lang)}</span></header>
+  $("#pass").innerHTML = `<header><span class="logo">STYLE<em>maker</em></span><span>${esc(t.passTitle)}${p.demo?` · ${esc(t.passDemo)}`:""} · ${new Date().toLocaleDateString(lang)}</span></header>
     <h1>${esc(X(s.name))} · ${esc(X(sh.name))}</h1><p class="sub">${esc(gName(p.g))} · ${esc(X(s.sub))}</p>
     <h2>${esc(t.rColors)}</h2><div class="pcs">${sw(s.best)}</div>
     <div class="cols"><div><h2>${esc(t.rNeutral)}</h2><div class="pcs">${sw(s.neutral)}</div></div><div><h2>${esc(t.rAvoid)}</h2><div class="pcs">${sw(s.avoid)}</div></div></div>
