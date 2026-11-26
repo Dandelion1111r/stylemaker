@@ -708,6 +708,36 @@ html[data-theme="dark"] .sheet{box-shadow:0 -20px 60px -20px rgba(0,0,0,.8)}
   html[data-theme="dark"] .app-nav a[aria-current="page"]{background:var(--ink);color:var(--bg)}}
 @media (min-width:861px){html[data-theme="dark"] .app-nav{background:transparent}}
 html[data-theme="dark"] .sw .fab:not(.own),html[data-theme="dark"] .trc-board .fab,html[data-theme="dark"] .td-sw .fab{outline:1px solid rgba(255,255,255,.07);outline-offset:-1px}
+
+/* ---------- Today, editorial ---------- */
+.td-head{display:flex;flex-direction:column;gap:clamp(.8rem,1.6vw,1.2rem);margin:0 0 clamp(1.6rem,3vw,2.6rem)}
+.td-meta{display:flex;align-items:center;gap:.8rem;margin:0;font-size:.7rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+.td-dot{width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.6}
+.td-w{all:unset;cursor:pointer;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:1px;transition:border-color .3s}
+.td-w:hover{border-color:var(--ink)}
+.td-meta .wx{border:0;padding:.2rem;margin-left:-.2rem;border-radius:0;letter-spacing:.24em;font-size:.7rem;color:var(--soft)}
+.td-meta .wx.on{color:var(--ink)}
+.td-title{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(2.8rem,7vw,5.6rem);line-height:.95;letter-spacing:-.01em}
+.td-title em{font-style:italic;color:var(--accent);font-size:.48em;letter-spacing:0;white-space:nowrap}
+.td-occ{display:flex;flex-wrap:wrap;gap:.2rem 1.6rem}
+.td-occ button{all:unset;cursor:pointer;font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--soft);padding:.35rem 0;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.td-occ button:hover{color:var(--ink)}.td-occ button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
+.td-look{display:flex;flex-direction:column;gap:0;margin-bottom:clamp(2.4rem,5vw,4rem)}
+.lboard.td-board{grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);padding:clamp(3.6rem,4vw,4rem) clamp(1rem,2.4vw,2rem) clamp(1.2rem,2.4vw,2rem);background:#EFE9E1}
+.td-board .sw figcaption b{font-size:1.02rem}
+.td-foot{display:flex;justify-content:space-between;align-items:center;gap:1.2rem 2rem;flex-wrap:wrap;padding:1.2rem 0;border-bottom:1px solid var(--line)}
+.td-rule{margin:0;font-family:var(--display);font-style:italic;font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--ink);max-width:40rem}
+.td-act{display:flex;gap:2rem}
+.td-act .cta{padding:.4rem 0}
+.td-edit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.4rem,3vw,3rem);margin-bottom:clamp(2.4rem,5vw,4rem)}
+.td-edit .tile{background:none;border:0;border-top:1px solid var(--ink);padding:1.2rem 0 0;display:flex;flex-direction:column;gap:.7rem}
+.td-edit .tile h3{font-size:1.5rem;margin:0}
+.td-edit .tile p{margin:0;color:var(--soft);font-size:.92rem;line-height:1.55}
+.td-edit .swatch-lg{height:72px}
+@media (max-width:1100px){.lboard.td-board{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.td-edit{grid-template-columns:1fr}.td-act{gap:1.4rem}}
+html[data-theme="dark"] .lboard.td-board{background:#201D1A}
+#v-heute .shortcuts .sc{border:0;border-top:1px solid var(--line);background:none;padding-left:0}
 </style>
 </head>
 <body class="is-app">
@@ -741,24 +771,20 @@ html[data-theme="dark"] .sw .fab:not(.own),html[data-theme="dark"] .trc-board .f
   <main id="main">
     <!-- TODAY -->
     <section class="view" id="v-heute" data-v="heute">
-      <div class="vhead"><span class="label" id="tdDate"></span><h2 id="tdHello"></h2><p class="lead" id="tdWho"></p></div>
-      <div class="today">
-        <article class="card look-today">
-          <div class="lboard" id="tdFlat"></div><div hidden id="tdBar"></div>
-          <div class="panel">
-            <span class="label" data-t="tdLook"></span>
-            <div class="choose"><div class="tabs" id="tdOcc" role="group"></div></div>
-            <div class="choose wx-row"><div class="tabs" id="tdWeather" role="group"></div><button type="button" class="wx" id="tdWx"></button></div>
-            <ul class="olist" id="tdList" hidden></ul>
-            <p class="fine" id="tdWhy"></p>
-            <div class="row"><button class="cta" id="tdShuffle" data-t="ofShuffle"></button><a class="cta" href="#looks" data-t="tdMore"></a></div>
-          </div>
-        </article>
-        <div class="today-side">
-          <article class="card tile" id="tdColor"></article>
-          <article class="card tile" id="tdRule"></article>
-          <article class="card tile" id="tdTrend"></article>
-        </div>
+      <header class="td-head">
+        <p class="td-meta"><span id="tdDate"></span><span class="td-dot" aria-hidden="true"></span><button type="button" class="td-w" id="tdWcycle"></button><button type="button" class="wx" id="tdWx"></button></p>
+        <h2 class="td-title"><span id="tdOccName"></span> <em id="tdIn"></em></h2>
+        <div class="td-occ" id="tdOcc" role="group"></div>
+      </header>
+      <article class="td-look">
+        <div class="lboard td-board" id="tdFlat"></div><div hidden id="tdBar"></div><ul hidden id="tdList"></ul><div hidden id="tdWeather"></div>
+        <div class="td-foot"><p class="td-rule" id="tdWhy"></p>
+          <div class="td-act"><button class="cta" id="tdShuffle" data-t="ofShuffle"></button><a class="cta" href="#looks" data-t="tdMore"></a></div></div>
+      </article>
+      <div class="td-edit">
+        <article class="tile" id="tdColor"></article>
+        <article class="tile" id="tdRule"></article>
+        <article class="tile" id="tdTrend"></article>
       </div>
       <div class="shortcuts">
         <a class="sc" href="#check"><span class="num">i</span><b data-t="scCheck"></b><span data-t="scCheckD"></span></a>
@@ -1805,7 +1831,7 @@ T.ro.FAQ[3][1]="Da. În formula ta alege alt tip de culoare, altă siluetă sau 
 T.en.FAQ[3][1]="Yes. In your formula pick another colour type, body or face shape and tap “That's me”.";
 /* ---------- my wardrobe (own photos) + shop search ---------- */
 Object.assign(T.de, {
-  shopFind:"Finden",wxAsk:"Wetter jetzt",wxWait:"Einen Moment …",wxErr:"Kein Standort",wxNow:n=>`${n} °C jetzt`,svTab:"Gespeichert",svEmpty:"Noch nichts gespeichert. Tippe bei einem Look auf das Herz.",saveL:"Merken",savedL:"Gemerkt",themeL:"Hell oder dunkel",close:"Schließen",trRunway:"So auf dem Laufsteg",shopAt:"Shoppen bei", shopG:{w:"Damen",m:"Herren"}, fromWard:"Aus deinem Schrank",
+  shopFind:"Finden",tdIn:{spring:"in Frühlingsfarben",summer:"in Sommerfarben",autumn:"in Herbstfarben",winter:"in Winterfarben"},wxCycle:"Wetter ändern",wxAsk:"Wetter jetzt",wxWait:"Einen Moment …",wxErr:"Kein Standort",wxNow:n=>`${n} °C jetzt`,svTab:"Gespeichert",svEmpty:"Noch nichts gespeichert. Tippe bei einem Look auf das Herz.",saveL:"Merken",savedL:"Gemerkt",themeL:"Hell oder dunkel",close:"Schließen",trRunway:"So auf dem Laufsteg",shopAt:"Shoppen bei", shopG:{w:"Damen",m:"Herren"}, fromWard:"Aus deinem Schrank",
   haveN:(n,m)=>`${n} von ${m} Teilen hast du schon`,
   tabMine:"Meine Teile", mineLead:"Fotografiere deine Kleidung. Die App erkennt die Farbe, prüft sie gegen deine Palette und baut deine Looks aus dem, was du schon hast.",
   mineAdd:"Teil fotografieren", mineHint:"Tippe auf den Stoff, wenn die Farbe nicht stimmt.", mineCat:"Was ist es?", mineSave:"Speichern", mineCancel:"Abbrechen", mineDel:"Entfernen",
@@ -1815,7 +1841,7 @@ Object.assign(T.de, {
   mineErr:"Das Foto ließ sich nicht speichern. Ist der Speicher voll?"
 });
 Object.assign(T.ro, {
-  shopFind:"Caută",wxAsk:"Vremea de acum",wxWait:"O clipă …",wxErr:"Fără locație",wxNow:n=>`${n} °C acum`,svTab:"Salvate",svEmpty:"Nimic salvat încă. Atinge inima de la o ținută.",saveL:"Salvează",savedL:"Salvată",themeL:"Luminos sau întunecat",close:"Închide",trRunway:"Așa pe podium",shopAt:"Caută la", shopG:{w:"damă",m:"bărbați"}, fromWard:"Din garderoba ta",
+  shopFind:"Caută",tdIn:{spring:"în culori de primăvară",summer:"în culori de vară",autumn:"în culori de toamnă",winter:"în culori de iarnă"},wxCycle:"Schimbă vremea",wxAsk:"Vremea de acum",wxWait:"O clipă …",wxErr:"Fără locație",wxNow:n=>`${n} °C acum`,svTab:"Salvate",svEmpty:"Nimic salvat încă. Atinge inima de la o ținută.",saveL:"Salvează",savedL:"Salvată",themeL:"Luminos sau întunecat",close:"Închide",trRunway:"Așa pe podium",shopAt:"Caută la", shopG:{w:"damă",m:"bărbați"}, fromWard:"Din garderoba ta",
   haveN:(n,m)=>`Ai deja ${n} din ${m} piese`,
   tabMine:"Hainele mele", mineLead:"Fotografiază-ți hainele. Aplicația recunoaște culoarea, o compară cu paleta ta și îți face ținute din ce ai deja.",
   mineAdd:"Fotografiază o piesă", mineHint:"Atinge materialul dacă nu e culoarea bună.", mineCat:"Ce este?", mineSave:"Salvează", mineCancel:"Renunță", mineDel:"Șterge",
@@ -1825,7 +1851,7 @@ Object.assign(T.ro, {
   mineErr:"Poza nu s-a putut salva. E memoria plină?"
 });
 Object.assign(T.en, {
-  shopFind:"Find",wxAsk:"Weather now",wxWait:"One moment …",wxErr:"No location",wxNow:n=>`${n} °C now`,svTab:"Saved",svEmpty:"Nothing saved yet. Tap the heart on a look.",saveL:"Save",savedL:"Saved",themeL:"Light or dark",close:"Close",trRunway:"As on the runway",shopAt:"Shop at", shopG:{w:"women",m:"men"}, fromWard:"From your wardrobe",
+  shopFind:"Find",tdIn:{spring:"in spring colours",summer:"in summer colours",autumn:"in autumn colours",winter:"in winter colours"},wxCycle:"Change the weather",wxAsk:"Weather now",wxWait:"One moment …",wxErr:"No location",wxNow:n=>`${n} °C now`,svTab:"Saved",svEmpty:"Nothing saved yet. Tap the heart on a look.",saveL:"Save",savedL:"Saved",themeL:"Light or dark",close:"Close",trRunway:"As on the runway",shopAt:"Shop at", shopG:{w:"women",m:"men"}, fromWard:"From your wardrobe",
   haveN:(n,m)=>`You already own ${n} of ${m} pieces`,
   tabMine:"My pieces", mineLead:"Photograph your clothes. The app reads the colour, checks it against your palette and builds your looks from what you already own.",
   mineAdd:"Photograph a piece", mineHint:"Tap the fabric if the colour is off.", mineCat:"What is it?", mineSave:"Save", mineCancel:"Cancel", mineDel:"Remove",
@@ -2472,10 +2498,13 @@ function renderToday(){
   if(!tdOcc){ const d = now.getDay(); tdOcc = (d===0||d===6) ? "alltag" : "buero"; }
   if(!tdW){ const m = now.getMonth()+1; tdW = (m>=11||m<=3) ? "cold" : (m>=6&&m<=8) ? "warm" : "mild"; }
   $("#tdDate").textContent = now.toLocaleDateString(lang, {weekday:"long", day:"numeric", month:"long"});
-  $("#tdHello").textContent = hr<11 ? t.helloM : hr<18 ? t.helloD : t.helloE;
-  $("#tdWho").textContent = t.tdWho(X(s.name), X(SHAPES[p.g][p.shape].name), X(FACES[p.face||"oval"].name)) + (p.demo ? ` · ${t.passDemo}` : "");
-  pills($("#tdOcc"), OCC.filter(([k]) => TD_OCC.includes(k)).map(([k,n]) => [k, X(n)]), tdOcc, k => { tdOcc = k; renderToday(); });
-  pills($("#tdWeather"), WEATHER.map(([k,n]) => [k, X(n)]), tdW, k => { tdW = k; renderToday(); });
+  const occs = OCC.filter(([k]) => TD_OCC.includes(k));
+  $("#tdOccName").textContent = X(occs.find(([k]) => k === tdOcc)[1]);
+  $("#tdIn").textContent = t.tdIn[p.season] + (p.demo ? ` · ${t.passDemo}` : "");
+  pills($("#tdOcc"), occs.map(([k,n]) => [k, X(n)]), tdOcc, k => { tdOcc = k; vt(renderToday); });
+  const wn = WEATHER.find(([k]) => k === tdW);
+  $("#tdWcycle").textContent = X(wn[1]); $("#tdWcycle").title = t.wxCycle;
+  $("#tdWcycle").onclick = () => { const ks = WEATHER.map(w => w[0]); tdW = ks[(ks.indexOf(tdW)+1) % ks.length]; renderToday(); };
   const o = OUT[p.g][tdOcc], cols = [], pieces = []; let rows = "";
   o.items.forEach(([slot, item, role]) => {
     const it = pick(item, tdW); if(!it) return;
@@ -2723,7 +2752,8 @@ function renderWx(){
   const b = $("#tdWx"); if(!b) return;
   const t = L();
   b.classList.toggle("on", !!WX);
-  b.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.6-6-10.5A6 6 0 0 1 18 10.5C18 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.2"/></svg><span>${WX ? esc(t.wxNow(Math.round(WX.t))) : esc(t.wxAsk)}</span>`;
+  b.setAttribute("aria-label", t.wxAsk); b.title = t.wxAsk;
+  b.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.6-6-10.5A6 6 0 0 1 18 10.5C18 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.2"/></svg><span>${WX ? esc(Math.round(WX.t) + " °C") : ""}</span>`;
 }
 function askWx(){
   const t = L(), b = $("#tdWx");
@@ -2746,9 +2776,9 @@ const SAVED_KEY = "styleai-saved";
 let SAVED = store.get(SAVED_KEY) || [];
 const lookSig = pieces => pieces.map(p => p.slot + ":" + p.col[0] + ":" + (p.it.de||"")).join("|");
 function lookMeta(el){
-  const box = el.closest(".look-today, .look"); if(!box) return {};
-  const pick = sel => box.querySelector(sel + ' [aria-pressed="true"]')?.textContent || "";
-  return {occ: pick("#tdOcc") || pick("#ofOcc"), w: pick("#tdWeather") || pick("#ofWeather")};
+  const pressed = sel => document.querySelector(sel + ' [aria-pressed="true"]')?.textContent || "";
+  if(el.id === "tdFlat") return {occ: pressed("#tdOcc"), w: $("#tdWcycle")?.textContent || ""};
+  return {occ: pressed("#ofOcc"), w: pressed("#ofWeather")};
 }
 function toggleSave(el){
   const pieces = el._pieces; if(!pieces) return;
