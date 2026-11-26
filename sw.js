@@ -4,7 +4,7 @@ const CACHE = "stylemaker-v3";
 const CORE = [
   "./", "index.html", "app.html", "impressum.html", "datenschutz.html",
   "img/hero-woman.jpg", "img/woman-suit.jpg", "img/man-suit.jpg", "img/mature-woman.jpg", "img/skin-closeup.jpg", "img/woman-trench.jpg", "img/man-street.jpg", "img/man-coat.jpg", "img/knit.jpg", "img/plaid.jpg",
-  "img/look-m-autumn-day.jpg", "img/look-m-autumn-event.jpg", "img/look-m-spring-day.jpg", "img/look-m-spring-event.jpg", "img/look-m-summer-day.jpg", "img/look-m-summer-event.jpg", "img/look-w-autumn-event.jpg", "img/look-w-spring-event.jpg", "img/look-w-summer-day.jpg", "img/look-w-summer-event.jpg", "img/look-w-winter-event.jpg",
+  "img/tex/knit.jpg", "img/tex/silk.jpg", "img/tex/linen.jpg", "img/tex/twill.jpg", "img/tex/leather.jpg", "img/tex/metal.jpg",
   "favicon.svg", "favicon-32.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png",
   "fonts/bodoni-moda-latin-400-normal.woff2", "fonts/bodoni-moda-latin-ext-400-normal.woff2",
   "fonts/bodoni-moda-latin-500-normal.woff2", "fonts/bodoni-moda-latin-ext-500-normal.woff2",

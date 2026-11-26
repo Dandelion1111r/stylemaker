@@ -215,7 +215,7 @@ p{margin:0}
 .range input{accent-color:var(--ink)}
 
 /* outfits */
-.look{display:grid;grid-template-columns:5fr 7fr;gap:clamp(2rem,6vw,7rem);align-items:start}
+.look{display:grid;grid-template-columns:7fr 5fr;gap:clamp(2rem,6vw,7rem);align-items:start}
 .look>*{min-width:0}
 .look .ph{aspect-ratio:4/5;overflow:hidden;background:#ddd;position:relative}
 .look .ph img{width:100%;height:100%;object-fit:cover;transition:opacity .5s}
@@ -465,9 +465,19 @@ html{scroll-padding-top:5rem}
 .closing h2 em{color:var(--accent)}
 
 /* ---------- app shell ---------- */
-.ph.photo{position:relative;overflow:hidden;background:#E9E2D8}
-.ph.photo img.look-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
-.ph.photo .insp{position:absolute;left:12px;top:12px;padding:5px 10px;border-radius:999px;background:rgba(20,17,14,.55);color:#F4F0EA;font-size:11px;letter-spacing:.04em;backdrop-filter:blur(6px)}
+.lboard{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-content:start;padding:clamp(1rem,2.2vw,1.6rem);background:#EFE9E1}
+.look-today .lboard{min-height:100%}
+.sw{margin:0;display:flex;flex-direction:column;gap:.55rem}
+.sw .fab{position:relative;aspect-ratio:1/1;background-color:var(--c);background-size:cover;background-position:center;background-blend-mode:multiply;box-shadow:0 1px 2px rgba(20,17,14,.08),0 8px 18px -10px rgba(20,17,14,.35)}
+.sw .fab::after{content:"";position:absolute;inset:0;background:inherit;background-color:transparent;mix-blend-mode:screen;opacity:.14}
+.f-knit{background-image:url(img/tex/knit.jpg)}.f-silk{background-image:url(img/tex/silk.jpg)}.f-linen{background-image:url(img/tex/linen.jpg)}
+.f-twill{background-image:url(img/tex/twill.jpg)}.f-leather{background-image:url(img/tex/leather.jpg)}.f-metal{background-image:url(img/tex/metal.jpg)}
+.sw figcaption{display:flex;flex-direction:column;gap:.15rem;line-height:1.25}
+.sw figcaption b{hyphens:auto;overflow-wrap:anywhere;font-family:var(--display);font-weight:400;font-size:.98rem}
+.sw figcaption span{font-size:.72rem;letter-spacing:.06em;color:var(--soft)}
+.lboard .try{grid-column:1/-1;margin:.4rem 0 0;display:flex;justify-content:space-between;gap:1rem;padding-top:.9rem;border-top:1px solid rgba(20,17,14,.12);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+.lboard .try em{white-space:nowrap;font-style:normal;color:var(--accent)}
+@media (max-width:560px){.lboard{gap:10px}.sw figcaption b{font-size:.86rem}}
 .app-foot{display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;align-items:baseline;margin-top:clamp(3rem,6vw,5rem);padding-top:1.4rem;border-top:1px solid var(--line);font-size:.78rem;color:var(--soft)}
 .app-foot a{color:var(--soft);text-decoration:none}.app-foot a:hover{color:var(--ink)}
 .app-foot a:first-child{font-family:var(--display);letter-spacing:.18em;color:var(--ink)}
@@ -502,7 +512,7 @@ html{scroll-padding-top:5rem}
 .view{animation:fadein .35s ease}
 .card{background:var(--paper);border:1px solid var(--line)}
 .today{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:clamp(1rem,2vw,1.6rem)}
-.look-today{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,6fr)}
+.look-today{display:grid;grid-template-columns:minmax(0,11fr) minmax(0,9fr)}
 .look-today .ph{position:relative;min-height:100%;overflow:hidden;background:#ddd}
 .look-today .ph img{position:absolute;inset:0}
 .look-today .ph img{width:100%;height:100%;object-fit:cover}
@@ -547,7 +557,6 @@ html{scroll-padding-top:5rem}
   .app-nav a[aria-current="page"]{border-color:var(--ink)}
   .app main{padding-bottom:7rem}
   .look-today{grid-template-columns:1fr}
-  .look-today .ph{aspect-ratio:4/5;min-height:0}
   .today-side,.shortcuts,.two-col,.split,.beauty{grid-template-columns:1fr}
   .top .steps-nav{display:none}
   .top{grid-template-columns:auto 1fr}
@@ -607,12 +616,12 @@ html{scroll-padding-top:5rem}
       <div class="vhead"><span class="label" id="tdDate"></span><h2 id="tdHello"></h2><p class="lead" id="tdWho"></p></div>
       <div class="today">
         <article class="card look-today">
-          <div class="ph photo" id="tdFlat"><div class="bar" id="tdBar"></div></div>
+          <div class="lboard" id="tdFlat"></div><div hidden id="tdBar"></div>
           <div class="panel">
             <span class="label" data-t="tdLook"></span>
             <div class="choose"><div class="tabs" id="tdOcc" role="group"></div></div>
             <div class="choose"><div class="tabs" id="tdWeather" role="group"></div></div>
-            <ul class="olist" id="tdList"></ul>
+            <ul class="olist" id="tdList" hidden></ul>
             <p class="fine" id="tdWhy"></p>
             <div class="row"><button class="cta" id="tdShuffle" data-t="ofShuffle"></button><a class="cta" href="#looks" data-t="tdMore"></a></div>
           </div>
@@ -747,12 +756,12 @@ html{scroll-padding-top:5rem}
       </div>
       <div class="tabpanel" data-panel="looks:outfits">
         <div class="look">
-          <div class="ph photo" id="ofFlat"><div class="bar" id="ofBar"></div></div>
+          <div class="lboard" id="ofFlat"></div><div hidden id="ofBar"></div>
           <div class="panel">
             <div class="choose"><span class="label" data-t="ofOccL"></span><div class="tabs" id="ofOcc" role="group"></div></div>
             <div class="choose"><span class="label" data-t="ofWeatherL"></span><div class="tabs" id="ofWeather" role="group"></div></div>
             <p class="dresscode" id="ofRule"></p>
-            <ul class="olist" id="ofList"></ul>
+            <ul class="olist" id="ofList" hidden></ul>
             <span class="label" data-t="whyLabel"></span>
             <ul class="why" id="ofWhy"></ul>
             <div><button class="cta" id="ofShuffle" data-t="ofShuffle"></button></div>
@@ -1575,7 +1584,7 @@ Object.assign(T.en, {
 Object.assign(T.de, {
   vHeute:"Heute",vFormel:"Stilformel",vLooks:"Looks",vSchrank:"Garderobe",vCheck:"Check",testTitlePlain:"Stil-Test",
   helloM:"Guten Morgen",helloD:"Guten Tag",helloE:"Guten Abend",
-  tdWho:(a,b,c)=>`${a} · ${b} · ${c}`,insp:"Inspiration in deinen Farben",inspAlt:"Inspirationsfoto in deinen Farben",tdLook:"Dein Look für heute",tdMore:"Alle Anlässe",
+  tdWho:(a,b,c)=>`${a} · ${b} · ${c}`,tryOn:"Mit deinem Foto anprobieren",trySoon:"bald · Premium",tdLook:"Dein Look für heute",tdMore:"Alle Anlässe",
   tdColorL:"Farbe des Tages",tdColorD:n=>"Trag sie heute nah am Gesicht: als Pullover, Bluse oder Tuch.",tdRuleL:"Regel des Tages",tdTrendL:"Trend für dich",
   scCheck:"Farb-Check",scCheckD:"Passt die Farbe? Ein Foto genügt.",scPack:"Koffer packen",scPackD:"Die Liste in deinen Farben.",scPassD:"Deine Stilformel auf einer Seite.",
   formelTitle:"Deine <em>Stilformel</em>",fmColor:"Farbtyp",fmShape:"Form",fmFace:"Gesicht",fmStyle:"Stil",fmNone:"Noch offen",
@@ -1598,7 +1607,7 @@ Object.assign(T.de, {
 Object.assign(T.ro, {
   vHeute:"Azi",vFormel:"Formula ta",vLooks:"Ținute",vSchrank:"Garderobă",vCheck:"Verifică",testTitlePlain:"Testul de stil",
   helloM:"Bună dimineața",helloD:"Bună ziua",helloE:"Bună seara",
-  tdWho:(a,b,c)=>`${a} · ${b} · ${c}`,insp:"Inspirație în culorile tale",inspAlt:"Fotografie de inspirație în culorile tale",tdLook:"Ținuta ta de azi",tdMore:"Toate ocaziile",
+  tdWho:(a,b,c)=>`${a} · ${b} · ${c}`,tryOn:"Probează pe fotografia ta",trySoon:"în curând · Premium",tdLook:"Ținuta ta de azi",tdMore:"Toate ocaziile",
   tdColorL:"Culoarea zilei",tdColorD:n=>"Poart-o azi aproape de față: pulover, bluză sau eșarfă.",tdRuleL:"Regula zilei",tdTrendL:"Tendința pentru tine",
   scCheck:"Verifică o culoare",scCheckD:"Ți se potrivește? E de ajuns o poză.",scPack:"Fă bagajul",scPackD:"Lista în culorile tale.",scPassD:"Formula ta pe o singură pagină.",
   formelTitle:"Formula ta <em>de stil</em>",fmColor:"Tip de culoare",fmShape:"Siluetă",fmFace:"Chip",fmStyle:"Stil",fmNone:"Încă deschis",
@@ -1621,7 +1630,7 @@ Object.assign(T.ro, {
 Object.assign(T.en, {
   vHeute:"Today",vFormel:"Formula",vLooks:"Looks",vSchrank:"Wardrobe",vCheck:"Check",testTitlePlain:"Style test",
   helloM:"Good morning",helloD:"Good afternoon",helloE:"Good evening",
-  tdWho:(a,b,c)=>`${a} · ${b} · ${c}`,insp:"Inspiration in your colours",inspAlt:"Inspiration photo in your colours",tdLook:"Your look for today",tdMore:"All occasions",
+  tdWho:(a,b,c)=>`${a} · ${b} · ${c}`,tryOn:"Try it on with your photo",trySoon:"soon · Premium",tdLook:"Your look for today",tdMore:"All occasions",
   tdColorL:"Colour of the day",tdColorD:n=>"Wear it near your face today: a jumper, a shirt or a scarf.",tdRuleL:"Rule of the day",tdTrendL:"A trend for you",
   scCheck:"Colour check",scCheckD:"Does it suit you? One photo is enough.",scPack:"Pack a suitcase",scPackD:"The list, in your colours.",scPassD:"Your formula on one page.",
   formelTitle:"Your <em>style formula</em>",fmColor:"Colour type",fmShape:"Shape",fmFace:"Face",fmStyle:"Style",fmNone:"Not set",
@@ -1944,13 +1953,13 @@ function renderOutfit(){
     const it = pick(item, ofW); if(!it) return;
     const col = roleColor(p.season, role, ofShift);
     if(role!=="metal") cols.push(col[0]);
-    pieces.push({slot, de: it.de, hex: col[0]});
+    pieces.push({slot, it, col});
     if(!nearFace && role[0]==="a" && ["top","dress","acc"].includes(slot)) nearFace = col;
     rows += `<li><span class="slot">${esc(X(SLOTS[slot]))}</span><span class="it">${esc(X(it))}</span><span class="col"><span class="dot sm" style="--c:${col[0]}"></span>${esc(role==="metal" ? "" : cn(col))}</span></li>`;
   });
   $("#ofList").innerHTML = rows;
   $("#ofBar").innerHTML = cols.map(c => `<i style="--c:${c}"></i>`).join("");
-  setPhoto($("#ofFlat"), ofOcc);
+  board($("#ofFlat"), pieces);
   const why = [];
   if(nearFace) why.push(t.whyColor(cn(nearFace)));
   why.push(t.whyBase(cn(s.neutral[3]), cn(s.neutral[1])));
@@ -2188,12 +2197,12 @@ function renderToday(){
   o.items.forEach(([slot, item, role]) => {
     const it = pick(item, tdW); if(!it) return;
     const col = roleColor(p.season, role, tdShift); if(role!=="metal") cols.push(col[0]);
-    pieces.push({slot, de: it.de, hex: col[0]});
+    pieces.push({slot, it, col});
     rows += `<li><span class="slot">${esc(X(SLOTS[slot]))}</span><span class="it">${esc(X(it))}</span><span class="col"><span class="dot sm" style="--c:${col[0]}"></span>${esc(role==="metal" ? "" : cn(col))}</span></li>`;
   });
   $("#tdList").innerHTML = rows; $("#tdBar").innerHTML = cols.map(c => `<i style="--c:${c}"></i>`).join("");
   $("#tdWhy").textContent = X(o.rule);
-  setPhoto($("#tdFlat"), tdOcc);
+  board($("#tdFlat"), pieces);
   const c = s.best[day % s.best.length];
   $("#tdColor").innerHTML = `<span class="label">${esc(t.tdColorL)}</span><span class="swatch-lg" style="--c:${c[0]}"></span><h3>${esc(cn(c))}</h3><p>${esc(t.tdColorD(cn(c)))}</p>`;
   const r = FIT[p.g][day % FIT[p.g].length];
@@ -2234,18 +2243,22 @@ function renderBeauty(){
   }
 }
 
-/* real photos: inspiration in the season's colours, by gender × season × day/event */
-const LOOK_PH = {
-  w:{spring:["hero-woman","look-w-spring-event"], summer:["look-w-summer-day","look-w-summer-event"], autumn:["woman-suit","look-w-autumn-event"], winter:["mature-woman","look-w-winter-event"]},
-  m:{spring:["look-m-spring-day","look-m-spring-event"], summer:["look-m-summer-day","look-m-summer-event"], autumn:["look-m-autumn-day","look-m-autumn-event"], winter:["man-coat","man-suit"]}};
-const EVENT_OCC = ["abend","hochzeit","fest"];
-function setPhoto(el, occ){
-  const p = P(), set = (LOOK_PH[p.g] || LOOK_PH.w)[p.season] || LOOK_PH.w.spring;
-  const src = `img/${set[EVENT_OCC.includes(occ) ? 1 : 0]}.jpg`;
-  let img = el.querySelector("img.look-img");
-  if(!img){ el.insertAdjacentHTML("afterbegin", `<img class="look-img" alt="" decoding="async"><span class="insp"></span>`); img = el.querySelector("img.look-img"); }
-  if(img.getAttribute("src") !== src) img.src = src;
-  img.alt = L().inspAlt; el.querySelector(".insp").textContent = L().insp;
+/* look board: every piece as a real fabric swatch, tinted in its exact colour */
+function fabricOf(slot, de){
+  const d = (de||"").toLowerCase();
+  if(slot === "metal") return "metal";
+  if(slot === "shoes" || slot === "bag" || /leder|gürtel/.test(d)) return "leather";
+  if(/mantel|sakko|blazer|anzug|parka|trench/.test(d)) return "twill";
+  if(/strick|pullover|rollkragen|sweat/.test(d)) return "knit";
+  if(/jeans/.test(d)) return "twill";
+  if(/seide|bluse|kleid|krawatte|einstecktuch/.test(d)) return "silk";
+  if(/hemd|shirt|leinen/.test(d)) return "linen";
+  return "twill";
+}
+function board(el, pieces){
+  el.innerHTML = pieces.map(({slot, it, col}) =>
+    `<figure class="sw" style="--c:${col[0]}"><div class="fab f-${fabricOf(slot, it.de)}"></div><figcaption><b>${esc(X(it))}</b><span>${esc(cn(col))}</span></figcaption></figure>`).join("")
+    + `<p class="try"><span>${esc(L().tryOn)}</span><em>${esc(L().trySoon)}</em></p>`;
 }
 if(profile && st.i >= 11 && !st.a.goal){ st.i = QL.length; saveQ(); }
 applyLang();
