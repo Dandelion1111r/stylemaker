@@ -630,6 +630,45 @@ html{scroll-padding-top:5rem}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
 @media (max-width:600px){.subtabs button{padding-right:0;margin-right:1.4rem;gap:.4rem;font-size:1.05rem;white-space:nowrap}.subtabs button:last-child{margin-right:0}}
+
+/* ---------- motion & modern touches ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.lboard .sw,.trc,.mn-it,.today-side .tile{animation:rise .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 60ms)}
+.today-side .tile:nth-child(2){--i:2}.today-side .tile:nth-child(3){--i:4}
+.sw .fab,.trc-board .fab,.td-sw .fab{transition:background-color .6s ease,transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.lboard .sw .fab:not(.own),.trc-board{cursor:zoom-in}
+@media (hover:hover){.lboard .sw .fab:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(20,17,14,.08),0 18px 30px -14px rgba(20,17,14,.45)}
+  .trc{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}.trc:hover{transform:translateY(-4px);box-shadow:0 22px 40px -26px rgba(20,17,14,.4)}}
+::view-transition-old(root){animation:vt-out .22s ease both}
+::view-transition-new(root){animation:vt-in .38s cubic-bezier(.2,.7,.2,1) both}
+@keyframes vt-out{to{opacity:0}}@keyframes vt-in{from{opacity:0;transform:translateY(8px)}}
+/* bottom sheet */
+.sheet-bg{position:fixed;inset:0;z-index:90;background:rgba(20,17,14,.38);opacity:0;transition:opacity .38s;backdrop-filter:blur(2px)}
+.sheet-bg.on{opacity:1}
+.sheet{position:fixed;z-index:91;left:50%;bottom:0;width:min(560px,100%);max-height:92vh;overflow:auto;background:var(--paper);transform:translate(-50%,104%);transition:transform .42s cubic-bezier(.2,.8,.2,1);box-shadow:0 -20px 60px -20px rgba(20,17,14,.4);padding-bottom:env(safe-area-inset-bottom)}
+.sheet.on{transform:translate(-50%,0)}
+.sheet-x{position:absolute;top:12px;right:12px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:rgba(251,249,245,.9);cursor:pointer}
+.sheet-x span,.sheet-x span::after{position:absolute;left:12px;top:19px;width:16px;height:1.5px;background:var(--ink);transform:rotate(45deg);content:""}
+.sheet-x span::after{left:0;top:0;transform:rotate(90deg)}
+.sheet-fab{position:relative;aspect-ratio:16/10;background-color:var(--c);background-size:cover;background-blend-mode:multiply}
+.sheet-fab.own{background:#fff}.sheet-fab.own img{width:100%;height:100%;object-fit:contain;display:block}
+.sheet-body{display:flex;flex-direction:column;gap:.8rem;padding:1.6rem clamp(1.2rem,4vw,2rem) 2rem}
+.sheet-body h3{font-size:1.7rem;line-height:1.1;margin:0}
+.sheet-col{display:flex;align-items:center;gap:.6rem;margin:0 0 .6rem;font-size:.95rem}
+.sheet-col i{width:18px;height:18px;border-radius:50%;background:var(--c);border:1px solid rgba(0,0,0,.15)}
+.sheet-col code{margin-left:auto;font-family:var(--mono,monospace);font-size:.75rem;color:var(--soft);letter-spacing:.06em}
+.sheet-shops{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sheet-shops a{display:flex;justify-content:space-between;align-items:center;padding:.95rem 1rem;border:1px solid var(--line);text-decoration:none;color:var(--ink);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;transition:background .3s,color .3s}
+.sheet-shops a:hover{background:var(--ink);color:var(--paper)}.sheet-shops a i{font-style:normal}
+/* floating glass navigation on phones */
+@media (max-width:860px){
+  .app-nav{left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));padding:.3rem;border:1px solid rgba(20,17,14,.08);border-radius:22px;background:rgba(251,249,245,.72);backdrop-filter:saturate(1.6) blur(18px);-webkit-backdrop-filter:saturate(1.6) blur(18px);box-shadow:0 12px 34px -14px rgba(20,17,14,.35)}
+  .app-nav a{border-top:0;border-radius:16px;transition:background .35s,color .35s}
+  .app-nav a[aria-current="page"]{background:var(--ink);color:var(--paper)}
+}
+@media (prefers-reduced-motion:reduce){.lboard .sw,.trc,.mn-it,.today-side .tile{animation:none}.sheet,.sheet-bg{transition:none}}
+@media (min-width:861px){.sheet{top:50%;bottom:auto;max-height:88vh;transform:translate(-50%,-46%) scale(.97);opacity:0;transition:transform .42s cubic-bezier(.2,.8,.2,1),opacity .3s}.sheet.on{transform:translate(-50%,-50%);opacity:1}}
+@media (max-width:860px){.app-nav a{letter-spacing:.06em;white-space:nowrap;font-size:.52rem}}
 </style>
 </head>
 <body>
@@ -1585,7 +1624,7 @@ T.ro.FAQ[3][1]="Da. În formula ta alege alt tip de culoare, altă siluetă sau 
 T.en.FAQ[3][1]="Yes. In your formula pick another colour type, body or face shape and tap “That's me”.";
 /* ---------- my wardrobe (own photos) + shop search ---------- */
 Object.assign(T.de, {
-  shopFind:"Finden",trRunway:"So auf dem Laufsteg",shopAt:"Shoppen bei", shopG:{w:"Damen",m:"Herren"}, fromWard:"Aus deinem Schrank",
+  shopFind:"Finden",close:"Schließen",trRunway:"So auf dem Laufsteg",shopAt:"Shoppen bei", shopG:{w:"Damen",m:"Herren"}, fromWard:"Aus deinem Schrank",
   haveN:(n,m)=>`${n} von ${m} Teilen hast du schon`,
   tabMine:"Meine Teile", mineLead:"Fotografiere deine Kleidung. Die App erkennt die Farbe, prüft sie gegen deine Palette und baut deine Looks aus dem, was du schon hast.",
   mineAdd:"Teil fotografieren", mineHint:"Tippe auf den Stoff, wenn die Farbe nicht stimmt.", mineCat:"Was ist es?", mineSave:"Speichern", mineCancel:"Abbrechen", mineDel:"Entfernen",
@@ -1595,7 +1634,7 @@ Object.assign(T.de, {
   mineErr:"Das Foto ließ sich nicht speichern. Ist der Speicher voll?"
 });
 Object.assign(T.ro, {
-  shopFind:"Caută",trRunway:"Așa pe podium",shopAt:"Caută la", shopG:{w:"damă",m:"bărbați"}, fromWard:"Din garderoba ta",
+  shopFind:"Caută",close:"Închide",trRunway:"Așa pe podium",shopAt:"Caută la", shopG:{w:"damă",m:"bărbați"}, fromWard:"Din garderoba ta",
   haveN:(n,m)=>`Ai deja ${n} din ${m} piese`,
   tabMine:"Hainele mele", mineLead:"Fotografiază-ți hainele. Aplicația recunoaște culoarea, o compară cu paleta ta și îți face ținute din ce ai deja.",
   mineAdd:"Fotografiază o piesă", mineHint:"Atinge materialul dacă nu e culoarea bună.", mineCat:"Ce este?", mineSave:"Salvează", mineCancel:"Renunță", mineDel:"Șterge",
@@ -1605,7 +1644,7 @@ Object.assign(T.ro, {
   mineErr:"Poza nu s-a putut salva. E memoria plină?"
 });
 Object.assign(T.en, {
-  shopFind:"Find",trRunway:"As on the runway",shopAt:"Shop at", shopG:{w:"women",m:"men"}, fromWard:"From your wardrobe",
+  shopFind:"Find",close:"Close",trRunway:"As on the runway",shopAt:"Shop at", shopG:{w:"women",m:"men"}, fromWard:"From your wardrobe",
   haveN:(n,m)=>`You already own ${n} of ${m} pieces`,
   tabMine:"My pieces", mineLead:"Photograph your clothes. The app reads the colour, checks it against your palette and builds your looks from what you already own.",
   mineAdd:"Photograph a piece", mineHint:"Tap the fabric if the colour is off.", mineCat:"What is it?", mineSave:"Save", mineCancel:"Cancel", mineDel:"Remove",
