@@ -2331,9 +2331,10 @@ const SHOPS = {
   zara:   {n:"Zara",    u:(q,g,l)=>`https://www.zara.com/${l==="ro"?"ro/ro":l==="en"?"de/en":"de/de"}/search?searchTerm=${q}&section=${g==="m"?"MAN":"WOMAN"}`},
   hm:     {n:"H&M",     u:(q,g,l)=>`https://www2.hm.com/${l==="ro"?"ro_ro":l==="en"?"en_gb":"de_de"}/search-results.html?q=${q}${g==="m"?"":"&department=ladies_all"}`, short:true},
   zalando:{n:"Zalando", u:(q,g,l)=>`https://${l==="en"?"en.":"www."}zalando.de/${l==="en"?(g==="m"?"men":"women"):(g==="m"?"herren":"damen")}/?q=${q}&order=activation_date`, no:["ro"], nog:true},
+  stories:{n:"& Other Stories", u:(q,g,l)=>`https://www.stories.com/de-de/search/?q=${q}`, no:["ro","en"], w:true, nog:true},
   asos:   {n:"ASOS",    u:(q,g,l)=>`https://www.asos.com/${l==="de"?"de/":""}search/?q=${q}`, no:["ro"]}
 };
-const shopsFor = () => Object.keys(SHOPS).filter(k => !(SHOPS[k].no||[]).includes(lang));
+const shopsFor = () => Object.keys(SHOPS).filter(k => !(SHOPS[k].no||[]).includes(lang) && !(SHOPS[k].w && P().g === "m"));
 function curShop(){ const k = store.get("styleai-shop"); return shopsFor().includes(k) ? k : "zara"; }
 function shopUrl(it, col){
   const t = L(), name = X(it).split(/ (?:oder|und|über|mit|sau|și|peste|cu|or|and|over|with) /)[0];
