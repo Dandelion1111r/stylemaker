@@ -475,6 +475,30 @@ html{scroll-padding-top:5rem}
 .sw figcaption{display:flex;flex-direction:column;gap:.15rem;line-height:1.25}
 .sw figcaption b{hyphens:auto;overflow-wrap:anywhere;font-family:var(--display);font-weight:400;font-size:.98rem}
 .sw figcaption span{font-size:.72rem;letter-spacing:.06em;color:var(--soft)}
+.sw .fab.own{background:#fff}.sw .fab.own img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sw .fab.own::after{display:none}
+.sw .shop{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);align-self:flex-start;margin-top:.2rem;padding-bottom:1px}
+.sw .shop:hover{border-color:var(--accent);color:var(--accent)}.sw .shop i{font-style:normal}
+.sw .mine{font-size:.72rem;letter-spacing:.06em;color:var(--accent)}
+.lboard .have{grid-column:1/-1;margin:.2rem 0 0;font-size:.8rem;color:var(--soft)}
+.mine-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.mine-head .intro{max-width:38rem;margin:0}
+.cta.file{cursor:pointer}.cta.file i{font-style:normal}
+.mn-new{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(1.2rem,3vw,2.4rem);padding:clamp(1rem,2.5vw,1.8rem);background:var(--paper);border:1px solid var(--line);margin-bottom:2rem}
+.mn-photo canvas{display:block;max-width:100%;max-height:min(60vh,560px);width:auto;height:auto;margin:0 auto;cursor:crosshair}
+.mn-side{display:flex;flex-direction:column;gap:1rem}
+.mn-read{display:flex;align-items:center;gap:.9rem;padding:.9rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mn-read .dot{width:44px;height:44px}.mn-read div{flex:1;display:flex;flex-direction:column;gap:.2rem}
+.mn-read b{font-family:var(--display);font-weight:400;font-size:1.25rem}.mn-read span{font-size:.82rem;color:var(--soft)}
+.v-ok{color:#3E6B4F}.v-near{color:var(--accent)}.v-off{color:#9A4A3A}
+.cta.ghost{opacity:.6}
+.mn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px;margin-bottom:1.4rem}
+.mn-it{margin:0;display:flex;flex-direction:column;gap:.5rem}
+.mn-it img{width:100%;aspect-ratio:4/5;object-fit:cover;background:#fff;display:block}
+.mn-it figcaption{display:flex;flex-direction:column;gap:.25rem;font-size:.8rem}
+.mn-it .v{display:flex;align-items:center;gap:.45rem}.mn-it .v .dot{width:12px;height:12px}
+.mn-del{all:unset;cursor:pointer;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);align-self:flex-start;border-bottom:1px solid var(--line)}
+@media (max-width:700px){.mn-new{grid-template-columns:1fr}}
 .lboard .try{grid-column:1/-1;margin:.4rem 0 0;display:flex;justify-content:space-between;gap:1rem;padding-top:.9rem;border-top:1px solid rgba(20,17,14,.12);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
 .lboard .try em{white-space:nowrap;font-style:normal;color:var(--accent)}
 @media (max-width:560px){.lboard{gap:10px}.sw figcaption b{font-size:.86rem}}
@@ -1534,6 +1558,37 @@ T.de.qStartMeta="13 Fragen · 2 Minuten";T.ro.qStartMeta="13 întrebări · 2 mi
 T.de.FAQ[3][1]="Ja. Wähle in deiner Stilformel einen anderen Farbtyp, eine andere Form oder Gesichtsform und tippe auf „Das bin ich“.";
 T.ro.FAQ[3][1]="Da. În formula ta alege alt tip de culoare, altă siluetă sau formă a chipului și apasă „Asta sunt eu”.";
 T.en.FAQ[3][1]="Yes. In your formula pick another colour type, body or face shape and tap “That's me”.";
+/* ---------- my wardrobe (own photos) + shop search ---------- */
+Object.assign(T.de, {
+  shopFind:"Finden", shopG:{w:"Damen",m:"Herren"}, fromWard:"Aus deinem Schrank",
+  haveN:(n,m)=>`${n} von ${m} Teilen hast du schon`,
+  tabMine:"Meine Teile", mineLead:"Fotografiere deine Kleidung. Die App erkennt die Farbe, prüft sie gegen deine Palette und baut deine Looks aus dem, was du schon hast.",
+  mineAdd:"Teil fotografieren", mineHint:"Tippe auf den Stoff, wenn die Farbe nicht stimmt.", mineCat:"Was ist es?", mineSave:"Speichern", mineCancel:"Abbrechen", mineDel:"Entfernen",
+  mineEmpty:"Noch leer. Fang mit einem Lieblingsteil an.", minePriv:"Die Fotos bleiben auf deinem Gerät. Nichts wird hochgeladen.",
+  mineCount:n=>n===1?"1 Teil":`${n} Teile`, mineNear:"Am nächsten in deiner Palette",
+  vOk:"In deiner Palette", vNear:"Gut kombinierbar", vOff:"Nicht deine Farbe: weg vom Gesicht tragen",
+  mineErr:"Das Foto ließ sich nicht speichern. Ist der Speicher voll?"
+});
+Object.assign(T.ro, {
+  shopFind:"Caută", shopG:{w:"damă",m:"bărbați"}, fromWard:"Din garderoba ta",
+  haveN:(n,m)=>`Ai deja ${n} din ${m} piese`,
+  tabMine:"Hainele mele", mineLead:"Fotografiază-ți hainele. Aplicația recunoaște culoarea, o compară cu paleta ta și îți face ținute din ce ai deja.",
+  mineAdd:"Fotografiază o piesă", mineHint:"Atinge materialul dacă nu e culoarea bună.", mineCat:"Ce este?", mineSave:"Salvează", mineCancel:"Renunță", mineDel:"Șterge",
+  mineEmpty:"Încă e goală. Începe cu piesa ta preferată.", minePriv:"Pozele rămân pe telefonul tău. Nu se încarcă nimic.",
+  mineCount:n=>n===1?"1 piesă":`${n} piese`, mineNear:"Cea mai apropiată din paleta ta",
+  vOk:"În paleta ta", vNear:"Se combină bine", vOff:"Nu e culoarea ta: poart-o departe de față",
+  mineErr:"Poza nu s-a putut salva. E memoria plină?"
+});
+Object.assign(T.en, {
+  shopFind:"Find", shopG:{w:"women",m:"men"}, fromWard:"From your wardrobe",
+  haveN:(n,m)=>`You already own ${n} of ${m} pieces`,
+  tabMine:"My pieces", mineLead:"Photograph your clothes. The app reads the colour, checks it against your palette and builds your looks from what you already own.",
+  mineAdd:"Photograph a piece", mineHint:"Tap the fabric if the colour is off.", mineCat:"What is it?", mineSave:"Save", mineCancel:"Cancel", mineDel:"Remove",
+  mineEmpty:"Still empty. Start with a favourite piece.", minePriv:"Photos stay on your device. Nothing is uploaded.",
+  mineCount:n=>n===1?"1 piece":`${n} pieces`, mineNear:"Closest in your palette",
+  vOk:"In your palette", vNear:"Easy to combine", vOff:"Not your colour: wear it away from the face",
+  mineErr:"The photo could not be saved. Is the storage full?"
+});
 /* ---------- landing page ---------- */
 const store = { get(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } }, set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} } };
 const LANGS = ["de","ro","en"], saved = store.get("styleai-lang");

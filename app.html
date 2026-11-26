@@ -475,6 +475,30 @@ html{scroll-padding-top:5rem}
 .sw figcaption{display:flex;flex-direction:column;gap:.15rem;line-height:1.25}
 .sw figcaption b{hyphens:auto;overflow-wrap:anywhere;font-family:var(--display);font-weight:400;font-size:.98rem}
 .sw figcaption span{font-size:.72rem;letter-spacing:.06em;color:var(--soft)}
+.sw .fab.own{background:#fff}.sw .fab.own img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sw .fab.own::after{display:none}
+.sw .shop{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);align-self:flex-start;margin-top:.2rem;padding-bottom:1px}
+.sw .shop:hover{border-color:var(--accent);color:var(--accent)}.sw .shop i{font-style:normal}
+.sw .mine{font-size:.72rem;letter-spacing:.06em;color:var(--accent)}
+.lboard .have{grid-column:1/-1;margin:.2rem 0 0;font-size:.8rem;color:var(--soft)}
+.mine-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.mine-head .intro{max-width:38rem;margin:0}
+.cta.file{cursor:pointer}.cta.file i{font-style:normal}
+.mn-new{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(1.2rem,3vw,2.4rem);padding:clamp(1rem,2.5vw,1.8rem);background:var(--paper);border:1px solid var(--line);margin-bottom:2rem}
+.mn-photo canvas{display:block;max-width:100%;max-height:min(60vh,560px);width:auto;height:auto;margin:0 auto;cursor:crosshair}
+.mn-side{display:flex;flex-direction:column;gap:1rem}
+.mn-read{display:flex;align-items:center;gap:.9rem;padding:.9rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mn-read .dot{width:44px;height:44px}.mn-read div{flex:1;display:flex;flex-direction:column;gap:.2rem}
+.mn-read b{font-family:var(--display);font-weight:400;font-size:1.25rem}.mn-read span{font-size:.82rem;color:var(--soft)}
+.v-ok{color:#3E6B4F}.v-near{color:var(--accent)}.v-off{color:#9A4A3A}
+.cta.ghost{opacity:.6}
+.mn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px;margin-bottom:1.4rem}
+.mn-it{margin:0;display:flex;flex-direction:column;gap:.5rem}
+.mn-it img{width:100%;aspect-ratio:4/5;object-fit:cover;background:#fff;display:block}
+.mn-it figcaption{display:flex;flex-direction:column;gap:.25rem;font-size:.8rem}
+.mn-it .v{display:flex;align-items:center;gap:.45rem}.mn-it .v .dot{width:12px;height:12px}
+.mn-del{all:unset;cursor:pointer;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);align-self:flex-start;border-bottom:1px solid var(--line)}
+@media (max-width:700px){.mn-new{grid-template-columns:1fr}}
 .lboard .try{grid-column:1/-1;margin:.4rem 0 0;display:flex;justify-content:space-between;gap:1rem;padding-top:.9rem;border-top:1px solid rgba(20,17,14,.12);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
 .lboard .try em{white-space:nowrap;font-style:normal;color:var(--accent)}
 @media (max-width:560px){.lboard{gap:10px}.sw figcaption b{font-size:.86rem}}
@@ -782,7 +806,8 @@ html{scroll-padding-top:5rem}
       <div class="vhead"><span class="label" data-t="vSchrank"></span><h2 data-th="schrankTitle"></h2></div>
       <div class="subtabs" role="tablist" data-group="sch">
         <button role="tab" data-tab="ward" aria-selected="true"><span class="num">i</span><span data-t="wardTitle"></span></button>
-        <button role="tab" data-tab="pack" aria-selected="false"><span class="num">ii</span><span data-t="packTitle"></span></button>
+        <button role="tab" data-tab="mine" aria-selected="false"><span class="num">ii</span><span data-t="tabMine"></span></button>
+        <button role="tab" data-tab="pack" aria-selected="false"><span class="num">iii</span><span data-t="packTitle"></span></button>
       </div>
       <div class="tabpanel" data-panel="sch:ward">
         <div class="two-col">
@@ -795,6 +820,16 @@ html{scroll-padding-top:5rem}
             <div class="card tile" id="wdNext"></div>
           </div>
         </div>
+      </div>
+      <div class="tabpanel" data-panel="sch:mine" hidden>
+        <div class="mine-head">
+          <p class="intro" data-t="mineLead"></p>
+          <label class="cta file"><input type="file" accept="image/*" id="mnFile" hidden><span data-t="mineAdd"></span> <i aria-hidden="true">+</i></label>
+        </div>
+        <div class="mn-new" id="mnNew" hidden></div>
+        <p class="count" id="mnCount"></p>
+        <div class="mn-grid" id="mnGrid"></div>
+        <p class="fine" data-t="minePriv"></p>
       </div>
       <div class="tabpanel" data-panel="sch:pack" hidden>
         <div class="two-col">
@@ -1661,6 +1696,37 @@ T.de.qStartMeta="13 Fragen · 2 Minuten";T.ro.qStartMeta="13 întrebări · 2 mi
 T.de.FAQ[3][1]="Ja. Wähle in deiner Stilformel einen anderen Farbtyp, eine andere Form oder Gesichtsform und tippe auf „Das bin ich“.";
 T.ro.FAQ[3][1]="Da. În formula ta alege alt tip de culoare, altă siluetă sau formă a chipului și apasă „Asta sunt eu”.";
 T.en.FAQ[3][1]="Yes. In your formula pick another colour type, body or face shape and tap “That's me”.";
+/* ---------- my wardrobe (own photos) + shop search ---------- */
+Object.assign(T.de, {
+  shopFind:"Finden", shopG:{w:"Damen",m:"Herren"}, fromWard:"Aus deinem Schrank",
+  haveN:(n,m)=>`${n} von ${m} Teilen hast du schon`,
+  tabMine:"Meine Teile", mineLead:"Fotografiere deine Kleidung. Die App erkennt die Farbe, prüft sie gegen deine Palette und baut deine Looks aus dem, was du schon hast.",
+  mineAdd:"Teil fotografieren", mineHint:"Tippe auf den Stoff, wenn die Farbe nicht stimmt.", mineCat:"Was ist es?", mineSave:"Speichern", mineCancel:"Abbrechen", mineDel:"Entfernen",
+  mineEmpty:"Noch leer. Fang mit einem Lieblingsteil an.", minePriv:"Die Fotos bleiben auf deinem Gerät. Nichts wird hochgeladen.",
+  mineCount:n=>n===1?"1 Teil":`${n} Teile`, mineNear:"Am nächsten in deiner Palette",
+  vOk:"In deiner Palette", vNear:"Gut kombinierbar", vOff:"Nicht deine Farbe: weg vom Gesicht tragen",
+  mineErr:"Das Foto ließ sich nicht speichern. Ist der Speicher voll?"
+});
+Object.assign(T.ro, {
+  shopFind:"Caută", shopG:{w:"damă",m:"bărbați"}, fromWard:"Din garderoba ta",
+  haveN:(n,m)=>`Ai deja ${n} din ${m} piese`,
+  tabMine:"Hainele mele", mineLead:"Fotografiază-ți hainele. Aplicația recunoaște culoarea, o compară cu paleta ta și îți face ținute din ce ai deja.",
+  mineAdd:"Fotografiază o piesă", mineHint:"Atinge materialul dacă nu e culoarea bună.", mineCat:"Ce este?", mineSave:"Salvează", mineCancel:"Renunță", mineDel:"Șterge",
+  mineEmpty:"Încă e goală. Începe cu piesa ta preferată.", minePriv:"Pozele rămân pe telefonul tău. Nu se încarcă nimic.",
+  mineCount:n=>n===1?"1 piesă":`${n} piese`, mineNear:"Cea mai apropiată din paleta ta",
+  vOk:"În paleta ta", vNear:"Se combină bine", vOff:"Nu e culoarea ta: poart-o departe de față",
+  mineErr:"Poza nu s-a putut salva. E memoria plină?"
+});
+Object.assign(T.en, {
+  shopFind:"Find", shopG:{w:"women",m:"men"}, fromWard:"From your wardrobe",
+  haveN:(n,m)=>`You already own ${n} of ${m} pieces`,
+  tabMine:"My pieces", mineLead:"Photograph your clothes. The app reads the colour, checks it against your palette and builds your looks from what you already own.",
+  mineAdd:"Photograph a piece", mineHint:"Tap the fabric if the colour is off.", mineCat:"What is it?", mineSave:"Save", mineCancel:"Cancel", mineDel:"Remove",
+  mineEmpty:"Still empty. Start with a favourite piece.", minePriv:"Photos stay on your device. Nothing is uploaded.",
+  mineCount:n=>n===1?"1 piece":`${n} pieces`, mineNear:"Closest in your palette",
+  vOk:"In your palette", vNear:"Easy to combine", vOff:"Not your colour: wear it away from the face",
+  mineErr:"The photo could not be saved. Is the storage full?"
+});
 /* ---------- helpers & state ---------- */
 const store = {
   get(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } },
@@ -1708,7 +1774,7 @@ function applyLang(){
   renderAll();
 }
 document.querySelectorAll(".lang button").forEach(b => b.onclick = () => { lang = b.dataset.lang; store.set("styleai-lang", lang); applyLang(); });
-function renderAll(){ renderSeasons(); renderFigure(); renderFace(); renderQuiz(); renderDrape(); renderOutfit(); renderCheck(); renderWard(); renderTrends(); renderStatus(); renderPass(); renderAdopt(); renderToday(); renderFormula(); renderBeauty(); }
+function renderAll(){ renderSeasons(); renderFigure(); renderFace(); renderQuiz(); renderDrape(); renderOutfit(); renderCheck(); renderWard(); renderTrends(); renderStatus(); renderPass(); renderAdopt(); renderToday(); renderFormula(); renderBeauty(); renderMine(); }
 
 /* ---------- structure: tabs, jumps, status, scroll spy ---------- */
 function openTab(group, key){
@@ -2255,13 +2321,135 @@ function fabricOf(slot, de){
   if(/hemd|shirt|leinen/.test(d)) return "linen";
   return "twill";
 }
+function shopUrl(it, col){
+  const t = L(), name = X(it).split(/ (?:oder|und|über|mit|sau|și|peste|cu|or|and|over|with) /)[0];
+  const q = `${name} ${cn(col).split(",")[0]} ${t.shopG[P().g] || ""}`.trim();
+  return `https://www.google.com/search?udm=28&hl=${lang}&q=${encodeURIComponent(q)}`;
+}
 function board(el, pieces){
-  el.innerHTML = pieces.map(({slot, it, col}) =>
-    `<figure class="sw" style="--c:${col[0]}"><div class="fab f-${fabricOf(slot, it.de)}"></div><figcaption><b>${esc(X(it))}</b><span>${esc(cn(col))}</span></figcaption></figure>`).join("")
-    + `<p class="try"><span>${esc(L().tryOn)}</span><em>${esc(L().trySoon)}</em></p>`;
+  const t = L(); let have = 0;
+  el.innerHTML = pieces.map(({slot, it, col}) => {
+    const own = slot !== "metal" && typeof ownFor === "function" ? ownFor(slot, col[0]) : null;
+    if(own) have++;
+    const vis = own ? `<div class="fab own"><img src="${own.img}" alt=""></div>` : `<div class="fab f-${fabricOf(slot, it.de)}"></div>`;
+    const sub = own ? `<span class="mine">${esc(t.fromWard)}</span>` : `<span>${esc(cn(col))}</span>${slot === "metal" ? "" : `<a class="shop" href="${shopUrl(it, col)}" target="_blank" rel="noopener">${esc(t.shopFind)} <i aria-hidden="true">↗</i></a>`}`;
+    return `<figure class="sw" style="--c:${col[0]}">${vis}<figcaption><b>${esc(own ? X(SLOTS[own.slot]) : X(it))}</b>${sub}</figcaption></figure>`;
+  }).join("")
+    + (have ? `<p class="have">${esc(t.haveN(have, pieces.filter(p => p.slot !== "metal").length))}</p>` : "")
+    + `<p class="try"><span>${esc(t.tryOn)}</span><em>${esc(t.trySoon)}</em></p>`;
+}
+/* ---------- My pieces: own clothes photographed, kept on the device (IndexedDB) ---------- */
+let MINE = [];
+const MINE_SLOTS = ["top","bottom","dress","layer","shoes","bag","acc"];
+const db = (() => {
+  let p;
+  const open = () => p || (p = new Promise((res, rej) => {
+    const r = indexedDB.open("stylemaker", 1);
+    r.onupgradeneeded = () => r.result.createObjectStore("items", {keyPath:"id"});
+    r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
+  }));
+  const tx = (mode, fn) => open().then(d => new Promise((res, rej) => {
+    const t = d.transaction("items", mode), s = t.objectStore("items"), out = fn(s);
+    t.oncomplete = () => res(out && out.result); t.onerror = () => rej(t.error);
+  }));
+  return { all: () => tx("readonly", s => s.getAll()), put: it => tx("readwrite", s => s.put(it)), del: id => tx("readwrite", s => s.delete(id)) };
+})();
+
+/* colour maths (hexRgb, rgbHex, lab, dE) come from the colour check */
+function judge(hex){
+  const s = SEASONS[P().season], pal = [...s.best, ...s.neutral];
+  let best = pal[0], d = 1e9;
+  pal.forEach(c => { const e = dE(hex, c[0]); if(e < d){ d = e; best = c; } });
+  const dAvoid = Math.min(...s.avoid.map(c => dE(hex, c[0])));
+  const v = d <= 14 ? "ok" : (d <= 26 && dAvoid > d) ? "near" : "off";
+  return {v, near: best, d};
+}
+
+/* the dominant colour of the middle of the photo, or around a tapped point */
+function sampleColour(cv, cx, cy, rad){
+  const ctx = cv.getContext("2d"), W = cv.width, H = cv.height;
+  const x0 = Math.max(0, Math.round(cx - rad*W)), y0 = Math.max(0, Math.round(cy - rad*H));
+  const w = Math.min(W - x0, Math.round(2*rad*W)), h = Math.min(H - y0, Math.round(2*rad*H));
+  const d = ctx.getImageData(x0, y0, Math.max(1,w), Math.max(1,h)).data, bins = new Map();
+  for(let i = 0; i < d.length; i += 4){
+    const k = (d[i]>>4)<<8 | (d[i+1]>>4)<<4 | (d[i+2]>>4);
+    const b = bins.get(k) || [0,0,0,0]; b[0]+=d[i]; b[1]+=d[i+1]; b[2]+=d[i+2]; b[3]++; bins.set(k, b);
+  }
+  let top = [0,0,0,1]; bins.forEach(b => { if(b[3] > top[3]) top = b; });
+  return rgbHex([top[0]/top[3], top[1]/top[3], top[2]/top[3]]).toUpperCase();
+}
+
+let mnDraft = null;
+function mineStart(file){
+  const img = new Image(), url = URL.createObjectURL(file);
+  img.onload = () => {
+    const sc = Math.min(1, 640 / Math.max(img.width, img.height));
+    const cv = document.createElement("canvas"); cv.width = Math.round(img.width*sc); cv.height = Math.round(img.height*sc);
+    cv.getContext("2d").drawImage(img, 0, 0, cv.width, cv.height); URL.revokeObjectURL(url);
+    mnDraft = {cv, hex: sampleColour(cv, cv.width/2, cv.height/2, .2), slot: mnDraft?.slot || "top"};
+    renderMineDraft();
+  };
+  img.src = url;
+}
+function renderMineDraft(){
+  const box = $("#mnNew"), t = L();
+  if(!mnDraft){ box.hidden = true; box.innerHTML = ""; return; }
+  const j = judge(mnDraft.hex);
+  box.hidden = false;
+  box.innerHTML = `<div class="mn-photo"></div>
+    <div class="mn-side">
+      <p class="fine">${esc(t.mineHint)}</p>
+      <div class="mn-read"><span class="dot" style="--c:${mnDraft.hex}"></span><div><b class="v-${j.v}">${esc(t["v"+j.v[0].toUpperCase()+j.v.slice(1)])}</b>
+        <span>${esc(t.mineNear)}: ${esc(cn(j.near))}</span></div><span class="dot sm" style="--c:${j.near[0]}"></span></div>
+      <span class="label">${esc(t.mineCat)}</span>
+      <div class="tabs" id="mnCat" role="group">${MINE_SLOTS.map(k => `<button type="button" data-k="${k}" aria-pressed="${k===mnDraft.slot}">${esc(X(SLOTS[k]))}</button>`).join("")}</div>
+      <div class="row"><button class="cta" id="mnSave">${esc(t.mineSave)}</button><button class="cta ghost" id="mnCancel">${esc(t.mineCancel)}</button></div>
+    </div>`;
+  const ph = box.querySelector(".mn-photo"); ph.appendChild(mnDraft.cv);
+  mnDraft.cv.onclick = e => {
+    const r = mnDraft.cv.getBoundingClientRect();
+    mnDraft.hex = sampleColour(mnDraft.cv, (e.clientX - r.left) * mnDraft.cv.width / r.width, (e.clientY - r.top) * mnDraft.cv.height / r.height, .03);
+    renderMineDraft();
+  };
+  box.querySelectorAll("#mnCat button").forEach(b => b.onclick = () => { mnDraft.slot = b.dataset.k; renderMineDraft(); });
+  $("#mnCancel").onclick = () => { mnDraft = null; renderMineDraft(); };
+  $("#mnSave").onclick = async () => {
+    const it = {id: Date.now().toString(36), slot: mnDraft.slot, hex: mnDraft.hex, img: mnDraft.cv.toDataURL("image/jpeg", .8), ts: Date.now()};
+    try { await db.put(it); MINE.push(it); mnDraft = null; renderMineDraft(); renderMine(); renderToday(); renderOutfit(); }
+    catch(e){ box.insertAdjacentHTML("beforeend", `<p class="fine">${esc(t.mineErr)}</p>`); }
+  };
+}
+function renderMine(){
+  const g = $("#mnGrid"); if(!g) return;
+  const t = L();
+  $("#mnCount").textContent = MINE.length ? t.mineCount(MINE.length) : "";
+  if(!MINE.length){ g.innerHTML = `<p class="fine">${esc(t.mineEmpty)}</p>`; return; }
+  g.innerHTML = MINE.slice().sort((a,b) => MINE_SLOTS.indexOf(a.slot) - MINE_SLOTS.indexOf(b.slot) || a.ts - b.ts).map(it => {
+    const j = judge(it.hex);
+    return `<figure class="mn-it"><img src="${it.img}" alt="${esc(X(SLOTS[it.slot]))}"><figcaption>
+      <span class="label">${esc(X(SLOTS[it.slot]))}</span><span class="v v-${j.v}"><i class="dot sm" style="--c:${it.hex}"></i>${esc(t["v"+j.v[0].toUpperCase()+j.v.slice(1)])}</span>
+      <button type="button" class="mn-del" data-id="${it.id}">${esc(t.mineDel)}</button></figcaption></figure>`;
+  }).join("");
+  g.querySelectorAll(".mn-del").forEach(b => b.onclick = async () => {
+    await db.del(b.dataset.id).catch(() => {}); MINE = MINE.filter(i => i.id !== b.dataset.id); renderMine(); renderToday(); renderOutfit();
+  });
+}
+/* the own piece that best matches a suggested piece (same kind, colour close enough) */
+function ownFor(slot, hex){
+  const kind = slot === "suit" ? "layer" : slot;
+  let best = null, d = 20;
+  MINE.forEach(it => { if(it.slot !== kind) return; const e = dE(it.hex, hex); if(e < d){ d = e; best = it; } });
+  return best;
+}
+function mineInit(){
+  const f = $("#mnFile"); if(!f) return;
+  f.onchange = () => { if(f.files[0]) mineStart(f.files[0]); f.value = ""; };
+  if(!("indexedDB" in window)) return;
+  db.all().then(list => { MINE = list || []; renderMine(); renderToday(); renderOutfit(); }).catch(() => {});
 }
 if(profile && st.i >= 11 && !st.a.goal){ st.i = QL.length; saveQ(); }
 applyLang();
+mineInit();
 if(st.i >= QL.length) syncedOnce = true;
 if(profile || store.get("styleai-entered")) enterApp(location.hash.slice(1)); else showOnb();
 if("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) navigator.serviceWorker.register("sw.js").catch(() => {});
