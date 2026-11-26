@@ -499,6 +499,11 @@ html{scroll-padding-top:5rem}
 .mn-it .v{display:flex;align-items:center;gap:.45rem}.mn-it .v .dot{width:12px;height:12px}
 .mn-del{all:unset;cursor:pointer;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);align-self:flex-start;border-bottom:1px solid var(--line)}
 @media (max-width:700px){.mn-new{grid-template-columns:1fr}}
+.lboard .shops{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem 1.1rem;margin-top:.4rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
+.lboard .shops span{color:var(--soft)}
+.lboard .shops button{all:unset;cursor:pointer;padding:.25rem 0;border-bottom:1px solid transparent;color:var(--soft)}
+.lboard .shops button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
+.lboard .shops button:hover{color:var(--ink)}
 .lboard .try{grid-column:1/-1;margin:.4rem 0 0;display:flex;justify-content:space-between;gap:1rem;padding-top:.9rem;border-top:1px solid rgba(20,17,14,.12);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
 .lboard .try em{white-space:nowrap;font-style:normal;color:var(--accent)}
 @media (max-width:560px){.lboard{gap:10px}.sw figcaption b{font-size:.86rem}}
@@ -1698,7 +1703,7 @@ T.ro.FAQ[3][1]="Da. În formula ta alege alt tip de culoare, altă siluetă sau 
 T.en.FAQ[3][1]="Yes. In your formula pick another colour type, body or face shape and tap “That's me”.";
 /* ---------- my wardrobe (own photos) + shop search ---------- */
 Object.assign(T.de, {
-  shopFind:"Finden", shopG:{w:"Damen",m:"Herren"}, fromWard:"Aus deinem Schrank",
+  shopFind:"Finden",shopAt:"Shoppen bei", shopG:{w:"Damen",m:"Herren"}, fromWard:"Aus deinem Schrank",
   haveN:(n,m)=>`${n} von ${m} Teilen hast du schon`,
   tabMine:"Meine Teile", mineLead:"Fotografiere deine Kleidung. Die App erkennt die Farbe, prüft sie gegen deine Palette und baut deine Looks aus dem, was du schon hast.",
   mineAdd:"Teil fotografieren", mineHint:"Tippe auf den Stoff, wenn die Farbe nicht stimmt.", mineCat:"Was ist es?", mineSave:"Speichern", mineCancel:"Abbrechen", mineDel:"Entfernen",
@@ -1708,7 +1713,7 @@ Object.assign(T.de, {
   mineErr:"Das Foto ließ sich nicht speichern. Ist der Speicher voll?"
 });
 Object.assign(T.ro, {
-  shopFind:"Caută", shopG:{w:"damă",m:"bărbați"}, fromWard:"Din garderoba ta",
+  shopFind:"Caută",shopAt:"Caută la", shopG:{w:"damă",m:"bărbați"}, fromWard:"Din garderoba ta",
   haveN:(n,m)=>`Ai deja ${n} din ${m} piese`,
   tabMine:"Hainele mele", mineLead:"Fotografiază-ți hainele. Aplicația recunoaște culoarea, o compară cu paleta ta și îți face ținute din ce ai deja.",
   mineAdd:"Fotografiază o piesă", mineHint:"Atinge materialul dacă nu e culoarea bună.", mineCat:"Ce este?", mineSave:"Salvează", mineCancel:"Renunță", mineDel:"Șterge",
@@ -1718,7 +1723,7 @@ Object.assign(T.ro, {
   mineErr:"Poza nu s-a putut salva. E memoria plină?"
 });
 Object.assign(T.en, {
-  shopFind:"Find", shopG:{w:"women",m:"men"}, fromWard:"From your wardrobe",
+  shopFind:"Find",shopAt:"Shop at", shopG:{w:"women",m:"men"}, fromWard:"From your wardrobe",
   haveN:(n,m)=>`You already own ${n} of ${m} pieces`,
   tabMine:"My pieces", mineLead:"Photograph your clothes. The app reads the colour, checks it against your palette and builds your looks from what you already own.",
   mineAdd:"Photograph a piece", mineHint:"Tap the fabric if the colour is off.", mineCat:"What is it?", mineSave:"Save", mineCancel:"Cancel", mineDel:"Remove",
@@ -2321,11 +2326,27 @@ function fabricOf(slot, de){
   if(/hemd|shirt|leinen/.test(d)) return "linen";
   return "twill";
 }
+/* modern shops, searched directly: name + base colour, women/men section */
+const SHOPS = {
+  zara:   {n:"Zara",    u:(q,g,l)=>`https://www.zara.com/${l==="ro"?"ro/ro":l==="en"?"de/en":"de/de"}/search?searchTerm=${q}&section=${g==="m"?"MAN":"WOMAN"}`},
+  hm:     {n:"H&M",     u:(q,g,l)=>`https://www2.hm.com/${l==="ro"?"ro_ro":l==="en"?"en_gb":"de_de"}/search-results.html?q=${q}${g==="m"?"":"&department=ladies_all"}`, short:true},
+  zalando:{n:"Zalando", u:(q,g,l)=>`https://${l==="en"?"en.":"www."}zalando.de/${l==="en"?(g==="m"?"men":"women"):(g==="m"?"herren":"damen")}/?q=${q}&order=activation_date`, no:["ro"], nog:true},
+  asos:   {n:"ASOS",    u:(q,g,l)=>`https://www.asos.com/${l==="de"?"de/":""}search/?q=${q}`, no:["ro"]}
+};
+const shopsFor = () => Object.keys(SHOPS).filter(k => !(SHOPS[k].no||[]).includes(lang));
+function curShop(){ const k = store.get("styleai-shop"); return shopsFor().includes(k) ? k : "zara"; }
 function shopUrl(it, col){
   const t = L(), name = X(it).split(/ (?:oder|und|über|mit|sau|și|peste|cu|or|and|over|with) /)[0];
-  const q = `${name} ${cn(col).split(",")[0]} ${t.shopG[P().g] || ""}`.trim();
-  return `https://www.google.com/search?udm=28&hl=${lang}&q=${encodeURIComponent(q)}`;
+  const w = cn(col).split(",")[0].trim().split(/[\s-]+/), colour = lang === "ro" ? w[0] : w[w.length-1];
+  const k = curShop(), sh = SHOPS[k];
+  const nm = sh.short && lang !== "en" ? name.split(/\s+/)[0] : name;
+  const q = `${nm} ${colour}${k === "zara" || sh.nog || sh.short ? "" : " " + (t.shopG[P().g] || "")}`.trim();
+  return SHOPS[k].u(encodeURIComponent(q), P().g, lang);
 }
+document.addEventListener("click", e => {
+  const b = e.target.closest(".shops button"); if(!b) return;
+  store.set("styleai-shop", b.dataset.shop); renderToday(); renderOutfit();
+});
 function board(el, pieces){
   const t = L(); let have = 0;
   el.innerHTML = pieces.map(({slot, it, col}) => {
@@ -2336,6 +2357,7 @@ function board(el, pieces){
     return `<figure class="sw" style="--c:${col[0]}">${vis}<figcaption><b>${esc(own ? X(SLOTS[own.slot]) : X(it))}</b>${sub}</figcaption></figure>`;
   }).join("")
     + (have ? `<p class="have">${esc(t.haveN(have, pieces.filter(p => p.slot !== "metal").length))}</p>` : "")
+    + `<div class="shops"><span>${esc(t.shopAt)}</span>${shopsFor().map(k => `<button type="button" data-shop="${k}" aria-pressed="${k===curShop()}">${esc(SHOPS[k].n)}</button>`).join("")}</div>`
     + `<p class="try"><span>${esc(t.tryOn)}</span><em>${esc(t.trySoon)}</em></p>`;
 }
 /* ---------- My pieces: own clothes photographed, kept on the device (IndexedDB) ---------- */
