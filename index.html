@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ton sur Ton – Konzept-Prototyp</title>
+<title>Ton sur Ton · Stil, Farben, Looks</title>
 <meta name="description" content="Interaktiver Konzept-Prototyp einer Styling-App für Frauen und Männer: Farbtyp, Figur, Stil-Test, Farbprobe mit Foto, Outfits und Trends. Konzept und Design: Raluca Jidvian.">
 <link rel="canonical" href="https://dandelion1111r.github.io/ton-sur-ton/">
 <meta name="author" content="Raluca Jidvian">
@@ -438,6 +438,114 @@ html{scroll-padding-top:5rem}
 .pass{display:none}
 @media (max-width:980px){.fit{grid-template-columns:1fr}}
 @media (max-width:600px){.fit-list{grid-template-columns:1fr}.subtabs button{font-size:1.15rem}.cmp tbody th{font-size:.95rem}}
+
+/* ---------- landing additions ---------- */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.top-r{display:flex;align-items:center;gap:1.6rem;justify-content:flex-end}
+.btn.sm{padding:.75rem 1.3rem;font-size:.64rem}
+.pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,28px)}
+.pillars figure{margin:0;display:flex;flex-direction:column;gap:1rem}
+.pillars figure:nth-child(even){margin-top:clamp(1.5rem,4vw,4rem)}
+.pillars .ph{overflow:hidden;aspect-ratio:3/4;background:#ddd}
+.pillars img{width:100%;height:100%;object-fit:cover}
+.pillars figcaption{display:grid;grid-template-columns:2rem 1fr;gap:.2rem .4rem}
+.pillars figcaption .num{grid-row:span 2;font-family:var(--display);font-style:italic;color:var(--accent)}
+.pillars h3{margin:0;font-size:1.5rem}
+.pillars p{margin:0;color:var(--soft);font-size:.92rem}
+.daily{list-style:none;margin:0;padding:0;border-top:1px solid #2f2a25}
+.daily li{display:grid;grid-template-columns:2.6rem 11rem 1fr;gap:1rem;align-items:baseline;padding:1.1rem 0;border-bottom:1px solid #2f2a25}
+.daily .num{font-family:var(--display);font-style:italic;color:var(--accent)}
+.daily b{font-family:var(--display);font-weight:400;font-size:1.25rem}
+.daily span:last-child{color:#b9b0a5;font-size:.95rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);margin-top:clamp(3rem,6vw,5rem);padding-top:2rem;border-top:1px solid var(--line)}
+.split p{margin:0;font-family:var(--display);font-size:clamp(1.2rem,2vw,1.6rem);line-height:1.4}
+.split em{color:var(--accent)}
+.closing{text-align:center;display:flex;flex-direction:column;align-items:center;gap:2.4rem}
+.closing h2{font-size:clamp(2.2rem,5vw,4.2rem);margin:0}
+.closing h2 em{color:var(--accent)}
+
+/* ---------- app shell ---------- */
+.is-app{min-height:100vh}
+.app-top{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:1rem var(--pad);background:rgba(244,240,234,.98);border-bottom:1px solid var(--line)}
+.app-top .logo{font-size:1.2rem}
+.onb-on .app-top{background:var(--dark);border-color:#2a2622}
+.onb-on .app-top .logo,.onb-on .lang button[aria-pressed="true"]{color:var(--on-dark);border-color:var(--on-dark)}
+.onb{min-height:calc(100vh - 62px);background:var(--dark);color:var(--on-dark);padding:clamp(2.5rem,7vw,6rem) var(--pad) 4rem;display:flex;align-items:flex-start;justify-content:center}
+.onb .quiz{width:100%;max-width:44rem}
+.start-row{justify-content:flex-start;align-items:center;gap:2rem}
+.opt.has-vis{align-items:center;justify-content:flex-start;gap:1rem}
+.opt .ot{flex:1}
+.opt .vis{flex:none}
+.opt .vis.sw{width:1.6rem;height:1.6rem;border-radius:50%;background:var(--c);border:1px solid rgba(255,255,255,.25)}
+.opt .vis.sw.split{background:linear-gradient(90deg,var(--c) 50%,var(--c2) 50%)}
+.opt svg.vis{width:2.2rem;height:2.6rem;fill:none;stroke:currentColor;stroke-width:3}
+.opt svg.vis path{vector-effect:non-scaling-stroke;stroke-width:1.2}
+.app{display:grid;grid-template-columns:13rem minmax(0,1fr);min-height:calc(100vh - 62px)}
+.app-nav{position:sticky;top:62px;align-self:start;height:calc(100vh - 62px);display:flex;flex-direction:column;gap:.2rem;padding:2rem 0 2rem var(--pad);border-right:1px solid var(--line)}
+.app-nav a{display:flex;align-items:center;gap:.9rem;padding:.85rem 0;text-decoration:none;color:var(--soft);font-size:.7rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;border-right:2px solid transparent;margin-right:-1px}
+.app-nav svg{width:1.25rem;height:1.25rem;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.app-nav a:hover{color:var(--ink)}
+.app-nav a[aria-current="page"]{color:var(--ink);border-color:var(--ink)}
+.app main{padding:clamp(2rem,4vw,3.5rem) var(--pad) 5rem;min-width:0}
+.vhead{display:flex;flex-direction:column;gap:.7rem;margin-bottom:clamp(2rem,4vw,3rem)}
+.vhead h2{margin:0;font-size:clamp(2.2rem,4.4vw,3.6rem)}
+.vhead h2 em{color:var(--accent)}
+.vhead .lead{margin:0}
+.view{animation:fadein .35s ease}
+.card{background:var(--paper);border:1px solid var(--line)}
+.today{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:clamp(1rem,2vw,1.6rem)}
+.look-today{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,6fr)}
+.look-today .ph{position:relative;min-height:100%;overflow:hidden;background:#ddd}
+.look-today .ph img{position:absolute;inset:0}
+.look-today .ph img{width:100%;height:100%;object-fit:cover}
+.look-today .ph .bar{position:absolute;left:0;right:0;bottom:0;display:flex;height:10px}
+.look-today .ph .bar i{flex:1;background:var(--c)}
+.look-today .panel{padding:clamp(1.4rem,2.5vw,2.2rem);gap:1.4rem}
+.look-today .olist li{grid-template-columns:6.5rem 1fr auto;padding:.75rem 0}
+.look-today .olist .it{font-size:1.08rem}
+.today-side{display:grid;gap:clamp(1rem,2vw,1.6rem);align-content:start}
+.tile{padding:1.5rem 1.6rem;display:flex;flex-direction:column;gap:.6rem}
+.tile h3{margin:0;font-size:1.45rem}
+.tile p{margin:0;color:var(--soft);font-size:.92rem}
+.tile .cta{align-self:flex-start;padding:.5rem 0}
+.swatch-lg{display:block;height:4.2rem;background:var(--c);border:1px solid rgba(0,0,0,.06)}
+.shortcuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,2vw,1.6rem);margin-top:clamp(1rem,2vw,1.6rem)}
+.sc{display:grid;grid-template-columns:2rem 1fr;gap:.1rem .4rem;text-align:left;padding:1.3rem 1.5rem;border:1px solid var(--line);background:none;color:var(--ink);text-decoration:none;font:inherit;cursor:pointer;transition:background .25s,border-color .25s}
+.sc:hover{background:var(--paper);border-color:var(--ink)}
+.sc .num{grid-row:span 2;font-family:var(--display);font-style:italic;color:var(--accent)}
+.sc b{font-family:var(--display);font-weight:400;font-size:1.2rem}
+.sc span:last-child{color:var(--soft);font-size:.88rem}
+.formula{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);background:var(--paper);margin-bottom:1.4rem}
+.fm{display:flex;flex-direction:column;gap:.55rem;align-items:flex-start;text-align:left;padding:1.4rem 1.5rem;background:none;border:0;border-right:1px solid var(--line);font:inherit;color:var(--ink);cursor:pointer;transition:background .25s}
+.fm:last-child{border-right:0}
+.fm:hover{background:#fff}
+.fm b{font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1.15}
+.fm .mini{display:flex;gap:3px}.fm .mini i{width:14px;height:14px;border-radius:50%}
+.fm .fine{margin:0}
+.beauty{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.bblock{display:flex;flex-direction:column;gap:.9rem;padding:1.6rem 1.6rem 1.6rem 0;border-bottom:1px solid var(--line)}
+.bblock p{margin:0}
+.bsw{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem}
+.bsw span{display:inline-flex;align-items:center;gap:.55rem;font-size:.9rem}
+.bsw i{width:2.2rem;height:2.2rem;border-radius:50%;border:1px solid rgba(0,0,0,.08)}
+.dresscode{margin:0;font-family:var(--display);font-size:1.15rem;font-style:italic;color:var(--soft)}
+.two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:start}
+#v-schrank #wdNext{margin-top:0}
+@media (max-width:1100px){.today{grid-template-columns:1fr}.today-side{grid-template-columns:repeat(3,minmax(0,1fr))}.formula{grid-template-columns:1fr 1fr}.fm:nth-child(2){border-right:0}.fm:nth-child(-n+2){border-bottom:1px solid var(--line)}.pillars{grid-template-columns:1fr 1fr}}
+@media (max-width:860px){
+  .app{grid-template-columns:1fr}
+  .app-nav{position:fixed;top:auto;bottom:0;left:0;right:0;height:auto;z-index:60;flex-direction:row;justify-content:space-around;padding:.35rem .4rem calc(.35rem + env(safe-area-inset-bottom));background:rgba(251,249,245,.98);border-right:0;border-top:1px solid var(--line)}
+  .app-nav a{flex-direction:column;gap:.3rem;padding:.45rem .2rem;font-size:.54rem;letter-spacing:.14em;border-right:0;border-top:2px solid transparent;margin:0;flex:1;text-align:center}
+  .app-nav a[aria-current="page"]{border-color:var(--ink)}
+  .app main{padding-bottom:7rem}
+  .look-today{grid-template-columns:1fr}
+  .look-today .ph{aspect-ratio:16/11;min-height:0}
+  .today-side,.shortcuts,.two-col,.split,.beauty{grid-template-columns:1fr}
+  .top .steps-nav{display:none}
+  .top{grid-template-columns:auto 1fr}
+  .daily li{grid-template-columns:2.2rem 1fr}.daily span:last-child{grid-column:2}
+}
+@media (max-width:560px){.formula{grid-template-columns:1fr}.fm{border-right:0;border-bottom:1px solid var(--line)}.pillars{grid-template-columns:1fr 1fr}.top-r .btn.sm{display:none}.look-today .olist li{grid-template-columns:1fr auto}.look-today .olist .slot{grid-column:1/-1}}
 @media print{
   @page{margin:16mm}
   body>*:not(.pass){display:none!important}
@@ -460,19 +568,21 @@ html{scroll-padding-top:5rem}
 </head>
 <body>
 <a class="skip" href="#main" data-t="skip"></a>
-<div class="proto" data-t="protoBar"></div>
 <header class="top">
   <a class="logo" href="#top" id="top">TON <em>sur</em> TON</a>
   <nav class="steps-nav" aria-label="Navigation">
-    <a href="#test" data-spy="test"><span class="n">01</span><span data-t="navTest"></span></a>
-    <a href="#profil" data-spy="profil"><span class="n">02</span><span data-t="navProfil"></span></a>
-    <a href="#looks" data-spy="looks"><span class="n">03</span><span data-t="navLooks"></span></a>
-    <a href="#info" data-spy="info" class="plain"><span data-t="navInfo"></span></a>
+    <a href="#formel"><span data-t="nlFormel"></span></a>
+    <a href="#taeglich"><span data-t="nlDaily"></span></a>
+    <a href="#vergleich"><span data-t="nlCompare"></span></a>
+    <a href="#faq" class="plain"><span data-t="nlFaq"></span></a>
   </nav>
-  <div class="lang" role="group" aria-label="Sprache / Limba / Language">
-    <button data-lang="de" aria-pressed="true">DE</button>
-    <button data-lang="ro" aria-pressed="false">RO</button>
-    <button data-lang="en" aria-pressed="false">EN</button>
+  <div class="top-r">
+    <div class="lang" role="group" aria-label="Sprache / Limba / Language">
+      <button data-lang="de" aria-pressed="true">DE</button>
+      <button data-lang="ro" aria-pressed="false">RO</button>
+      <button data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn sm" href="app.html" data-t="openApp"></a>
   </div>
 </header>
 
@@ -485,225 +595,66 @@ html{scroll-padding-top:5rem}
       <p class="lead" data-t="heroLead"></p>
     </div>
     <div class="hero-meta">
-      <a class="btn" href="#test" data-t="heroCta1"></a>
+      <a class="btn" href="app.html" data-t="heroCta1"></a>
       <a class="cta" href="#ablauf" data-t="heroCta2"></a>
     </div>
+    <p class="fine" data-t="howNote"></p>
   </div>
   <div class="hero-img"><img src="img/hero-woman.jpg" alt="" width="800" height="992" fetchpriority="high"></div>
 </section>
 
 <section class="how" id="ablauf" aria-labelledby="t-how">
-  <div class="how-head"><span class="label" data-t="howEyebrow"></span><h2 id="t-how" data-th="howTitle"></h2><p class="fine" data-t="howNote"></p></div>
+  <div class="how-head"><span class="label" data-t="howEyebrow"></span><h2 id="t-how" data-th="howTitle"></h2></div>
   <ol class="how-steps">
-    <li><a href="#test"><span class="num">01</span><h3 data-t="how1t"></h3><p data-t="how1d"></p><span class="go" data-t="how1g"></span></a></li>
-    <li><a href="#profil"><span class="num">02</span><h3 data-t="how2t"></h3><p data-t="how2d"></p><span class="go" data-t="how2g"></span></a></li>
-    <li><a href="#looks"><span class="num">03</span><h3 data-t="how3t"></h3><p data-t="how3d"></p><span class="go" data-t="how3g"></span></a></li>
+    <li><a href="app.html"><span class="num">01</span><h3 data-t="lh1t"></h3><p data-t="lh1d"></p><span class="go" data-t="how1g"></span></a></li>
+    <li><a href="#formel"><span class="num">02</span><h3 data-t="lh2t"></h3><p data-t="lh2d"></p><span class="go" data-t="more"></span></a></li>
+    <li><a href="#taeglich"><span class="num">03</span><h3 data-t="lh3t"></h3><p data-t="lh3d"></p><span class="go" data-t="more"></span></a></li>
   </ol>
 </section>
 
-<section class="sec dark step" id="test" aria-labelledby="t-test">
-  <div class="step-head">
-    <span class="stepno"><span data-t="stepWord"></span> 01</span>
-    <h2 id="t-test" data-th="testTitle"></h2>
-    <p class="lead" data-t="testLead"></p>
+<section class="sec" id="formel" aria-labelledby="t-formel">
+  <div class="step-head"><span class="label" data-t="lfEyebrow"></span><h2 id="t-formel" data-th="formelTitle"></h2><p class="lead" data-t="lfLead"></p></div>
+  <div class="pillars">
+    <figure class="rv"><div class="ph"><img src="img/skin-closeup.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">I</span><h3 data-t="tabColor"></h3><p data-t="lp1"></p></figcaption></figure>
+    <figure class="rv"><div class="ph"><img src="img/woman-suit.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">II</span><h3 data-t="tabShape"></h3><p data-t="lp2"></p></figcaption></figure>
+    <figure class="rv"><div class="ph"><img src="img/mature-woman.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">III</span><h3 data-t="tabFace"></h3><p data-t="lp3"></p></figcaption></figure>
+    <figure class="rv"><div class="ph"><img src="img/man-coat.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">IV</span><h3 data-t="lp4t"></h3><p data-t="lp4"></p></figcaption></figure>
   </div>
-  <div class="quiz" id="quiz" aria-live="polite"></div>
 </section>
 
-<section class="sec step" id="profil" aria-labelledby="t-profil">
-  <div class="step-head">
-    <span class="stepno"><span data-t="stepWord"></span> 02</span>
-    <h2 id="t-profil" data-th="profTitle"></h2>
-    <p class="lead" data-t="profLead"></p>
-  </div>
-  <div class="status" id="profStatus"></div>
-  <div class="subtabs" role="tablist" data-group="prof">
-    <button role="tab" data-tab="color" aria-selected="true"><span class="num">i</span><span data-t="tabColor"></span></button>
-    <button role="tab" data-tab="shape" aria-selected="false"><span class="num">ii</span><span data-t="tabShape"></span></button>
-    <button role="tab" data-tab="face" aria-selected="false"><span class="num">iii</span><span data-t="tabFace"></span></button>
-    <button role="tab" data-tab="drape" aria-selected="false"><span class="num">iv</span><span data-t="tabDrape"></span></button>
-  </div>
-
-  <div class="tabpanel" data-panel="prof:color">
-    <div class="feature">
-      <div class="ph"><img src="img/skin-closeup.jpg" alt="" width="800" height="992" loading="lazy"></div>
-      <div class="panel">
-        <p class="intro" data-t="ctLead"></p>
-        <div class="tabs" id="seasons" role="group"></div>
-        <div class="title-row"><h3 id="ctName"></h3><span class="label" id="ctSub"></span></div>
-        <div class="strip" id="ctBest"></div>
-        <p id="ctRule"></p>
-        <div class="minis">
-          <div><span class="label" data-t="ctNeutral"></span><div class="dots" id="ctNeutral"></div></div>
-          <div><span class="label" data-t="ctAvoid"></span><div class="dots" id="ctAvoid"></div></div>
-          <div><span class="label" data-t="ctMetal"></span><span id="ctMetal"></span></div>
-        </div>
-        <div class="row"><button class="btn line adopt" id="ctAdopt" type="button"></button><button class="cta" data-goto="prof:drape" data-t="goDrape"></button></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="tabpanel" data-panel="prof:shape" hidden>
+<section class="sec dark" id="taeglich" aria-labelledby="t-daily">
+  <div class="feature">
+    <div class="ph"><img src="img/knit.jpg" alt="" width="800" height="992" loading="lazy"></div>
     <div class="panel">
-      <p class="intro" data-t="fgLead"></p>
-      <div class="row"><div class="tabs" id="fgGender" role="group"></div><div class="tabs" id="fgShapes" role="group"></div></div>
-      <div class="sil">
-        <div id="fgVisual"></div>
-        <div class="panel">
-          <h3 id="fgName"></h3>
-          <p class="lead" id="fgGoal"></p>
-          <dl class="kv">
-            <dt data-t="fgGood"></dt><dd id="fgGood"></dd>
-            <dt data-t="fgBad"></dt><dd id="fgBad"></dd>
-            <dt data-t="fgAcc"></dt><dd id="fgAcc"></dd>
-          </dl>
-          <p class="fine" data-t="bodyNote"></p>
-          <div class="row"><button class="btn line adopt" id="fgAdopt" type="button"></button><button class="cta" data-goto="prof:face" data-t="goFace"></button></div>
-        </div>
-      </div>
-      <div class="fit" id="fgFit"></div>
-    </div>
-  </div>
-
-  <div class="tabpanel" data-panel="prof:face" hidden>
-    <div class="panel">
-      <p class="intro" data-t="faceLead"></p>
-      <div class="row"><div class="tabs" id="fcGender" role="group"></div><div class="tabs" id="fcShapes" role="group"></div></div>
-      <div class="sil">
-        <div id="fcVisual" class="face-vis"></div>
-        <div class="panel">
-          <h3 id="fcName"></h3>
-          <p class="lead" id="fcSigns"></p>
-          <dl class="kv">
-            <dt data-t="faceGlasses"></dt><dd id="fcGlasses"></dd>
-            <dt id="fcNeckL"></dt><dd id="fcNeck"></dd>
-            <dt id="fcHairL"></dt><dd id="fcHair"></dd>
-          </dl>
-          <p class="fine" data-t="faceHow"></p>
-          <div class="row"><button class="btn line adopt" id="fcAdopt" type="button"></button><button class="cta" data-goto="prof:drape" data-t="goDrape"></button></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="tabpanel" data-panel="prof:drape" hidden>
-    <div class="feature">
-      <div class="drapes">
-        <div class="drape" id="dA"><div class="face"></div><div class="tag"><span data-t="dpGood"></span><span id="dATag"></span></div></div>
-        <div class="drape" id="dB"><div class="face"></div><div class="tag"><span data-t="dpBad"></span><span id="dBTag"></span></div></div>
-      </div>
-      <div class="panel">
-        <p class="intro" data-t="dpLead"></p>
-        <div class="tabs" id="dpSeasons" role="group"></div>
-        <div class="minis">
-          <div><span class="label" data-t="dpLeft"></span><div class="dots" id="dpBest"></div></div>
-          <div><span class="label" data-t="dpRight"></span><div class="dots" id="dpAvoid"></div></div>
-        </div>
-        <div class="row">
-          <label class="btn upl" for="dpFile"><span data-t="dpUpload"></span><input type="file" id="dpFile" accept="image/*"></label>
-          <span class="fine" data-t="dpPrivacy"></span>
-        </div>
-        <div><a class="cta" href="#looks" data-t="goLooks"></a></div>
-        <div class="range" id="dpRanges" hidden>
-          <span class="label" data-t="dpZoom"></span><input type="range" id="dpZoom" min="1" max="3" step="0.05" value="1.2">
-          <span class="label" data-t="dpPos"></span><input type="range" id="dpPos" min="0" max="100" step="1" value="30">
-        </div>
-      </div>
+      <span class="label" data-t="ldEyebrow"></span>
+      <h2 id="t-daily" data-th="ldTitle"></h2>
+      <ol class="daily" data-tl2="ldList"></ol>
+      <div><a class="btn" href="app.html" data-t="heroCta1"></a></div>
     </div>
   </div>
 </section>
 
-<section class="sec step" id="looks" aria-labelledby="t-looks">
-  <div class="step-head">
-    <span class="stepno"><span data-t="stepWord"></span> 03</span>
-    <h2 id="t-looks" data-th="looksTitle"></h2>
-    <p class="lead" id="ofProfile"></p>
+<section class="sec" id="fuer" aria-labelledby="t-for">
+  <div class="step-head"><span class="label" data-t="forEyebrow"></span><h2 id="t-for" data-th="forTitle"></h2><p class="lead" data-t="forLead"></p></div>
+  <div class="trip">
+    <figure class="rv"><div class="ph"><img src="img/woman-trench.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">I</span><span class="label" data-t="for1"></span></figcaption></figure>
+    <figure class="rv"><div class="ph"><img src="img/man-suit.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">II</span><span class="label" data-t="for2"></span></figcaption></figure>
+    <figure class="rv"><div class="ph"><img src="img/man-street.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">III</span><span class="label" data-t="for3"></span></figcaption></figure>
   </div>
-  <div class="subtabs" role="tablist" data-group="looks">
-    <button role="tab" data-tab="outfits" aria-selected="true"><span class="num">i</span><span data-t="tabOutfits"></span></button>
-    <button role="tab" data-tab="check" aria-selected="false"><span class="num">ii</span><span data-t="tabCheck"></span></button>
-    <button role="tab" data-tab="ward" aria-selected="false"><span class="num">iii</span><span data-t="tabWard"></span></button>
-    <button role="tab" data-tab="season" aria-selected="false"><span class="num">iv</span><span data-t="tabSeason"></span></button>
-  </div>
+  <div class="split" data-th="forSplit"></div>
+</section>
 
-  <div class="tabpanel" data-panel="looks:outfits">
-    <div class="look">
-      <div class="ph"><img id="ofImg" src="img/woman-trench.jpg" alt="" width="800" height="992" loading="lazy"><div class="bar" id="ofBar"></div></div>
-      <div class="panel">
-        <div class="choose"><span class="label" data-t="ofOccL"></span><div class="tabs" id="ofOcc" role="group"></div></div>
-        <div class="choose"><span class="label" data-t="ofWeatherL"></span><div class="tabs" id="ofWeather" role="group"></div></div>
-        <ul class="olist" id="ofList"></ul>
-        <ul class="why" id="ofWhy"></ul>
-        <div><button class="cta" id="ofShuffle" data-t="ofShuffle"></button></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="tabpanel" data-panel="looks:check" hidden>
-    <div class="feature">
-      <div class="chk-stage" id="chkStage">
-        <canvas id="chkCanvas" hidden></canvas>
-        <label class="chk-empty" id="chkEmpty" for="chkFile"><span class="plus">+</span><span data-t="chkUpload"></span></label>
-        <span class="chk-mark" id="chkMark" hidden></span>
-      </div>
-      <div class="panel">
-        <p class="intro" data-t="chkLead"></p>
-        <div class="row">
-          <label class="btn upl" for="chkFile"><span data-t="chkUpload"></span><input type="file" id="chkFile" accept="image/*"></label>
-          <label class="cta pickc"><span data-t="chkPick"></span><input type="color" id="chkColor" value="#8a6d5a"></label>
-        </div>
-        <p class="fine" data-t="chkTap"></p>
-        <div id="chkResult" aria-live="polite"></div>
-        <p class="fine" data-t="dpPrivacy"></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="tabpanel" data-panel="looks:ward" hidden>
-    <div class="info-grid flush">
-      <div class="info-block">
-        <span class="label" data-t="wardTitle"></span>
-        <p class="intro" data-t="wardLead"></p>
-        <p class="count" id="wdCount"></p>
-        <ul class="ward" id="wdList"></ul>
-        <p class="fine" id="wdNext"></p>
-      </div>
-      <div class="info-block">
-        <span class="label" data-t="packTitle"></span>
-        <p class="intro" data-t="packLead"></p>
-        <div class="choose"><span class="label" data-t="packDays"></span><div class="tabs" id="pkDays" role="group"></div></div>
-        <div class="choose"><span class="label" data-t="packWeather"></span><div class="tabs" id="pkWeather" role="group"></div></div>
-        <ul class="olist" id="pkList"></ul>
-        <p class="count" id="pkTotal"></p>
-        <p class="fine" data-t="packRule"></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="tabpanel" data-panel="looks:season" hidden>
-    <p class="intro" id="trProfile"></p>
-    <div class="tfeat" id="trFeat"></div>
-    <div class="tabs" id="trFilter" role="group"></div>
-    <div class="tlist" id="trList"></div>
-    <p class="fine" style="margin-top:2rem"><span data-t="trSrc"></span> <a href="https://www.whowhatwear.com/fashion/trends/autumn-winter-2026-trends" rel="noopener">Who What Wear</a> · <a href="https://www.harrods.com/en-gb/c/stories/women/new-season-fashion-trends" rel="noopener">Harrods</a> · <a href="https://fashionunited.com/news/fashion/back-to-basics-the-quiet-sophistication-of-the-aw26-season/2026040771524" rel="noopener">FashionUnited</a> · <a href="https://www.whowhatwear.com/fashion/runway/net-a-porter-fall-2026-trends" rel="noopener">Net-a-Porter</a> · <a href="https://www2.hm.com/en_us/editorial/inspiration/men-autumn-trends.html" rel="noopener">H&amp;M</a></p>
-  </div>
+<section class="sec" id="vergleich" aria-labelledby="t-cmp">
+  <div class="step-head"><span class="label" data-t="cmpEyebrow"></span><h2 id="t-cmp" data-th="cmpTitle"></h2></div>
+  <div class="cmp-wrap"><table class="cmp" id="cmpTable"></table></div>
+  <p class="fine" data-t="cmpNote"></p>
 </section>
 
 <section class="sec" id="info" aria-labelledby="t-info">
-  <div class="step-head">
-    <span class="label" data-t="infoEyebrow"></span>
-    <h2 id="t-info" data-th="infoTitle"></h2>
-    <p class="lead" data-t="forLead"></p>
-  </div>
-  <div class="trip">
-    <figure class="rv"><div class="ph"><img src="img/woman-suit.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">I</span><span class="label" data-t="for1"></span></figcaption></figure>
-    <figure class="rv"><div class="ph"><img src="img/man-suit.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">II</span><span class="label" data-t="for2"></span></figcaption></figure>
-    <figure class="rv"><div class="ph"><img src="img/mature-woman.jpg" alt="" width="800" height="992" loading="lazy"></div><figcaption><span class="num">III</span><span class="label" data-t="for3"></span></figcaption></figure>
-  </div>
-  <div class="info-grid">
+  <div class="info-grid flush">
     <div class="info-block">
       <span class="label" data-t="freeEyebrow"></span>
-      <h3 data-th="freeTitle"></h3>
+      <h3 id="t-info" data-th="freeTitle"></h3>
       <div class="tiers">
         <div class="tier"><span class="label" data-t="tFree"></span><span class="price">0 €</span><ul data-tl="tFreeList"></ul></div>
         <div class="tier alt"><span class="label" data-t="tLater"></span><span class="price">Premium</span><ul data-tl="tLaterList"></ul></div>
@@ -720,27 +671,18 @@ html{scroll-padding-top:5rem}
       </ul>
     </div>
   </div>
-  <div class="info-block" id="compare">
-    <span class="label" data-t="cmpEyebrow"></span>
-    <h3 data-th="cmpTitle"></h3>
-    <div class="cmp-wrap"><table class="cmp" id="cmpTable"></table></div>
-    <p class="fine" data-t="cmpNote"></p>
-  </div>
   <div class="info-block" id="faq">
     <span class="label">FAQ</span>
     <h3 data-th="faqTitle"></h3>
     <div class="faq" id="faqList"></div>
   </div>
 </section>
+
+<section class="sec dark closing">
+  <h2 data-th="manifesto"></h2>
+  <a class="btn" href="app.html" data-t="heroCta1"></a>
+</section>
 </main>
-
-<section class="pass" id="pass" aria-hidden="true"></section>
-
-<nav class="mobile-steps" aria-label="Steps">
-  <a href="#test" data-spy="test"><span class="n">01</span><span data-t="navTest"></span></a>
-  <a href="#profil" data-spy="profil"><span class="n">02</span><span data-t="navProfil"></span></a>
-  <a href="#looks" data-spy="looks"><span class="n">03</span><span data-t="navLooks"></span></a>
-</nav>
 
 <footer>
   <span class="logo">TON <em>sur</em> TON</span>
@@ -1152,6 +1094,39 @@ const COMPARE = [
  [L3("Sofort nutzbar, ohne den Schrank zu fotografieren","Utilă imediat, fără să-ți fotografiezi dulapul","Useful at once, no wardrobe photos needed"),2,0,2],
  [L3("Ohne Konto, Foto bleibt bei dir","Fără cont, poza rămâne la tine","No account, your photo stays with you"),0,0,2]
 ];
+
+/* ---------- data: beauty & grooming by colour type ---------- */
+/* swatch format as palette: [hex, de, ro, en] */
+const BEAUTY = {
+ spring:{
+  lips:[["#F2735B","Koralle","Coral","Coral"],["#F4A48E","Pfirsichrosa","Roz piersică","Peach pink"]],
+  cheeks:[["#F7A27A","Aprikose","Caisă","Apricot"]],
+  eyes:[["#9C6B3C","Goldbraun","Maro auriu","Golden brown"],["#6E8B3D","Warmes Grün","Verde cald","Warm green"]],
+  hair:L3("Goldene Strähnen und Honigtöne. Aschige Farben machen dich blass.","Șuvițe aurii și nuanțe de miere. Culorile cenușii te fac palidă.","Golden highlights and honey tones. Ashy shades make you look pale."),
+  leather:L3("Hellbraun, Cognac, Camel","Maro deschis, coniac, camel","Light brown, cognac, camel"),
+  frames:L3("Helles Schildpatt, Gold, Honig","Baga deschisă, auriu, miere","Light tortoiseshell, gold, honey")},
+ summer:{
+  lips:[["#C9707F","Rosenholz","Lemn de trandafir","Rosewood"],["#A8566B","Sanfte Beere","Fructe de pădure estompate","Soft berry"]],
+  cheeks:[["#E3A1AE","Kühles Rosé","Roz rece","Cool rose"]],
+  eyes:[["#8C8079","Taupe","Taupe","Taupe"],["#6F84A0","Graublau","Gri-albastru","Grey blue"]],
+  hair:L3("Kühle, aschige Töne. Kupfer und Goldblond wirken an dir hart.","Nuanțe reci, cenușii. Aramiul și blondul auriu par dure pe tine.","Cool, ashy tones. Copper and golden blonde look harsh on you."),
+  leather:L3("Graubraun, Taupe, Navy","Maro-gri, taupe, bleumarin","Greyish brown, taupe, navy"),
+  frames:L3("Grau, Silber, kühles Schildpatt","Gri, argintiu, baga rece","Grey, silver, cool tortoiseshell")},
+ autumn:{
+  lips:[["#A8452F","Ziegelrot","Roșu cărămiziu","Brick red"],["#B9715A","Terrakotta-Nude","Nude teracotă","Terracotta nude"]],
+  cheeks:[["#D08A63","Bronze-Pfirsich","Piersică bronz","Bronze peach"]],
+  eyes:[["#8A5A2B","Bronze","Bronz","Bronze"],["#6B6E2F","Olive","Oliv","Olive"]],
+  hair:L3("Kupfer, Kastanie und Karamell. Kühles Blond und Blauschwarz nehmen dir Wärme.","Aramiu, castaniu și caramel. Blondul rece și negrul-albăstrui îți iau din căldură.","Copper, chestnut and caramel. Cool blonde and blue-black drain your warmth."),
+  leather:L3("Cognac, Dunkelbraun, Oliv","Coniac, maro închis, oliv","Cognac, dark brown, olive"),
+  frames:L3("Dunkles Schildpatt, Horn, mattes Gold","Baga închisă, corn, auriu mat","Dark tortoiseshell, horn, matte gold")},
+ winter:{
+  lips:[["#B0102C","Klares Rot","Roșu pur","True red"],["#C2185B","Fuchsia","Fucsia","Fuchsia"]],
+  cheeks:[["#D4708E","Kühles Rosa","Roz rece","Cool pink"]],
+  eyes:[["#3A3D42","Anthrazit","Antracit","Charcoal"],["#5B2A86","Pflaume","Prună","Plum"]],
+  hair:L3("Satte, kühle Töne: Espresso, Schwarz, Platin. Warme Strähnen wirken an dir matt.","Nuanțe reci și intense: espresso, negru, platină. Șuvițele calde par mate pe tine.","Rich, cool shades: espresso, black, platinum. Warm highlights look dull on you."),
+  leather:L3("Schwarz, Bordeaux, dunkles Grau","Negru, bordo, gri închis","Black, burgundy, dark grey"),
+  frames:L3("Schwarz, Silber, klares Acetat","Negru, argintiu, acetat transparent","Black, silver, clear acetate")}
+};
 /* ---------- interface text ---------- */
 const T = {
 de:{
@@ -1450,486 +1425,114 @@ Object.assign(T.en, {
    ["Which languages?","German, Romanian and English."]
   ]
 });
-/* ---------- helpers & state ---------- */
-const store = {
-  get(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } },
-  set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
-};
-const LANGS = ["de","ro","en"];
-const saved = store.get("styleai-lang");
+
+/* ---------- interface text: app shell, onboarding, landing ---------- */
+Object.assign(T.de, {
+  vHeute:"Heute",vFormel:"Stilformel",vLooks:"Looks",vSchrank:"Garderobe",vCheck:"Check",testTitlePlain:"Stil-Test",
+  helloM:"Guten Morgen",helloD:"Guten Tag",helloE:"Guten Abend",
+  tdWho:(a,b,c)=>`${a} · ${b} · ${c}`,tdLook:"Dein Look für heute",tdMore:"Alle Anlässe",
+  tdColorL:"Farbe des Tages",tdColorD:n=>"Trag sie heute nah am Gesicht: als Pullover, Bluse oder Tuch.",tdRuleL:"Regel des Tages",tdTrendL:"Trend für dich",
+  scCheck:"Farb-Check",scCheckD:"Passt die Farbe? Ein Foto genügt.",scPack:"Koffer packen",scPackD:"Die Liste in deinen Farben.",scPassD:"Deine Stilformel auf einer Seite.",
+  formelTitle:"Deine <em>Stilformel</em>",fmColor:"Farbtyp",fmShape:"Form",fmFace:"Gesicht",fmStyle:"Stil",fmNone:"Noch offen",
+  tabBeautyW:"Make-up & Haar",tabBeautyM:"Pflege & Details",goBeautyW:"Weiter zu Make-up & Haar",goBeautyM:"Weiter zu Pflege & Details",
+  btLeadW:"Lippen, Rouge, Augen und Haarfarbe in deinem Farbtyp.",btLeadM:"Hemd, Krawatte, Leder und Brille in deinem Farbtyp.",
+  btLips:"Lippen",btCheeks:"Rouge",btEyes:"Augen",btHair:"Haarfarbe",btShirts:"Hemden",btTies:"Krawatte & Einstecktuch",btLeather:"Leder: Schuhe, Gürtel, Uhr",btFrames:"Brillenfassung",
+  tabOccasions:"Anlässe",whyLabel:"Warum es funktioniert",schrankTitle:"Deine <em>Garderobe</em>",checkTitle:"Der <em>Farb-Check</em>",wardNextL:"Als Nächstes",
+  qDemo:"Erst ansehen, ohne Test",revealCta:"Zu deiner App",appRedo:"Test wiederholen",
+  nlFormel:"Stilformel",nlDaily:"Jeden Tag",nlCompare:"Vergleich",nlFaq:"FAQ",openApp:"App öffnen",more:"Mehr",
+  lh1t:"Der Test",lh1d:"Zwei Minuten, eine Frage pro Bildschirm. Ohne Konto.",
+  lh2t:"Deine Stilformel",lh2d:"Farbtyp, Form, Gesicht und Stil. Mit dem Warum.",
+  lh3t:"Jeden Tag",lh3d:"Dein Look für heute, Anlässe, Farb-Check und Koffer.",
+  lfEyebrow:"Das Ergebnis",lfLead:"Vier Bausteine. Zusammen zeigen sie, was dir wirklich steht.",
+  lp1:"Deine Jahreszeit, deine Palette, dein Metall. Und was du meidest.",lp2:"Silhouette und Passform. Für sie die Proportionen, für ihn der Anzug.",
+  lp3:"Brille, Ausschnitt oder Kragen, Frisur und Bart.",lp4t:"Stil & Pflege",lp4:"Make-up oder Hemd und Leder, dazu die Trends der Saison.",
+  ldEyebrow:"Die App",ldTitle:"Jeden Morgen. <em>Eine Antwort.</em>",
+  ldList:[["Heute","Ein Look nach Wetter und Tag, in deinen Farben."],["Anlässe","Büro, Date, Hochzeit, Taufe, Interview. Mit Dresscode."],["Farb-Check","Ein Foto im Laden. Steht dir die Farbe?"],["Garderobe & Koffer","Zehn Basisteile und die Packliste für jede Reise."],["Stil-Pass","Alles auf einer Seite, als PDF."]],
+  forSplit:"<p>Für <em>sie</em>: Proportionen, Ausschnitte, Make-up und Haarfarbe.</p><p>Für <em>ihn</em>: Anzug-Passform, Hemd und Krawatte, Bart und die Lederregel.</p>"
+});
+Object.assign(T.ro, {
+  vHeute:"Azi",vFormel:"Formula ta",vLooks:"Ținute",vSchrank:"Garderobă",vCheck:"Verifică",testTitlePlain:"Testul de stil",
+  helloM:"Bună dimineața",helloD:"Bună ziua",helloE:"Bună seara",
+  tdWho:(a,b,c)=>`${a} · ${b} · ${c}`,tdLook:"Ținuta ta de azi",tdMore:"Toate ocaziile",
+  tdColorL:"Culoarea zilei",tdColorD:n=>"Poart-o azi aproape de față: pulover, bluză sau eșarfă.",tdRuleL:"Regula zilei",tdTrendL:"Tendința pentru tine",
+  scCheck:"Verifică o culoare",scCheckD:"Ți se potrivește? E de ajuns o poză.",scPack:"Fă bagajul",scPackD:"Lista în culorile tale.",scPassD:"Formula ta pe o singură pagină.",
+  formelTitle:"Formula ta <em>de stil</em>",fmColor:"Tip de culoare",fmShape:"Siluetă",fmFace:"Chip",fmStyle:"Stil",fmNone:"Încă deschis",
+  tabBeautyW:"Machiaj & păr",tabBeautyM:"Îngrijire & detalii",goBeautyW:"Mai departe la machiaj & păr",goBeautyM:"Mai departe la îngrijire & detalii",
+  btLeadW:"Ruj, fard de obraz, ochi și culoarea părului pentru tipul tău.",btLeadM:"Cămașă, cravată, piele și ochelari pentru tipul tău.",
+  btLips:"Buze",btCheeks:"Fard de obraz",btEyes:"Ochi",btHair:"Culoarea părului",btShirts:"Cămăși",btTies:"Cravată & batistă",btLeather:"Piele: pantofi, curea, ceas",btFrames:"Rame de ochelari",
+  tabOccasions:"Ocazii",whyLabel:"De ce funcționează",schrankTitle:"Garderoba <em>ta</em>",checkTitle:"Verifică <em>o culoare</em>",wardNextL:"Următoarea piesă",
+  qDemo:"Vreau doar să mă uit",revealCta:"Intră în aplicație",appRedo:"Refă testul",
+  nlFormel:"Formula",nlDaily:"Zi de zi",nlCompare:"Comparație",nlFaq:"Întrebări",openApp:"Deschide aplicația",more:"Mai mult",
+  lh1t:"Testul",lh1d:"Două minute, o întrebare pe ecran. Fără cont.",
+  lh2t:"Formula ta de stil",lh2d:"Culoare, siluetă, chip și stil. Cu explicația „de ce”.",
+  lh3t:"Zi de zi",lh3d:"Ținuta de azi, ocazii, verificarea culorii și bagajul.",
+  lfEyebrow:"Rezultatul",lfLead:"Patru piese. Împreună arată ce ți se potrivește cu adevărat.",
+  lp1:"Anotimpul tău, paleta, metalul. Și ce să eviți.",lp2:"Silueta și croiala. Pentru ea proporțiile, pentru el costumul.",
+  lp3:"Ochelari, decolteu sau guler, coafură și barbă.",lp4t:"Stil & îngrijire",lp4:"Machiaj sau cămașă și piele, plus tendințele sezonului.",
+  ldEyebrow:"Aplicația",ldTitle:"În fiecare dimineață. <em>Un răspuns.</em>",
+  ldList:[["Azi","O ținută după vreme și zi, în culorile tale."],["Ocazii","Birou, întâlnire, nuntă, botez, interviu. Cu dress code."],["Verifică o culoare","O poză în magazin. Îți stă culoarea?"],["Garderobă & bagaj","Zece piese de bază și lista pentru orice călătorie."],["Pașaportul de stil","Totul pe o pagină, în PDF."]],
+  forSplit:"<p>Pentru <em>ea</em>: proporții, decolteuri, machiaj și culoarea părului.</p><p>Pentru <em>el</em>: croiala costumului, cămașă și cravată, barbă și regula pielii.</p>"
+});
+Object.assign(T.en, {
+  vHeute:"Today",vFormel:"Formula",vLooks:"Looks",vSchrank:"Wardrobe",vCheck:"Check",testTitlePlain:"Style test",
+  helloM:"Good morning",helloD:"Good afternoon",helloE:"Good evening",
+  tdWho:(a,b,c)=>`${a} · ${b} · ${c}`,tdLook:"Your look for today",tdMore:"All occasions",
+  tdColorL:"Colour of the day",tdColorD:n=>"Wear it near your face today: a jumper, a shirt or a scarf.",tdRuleL:"Rule of the day",tdTrendL:"A trend for you",
+  scCheck:"Colour check",scCheckD:"Does it suit you? One photo is enough.",scPack:"Pack a suitcase",scPackD:"The list, in your colours.",scPassD:"Your formula on one page.",
+  formelTitle:"Your <em>style formula</em>",fmColor:"Colour type",fmShape:"Shape",fmFace:"Face",fmStyle:"Style",fmNone:"Not set",
+  tabBeautyW:"Make-up & hair",tabBeautyM:"Grooming & details",goBeautyW:"On to make-up & hair",goBeautyM:"On to grooming & details",
+  btLeadW:"Lips, blush, eyes and hair colour for your colour type.",btLeadM:"Shirt, tie, leather and glasses for your colour type.",
+  btLips:"Lips",btCheeks:"Blush",btEyes:"Eyes",btHair:"Hair colour",btShirts:"Shirts",btTies:"Tie & pocket square",btLeather:"Leather: shoes, belt, watch",btFrames:"Glasses frames",
+  tabOccasions:"Occasions",whyLabel:"Why it works",schrankTitle:"Your <em>wardrobe</em>",checkTitle:"The <em>colour check</em>",wardNextL:"Next to buy",
+  qDemo:"Just look around first",revealCta:"Open your app",appRedo:"Retake the test",
+  nlFormel:"Formula",nlDaily:"Every day",nlCompare:"Compared",nlFaq:"FAQ",openApp:"Open the app",more:"More",
+  lh1t:"The test",lh1d:"Two minutes, one question per screen. No account.",
+  lh2t:"Your style formula",lh2d:"Colour, shape, face and style. With the why.",
+  lh3t:"Every day",lh3d:"Today's look, occasions, colour check and suitcase.",
+  lfEyebrow:"The result",lfLead:"Four parts. Together they show what truly suits you.",
+  lp1:"Your season, your palette, your metal. And what to avoid.",lp2:"Silhouette and fit. Proportions for her, the suit for him.",
+  lp3:"Glasses, neckline or collar, hair and beard.",lp4t:"Style & grooming",lp4:"Make-up or shirt and leather, plus the season's trends.",
+  ldEyebrow:"The app",ldTitle:"Every morning. <em>One answer.</em>",
+  ldList:[["Today","One look for the weather and the day, in your colours."],["Occasions","Office, date, wedding, christening, interview. With dress code."],["Colour check","One photo in the shop. Does the colour suit you?"],["Wardrobe & suitcase","Ten essentials and a packing list for any trip."],["Style pass","Everything on one page, as a PDF."]],
+  forSplit:"<p>For <em>her</em>: proportions, necklines, make-up and hair colour.</p><p>For <em>him</em>: suit fit, shirt and tie, beard and the leather rule.</p>"
+});
+/* onboarding: a goal first, the face shape before the style question */
+T.de.Q.splice(0,0,["Was möchtest du erreichen?",["Jeden Tag besser aussehen","Meine Farben finden","Die Garderobe neu aufbauen","Ein Anlass steht an","Weniger, aber besser kaufen"]]);
+T.ro.Q.splice(0,0,["Ce vrei să obții?",["Să arăt mai bine în fiecare zi","Să-mi găsesc culorile","Să-mi refac garderoba","Am un eveniment","Să cumpăr mai puțin, dar mai bine"]]);
+T.en.Q.splice(0,0,["What would you like to achieve?",["Look better every day","Find my colours","Rebuild my wardrobe","An occasion is coming up","Buy less, but better"]]);
+T.de.Q.splice(T.de.Q.length-1,0,["Welche Form hat dein Gesicht?",["Oval","Rund","Eckig","Herz","Länglich"]]);
+T.ro.Q.splice(T.ro.Q.length-1,0,["Ce formă are chipul tău?",["Oval","Rotund","Pătrat","Inimă","Alungit"]]);
+T.en.Q.splice(T.en.Q.length-1,0,["What shape is your face?",["Oval","Round","Square","Heart","Long"]]);
+T.de.qStartMeta="13 Fragen · 2 Minuten";T.ro.qStartMeta="13 întrebări · 2 minute";T.en.qStartMeta="13 questions · 2 minutes";
+T.de.FAQ[3][1]="Ja. Wähle in deiner Stilformel einen anderen Farbtyp, eine andere Form oder Gesichtsform und tippe auf „Das bin ich“.";
+T.ro.FAQ[3][1]="Da. În formula ta alege alt tip de culoare, altă siluetă sau formă a chipului și apasă „Asta sunt eu”.";
+T.en.FAQ[3][1]="Yes. In your formula pick another colour type, body or face shape and tap “That's me”.";
+/* ---------- landing page ---------- */
+const store = { get(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } }, set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} } };
+const LANGS = ["de","ro","en"], saved = store.get("styleai-lang");
 let lang = LANGS.includes(saved) ? saved : "de";
-const L = () => T[lang];
-const X = o => o == null ? "" : (o[lang] ?? o.de);
-const LI = {de:1,ro:2,en:3};
-const cn = sw => sw[LI[lang]];               /* colour name */
+const L = () => T[lang], X = o => o == null ? "" : (o[lang] ?? o.de);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const $ = s => document.querySelector(s);
-const DEMO = {g:"w",season:"summer",shape:"X",hc:"mid",styles:["klassisch","minimal"],demo:true};
-let profile = store.get("styleai-profile");
-const P = () => profile || DEMO;
-const gName = g => g==="m" ? L().gm1 : L().gw1;
-
-function pills(el, items, cur, onPick){
-  el.innerHTML = "";
-  items.forEach(([k,label]) => {
-    const b = document.createElement("button"); b.className = "pill"; b.type = "button";
-    b.textContent = label; b.setAttribute("aria-pressed", k===cur);
-    b.onclick = () => onPick(k); el.appendChild(b);
-  });
+function renderCompare(){
+  const t = L(), mark = v => `<span class="m ${v===2?"y":v===1?"p":"n"}" aria-label="${esc(v===2?t.cmpY:v===1?t.cmpP:t.cmpN)}"></span>`;
+  $("#cmpTable").innerHTML = `<thead><tr><th></th>${t.cmpCols.map((c,i) => `<th scope="col"${i===2?' class="us"':""}>${esc(c)}</th>`).join("")}</tr></thead>
+    <tbody>${COMPARE.map(([lbl,...v]) => `<tr><th scope="row">${esc(X(lbl))}</th>${v.map((x,i) => `<td${i===2?' class="us"':""}>${mark(x)}</td>`).join("")}</tr>`).join("")}</tbody>`;
 }
-function swatch(sw, opts={}){
-  const tag = opts.btn ? "button" : "span";
-  return `<${tag} class="dot${opts.sm?" sm":""}${opts.x?" x":""}" style="--c:${sw[0]}" title="${esc(cn(sw))}" aria-label="${esc(cn(sw))}"${opts.btn?` type="button" data-i="${opts.i}" aria-pressed="${!!opts.on}"`:""}></${tag}>`;
-}
-const isLight = hex => { const n = parseInt(hex.slice(1),16); return ((n>>16)*299 + ((n>>8)&255)*587 + (n&255)*114)/1000 > 175; };
-function strip(list, cur){
-  return list.map((c,i) => `<button type="button" class="${isLight(c[0])?"light":""}" style="--c:${c[0]}" data-i="${i}" data-n="${esc(cn(c))}" aria-label="${esc(cn(c))}" aria-pressed="${i===cur}"></button>`).join("");
-}
-
-/* ---------- language ---------- */
 function applyLang(){
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-t]").forEach(n => { const v = L()[n.dataset.t]; if(typeof v === "string") n.textContent = v; });
   document.querySelectorAll("[data-th]").forEach(n => n.innerHTML = L()[n.dataset.th]);
-  document.querySelectorAll("[data-tl]").forEach(n => n.innerHTML = L()[n.dataset.tl].map(x=>`<li>${esc(x)}</li>`).join(""));
+  document.querySelectorAll("[data-tl]").forEach(n => n.innerHTML = L()[n.dataset.tl].map(x => `<li>${esc(x)}</li>`).join(""));
+  document.querySelectorAll("[data-tl2]").forEach(n => n.innerHTML = L()[n.dataset.tl2].map(([a,b],i) => `<li><span class="num">${String(i+1).padStart(2,"0")}</span><b>${esc(a)}</b><span>${esc(b)}</span></li>`).join(""));
   document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang===lang));
   $("#faqList").innerHTML = L().FAQ.map(([q,a]) => `<details><summary>${esc(q)}</summary><p class="muted">${esc(a)}</p></details>`).join("");
-  renderAll();
+  renderCompare();
 }
 document.querySelectorAll(".lang button").forEach(b => b.onclick = () => { lang = b.dataset.lang; store.set("styleai-lang", lang); applyLang(); });
-function renderAll(){ renderSeasons(); renderFigure(); renderFace(); renderQuiz(); renderDrape(); renderOutfit(); renderCheck(); renderWard(); renderTrends(); renderCompare(); renderStatus(); renderPass(); renderAdopt(); }
-
-/* ---------- structure: tabs, jumps, status, scroll spy ---------- */
-function openTab(group, key){
-  document.querySelectorAll(`.subtabs[data-group="${group}"] button`).forEach(b => b.setAttribute("aria-selected", b.dataset.tab===key));
-  document.querySelectorAll(`[data-panel^="${group}:"]`).forEach(p => p.hidden = p.dataset.panel !== `${group}:${key}`);
-}
-document.querySelectorAll(".subtabs").forEach(g => g.querySelectorAll("button").forEach(b => b.onclick = () => openTab(g.dataset.group, b.dataset.tab)));
-document.addEventListener("click", e => {
-  const el = e.target.closest("[data-goto]"); if(!el) return;
-  e.preventDefault(); const [g,k] = el.dataset.goto.split(":"); openTab(g,k);
-  document.getElementById(g==="prof"?"profil":"looks").scrollIntoView({behavior:"smooth"});
-});
-function renderStatus(){
-  const t = L(), p = P(), el = $("#profStatus");
-  const pass = `<button class="cta" id="profPass">${esc(t.passBtn)}</button>`;
-  if(p.demo){ el.innerHTML = `<p class="who">${t.profDemo}</p><div class="acts">${pass}<a class="btn" href="#test">${esc(t.profDemoBtn)}</a></div>`; }
-  else el.innerHTML = `<p class="who">${t.profMine(esc(X(SEASONS[p.season].name)), esc(X(SHAPES[p.g][p.shape].name)))}</p><div class="acts">${pass}<button class="cta" id="profRedo">${esc(t.profRedo)}</button></div>`;
-  $("#profPass").onclick = () => { renderPass(); window.print(); };
-  if(p.demo) return;
-  $("#profRedo").onclick = () => { st = {i:0,a:{}}; saveQ(); renderQuiz(); $("#test").scrollIntoView({behavior:"smooth"}); };
-}
-if("IntersectionObserver" in window){
-  const spy = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) document.querySelectorAll("[data-spy]").forEach(a => a.classList.toggle("on", a.dataset.spy===e.target.id)); }), {rootMargin:"-45% 0px -50% 0px"});
-  ["test","profil","looks","info"].forEach(id => spy.observe(document.getElementById(id)));
-}
-
-/* ---------- colour types ---------- */
-let ctSeason = P().season, ctPick = 0;
-function renderSeasons(){
-  const s = SEASONS[ctSeason];
-  pills($("#seasons"), SKEYS.map(k => [k, X(SEASONS[k].name)]), ctSeason, k => { ctSeason = k; ctPick = 0; renderSeasons(); });
-  $("#ctName").textContent = X(s.name); $("#ctSub").textContent = X(s.sub);
-  $("#ctRule").textContent = X(s.rule); $("#ctMetal").textContent = X(s.metal);
-  $("#ctBest").innerHTML = strip(s.best, ctPick);
-  $("#ctNeutral").innerHTML = s.neutral.map(c => swatch(c)).join("");
-  $("#ctAvoid").innerHTML = s.avoid.map(c => swatch(c,{x:true})).join("");
-  $("#ctBest").querySelectorAll("button").forEach(b => b.onclick = () => { ctPick = +b.dataset.i; renderSeasons(); });
-  renderAdopt();
-}
-
-/* ---------- body shapes ---------- */
-let fgG = P().g, fgShape = P().shape;
-function smooth(pts){
-  let d = `M${pts[0][0]} ${pts[0][1]}`;
-  for(let i=1;i<pts.length-1;i++){ const m = [(pts[i][0]+pts[i+1][0])/2,(pts[i][1]+pts[i+1][1])/2]; d += ` Q${pts[i][0]} ${pts[i][1]} ${m[0]} ${m[1]}`; }
-  const l = pts[pts.length-1]; return d + ` L${l[0]} ${l[1]}`;
-}
-function bodySvg(p, g){
-  const c = 150, S=62*p.sh, B=54*p.bu, W=48*p.wa, H=58*p.hi, neck = g==="m"?17:14;
-  const y = {neck:96,sh:124,bu:172,wa:238,hi:296,kn:430,an:500};
-  const right = [[c+neck,y.neck],[c+neck+4,y.sh-12],[c+S,y.sh],[c+S-4,y.sh+18],[c+B,y.bu],[c+W,y.wa],[c+H,y.hi],[c+H*.8,y.hi+50],[c+H*.5,y.kn],[c+20,y.an]];
-  const left = right.map(([x,yy]) => [2*c-x,yy]).reverse();
-  const path = smooth(right) + " L" + left.map(p=>p.join(" ")).join(" L") + " Z";
-  const line = (yy,w,lbl) => `<line class="guide" x1="${c-w-14}" y1="${yy}" x2="${c+w+14}" y2="${yy}"/><text x="${c+w+22}" y="${yy+4}" class="cap">${esc(lbl.toUpperCase())}</text>`;
-  return `<svg viewBox="0 0 330 520" role="img" aria-label="${esc(X(SHAPES[g][fgShape].name))}">
-    <circle class="body-line" cx="${c}" cy="58" r="${g==="m"?30:28}"/>
-    <path class="body-line" d="${path}" stroke-linejoin="round"/>
-    <line class="body-line" x1="${c}" y1="${y.hi+38}" x2="${c}" y2="${y.an}"/>
-    ${line(y.sh,S,L().lblShoulder)}${line(y.wa,W,L().lblWaist)}${line(y.hi,H,L().lblHip)}
-  </svg>`;
-}
-function renderFigure(){
-  pills($("#fgGender"), [["w",L().gw],["m",L().gm]], fgG, k => { fgG = k; renderFigure(); });
-  pills($("#fgShapes"), SHKEYS.map(k => [k, X(SHAPES[fgG][k].name)]), fgShape, k => { fgShape = k; renderFigure(); });
-  const s = SHAPES[fgG][fgShape];
-  $("#fgName").textContent = X(s.name);
-  $("#fgGoal").textContent = X(s.goal); $("#fgAcc").textContent = X(s.acc);
-  $("#fgGood").innerHTML = `<ul>${X(s.good).slice(0,3).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
-  $("#fgBad").innerHTML = `<ul>${X(s.bad).slice(0,2).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
-  $("#fgVisual").innerHTML = bodySvg(s.p, fgG);
-  renderFit(); renderAdopt();
-}
-
-/* ---------- quiz ---------- */
-/* w = warm(+)/cool(-), d = deep(+)/light(-), c = clear(+)/soft(-) */
-const QL = [
-  {k:"g"},
-  {k:"size",form:true},
-  {k:"veins",o:[{w:2},{w:-2},{}]},
-  {k:"jewel",o:[{w:2},{w:-2},{}]},
-  {k:"sun",o:[{d:1},{},{d:-2},{d:2}]},
-  {k:"hair",o:[{w:1,d:-2},{w:-2,d:-1},{w:3},{w:2},{d:2},{w:-2}]},
-  {k:"eyes",o:[{w:-1,d:-1},{},{w:1},{d:1}]},
-  {k:"contrast",o:[{c:2},{},{c:-2}]},
-  {k:"shoulders"},
-  {k:"waist"},
-  {k:"styles",multi:true}
-];
-let st = store.get("styleai-quiz") || {i:-1,a:{}};
-const qEl = $("#quiz");
-const saveQ = () => store.set("styleai-quiz", st);
-function qOptions(i){
-  if(QL[i].k==="styles") return STYLES.map(s => X(s[1]));
-  return L().Q[i][1];
-}
-function renderQuiz(){
-  const t = L();
-  if(st.i < 0){
-    qEl.innerHTML = `<div class="start"><span class="label">${esc(t.qStartMeta)}</span><h3>${esc(t.qStartTitle)}</h3>
-      <button class="btn" id="q-start">${esc(t.qStartBtn)}</button></div>`;
-    $("#q-start").onclick = () => { st = {i:0,a:{}}; saveQ(); renderQuiz(); };
-    return;
-  }
-  if(st.i >= QL.length) return renderResult();
-  const q = QL[st.i], title = t.Q[st.i][0];
-  const head = `<div class="progress"><i style="width:${Math.round(st.i/QL.length*100)}%"></i></div>
-    <div class="qmeta"><span class="label">${esc(t.qOf(st.i+1, QL.length))}</span>${q.multi?`<span class="label">${esc(t.qMulti)}</span>`:""}</div><h3>${esc(title)}</h3>`;
-  const isLast = st.i === QL.length-1;
-  if(q.form){
-    const v = st.a.size || {};
-    qEl.innerHTML = head + `<div class="fields">
-        <label class="field"><span class="label">${esc(t.fHeight)}</span><input type="number" id="f-h" inputmode="numeric" min="120" max="230" value="${esc(v.h||"")}" placeholder="170"></label>
-        <label class="field"><span class="label">${esc(t.fWeight)}</span><input type="number" id="f-w" inputmode="numeric" min="30" max="250" value="${esc(v.w||"")}"></label>
-      </div><p class="fine" style="margin-top:var(--s2)">${esc(t.fNote)}</p>
-      <div class="qnav"><button class="cta" id="q-back">${esc(t.qBack)}</button><div style="display:flex;gap:1.5rem;align-items:center"><button class="cta" id="q-skip">${esc(t.qSkip)}</button><button class="btn" id="q-next">${esc(t.qNext)}</button></div></div>`;
-    const keep = () => { st.a.size = {h: $("#f-h").value, w: $("#f-w").value}; };
-    $("#q-back").onclick = () => { keep(); st.i--; saveQ(); renderQuiz(); };
-    $("#q-skip").onclick = () => { st.a.size = {}; st.i++; saveQ(); renderQuiz(); };
-    $("#q-next").onclick = () => { keep(); st.i++; saveQ(); renderQuiz(); };
-    return;
-  }
-  const opts = qOptions(st.i), sel = st.a[q.k] || [];
-  qEl.innerHTML = head + `<div class="opts${q.multi||opts.length>4?" two":""}${q.multi?" multi":""}">${opts.map((o,j)=>`<button class="opt" data-j="${j}" aria-pressed="${sel.includes(j)}">${esc(o)}</button>`).join("")}</div>
-    <div class="qnav"><button class="cta" id="q-back">${esc(t.qBack)}</button>
-    <button class="btn" id="q-next" ${sel.length?"":"disabled"}>${esc(isLast?t.qDone:t.qNext)}</button></div>`;
-  qEl.querySelectorAll(".opt").forEach(b => b.onclick = () => {
-    const j = +b.dataset.j;
-    if(q.multi){ let cur = (st.a[q.k]||[]).slice(); cur = cur.includes(j) ? cur.filter(x=>x!==j) : cur.concat(j); st.a[q.k] = cur; saveQ(); renderQuiz(); }
-    else { st.a[q.k] = [j]; st.i++; saveQ(); renderQuiz(); }
-  });
-  $("#q-back").onclick = () => { st.i--; saveQ(); renderQuiz(); };
-  $("#q-next").onclick = () => { st.i++; saveQ(); renderQuiz(); };
-}
-function score(){
-  const a = st.a, s = {w:0,d:0,c:0};
-  QL.forEach(q => { if(q.o) (a[q.k]||[]).forEach(j => { const v = q.o[j]; for(const k in v) s[k]+=v[k]; }); });
-  const g = (a.g||[0])[0] === 1 ? "m" : "w";
-  let season;
-  if(s.w > 0){ const sp = (s.d<0?1:0)+(s.c>0?1:0), au = (s.d>0?1:0)+(s.c<0?1:0); season = sp>au ? "spring" : au>sp ? "autumn" : (s.d>0 ? "autumn" : "spring"); }
-  else { const wi = (s.d>0?1:0)+(s.c>0?1:0), su = (s.d<0?1:0)+(s.c<0?1:0); season = wi>su ? "winter" : su>wi ? "summer" : (s.d>0||s.c>0 ? "winter" : "summer"); }
-  const sh = (a.shoulders||[1])[0], wa = (a.waist||[1])[0];
-  let shape;
-  if(wa === 3) shape = "O";
-  else if(g === "w") shape = sh===0 ? "V" : sh===2 ? "A" : (wa===0 ? "X" : "H");
-  else shape = sh===2 ? "A" : sh===0 ? (wa===0 ? "V" : "X") : (wa<=1 ? "X" : "H");
-  const h = parseInt((a.size||{}).h, 10);
-  let hc = "mid";
-  if(h){ const lo = g==="m"?172:160, hi = g==="m"?185:175; hc = h<lo ? "petite" : h>=hi ? "tall" : "mid"; }
-  const styles = (a.styles||[]).map(j => STYLES[j][0]);
-  return {g, season, shape, hc, styles, neutral: Math.abs(s.w) <= 1};
-}
-function roleColor(season, role, shift=0){
-  const s = SEASONS[season];
-  if(role === "metal") return [s.mhex, X(s.metal), X(s.metal), X(s.metal)];
-  if(role[0] === "n") return s.neutral[+role[1]];
-  return s.best[(+role[1]*3 + shift) % s.best.length];
-}
-function fitsFor(p){ return TRENDS.filter(tr => tr.g==="b" || tr.g===p.g).map(tr => [tr, tr.fit(p)]); }
-function renderResult(){
-  const t = L(), r = score();
-  if(profile && profile.face) r.face = profile.face;
-  profile = r; store.set("styleai-profile", r);
-  const s = SEASONS[r.season], sh = SHAPES[r.g][r.shape];
-  const styleNames = r.styles.map(k => X(STYLES.find(x=>x[0]===k)[1]));
-  const capsule = CAPSULE[r.g].map(([n,role]) => { const c = roleColor(r.season, role); return `<li>${swatch(c,{sm:true})}<span>${esc(X(n))} <span class="fine">· ${esc(cn(c))}</span></span></li>`; }).join("");
-  const pieces = r.styles.map(k => { const row = STYLES.find(x=>x[0]===k); return `<li><span><em>${esc(X(row[1]))}</em> — ${esc(X(r.g==="m"?row[3]:row[2]))}</span></li>`; }).join("");
-  const tr = fitsFor(r).filter(([,f]) => f[0]==="yes").slice(0,3).map(([x,f]) => `<li><span><em>${esc(X(x.name))}</em> — ${esc(X(f[1]))}</span></li>`).join("");
-  const hTip = r.hc!=="mid" ? `<p class="fine">${esc(X(HEIGHT[r.g][r.hc]))}</p>` : "";
-  const summary = t.rSummary(X(s.name), X(s.sub), X(sh.name), styleNames.join(", "));
-  qEl.innerHTML = `<div class="result">
-    <div class="hd"><span class="label">${esc(t.rEyebrow)}</span><h3>${esc(X(s.name))} <em>·</em> ${esc(X(sh.name))}</h3>
-      <span class="label">${esc(X(s.sub))}${styleNames.length?` · ${esc(styleNames.join(", "))}`:""}</span></div>
-    <div class="strip" aria-label="${esc(t.rColors)}">${strip(s.best, -1)}</div>
-    <div class="rgrid">
-      <div><span class="label">${esc(t.rShape)}</span><p>${esc(X(sh.goal))}</p><ul class="rlist">${X(sh.good).slice(0,3).map(x=>`<li>— ${esc(x)}</li>`).join("")}</ul></div>
-      <div><span class="label">${esc(t.rNeutral)} · ${esc(t.rAvoid)} · ${esc(t.rMetal)}</span>
-        <div class="dots">${s.neutral.map(c=>swatch(c)).join("")}</div><div class="dots">${s.avoid.map(c=>swatch(c,{x:true})).join("")}</div><p class="fine">${esc(X(s.metal))}</p></div>
-      <div><span class="label">${esc(t.rCapsule)}</span><ul class="rlist">${capsule}</ul></div>
-      <div>${pieces?`<span class="label">${esc(t.rStylePieces)}</span><ul class="rlist">${pieces}</ul>`:""}
-        ${tr?`<span class="label">${esc(t.rTrends)}</span><ul class="rlist">${tr}</ul>`:""}</div>
-    </div>
-    ${hTip}${r.neutral?`<p class="fine">${esc(t.rNeutralNote)}</p>`:""}
-    <p class="fine">${esc(t.rFine)}</p>
-    <div class="qnav"><div style="display:flex;gap:1rem;flex-wrap:wrap"><a class="btn" href="#profil">${esc(t.rNext)}</a><a class="btn line" href="#looks">${esc(t.rToOutfits)}</a></div>
-      <div style="display:flex;gap:1.5rem"><button class="cta" id="q-copy">${esc(t.rCopy)}</button><button class="cta" id="q-redo">${esc(t.rRedo)}</button></div></div>
-    <span class="copied" id="q-copied" hidden>${esc(t.rCopied)}</span>
-    <p class="fine" id="q-sum" hidden>${esc(summary)}</p></div>`;
-  $("#q-redo").onclick = () => { st = {i:0,a:{}}; saveQ(); renderQuiz(); };
-  $("#q-copy").onclick = () => {
-    const ok = () => { $("#q-copied").hidden = false; };
-    const fb = () => { const p=$("#q-sum"); p.hidden=false; const g=document.createRange(); g.selectNodeContents(p); const s=getSelection(); s.removeAllRanges(); s.addRange(g); };
-    try{ navigator.clipboard.writeText(summary).then(ok, fb); }catch(e){ fb(); }
-  };
-  /* the rest of the page follows the new profile */
-  if(!syncedOnce){ syncedOnce = true; ctSeason = r.season; fgG = r.g; fgShape = r.shape; dpSeason = r.season; renderSeasons(); renderFigure(); renderDrape(); }
-  renderOutfit(); renderTrends(); renderStatus(); renderCheck(); renderWard(); renderPass(); renderAdopt();
-}
-let syncedOnce = false;
-
-/* ---------- colour drape with photo ---------- */
-let dpSeason = P().season, dpA = 0, dpB = 0, photoUrl = null;
-const DEMO_FACE = {src:"img/mature-woman.jpg", z:2.3, ox:"64%", oy:"30%"};
-function renderDrape(){
-  const s = SEASONS[dpSeason];
-  pills($("#dpSeasons"), SKEYS.map(k => [k, X(SEASONS[k].name)]), dpSeason, k => { dpSeason = k; dpA = 0; dpB = 0; renderDrape(); });
-  $("#dpBest").innerHTML = s.best.map((c,i) => swatch(c,{btn:true,i,on:i===dpA})).join("");
-  $("#dpAvoid").innerHTML = s.avoid.map((c,i) => swatch(c,{btn:true,i,on:i===dpB})).join("");
-  $("#dpBest").querySelectorAll("button").forEach(b => b.onclick = () => { dpA = +b.dataset.i; renderDrape(); });
-  $("#dpAvoid").querySelectorAll("button").forEach(b => b.onclick = () => { dpB = +b.dataset.i; renderDrape(); });
-  $("#dA").style.setProperty("--c", s.best[dpA][0]); $("#dB").style.setProperty("--c", s.avoid[dpB][0]);
-  $("#dATag").textContent = cn(s.best[dpA]); $("#dBTag").textContent = cn(s.avoid[dpB]);
-  const src = photoUrl || DEMO_FACE.src;
-  document.querySelectorAll(".drape .face").forEach(f => { if(f.dataset.src !== src){ f.innerHTML = `<img src="${src}" alt="">`; f.dataset.src = src; } });
-  applyFrame();
-}
-function applyFrame(){
-  document.querySelectorAll(".drape .face img").forEach(i => {
-    if(photoUrl){ i.style.transformOrigin = "50% 50%"; i.style.transform = `scale(${$("#dpZoom").value})`; i.style.objectPosition = `50% ${$("#dpPos").value}%`; }
-    else { i.style.transformOrigin = `${DEMO_FACE.ox} ${DEMO_FACE.oy}`; i.style.transform = `scale(${DEMO_FACE.z})`; i.style.objectPosition = "50% 0%"; }
-  });
-}
-$("#dpFile").onchange = e => {
-  const f = e.target.files && e.target.files[0]; if(!f) return;
-  if(photoUrl) URL.revokeObjectURL(photoUrl);
-  photoUrl = URL.createObjectURL(f); $("#dpRanges").hidden = false; renderDrape();
-};
-$("#dpZoom").oninput = applyFrame; $("#dpPos").oninput = applyFrame;
-
-/* ---------- outfits ---------- */
-let ofOcc = "buero", ofW = "cold", ofShift = 0;
-const pick = (item, w) => (item && (item.de !== undefined)) ? item : (item ? item[w] : null);
-const LOOK_IMG = {w:{buero:"woman-suit",alltag:"woman-trench",abend:"hero-woman",hochzeit:"mature-woman",interview:"woman-suit",fest:"mature-woman"},
-                 m:{buero:"man-coat",alltag:"man-street",abend:"man-coat",hochzeit:"man-suit",interview:"man-suit",fest:"man-suit"}};
-function renderOutfit(){
-  const t = L(), p = P(), s = SEASONS[p.season], o = OUT[p.g][ofOcc];
-  pills($("#ofOcc"), OCC.map(([k,n]) => [k, X(n)]), ofOcc, k => { ofOcc = k; renderOutfit(); });
-  pills($("#ofWeather"), WEATHER.map(([k,n]) => [k, X(n)]), ofW, k => { ofW = k; renderOutfit(); });
-  $("#ofProfile").textContent = (p.demo ? t.ofDemo : t.ofMine)(gName(p.g), X(s.name), X(SHAPES[p.g][p.shape].name));
-  const want = `img/${LOOK_IMG[p.g][ofOcc]}.jpg`; if(!$("#ofImg").src.endsWith(want)) $("#ofImg").src = want;
-  const cols = []; let rows = "", nearFace = null;
-  o.items.forEach(([slot, item, role]) => {
-    const it = pick(item, ofW); if(!it) return;
-    const col = roleColor(p.season, role, ofShift);
-    if(role!=="metal") cols.push(col[0]);
-    if(!nearFace && role[0]==="a" && ["top","dress","acc"].includes(slot)) nearFace = col;
-    rows += `<li><span class="slot">${esc(X(SLOTS[slot]))}</span><span class="it">${esc(X(it))}</span><span class="col"><span class="dot sm" style="--c:${col[0]}"></span>${esc(role==="metal" ? "" : cn(col))}</span></li>`;
-  });
-  $("#ofList").innerHTML = rows;
-  $("#ofBar").innerHTML = cols.map(c => `<i style="--c:${c}"></i>`).join("");
-  const why = [];
-  if(nearFace) why.push(t.whyColor(cn(nearFace)));
-  why.push(t.whyBase(cn(s.neutral[3]), cn(s.neutral[1])));
-  why.push(t.whyMetal(X(s.metal)));
-  const sh = SHAPES[p.g][p.shape]; why.push(X(sh.goal));
-  if(p.hc && p.hc!=="mid") why.push(X(HEIGHT[p.g][p.hc]));
-  why.push(X(o.rule));
-  $("#ofWhy").innerHTML = why.map(x=>`<li>${esc(x)}</li>`).join("");
-}
-$("#ofShuffle").onclick = () => { ofShift = (ofShift+1) % 8; renderOutfit(); };
-
-/* ---------- trends ---------- */
-let trFilter = "all";
-const FEAT = [[0,"plaid"],[3,"knit"],[7,"man-street"],[8,"man-coat"]];
-function renderTrends(){
-  const t = L(), p = P();
-  const sName = X(SEASONS[p.season].name), shName = X(SHAPES[p.g][p.shape].name);
-  $("#trProfile").textContent = (p.demo ? t.trDemo : t.trMine)(sName, shName);
-  const fit = tr => tr.fit({...p, g: tr.g==="b" ? p.g : tr.g});
-  $("#trFeat").innerHTML = FEAT.map(([i,img]) => { const tr = TRENDS[i], f = fit(tr);
-    return `<article class="tcard"><div class="ph"><img src="img/${img}.jpg" alt="" loading="lazy" width="800" height="992"></div>
-      <span class="tag ${f[0]}">${esc(f[0]==="yes"?t.trYes:t.trAdapt)}</span><h3>${esc(X(tr.name))}</h3><p class="tip">${esc(X(f[1]))}</p></article>`; }).join("");
-  pills($("#trFilter"), [["all",t.trAll],["w",t.gw],["m",t.gm]], trFilter, k => { trFilter = k; renderTrends(); });
-  const featIdx = FEAT.map(x=>x[0]);
-  $("#trList").innerHTML = TRENDS.map((tr,i) => [tr,i]).filter(([tr,i]) => !featIdx.includes(i) && (trFilter==="all" || tr.g==="b" || tr.g===trFilter)).map(([tr]) => { const f = fit(tr);
-    return `<article><h3>${esc(X(tr.name))}</h3><p class="tip">${esc(X(f[1]))}</p><span class="tag ${f[0]}">${esc(f[0]==="yes"?t.trYes:t.trAdapt)}</span></article>`; }).join("");
-}
-
-/* reveal on scroll */
 const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12}) : null;
 document.querySelectorAll(".rv").forEach(n => io ? io.observe(n) : n.classList.add("in"));
-
-
-/* ---------- profile corrections ---------- */
-function adoptProfile(patch){
-  const base = {...P(), ...patch}; delete base.demo;
-  profile = base; store.set("styleai-profile", profile);
-  renderOutfit(); renderTrends(); renderStatus(); renderWard(); renderCheck(); renderPass(); renderAdopt();
-}
-function renderAdopt(){
-  const t = L(), p = P();
-  const set = (el, same, fn) => { if(!el) return; el.textContent = same && !p.demo ? t.adopted : t.adopt; el.disabled = same && !p.demo; el.onclick = fn; };
-  set($("#ctAdopt"), ctSeason===p.season, () => adoptProfile({season:ctSeason}));
-  set($("#fgAdopt"), fgShape===p.shape && fgG===p.g, () => adoptProfile({g:fgG, shape:fgShape}));
-  set($("#fcAdopt"), fcFace===p.face, () => adoptProfile({face:fcFace}));
-}
-
-/* ---------- fit rules ---------- */
-function renderFit(){
-  const t = L(), g = fgG;
-  $("#fgFit").innerHTML = `<div class="fit-head"><span class="label">${esc(g==="m"?t.fitM:t.fitW)}</span><p class="intro">${esc(g==="m"?t.fitLeadM:t.fitLeadW)}</p></div>
-    <ol class="fit-list">${FIT[g].map(([h,d],i) => `<li><span class="num">${String(i+1).padStart(2,"0")}</span><h4>${esc(X(h))}</h4><p>${esc(X(d))}</p></li>`).join("")}</ol>`;
-}
-
-/* ---------- face shapes ---------- */
-let fcFace = P().face || "oval";
-function faceSvg(k){
-  return `<svg viewBox="0 0 200 260" role="img" aria-label="${esc(X(FACES[k].name))}">
-    <line class="guide" x1="100" y1="4" x2="100" y2="256"/><line class="guide" x1="10" y1="118" x2="190" y2="118"/>
-    <path class="body-line" d="${FACES[k].path}"/>
-  </svg>`;
-}
-function renderFace(){
-  const t = L(), f = FACES[fcFace], g = fgG;
-  pills($("#fcGender"), [["w",t.gw],["m",t.gm]], fgG, k => { fgG = k; renderFigure(); renderFit(); renderFace(); renderAdopt(); });
-  pills($("#fcShapes"), FKEYS.map(k => [k, X(FACES[k].name)]), fcFace, k => { fcFace = k; renderFace(); renderAdopt(); });
-  $("#fcName").textContent = X(f.name); $("#fcSigns").textContent = X(f.signs);
-  $("#fcGlasses").textContent = X(f.glasses);
-  $("#fcNeckL").textContent = g==="m" ? t.faceNeckM : t.faceNeckW; $("#fcNeck").textContent = X(f.neck[g]);
-  $("#fcHairL").textContent = g==="m" ? t.faceHairM : t.faceHairW; $("#fcHair").textContent = X(f.hair[g]);
-  $("#fcVisual").innerHTML = faceSvg(fcFace);
-}
-
-/* ---------- colour check ---------- */
-const hexRgb = h => { const n = parseInt(h.slice(1),16); return [n>>16,(n>>8)&255,n&255]; };
-const rgbHex = c => "#" + c.map(v => Math.round(v).toString(16).padStart(2,"0")).join("");
-function lab([r,g,b]){
-  const f = v => { v/=255; return v>.04045 ? ((v+.055)/1.055)**2.4 : v/12.92; };
-  const R=f(r),G=f(g),B=f(b);
-  const x=(R*.4124+G*.3576+B*.1805)/.95047, y=R*.2126+G*.7152+B*.0722, z=(R*.0193+G*.1192+B*.9505)/1.08883;
-  const h = v => v>.008856 ? Math.cbrt(v) : 7.787*v+16/116;
-  return [116*h(y)-16, 500*(h(x)-h(y)), 200*(h(y)-h(z))];
-}
-const dE = (a,b) => { const p=lab(hexRgb(a)), q=lab(hexRgb(b)); return Math.hypot(p[0]-q[0],p[1]-q[1],p[2]-q[2]); };
-let chkHex = null;
-function nearest(list, hex){ return list.map(sw => [sw, dE(sw[0], hex)]).sort((a,b) => a[1]-b[1])[0]; }
-function renderCheck(){
-  const t = L(), p = P(), s = SEASONS[p.season], el = $("#chkResult");
-  if(!chkHex){ el.innerHTML = `<p class="fine">${esc(t.chkFor(X(s.name)))}</p>`; return; }
-  const good = nearest([...s.best, ...s.neutral], chkHex), bad = nearest(s.avoid, chkHex);
-  let v, d;
-  if(good[1] < 16 && good[1] <= bad[1]){ v = "yes"; d = t.chkYesD(cn(good[0])); }
-  else if(bad[1] < 16 || bad[1] < good[1]){ v = "no"; d = t.chkNoD(cn(bad[0])); }
-  else { v = "mid"; d = t.chkMidD; }
-  const pairs = [s.neutral[0], s.neutral[3], s.best[(s.best.indexOf(good[0])+4+8)%8] || s.best[0]];
-  el.innerHTML = `<div class="verdict ${v}">
-      <span class="dot big" style="--c:${chkHex}"></span>
-      <div><span class="label">${esc(t.chkFor(X(s.name)))}</span><h3>${esc(v==="yes"?t.chkYes:v==="no"?t.chkNo:t.chkMid)}</h3><p>${esc(d)}</p></div>
-    </div>
-    <div class="minis"><div><span class="label">${esc(t.chkPair)}</span><div class="dots">${pairs.map(c=>swatch(c)).join("")}</div></div>
-      <div><span class="label">${esc(t.ctMetal)}</span><span>${esc(X(s.metal))}</span></div></div>`;
-}
-function chkSample(x, y){
-  const cv = $("#chkCanvas"), ctx = cv.getContext("2d"), r = 6;
-  const d = ctx.getImageData(Math.max(0,x-r), Math.max(0,y-r), r*2, r*2).data; let a=[0,0,0], n=0;
-  for(let i=0;i<d.length;i+=4){ a[0]+=d[i]; a[1]+=d[i+1]; a[2]+=d[i+2]; n++; }
-  chkHex = rgbHex(a.map(v => v/n)); $("#chkColor").value = chkHex; renderCheck();
-}
-$("#chkFile").onchange = e => {
-  const f = e.target.files && e.target.files[0]; if(!f) return;
-  const img = new Image(), url = URL.createObjectURL(f);
-  img.onload = () => {
-    const cv = $("#chkCanvas"), w = 900, h = Math.round(img.height * w / img.width);
-    cv.width = w; cv.height = h; cv.getContext("2d").drawImage(img, 0, 0, w, h);
-    cv.hidden = false; $("#chkEmpty").hidden = true; URL.revokeObjectURL(url);
-    placeMark(.5, .5); chkSample(w/2|0, h/2|0);
-  };
-  img.src = url;
-};
-function placeMark(fx, fy){ const m = $("#chkMark"); m.hidden = false; m.style.left = fx*100+"%"; m.style.top = fy*100+"%"; }
-$("#chkCanvas").onclick = e => {
-  const cv = e.currentTarget, b = cv.getBoundingClientRect(), fx = (e.clientX-b.left)/b.width, fy = (e.clientY-b.top)/b.height;
-  placeMark(fx, fy); chkSample(fx*cv.width|0, fy*cv.height|0);
-};
-$("#chkColor").oninput = e => { chkHex = e.target.value; renderCheck(); };
-
-/* ---------- wardrobe & suitcase ---------- */
-let have = store.get("styleai-have") || {};
-let pkDays = 5, pkW = "mild";
-function renderWard(){
-  const t = L(), p = P(), list = WARD[p.g], key = p.g;
-  const own = have[key] || [];
-  $("#wdList").innerHTML = list.map(([n,role],i) => { const c = roleColor(p.season, role), on = own.includes(i);
-    return `<li><button type="button" class="ward-item" data-i="${i}" aria-pressed="${on}"><span class="box" aria-hidden="true"></span><span class="it">${esc(X(n))}</span><span class="col"><span class="dot sm" style="--c:${c[0]}"></span>${esc(cn(c))}</span></button></li>`; }).join("");
-  $("#wdList").querySelectorAll("button").forEach(b => b.onclick = () => {
-    const i = +b.dataset.i, cur = new Set(have[key] || []); cur.has(i) ? cur.delete(i) : cur.add(i);
-    have[key] = [...cur]; store.set("styleai-have", have); renderWard();
-  });
-  $("#wdCount").textContent = t.wardHave(own.length, list.length);
-  const miss = list.map((x,i) => i).filter(i => !own.includes(i));
-  $("#wdNext").innerHTML = miss.length ? `<span class="label">${esc(t.wardBuy)}</span> ${miss.slice(0,3).map(i => esc(X(list[i][0]))).join(" · ")}` : esc(t.wardDone);
-
-  pills($("#pkDays"), [3,5,7,10].map(d => [d, String(d)]), pkDays, k => { pkDays = k; renderWard(); });
-  pills($("#pkWeather"), WEATHER.map(([k,n]) => [k, X(n)]), pkW, k => { pkW = k; renderWard(); });
-  const d = pkDays, tops = Math.min(6, Math.ceil(d*.6)+1), bottoms = d<=3 ? 1 : d<=7 ? 2 : 3;
-  const rows = [
-    [tops, X(PACK.top[pkW]), ["a0","n0","a1","n1","a0","n2"].slice(0,tops)],
-    [bottoms, X((p.g==="m"?PACK.bottomM:PACK.bottom)[pkW]), ["n3","n1","n2"].slice(0,bottoms)],
-    [1, X(PACK.layer[pkW]), ["n1"]],
-    [1, X(PACK.evening[p.g]), ["a0"]],
-    [2, `${X(PACK.shoes1[pkW])}, ${X(PACK.shoes2)}`, ["n3","n0"]],
-    [1, X(PACK.bag[p.g]), ["n2"]],
-    [1, X(PACK.extra[pkW]), ["metal"]]
-  ];
-  $("#pkList").innerHTML = rows.map(([n,label,roles]) => `<li><span class="slot">${n}×</span><span class="it">${esc(label)}</span><span class="col">${roles.map(r => `<span class="dot sm" style="--c:${roleColor(p.season,r)[0]}"></span>`).join("")}</span></li>`).join("");
-  $("#pkTotal").textContent = t.packTotal(tops*bottoms + 1);
-}
-
-/* ---------- comparison ---------- */
-function renderCompare(){
-  const t = L(), mark = v => v===2 ? `<span class="m y" aria-label="${esc(t.cmpY)}"></span>` : v===1 ? `<span class="m p" aria-label="${esc(t.cmpP)}"></span>` : `<span class="m n" aria-label="${esc(t.cmpN)}"></span>`;
-  $("#cmpTable").innerHTML = `<thead><tr><th></th>${t.cmpCols.map((c,i) => `<th scope="col"${i===2?' class="us"':""}>${esc(c)}</th>`).join("")}</tr></thead>
-    <tbody>${COMPARE.map(([lbl,...v]) => `<tr><th scope="row">${esc(X(lbl))}</th>${v.map((x,i) => `<td${i===2?' class="us"':""}>${mark(x)}</td>`).join("")}</tr>`).join("")}</tbody>`;
-}
-
-/* ---------- style pass (print / PDF) ---------- */
-function renderPass(){
-  const t = L(), p = P(), s = SEASONS[p.season], sh = SHAPES[p.g][p.shape], f = FACES[p.face || "oval"];
-  const li = a => a.map(x => `<li>${esc(x)}</li>`).join("");
-  const sw = list => list.map(c => `<span class="pc"><i style="background:${c[0]}"></i>${esc(cn(c))}</span>`).join("");
-  $("#pass").innerHTML = `<header><span class="logo">TON <em>sur</em> TON</span><span>${esc(t.passTitle)}${p.demo?` · ${esc(t.passDemo)}`:""} · ${new Date().toLocaleDateString(lang)}</span></header>
-    <h1>${esc(X(s.name))} · ${esc(X(sh.name))}</h1><p class="sub">${esc(gName(p.g))} · ${esc(X(s.sub))}</p>
-    <h2>${esc(t.rColors)}</h2><div class="pcs">${sw(s.best)}</div>
-    <div class="cols"><div><h2>${esc(t.rNeutral)}</h2><div class="pcs">${sw(s.neutral)}</div></div><div><h2>${esc(t.rAvoid)}</h2><div class="pcs">${sw(s.avoid)}</div></div></div>
-    <p><b>${esc(t.rMetal)}:</b> ${esc(X(s.metal))}. ${esc(X(s.rule))}</p>
-    <div class="cols"><div><h2>${esc(t.rShape)}</h2><p>${esc(X(sh.goal))}</p><ul>${li(X(sh.good).slice(0,4))}</ul></div>
-      <div><h2>${esc(t.tabFace)}: ${esc(X(f.name))}</h2><ul><li>${esc(t.faceGlasses)}: ${esc(X(f.glasses))}</li><li>${esc(X(f.neck[p.g]))}</li><li>${esc(X(f.hair[p.g]))}</li></ul></div></div>
-    <h2>${esc(p.g==="m"?t.fitM:t.fitW)}</h2><ul>${FIT[p.g].map(([h,d]) => `<li><b>${esc(X(h))}.</b> ${esc(X(d))}</li>`).join("")}</ul>
-    <h2>${esc(t.wardTitle)}</h2><div class="pcs">${WARD[p.g].map(([n,r]) => { const c = roleColor(p.season,r); return `<span class="pc"><i style="background:${c[0]}"></i>${esc(X(n))}</span>`; }).join("")}</div>
-    <footer>${esc(t.rFine)} · dandelion1111r.github.io/ton-sur-ton</footer>`;
-}
 applyLang();
-if(st.i >= QL.length) syncedOnce = true;
 if("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) navigator.serviceWorker.register("sw.js").catch(() => {});
 })();
 </script>

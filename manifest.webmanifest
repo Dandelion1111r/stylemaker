@@ -3,7 +3,7 @@
   "short_name": "Ton sur Ton",
   "description": "Farbtyp, Figur, Stil-Test, Farbprobe, Outfits und Trends. Konzept-Prototyp von Raluca Jidvian.",
   "lang": "de",
-  "start_url": "./",
+  "start_url": "app.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#F4F0EA",
