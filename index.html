@@ -465,6 +465,9 @@ html{scroll-padding-top:5rem}
 .closing h2 em{color:var(--accent)}
 
 /* ---------- app shell ---------- */
+.look-today .ph.flat,.look .ph.flat,.ph.flat{background:#F7F3EE}
+.ph.flat svg{position:absolute;inset:0;width:100%;height:calc(100% - 10px);display:block}
+.look .ph.flat{position:relative}
 .app-foot{display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;align-items:baseline;margin-top:clamp(3rem,6vw,5rem);padding-top:1.4rem;border-top:1px solid var(--line);font-size:.78rem;color:var(--soft)}
 .app-foot a{color:var(--soft);text-decoration:none}.app-foot a:hover{color:var(--ink)}
 .app-foot a:first-child{font-family:var(--display);letter-spacing:.18em;color:var(--ink)}
@@ -544,7 +547,7 @@ html{scroll-padding-top:5rem}
   .app-nav a[aria-current="page"]{border-color:var(--ink)}
   .app main{padding-bottom:7rem}
   .look-today{grid-template-columns:1fr}
-  .look-today .ph{aspect-ratio:16/11;min-height:0}
+  .look-today .ph{aspect-ratio:1/1;min-height:0}
   .today-side,.shortcuts,.two-col,.split,.beauty{grid-template-columns:1fr}
   .top .steps-nav{display:none}
   .top{grid-template-columns:auto 1fr}
