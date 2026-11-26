@@ -154,7 +154,7 @@ p{margin:0}
 .minis{display:flex;gap:2.5rem;flex-wrap:wrap}
 .minis>div{display:flex;flex-direction:column;gap:.7rem}
 .dots{display:flex;gap:.4rem}
-.dot{width:1.6rem;height:1.6rem;border-radius:50%;background:var(--c);border:1px solid rgba(0,0,0,.1);position:relative;flex:none}
+.dot{width:1.6rem;height:1.6rem;border-radius:50%;background:var(--c);border:1px solid rgba(0,0,0,.2);position:relative;flex:none}
 .dot.sm{width:.8rem;height:.8rem}
 .dot.x::after{content:"";position:absolute;left:50%;top:-12%;width:1px;height:124%;background:var(--ink);transform:rotate(45deg)}
 .kv{display:grid;grid-template-columns:9rem 1fr;border-top:1px solid var(--line)}
@@ -465,6 +465,11 @@ html{scroll-padding-top:5rem}
 .closing h2 em{color:var(--accent)}
 
 /* ---------- app shell ---------- */
+.app-foot{display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;align-items:baseline;margin-top:clamp(3rem,6vw,5rem);padding-top:1.4rem;border-top:1px solid var(--line);font-size:.78rem;color:var(--soft)}
+.app-foot a{color:var(--soft);text-decoration:none}.app-foot a:hover{color:var(--ink)}
+.app-foot a:first-child{font-family:var(--display);letter-spacing:.18em;color:var(--ink)}
+.onb{flex-direction:column;align-items:center}
+.onb-foot{margin:4rem 0 0;font-size:.74rem;color:#8d857b}.onb-foot a{color:#8d857b;text-decoration:none}
 .is-app{min-height:100vh}
 .app-top{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:1rem var(--pad);background:rgba(244,240,234,.98);border-bottom:1px solid var(--line)}
 .app-top .logo{font-size:1.2rem}
@@ -578,9 +583,10 @@ html{scroll-padding-top:5rem}
 </header>
 
 <!-- onboarding: one question per screen, then the reveal -->
-<section class="onb" id="onb" aria-labelledby="onbTitle">
+<section class="onb dark" id="onb" aria-labelledby="onbTitle">
   <h1 class="sr" id="onbTitle" data-t="testTitlePlain"></h1>
   <div class="quiz" id="quiz" aria-live="polite"></div>
+  <p class="onb-foot"><a href="impressum.html" data-t="legalImp"></a> · <a href="datenschutz.html" data-t="legalDs"></a></p>
 </section>
 
 <div class="app" id="app" hidden>
@@ -813,6 +819,7 @@ html{scroll-padding-top:5rem}
         </div>
       </div>
     </section>
+    <div class="app-foot"><a href="index.html">TON <em>sur</em> TON</a><a href="impressum.html" data-t="legalImp"></a><a href="datenschutz.html" data-t="legalDs"></a><span data-t="disclaimer"></span></div>
   </main>
 </div>
 
@@ -833,7 +840,7 @@ spring:{
         en:"Clear, warm and light colours. Hard black-and-white contrast quickly makes you look tired."},
   metal:{de:"Gold, glänzend",ro:"Auriu, lucios",en:"Shiny gold"}, mhex:"#D4AF37",
   best:[["#FF7F66","Koralle","Coral","Coral"],["#FFB38A","Pfirsich","Piersică","Peach"],["#F6C445","Warmes Gelb","Galben cald","Warm yellow"],["#8CC63F","Apfelgrün","Verde măr","Apple green"],["#2FB5A8","Türkis","Turcoaz","Turquoise"],["#5AA9E6","Himmelblau","Albastru cer","Sky blue"],["#E8453C","Mohnrot","Roșu mac","Poppy red"],["#F7A08C","Lachsrosa","Roz somon","Salmon pink"]],
-  neutral:[["#FFF5E1","Elfenbein","Ivoire","Ivory"],["#D9B98C","Helles Camel","Camel deschis","Light camel"],["#A67B5B","Milchkaffee","Cafe cu lapte","Milky coffee"],["#34508C","Helles Marine","Bleumarin deschis","Light navy"]],
+  neutral:[["#FFF5E1","Elfenbein","Ivoire","Ivory"],["#D9B98C","Helles Camel","Camel deschis","Light camel"],["#A67B5B","Milchkaffee","Cafea cu lapte","Milky coffee"],["#34508C","Helles Marine","Bleumarin deschis","Light navy"]],
   avoid:[["#111111","Schwarz","Negru","Black"],["#8A8D93","Kühles Grau","Gri rece","Cool grey"],["#5A1A2B","Dunkles Burgund","Burgund închis","Dark burgundy"],["#7A6C8F","Graulila","Lila cenușiu","Greyish lilac"]]
 },
 summer:{
@@ -1256,7 +1263,7 @@ const BEAUTY = {
 const T = {
 de:{
   navTest:"Test",navProfil:"Profil",navLooks:"Looks",navInfo:"Info",
-  howEyebrow:"In drei Schritten",howTitle:"So funktioniert <em>Ton sur Ton</em>",howNote:"Kostenlos · ohne Anmeldung · drei Minuten",
+  howEyebrow:"In drei Schritten",howTitle:"So funktioniert <em>Ton sur Ton</em>",howNote:"Kostenlos · ohne Anmeldung · zwei Minuten",
   how1t:"Der Test",how1d:"Elf Fragen zu Haut, Haar, Augen und Figur.",how1g:"Test beginnen",
   how2t:"Dein Profil",how2d:"Deine Farben, deine Form und die Probe am eigenen Gesicht.",how2g:"Profil ansehen",
   how3t:"Deine Looks",how3d:"Outfits für jeden Anlass und die Trends der Saison, für dich gefiltert.",how3g:"Looks ansehen",
@@ -1269,7 +1276,7 @@ de:{
   nav1:"Farbe",nav2:"Form",nav5:"Looks",nav6:"Saison",
   heroEyebrow:"Persönliche Stilberatung · Sie & Er",
   heroTitle:"<span>Dein Stil.</span><span><em>Präzise.</em></span>",
-  heroLead:"Farben, Schnitte und Looks, die wirklich zu dir passen. In drei Minuten.",
+  heroLead:"Farben, Schnitte und Looks, die wirklich zu dir passen. In zwei Minuten.",
   heroCta1:"Stil-Test beginnen",heroCta2:"So funktioniert es",
   manifesto:"Nicht mehr kaufen. <em>Besser wählen.</em>",
   forEyebrow:"Für alle",forTitle:"Für sie. Für ihn. <em>Für jedes Alter.</em>",forLead:"Echte Menschen, echte Körper. Stil kennt keine Norm.",for1:"Sie",for2:"Er",for3:"Zeitlos",
@@ -1279,7 +1286,7 @@ de:{
   gw:"Sie",gm:"Er",gw1:"Frau",gm1:"Mann",lblShoulder:"Schultern",lblWaist:"Taille",lblHip:"Hüfte",
   testTitle:"Der <em>Test</em>",testLead:"Elf Fragen. Drei Minuten. Dein Profil.",
   qStartMeta:"11 Fragen · 3 Minuten",qStartTitle:"Bei Tageslicht. Ohne Make-up. Mit deiner natürlichen Haarfarbe im Kopf.",qStartBtn:"Beginnen",
-  qOf:(a,b)=>`${a} / ${b}`,qMulti:"Mehrfachauswahl",qBack:"Zurück",qNext:"Weiter",qDone:"Mein Profil",qSkip:"Überspringen",
+  qOf:(a,b)=>`${a} / ${b}`,qMulti:"Mehrfachauswahl",qBack:"Zurück",qNext:"Weiter",qDone:"Meine Stilformel",qSkip:"Überspringen",
   fHeight:"Größe · cm",fWeight:"Gewicht · kg, optional",fNote:"Das Gewicht wird nie angezeigt und bleibt in deinem Browser.",
   Q:[
    ["Für wen ist das Profil?",["Frau","Mann"]],
@@ -1294,7 +1301,7 @@ de:{
    ["Deine Taille?",["Deutlich schmaler als Brust und Hüfte","Etwas schmaler","Kaum schmaler, eher gerade","Der Bauch ist die vollste Stelle"]],
    ["Welche Stile gefallen dir?",[]]
   ],
-  rEyebrow:"Dein Profil",rColors:"Deine Farben",rNeutral:"Basis",rAvoid:"Meiden",rMetal:"Metall",rShape:"Deine Form",rCapsule:"Deine Garderobe",rStylePieces:"Dein Stil",rTrends:"Für dich in dieser Saison",rAcc:"Details",
+  rEyebrow:"Deine Stilformel",rColors:"Deine Farben",rNeutral:"Basis",rAvoid:"Meiden",rMetal:"Metall",rShape:"Deine Form",rCapsule:"Deine Garderobe",rStylePieces:"Dein Stil",rTrends:"Für dich in dieser Saison",rAcc:"Details",
   rNeutralNote:"Dein Unterton ist neutral. Auch Farben des Nachbartyps stehen dir. Die Farbprobe entscheidet.",
   rFine:"Eine Orientierung, keine Diagnose. Licht, Make-up und gefärbtes Haar verändern das Ergebnis.",
   rCopy:"Profil kopieren",rRedo:"Neu beginnen",rToDrape:"Zur Farbprobe",rToOutfits:"Meine Looks",rCopied:"Kopiert.",
@@ -1322,7 +1329,7 @@ de:{
 },
 ro:{
   navTest:"Test",navProfil:"Profil",navLooks:"Ținute",navInfo:"Info",
-  howEyebrow:"În trei pași",howTitle:"Cum funcționează <em>Ton sur Ton</em>",howNote:"Gratuit · fără cont · trei minute",
+  howEyebrow:"În trei pași",howTitle:"Cum funcționează <em>Ton sur Ton</em>",howNote:"Gratuit · fără cont · două minute",
   how1t:"Testul",how1d:"Unsprezece întrebări despre piele, păr, ochi și siluetă.",how1g:"Începe testul",
   how2t:"Profilul tău",how2d:"Culorile tale, silueta ta și proba pe propriul chip.",how2g:"Vezi profilul",
   how3t:"Ținutele tale",how3d:"Ținute pentru orice ocazie și tendințele sezonului, filtrate pentru tine.",how3g:"Vezi ținutele",
@@ -1335,7 +1342,7 @@ ro:{
   nav1:"Culoare",nav2:"Siluetă",nav5:"Ținute",nav6:"Sezon",
   heroEyebrow:"Consultanță de stil personală · Ea & El",
   heroTitle:"<span>Stilul tău.</span><span><em>Precis.</em></span>",
-  heroLead:"Culori, croieli și ținute care ți se potrivesc cu adevărat. În trei minute.",
+  heroLead:"Culori, croieli și ținute care ți se potrivesc cu adevărat. În două minute.",
   heroCta1:"Începe testul",heroCta2:"Cum funcționează",
   manifesto:"Nu cumpăra mai mult. <em>Alege mai bine.</em>",
   forEyebrow:"Pentru toți",forTitle:"Pentru ea. Pentru el. <em>La orice vârstă.</em>",forLead:"Oameni reali, corpuri reale. Stilul nu are tipare.",for1:"Ea",for2:"El",for3:"Atemporal",
@@ -1345,7 +1352,7 @@ ro:{
   gw:"Ea",gm:"El",gw1:"Femeie",gm1:"Bărbat",lblShoulder:"Umeri",lblWaist:"Talie",lblHip:"Șold",
   testTitle:"<em>Testul</em>",testLead:"Unsprezece întrebări. Trei minute. Profilul tău.",
   qStartMeta:"11 întrebări · 3 minute",qStartTitle:"La lumina zilei. Fără machiaj. Gândindu-te la culoarea naturală a părului.",qStartBtn:"Începe",
-  qOf:(a,b)=>`${a} / ${b}`,qMulti:"Alegere multiplă",qBack:"Înapoi",qNext:"Mai departe",qDone:"Profilul meu",qSkip:"Sari peste",
+  qOf:(a,b)=>`${a} / ${b}`,qMulti:"Alegere multiplă",qBack:"Înapoi",qNext:"Mai departe",qDone:"Formula mea",qSkip:"Sari peste",
   fHeight:"Înălțime · cm",fWeight:"Greutate · kg, opțional",fNote:"Greutatea nu apare nicăieri și rămâne în browserul tău.",
   Q:[
    ["Pentru cine este profilul?",["Femeie","Bărbat"]],
@@ -1360,7 +1367,7 @@ ro:{
    ["Talia ta?",["Vizibil mai îngustă decât bustul și șoldurile","Puțin mai îngustă","Aproape deloc mai îngustă, mai degrabă dreaptă","Abdomenul e zona cea mai plină"]],
    ["Ce stiluri îți plac?",[]]
   ],
-  rEyebrow:"Profilul tău",rColors:"Culorile tale",rNeutral:"Bază",rAvoid:"De evitat",rMetal:"Metal",rShape:"Silueta ta",rCapsule:"Garderoba ta",rStylePieces:"Stilul tău",rTrends:"Pentru tine în acest sezon",rAcc:"Detalii",
+  rEyebrow:"Formula ta de stil",rColors:"Culorile tale",rNeutral:"Bază",rAvoid:"De evitat",rMetal:"Metal",rShape:"Silueta ta",rCapsule:"Garderoba ta",rStylePieces:"Stilul tău",rTrends:"Pentru tine în acest sezon",rAcc:"Detalii",
   rNeutralNote:"Subtonul tău e neutru. Îți stau bine și culori din tipul vecin. Proba culorilor decide.",
   rFine:"O orientare, nu un diagnostic. Lumina, machiajul și părul vopsit schimbă rezultatul.",
   rCopy:"Copiază profilul",rRedo:"Ia-o de la capăt",rToDrape:"La proba culorilor",rToOutfits:"Ținutele mele",rCopied:"Copiat.",
@@ -1388,7 +1395,7 @@ ro:{
 },
 en:{
   navTest:"Test",navProfil:"Profile",navLooks:"Looks",navInfo:"Info",
-  howEyebrow:"In three steps",howTitle:"How <em>Ton sur Ton</em> works",howNote:"Free · no sign-up · three minutes",
+  howEyebrow:"In three steps",howTitle:"How <em>Ton sur Ton</em> works",howNote:"Free · no sign-up · two minutes",
   how1t:"The test",how1d:"Eleven questions about skin, hair, eyes and shape.",how1g:"Begin the test",
   how2t:"Your profile",how2d:"Your colours, your shape and the drape on your own face.",how2g:"See your profile",
   how3t:"Your looks",how3d:"Outfits for every occasion and the season's trends, filtered for you.",how3g:"See your looks",
@@ -1401,7 +1408,7 @@ en:{
   nav1:"Colour",nav2:"Shape",nav5:"Looks",nav6:"Season",
   heroEyebrow:"Personal styling · Her & Him",
   heroTitle:"<span>Your style.</span><span><em>Precisely.</em></span>",
-  heroLead:"Colours, cuts and looks that truly suit you. In three minutes.",
+  heroLead:"Colours, cuts and looks that truly suit you. In two minutes.",
   heroCta1:"Begin the style test",heroCta2:"How it works",
   manifesto:"Don't buy more. <em>Choose better.</em>",
   forEyebrow:"For everyone",forTitle:"For her. For him. <em>For every age.</em>",forLead:"Real people, real bodies. Style has no standard size.",for1:"Her",for2:"Him",for3:"Timeless",
@@ -1411,7 +1418,7 @@ en:{
   gw:"Her",gm:"Him",gw1:"Woman",gm1:"Man",lblShoulder:"Shoulders",lblWaist:"Waist",lblHip:"Hips",
   testTitle:"The <em>Test</em>",testLead:"Eleven questions. Three minutes. Your profile.",
   qStartMeta:"11 questions · 3 minutes",qStartTitle:"In daylight. No make-up. Thinking of your natural hair colour.",qStartBtn:"Begin",
-  qOf:(a,b)=>`${a} / ${b}`,qMulti:"Choose several",qBack:"Back",qNext:"Next",qDone:"My profile",qSkip:"Skip",
+  qOf:(a,b)=>`${a} / ${b}`,qMulti:"Choose several",qBack:"Back",qNext:"Next",qDone:"My formula",qSkip:"Skip",
   fHeight:"Height · cm",fWeight:"Weight · kg, optional",fNote:"Your weight is never shown and stays in your browser.",
   Q:[
    ["Who is this profile for?",["Woman","Man"]],
@@ -1426,7 +1433,7 @@ en:{
    ["Your waist?",["Clearly narrower than bust and hips","Slightly narrower","Hardly narrower, rather straight","My stomach is the fullest part"]],
    ["Which styles do you like?",[]]
   ],
-  rEyebrow:"Your profile",rColors:"Your colours",rNeutral:"Base",rAvoid:"Avoid",rMetal:"Metal",rShape:"Your shape",rCapsule:"Your wardrobe",rStylePieces:"Your style",rTrends:"For you this season",rAcc:"Details",
+  rEyebrow:"Your style formula",rColors:"Your colours",rNeutral:"Base",rAvoid:"Avoid",rMetal:"Metal",rShape:"Your shape",rCapsule:"Your wardrobe",rStylePieces:"Your style",rTrends:"For you this season",rAcc:"Details",
   rNeutralNote:"Your undertone is neutral. Colours from the neighbouring type suit you too. The drape decides.",
   rFine:"A guide, not a diagnosis. Lighting, make-up and dyed hair change the result.",
   rCopy:"Copy profile",rRedo:"Start again",rToDrape:"Colour drape",rToOutfits:"My looks",rCopied:"Copied.",
@@ -1474,7 +1481,7 @@ Object.assign(T.de, {
   cmpEyebrow:"Im Vergleich",cmpTitle:"Was uns <em>unterscheidet</em>",cmpCols:["Farb-Apps","Kleiderschrank-Apps","Ton sur Ton"],
   cmpNote:"Typische Funktionen der bekanntesten Apps, Stand 2026. Eigene Auswertung.",cmpY:"Ja",cmpP:"Teilweise",cmpN:"Nein",
   passBtn:"Stil-Pass als PDF",passTitle:"Der Stil-Pass",passDemo:"Beispielprofil",
-  tFreeList:["Stil-Test und Profil","Palette, Farbprobe und Farb-Check","Form, Passform und Gesicht","Looks für sechs Anlässe","Garderobe, Koffer und Saison","Stil-Pass als PDF"],
+  tFreeList:["Stil-Test und Stilformel","Palette, Farbprobe und Farb-Check","Form, Passform und Gesicht","Looks für sechs Anlässe","Garderobe, Koffer und Saison","Stil-Pass als PDF"],
   tLaterList:["KI-Analyse deines Fotos","Virtuelle Anprobe mit Größenhinweis","Digitaler Kleiderschrank","Shops in deiner Nähe"],
   FAQ:[
    ["Ist Ton sur Ton kostenlos?","Ja. Alles auf dieser Seite ist kostenlos und ohne Konto."],
@@ -1506,7 +1513,7 @@ Object.assign(T.ro, {
   cmpEyebrow:"Comparație",cmpTitle:"Ce ne <em>deosebește</em>",cmpCols:["Aplicații de culoare","Aplicații de garderobă","Ton sur Ton"],
   cmpNote:"Funcțiile tipice ale celor mai cunoscute aplicații, în 2026. Analiză proprie.",cmpY:"Da",cmpP:"Parțial",cmpN:"Nu",
   passBtn:"Pașaportul de stil (PDF)",passTitle:"Pașaportul de stil",passDemo:"Exemplu de profil",
-  tFreeList:["Testul de stil și profilul","Paleta, proba și verificarea culorii","Silueta, croiala și chipul","Ținute pentru șase ocazii","Garderoba, bagajul și sezonul","Pașaportul de stil în PDF"],
+  tFreeList:["Testul de stil și formula ta","Paleta, proba și verificarea culorii","Silueta, croiala și chipul","Ținute pentru șase ocazii","Garderoba, bagajul și sezonul","Pașaportul de stil în PDF"],
   tLaterList:["Analiza pozei cu AI","Proba virtuală cu indicator de mărime","Garderobă digitală","Magazine din apropiere"],
   FAQ:[
    ["Ton sur Ton este gratuit?","Da. Tot ce e pe această pagină e gratuit și fără cont."],
@@ -1538,7 +1545,7 @@ Object.assign(T.en, {
   cmpEyebrow:"Compared",cmpTitle:"What sets us <em>apart</em>",cmpCols:["Colour apps","Wardrobe apps","Ton sur Ton"],
   cmpNote:"Typical features of the best-known apps, as of 2026. Our own review.",cmpY:"Yes",cmpP:"Partly",cmpN:"No",
   passBtn:"Style pass as PDF",passTitle:"The style pass",passDemo:"Sample profile",
-  tFreeList:["Style test and profile","Palette, drape and colour check","Shape, fit and face","Looks for six occasions","Wardrobe, suitcase and season","Style pass as PDF"],
+  tFreeList:["Style test and formula","Palette, drape and colour check","Shape, fit and face","Looks for six occasions","Wardrobe, suitcase and season","Style pass as PDF"],
   tLaterList:["AI photo analysis","Virtual try-on with size hints","Digital wardrobe","Shops near you"],
   FAQ:[
    ["Is Ton sur Ton free?","Yes. Everything on this page is free and needs no account."],
@@ -1797,8 +1804,8 @@ function renderQuiz(){
       <div class="qnav"><button class="cta" id="q-back">${esc(t.qBack)}</button><div style="display:flex;gap:1.5rem;align-items:center"><button class="cta" id="q-skip">${esc(t.qSkip)}</button><button class="btn" id="q-next">${esc(t.qNext)}</button></div></div>`;
     const keep = () => { st.a.size = {h: $("#f-h").value, w: $("#f-w").value}; };
     $("#q-back").onclick = () => { keep(); st.i--; saveQ(); renderQuiz(); };
-    $("#q-skip").onclick = () => { st.a.size = {}; st.i++; saveQ(); renderQuiz(); };
-    $("#q-next").onclick = () => { keep(); st.i++; saveQ(); renderQuiz(); };
+    $("#q-skip").onclick = () => { st.a.size = {}; st.i++; if(st.i>=QL.length) fresh=true; saveQ(); renderQuiz(); };
+    $("#q-next").onclick = () => { keep(); st.i++; if(st.i>=QL.length) fresh=true; saveQ(); renderQuiz(); };
     return;
   }
   const opts = qOptions(st.i), sel = st.a[q.k] || [];
@@ -1808,10 +1815,10 @@ function renderQuiz(){
   qEl.querySelectorAll(".opt").forEach(b => b.onclick = () => {
     const j = +b.dataset.j;
     if(q.multi){ let cur = (st.a[q.k]||[]).slice(); cur = cur.includes(j) ? cur.filter(x=>x!==j) : cur.concat(j); st.a[q.k] = cur; saveQ(); renderQuiz(); }
-    else { st.a[q.k] = [j]; st.i++; saveQ(); renderQuiz(); }
+    else { st.a[q.k] = [j]; st.i++; if(st.i>=QL.length) fresh=true; saveQ(); renderQuiz(); }
   });
   $("#q-back").onclick = () => { st.i--; saveQ(); renderQuiz(); };
-  $("#q-next").onclick = () => { st.i++; saveQ(); renderQuiz(); };
+  $("#q-next").onclick = () => { st.i++; if(st.i>=QL.length) fresh=true; saveQ(); renderQuiz(); };
 }
 function score(){
   const a = st.a, s = {w:0,d:0,c:0};
@@ -1840,9 +1847,10 @@ function roleColor(season, role, shift=0){
 }
 function fitsFor(p){ return TRENDS.filter(tr => tr.g==="b" || tr.g===p.g).map(tr => [tr, tr.fit(p)]); }
 function renderResult(){
-  const t = L(), r = score();
-  if(profile && profile.face) r.face = profile.face;
-  profile = r; store.set("styleai-profile", r);
+  const t = L();
+  let r;
+  if(fresh || !profile || profile.demo){ r = score(); fresh = false; profile = r; store.set("styleai-profile", r); }
+  else r = profile;
   const s = SEASONS[r.season], sh = SHAPES[r.g][r.shape];
   const styleNames = r.styles.map(k => X(STYLES.find(x=>x[0]===k)[1]));
   const capsule = CAPSULE[r.g].map(([n,role]) => { const c = roleColor(r.season, role); return `<li>${swatch(c,{sm:true})}<span>${esc(X(n))} <span class="fine">· ${esc(cn(c))}</span></span></li>`; }).join("");
@@ -1879,7 +1887,7 @@ function renderResult(){
   if(!syncedOnce){ syncedOnce = true; ctSeason = r.season; fgG = r.g; fgShape = r.shape; dpSeason = r.season; fcFace = r.face || "oval"; renderSeasons(); renderFigure(); renderFace(); renderDrape(); }
   renderOutfit(); renderTrends(); renderStatus(); renderCheck(); renderWard(); renderPass(); renderAdopt(); renderToday(); renderFormula(); renderBeauty();
 }
-let syncedOnce = false;
+let syncedOnce = false, fresh = false;
 
 /* ---------- colour drape with photo ---------- */
 let dpSeason = P().season, dpA = 0, dpB = 0, photoUrl = null;
@@ -1937,7 +1945,7 @@ function renderOutfit(){
   why.push(t.whyMetal(X(s.metal)));
   const sh = SHAPES[p.g][p.shape]; why.push(X(sh.goal));
   if(p.hc && p.hc!=="mid") why.push(X(HEIGHT[p.g][p.hc]));
-  why.push(X(o.rule));
+  if($("#ofRule")) $("#ofRule").textContent = X(o.rule);
   $("#ofWhy").innerHTML = why.map(x=>`<li>${esc(x)}</li>`).join("");
 }
 $("#ofShuffle").onclick = () => { ofShift = (ofShift+1) % 8; renderOutfit(); };
