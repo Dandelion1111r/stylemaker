@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Stylemaker · App</title>
 <meta name="description" content="Interaktiver Konzept-Prototyp einer Styling-App für Frauen und Männer: Farbtyp, Figur, Stil-Test, Farbprobe mit Foto, Outfits und Trends. Konzept und Design: Raluca Jidvian.">
-<link rel="canonical" href="https://dandelion1111r.github.io/ton-sur-ton/">
+<link rel="canonical" href="https://dandelion1111r.github.io/stylemaker/">
 <meta name="author" content="Raluca Jidvian">
 <meta name="theme-color" content="#F6F3EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#17130F" media="(prefers-color-scheme: dark)">
@@ -20,8 +20,8 @@
 <meta property="og:site_name" content="Stylemaker">
 <meta property="og:title" content="Stylemaker – Dein Stil. Präzise.">
 <meta property="og:description" content="Konzept-Prototyp einer Styling-App für Frauen und Männer: Farbtyp, Figur, Stil und Outfits. Konzept und Design: Raluca Jidvian.">
-<meta property="og:url" content="https://dandelion1111r.github.io/ton-sur-ton/">
-<meta property="og:image" content="https://dandelion1111r.github.io/ton-sur-ton/og-image.png">
+<meta property="og:url" content="https://dandelion1111r.github.io/stylemaker/">
+<meta property="og:image" content="https://dandelion1111r.github.io/stylemaker/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="de_DE">
@@ -2128,7 +2128,7 @@ function renderPass(){
       <div><h2>${esc(t.tabFace)}: ${esc(X(f.name))}</h2><ul><li>${esc(t.faceGlasses)}: ${esc(X(f.glasses))}</li><li>${esc(X(f.neck[p.g]))}</li><li>${esc(X(f.hair[p.g]))}</li></ul></div></div>
     <h2>${esc(p.g==="m"?t.fitM:t.fitW)}</h2><ul>${FIT[p.g].map(([h,d]) => `<li><b>${esc(X(h))}.</b> ${esc(X(d))}</li>`).join("")}</ul>
     <h2>${esc(t.wardTitle)}</h2><div class="pcs">${WARD[p.g].map(([n,r]) => { const c = roleColor(p.season,r); return `<span class="pc"><i style="background:${c[0]}"></i>${esc(X(n))}</span>`; }).join("")}</div>
-    <footer>${esc(t.rFine)} · dandelion1111r.github.io/ton-sur-ton</footer>`;
+    <footer>${esc(t.rFine)} · dandelion1111r.github.io/stylemaker</footer>`;
 }
 
 /* ---------- visual answers in the test ---------- */
