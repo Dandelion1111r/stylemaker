@@ -738,6 +738,45 @@ html[data-theme="dark"] .sw .fab:not(.own),html[data-theme="dark"] .trc-board .f
 @media (max-width:760px){.td-edit{grid-template-columns:1fr}.td-act{gap:1.4rem}}
 html[data-theme="dark"] .lboard.td-board{background:#201D1A}
 #v-heute .shortcuts .sc{border:0;border-top:1px solid var(--line);background:none;padding-left:0}
+
+/* ================= editorial system, all views ================= */
+/* view heads: like Today */
+.vhead{gap:clamp(.7rem,1.4vw,1rem);margin-bottom:clamp(1.4rem,2.6vw,2rem)}
+.vhead .label{font-size:.7rem;letter-spacing:.24em}
+.vhead h2{font-size:clamp(2.8rem,7vw,5.6rem);line-height:.95;letter-spacing:-.01em;font-weight:400}
+.vhead h2 em{font-style:italic;font-size:.48em;letter-spacing:0;margin-left:.15em}
+.vhead .lead{color:var(--soft);font-size:.95rem}
+/* sub navigation: small caps, hairline underline */
+.subtabs{gap:.2rem 1.8rem;flex-wrap:wrap;overflow:visible;margin-bottom:clamp(2rem,4vw,3.2rem);border-bottom:1px solid var(--line)}
+.subtabs button,.subtabs button:last-child{font-family:inherit;font-size:.7rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;padding:.55rem 0;margin:0 0 -1px;border-bottom:1px solid transparent;color:var(--soft);gap:0}
+.subtabs button[aria-selected="true"]{border-color:var(--ink);color:var(--ink)}
+.subtabs .num{display:none}
+/* formula: four editorial columns */
+.formula{border:0;background:none;gap:clamp(1.2rem,2.6vw,2.6rem);margin-bottom:1.6rem}
+.fm,.fm:last-child{border:0;border-top:1px solid var(--ink);padding:1.1rem 0 .4rem;transition:opacity .3s}
+.fm:hover{background:none;opacity:.7}
+.fm b{font-size:clamp(1.5rem,2.2vw,2rem)}
+.status{background:none;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1rem 0;margin-bottom:clamp(2.4rem,5vw,3.6rem)}
+.status p{color:var(--soft);font-size:.88rem}
+@media (max-width:1100px){.formula{grid-template-columns:1fr 1fr}.fm:nth-child(-n+2){border-bottom:0}}
+@media (max-width:560px){.fm,.fm:nth-child(-n+2){border-bottom:0}}
+/* looks: board full width, controls and notes below */
+.look{grid-template-columns:1fr;gap:clamp(1.6rem,3vw,2.6rem)}
+.look .panel{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);grid-auto-flow:row dense;column-gap:clamp(2rem,6vw,6rem);row-gap:1.4rem;align-items:start;padding:0}
+.look .panel > .choose{grid-column:1}
+.look .panel > :not(.choose){grid-column:2}
+.look .dresscode{margin:0;font-size:clamp(1.15rem,1.8vw,1.45rem)}
+.look .why{margin:0}
+@media (max-width:860px){.look .panel{grid-template-columns:1fr}.look .panel > *{grid-column:1 !important}}
+/* pills everywhere: quiet small caps */
+.tabs button{letter-spacing:.2em}
+/* wardrobe & check: no boxes */
+#wdNext,.card.tile{background:none;border:0;border-top:1px solid var(--ink);padding:1.1rem 0 0}
+.chk-stage{background:#EFE9E1;border:0}
+html[data-theme="dark"] .chk-stage{background:#201D1A}
+.chk-empty .plus{font-size:2.6rem}
+/* trend cards and saved looks: softer frames */
+.trc,.sv{border-color:transparent;background:var(--paper)}
 </style>
 </head>
 <body>
