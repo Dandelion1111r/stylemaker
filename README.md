@@ -40,4 +40,6 @@ Stylemaker ist ein Konzept-Prototyp und keine echte App. Es werden keine Daten Ã
 Konzept und Design: Raluca Jidvian, 2026.
 Schriftarten: Bodoni Moda, Jost, DM Mono (SIL Open Font License, siehe `fonts/`).
 Fotos: Pexels (Pexels-Lizenz), von Nadin Sh, Criativa Pix Fotografia, Warona Rasetshwane, Alena Evseenko, Shiny Diamond, Thang Nguyen, Gursher Gill, Leszek Czyzewski, Karolina Ostrzolek, Atlantic Ambience.
+
+Inspirationsfotos der Looks (`img/look-*.jpg`, Pexels-Lizenz), je Farbtyp Ã— Anlass: [w-spring-event](https://www.pexels.com/photo/19152363/), [w-summer-day](https://www.pexels.com/photo/10669651/), [w-summer-event](https://www.pexels.com/photo/30725894/), [w-autumn-event](https://www.pexels.com/photo/19306209/), [w-winter-event](https://www.pexels.com/photo/8095735/), [m-spring-day](https://www.pexels.com/photo/16062377/), [m-spring-event](https://www.pexels.com/photo/38930428/), [m-summer-day](https://www.pexels.com/photo/34299170/), [m-summer-event](https://www.pexels.com/photo/9197291/), [m-autumn-day](https://www.pexels.com/photo/5698230/), [m-autumn-event](https://www.pexels.com/photo/4826386/). Die Fotos zeigen Farbstimmung und Silhouette, nicht exakt das gelistete Outfit.
 Trendquellen: Who What Wear, Harrods, FashionUnited, Net-a-Porter, H&M, The Wed.
