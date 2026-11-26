@@ -1,4 +1,4 @@
-# TON *sur* TON
+# Stylemaker
 
 **Konzept-Prototyp einer Styling-App für Frauen und Männer: Farbtyp, Figur, Stil-Test, Farbprobe mit Foto, Outfits und Trends, auf Deutsch, Rumänisch und Englisch.**
 
@@ -10,7 +10,7 @@
 
 | Bereich | Was er zeigt |
 | --- | --- |
-| Stil-Test | 11 Fragen zu Haut, Haar, Augen, Kontrast, Figur, Größe (Gewicht freiwillig) und Stil, danach Farbtyp, Figur, Basis-Garderobe, Accessoires und passende Trends |
+| Stil-Test | 13 Fragen zu Haut, Haar, Augen, Kontrast, Figur, Größe (Gewicht freiwillig) und Stil, danach Farbtyp, Figur, Basis-Garderobe, Accessoires und passende Trends |
 | Farbtypen | Frühling, Sommer, Herbst, Winter mit je 8 besten Farben, 4 Basisfarben, Metall und Farben zum Meiden, Vorschau am Kragen |
 | Figur | 5 Figurtypen, getrennt für Frauen und Männer, mit Silhouette, Ziel, passenden Schnitten und Accessoires |
 | Farbprobe | Eigenes Foto neben einer besten und einer ungünstigen Farbe vergleichen, wie bei einer Farbberatung mit Tüchern. Das Foto verlässt den Browser nicht |
@@ -23,7 +23,8 @@ Editorialer Luxus-Look: Elfenbein, Tinte und ein Champagner-Akzent, große Fotog
 
 ## Technik
 
-- Eine HTML-Datei mit CSS und JavaScript, ohne Framework und ohne Build-Schritt
+- Kurze Landingpage (`index.html`) und eigene App (`app.html`) mit Heute, Stilformel, Looks, Garderobe und Check
+- HTML, CSS und JavaScript, ohne Framework und ohne Build-Schritt
 - Sprachumschalter Deutsch / Rumänisch / Englisch, Auswahl bleibt im Browser gespeichert
 - Installierbar als Web-App (PWA), funktioniert auch offline
 - Angepasst für Smartphone und Desktop
