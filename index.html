@@ -504,6 +504,25 @@ html{scroll-padding-top:5rem}
 .lboard .shops button{all:unset;cursor:pointer;padding:.25rem 0;border-bottom:1px solid transparent;color:var(--soft)}
 .lboard .shops button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
 .lboard .shops button:hover{color:var(--ink)}
+.tr-when{margin:0 0 1.6rem}
+.tr-season{grid-column:1/-1;margin:0}
+.tr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,34px)}
+.trc{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);min-width:0}
+.trc-board{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:6px;padding:6px;aspect-ratio:4/3;background:#EFE9E1}
+.trc-board .fab,.td-sw .fab{position:relative;background-color:var(--c);background-size:cover;background-position:center;background-blend-mode:multiply}
+.trc-board .fab::after,.td-sw .fab::after{content:"";position:absolute;inset:0;background:inherit;background-color:transparent;mix-blend-mode:screen;opacity:.14}
+.trc-board .big{grid-row:1/3}
+.trc-body{display:flex;flex-direction:column;gap:.7rem;padding:clamp(1.1rem,2vw,1.6rem);flex:1}
+.trc-top{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.trc-runway{display:flex;gap:4px}.trc-runway i{width:12px;height:12px;border-radius:50%;background:var(--c);border:1px solid rgba(0,0,0,.15)}
+.trc h3{font-size:1.4rem;line-height:1.15}
+.trc .desc{font-size:.9rem;color:var(--soft);line-height:1.55;margin:0}
+.trc .tip{font-size:.9rem;margin:0;line-height:1.5}
+.trc .shop{margin-top:auto;padding-top:.6rem;align-self:flex-start;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+.trc .shop:hover{color:var(--accent);border-color:var(--accent)}.trc .shop i{font-style:normal}
+.td-sw{display:grid;grid-template-columns:2fr 1fr 1fr;gap:4px;height:64px;margin:.2rem 0 .4rem}
+@media (max-width:1100px){.tr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.tr-grid{grid-template-columns:1fr}}
 .lboard .try{grid-column:1/-1;margin:.4rem 0 0;display:flex;justify-content:space-between;gap:1rem;padding-top:.9rem;border-top:1px solid rgba(20,17,14,.12);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
 .lboard .try em{white-space:nowrap;font-style:normal;color:var(--accent)}
 @media (max-width:560px){.lboard{gap:10px}.sw figcaption b{font-size:.86rem}}
@@ -610,6 +629,7 @@ html{scroll-padding-top:5rem}
   .pass footer{margin-top:10mm;padding-top:3mm;border-top:.2mm solid #DCD4C8;font-size:7.5pt;color:#6F675F}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+@media (max-width:600px){.subtabs button{padding-right:0;margin-right:1.4rem;gap:.4rem;font-size:1.05rem;white-space:nowrap}.subtabs button:last-child{margin-right:0}}
 </style>
 </head>
 <body>
@@ -1193,7 +1213,7 @@ de:{
   how3t:"Deine Looks",how3d:"Outfits für jeden Anlass und die Trends der Saison, für dich gefiltert.",how3g:"Looks ansehen",
   stepWord:"Schritt",profTitle:"Dein <em>Profil</em>",profLead:"Farbe, Form und Probe. Alles, was dir steht, an einem Ort.",
   tabColor:"Farbe",tabShape:"Form",tabDrape:"Farbprobe",goDrape:"An deinem Gesicht testen",goLooks:"Weiter zu deinen Looks",
-  looksTitle:"Deine <em>Looks</em>",tabOutfits:"Outfits",tabSeason:"Die Saison",ofOccL:"Anlass",ofWeatherL:"Wetter",
+  looksTitle:"Deine <em>Looks</em>",tabOutfits:"Outfits",tabSeason:"Trends",ofOccL:"Anlass",ofWeatherL:"Wetter",
   infoEyebrow:"Das Haus",infoTitle:"Für sie. Für ihn. <em>Für jedes Alter.</em>",
   profDemo:"Du siehst ein <em>Beispielprofil</em>.",profDemoBtn:"Test machen",profMine:(s,sh)=>`Dein Profil: <em>${s}</em> · ${sh}`,profRedo:"Test wiederholen",rNext:"Weiter zu deinem Profil",
   skip:"Zum Inhalt springen",protoBar:"Konzept-Prototyp · Deine Angaben bleiben in deinem Browser",
@@ -1236,7 +1256,7 @@ de:{
   ofDemo:(g,s,sh)=>`Beispiel: ${g}, ${s}, ${sh}. Nach dem Test siehst du deine eigenen Looks.`,ofMine:(g,s,sh)=>`Für dich: ${g}, ${s}, ${sh}.`,
   whyColor:c=>`${c} am Gesicht, eine deiner Farben.`,whyBase:(a,b)=>`${a} und ${b} als ruhige Basis.`,whyMetal:m=>`Metall: ${m}.`,
   trTitle:"Die <em>Saison</em>",trAll:"Alle",trYes:"Für dich",trAdapt:"Angepasst",trSrc:"Quellen:",
-  trDemo:()=>"Herbst/Winter 2026/27, bewertet für das Beispielprofil.",trMine:(s,sh)=>`Herbst/Winter 2026/27, bewertet für dich: ${s}, ${sh}.`,
+  trDemo:()=>"Von den Laufstegen, übertragen auf das Beispielprofil.",trMine:(s,sh)=>`Von den Laufstegen, übertragen auf deine Farben: ${s}, ${sh}.`,
   freeEyebrow:"Mitgliedschaft",freeTitle:"Das Wesentliche. <em>Kostenlos.</em>",freeLead:"Ohne Abo, ohne Karte. Premium später, optional.",
   tFree:"Kostenlos",tLater:"Später",tFreeList:["Stil-Test und Profil","Farbpalette und Farbprobe","Looks für fünf Anlässe","Die Saison, für dich gefiltert"],tLaterList:["KI-Analyse deines Fotos","Virtuelle Anprobe","Digitaler Kleiderschrank","Shop-Scanner"],
   dsEyebrow:"Diskretion",dsTitle:"Dein Bild <em>gehört dir.</em>",
@@ -1259,7 +1279,7 @@ ro:{
   how3t:"Ținutele tale",how3d:"Ținute pentru orice ocazie și tendințele sezonului, filtrate pentru tine.",how3g:"Vezi ținutele",
   stepWord:"Pasul",profTitle:"Profilul <em>tău</em>",profLead:"Culoare, siluetă și probă. Tot ce ți se potrivește, într-un singur loc.",
   tabColor:"Culoare",tabShape:"Siluetă",tabDrape:"Proba culorilor",goDrape:"Încearcă pe chipul tău",goLooks:"Mai departe la ținute",
-  looksTitle:"Ținutele <em>tale</em>",tabOutfits:"Ținute",tabSeason:"Sezonul",ofOccL:"Ocazie",ofWeatherL:"Vreme",
+  looksTitle:"Ținutele <em>tale</em>",tabOutfits:"Ținute",tabSeason:"Tendințe",ofOccL:"Ocazie",ofWeatherL:"Vreme",
   infoEyebrow:"Casa",infoTitle:"Pentru ea. Pentru el. <em>La orice vârstă.</em>",
   profDemo:"Vezi un <em>exemplu de profil</em>.",profDemoBtn:"Fă testul",profMine:(s,sh)=>`Profilul tău: <em>${s}</em> · ${sh}`,profRedo:"Refă testul",rNext:"Mai departe la profilul tău",
   skip:"Sari la conținut",protoBar:"Prototip de concept · Datele tale rămân în browser",
@@ -1302,7 +1322,7 @@ ro:{
   ofDemo:(g,s,sh)=>`Exemplu: ${g}, ${s}, ${sh}. După test vezi ținutele tale.`,ofMine:(g,s,sh)=>`Pentru tine: ${g}, ${s}, ${sh}.`,
   whyColor:c=>`${c} lângă față, una dintre culorile tale.`,whyBase:(a,b)=>`${a} și ${b}, o bază calmă.`,whyMetal:m=>`Metal: ${m}.`,
   trTitle:"<em>Sezonul</em>",trAll:"Toate",trYes:"Pentru tine",trAdapt:"Adaptat",trSrc:"Surse:",
-  trDemo:()=>"Toamnă/iarnă 2026/27, evaluat pentru exemplul de profil.",trMine:(s,sh)=>`Toamnă/iarnă 2026/27, evaluat pentru tine: ${s}, ${sh}.`,
+  trDemo:()=>"De pe podiumuri, adaptate pentru profilul de exemplu.",trMine:(s,sh)=>`De pe podiumuri, adaptate culorilor tale: ${s}, ${sh}.`,
   freeEyebrow:"Acces",freeTitle:"Esențialul. <em>Gratuit.</em>",freeLead:"Fără abonament, fără card. Premium mai târziu, opțional.",
   tFree:"Gratuit",tLater:"Mai târziu",tFreeList:["Testul de stil și profilul","Paleta și proba culorilor","Ținute pentru cinci ocazii","Sezonul, filtrat pentru tine"],tLaterList:["Analiza pozei cu AI","Proba virtuală","Garderobă digitală","Scanner în magazin"],
   dsEyebrow:"Discreție",dsTitle:"Imaginea ta <em>îți aparține.</em>",
@@ -1325,7 +1345,7 @@ en:{
   how3t:"Your looks",how3d:"Outfits for every occasion and the season's trends, filtered for you.",how3g:"See your looks",
   stepWord:"Step",profTitle:"Your <em>Profile</em>",profLead:"Colour, shape and drape. Everything that suits you, in one place.",
   tabColor:"Colour",tabShape:"Shape",tabDrape:"Colour drape",goDrape:"Try it on your face",goLooks:"On to your looks",
-  looksTitle:"Your <em>Looks</em>",tabOutfits:"Outfits",tabSeason:"The season",ofOccL:"Occasion",ofWeatherL:"Weather",
+  looksTitle:"Your <em>Looks</em>",tabOutfits:"Outfits",tabSeason:"Trends",ofOccL:"Occasion",ofWeatherL:"Weather",
   infoEyebrow:"The house",infoTitle:"For her. For him. <em>For every age.</em>",
   profDemo:"You're viewing a <em>sample profile</em>.",profDemoBtn:"Take the test",profMine:(s,sh)=>`Your profile: <em>${s}</em> · ${sh}`,profRedo:"Retake the test",rNext:"On to your profile",
   skip:"Skip to content",protoBar:"Concept prototype · Your details stay in your browser",
@@ -1368,7 +1388,7 @@ en:{
   ofDemo:(g,s,sh)=>`Sample: ${g}, ${s}, ${sh}. After the test you'll see your own looks.`,ofMine:(g,s,sh)=>`For you: ${g}, ${s}, ${sh}.`,
   whyColor:c=>`${c} near your face, one of your colours.`,whyBase:(a,b)=>`${a} and ${b} as a calm base.`,whyMetal:m=>`Metal: ${m}.`,
   trTitle:"The <em>Season</em>",trAll:"All",trYes:"For you",trAdapt:"Adapted",trSrc:"Sources:",
-  trDemo:()=>"Autumn/winter 2026/27, rated for the sample profile.",trMine:(s,sh)=>`Autumn/winter 2026/27, rated for you: ${s}, ${sh}.`,
+  trDemo:()=>"From the runways, translated to the sample profile.",trMine:(s,sh)=>`From the runways, translated to your colours: ${s}, ${sh}.`,
   freeEyebrow:"Membership",freeTitle:"The essentials. <em>Free.</em>",freeLead:"No subscription, no card. Premium later, optional.",
   tFree:"Free",tLater:"Later",tFreeList:["Style test and profile","Colour palette and drape","Looks for five occasions","The season, filtered for you"],tLaterList:["AI photo analysis","Virtual try-on","Digital wardrobe","In-store scanner"],
   dsEyebrow:"Discretion",dsTitle:"Your image <em>is yours.</em>",
@@ -1503,7 +1523,7 @@ Object.assign(T.de, {
   lp1:"Deine Jahreszeit, deine Palette, dein Metall. Und was du meidest.",lp2:"Silhouette und Passform. Für sie die Proportionen, für ihn der Anzug.",
   lp3:"Brille, Ausschnitt oder Kragen, Frisur und Bart.",lp4t:"Stil & Pflege",lp4:"Make-up oder Hemd und Leder, dazu die Trends der Saison.",
   ldEyebrow:"Die App",ldTitle:"Jeden Morgen. <em>Eine Antwort.</em>",
-  ldList:[["Heute","Ein Look nach Wetter und Tag, in deinen Farben."],["Anlässe","Büro, Date, Hochzeit, Taufe, Interview. Mit Dresscode."],["Farb-Check","Ein Foto im Laden. Steht dir die Farbe?"],["Garderobe & Koffer","Zehn Basisteile und die Packliste für jede Reise."],["Stil-Pass","Alles auf einer Seite, als PDF."]],
+  ldList:[["Heute","Ein Look nach Wetter und Tag, in deinen Farben."],["Anlässe","Büro, Date, Hochzeit, Taufe, Interview. Mit Dresscode."],["Farb-Check","Ein Foto im Laden. Steht dir die Farbe?"],["Trends","Herbst/Winter 2026 und Frühjahr 2027, übertragen auf deine Farben."],["Garderobe & Koffer","Deine eigenen Teile fotografiert, zehn Basisteile, die Packliste."],["Stil-Pass","Alles auf einer Seite, als PDF."]],
   forSplit:"<p>Für <em>sie</em>: Proportionen, Ausschnitte, Make-up und Haarfarbe.</p><p>Für <em>ihn</em>: Anzug-Passform, Hemd und Krawatte, Bart und die Lederregel.</p>"
 });
 Object.assign(T.ro, {
@@ -1526,7 +1546,7 @@ Object.assign(T.ro, {
   lp1:"Anotimpul tău, paleta, metalul. Și ce să eviți.",lp2:"Silueta și croiala. Pentru ea proporțiile, pentru el costumul.",
   lp3:"Ochelari, decolteu sau guler, coafură și barbă.",lp4t:"Stil & îngrijire",lp4:"Machiaj sau cămașă și piele, plus tendințele sezonului.",
   ldEyebrow:"Aplicația",ldTitle:"În fiecare dimineață. <em>Un răspuns.</em>",
-  ldList:[["Azi","O ținută după vreme și zi, în culorile tale."],["Ocazii","Birou, întâlnire, nuntă, botez, interviu. Cu dress code."],["Verifică o culoare","O poză în magazin. Îți stă culoarea?"],["Garderobă & bagaj","Zece piese de bază și lista pentru orice călătorie."],["Pașaportul de stil","Totul pe o pagină, în PDF."]],
+  ldList:[["Azi","O ținută după vreme și zi, în culorile tale."],["Ocazii","Birou, întâlnire, nuntă, botez, interviu. Cu dress code."],["Verifică o culoare","O poză în magazin. Îți stă culoarea?"],["Tendințe","Toamnă–iarnă 2026 și primăvară 2027, adaptate culorilor tale."],["Garderobă & bagaj","Hainele tale fotografiate, zece piese de bază, lista de bagaj."],["Pașaportul de stil","Totul pe o pagină, în PDF."]],
   forSplit:"<p>Pentru <em>ea</em>: proporții, decolteuri, machiaj și culoarea părului.</p><p>Pentru <em>el</em>: croiala costumului, cămașă și cravată, barbă și regula pielii.</p>"
 });
 Object.assign(T.en, {
@@ -1549,7 +1569,7 @@ Object.assign(T.en, {
   lp1:"Your season, your palette, your metal. And what to avoid.",lp2:"Silhouette and fit. Proportions for her, the suit for him.",
   lp3:"Glasses, neckline or collar, hair and beard.",lp4t:"Style & grooming",lp4:"Make-up or shirt and leather, plus the season's trends.",
   ldEyebrow:"The app",ldTitle:"Every morning. <em>One answer.</em>",
-  ldList:[["Today","One look for the weather and the day, in your colours."],["Occasions","Office, date, wedding, christening, interview. With dress code."],["Colour check","One photo in the shop. Does the colour suit you?"],["Wardrobe & suitcase","Ten essentials and a packing list for any trip."],["Style pass","Everything on one page, as a PDF."]],
+  ldList:[["Today","One look for the weather and the day, in your colours."],["Occasions","Office, date, wedding, christening, interview. With dress code."],["Colour check","One photo in the shop. Does the colour suit you?"],["Trends","Autumn/winter 2026 and spring 2027, translated to your colours."],["Wardrobe & suitcase","Your own pieces photographed, ten essentials, a packing list."],["Style pass","Everything on one page, as a PDF."]],
   forSplit:"<p>For <em>her</em>: proportions, necklines, make-up and hair colour.</p><p>For <em>him</em>: suit fit, shirt and tie, beard and the leather rule.</p>"
 });
 /* onboarding: a goal first, the face shape before the style question */
@@ -1565,7 +1585,7 @@ T.ro.FAQ[3][1]="Da. În formula ta alege alt tip de culoare, altă siluetă sau 
 T.en.FAQ[3][1]="Yes. In your formula pick another colour type, body or face shape and tap “That's me”.";
 /* ---------- my wardrobe (own photos) + shop search ---------- */
 Object.assign(T.de, {
-  shopFind:"Finden",shopAt:"Shoppen bei", shopG:{w:"Damen",m:"Herren"}, fromWard:"Aus deinem Schrank",
+  shopFind:"Finden",trRunway:"So auf dem Laufsteg",shopAt:"Shoppen bei", shopG:{w:"Damen",m:"Herren"}, fromWard:"Aus deinem Schrank",
   haveN:(n,m)=>`${n} von ${m} Teilen hast du schon`,
   tabMine:"Meine Teile", mineLead:"Fotografiere deine Kleidung. Die App erkennt die Farbe, prüft sie gegen deine Palette und baut deine Looks aus dem, was du schon hast.",
   mineAdd:"Teil fotografieren", mineHint:"Tippe auf den Stoff, wenn die Farbe nicht stimmt.", mineCat:"Was ist es?", mineSave:"Speichern", mineCancel:"Abbrechen", mineDel:"Entfernen",
@@ -1575,7 +1595,7 @@ Object.assign(T.de, {
   mineErr:"Das Foto ließ sich nicht speichern. Ist der Speicher voll?"
 });
 Object.assign(T.ro, {
-  shopFind:"Caută",shopAt:"Caută la", shopG:{w:"damă",m:"bărbați"}, fromWard:"Din garderoba ta",
+  shopFind:"Caută",trRunway:"Așa pe podium",shopAt:"Caută la", shopG:{w:"damă",m:"bărbați"}, fromWard:"Din garderoba ta",
   haveN:(n,m)=>`Ai deja ${n} din ${m} piese`,
   tabMine:"Hainele mele", mineLead:"Fotografiază-ți hainele. Aplicația recunoaște culoarea, o compară cu paleta ta și îți face ținute din ce ai deja.",
   mineAdd:"Fotografiază o piesă", mineHint:"Atinge materialul dacă nu e culoarea bună.", mineCat:"Ce este?", mineSave:"Salvează", mineCancel:"Renunță", mineDel:"Șterge",
@@ -1585,7 +1605,7 @@ Object.assign(T.ro, {
   mineErr:"Poza nu s-a putut salva. E memoria plină?"
 });
 Object.assign(T.en, {
-  shopFind:"Find",shopAt:"Shop at", shopG:{w:"women",m:"men"}, fromWard:"From your wardrobe",
+  shopFind:"Find",trRunway:"As on the runway",shopAt:"Shop at", shopG:{w:"women",m:"men"}, fromWard:"From your wardrobe",
   haveN:(n,m)=>`You already own ${n} of ${m} pieces`,
   tabMine:"My pieces", mineLead:"Photograph your clothes. The app reads the colour, checks it against your palette and builds your looks from what you already own.",
   mineAdd:"Photograph a piece", mineHint:"Tap the fabric if the colour is off.", mineCat:"What is it?", mineSave:"Save", mineCancel:"Cancel", mineDel:"Remove",
@@ -1594,6 +1614,101 @@ Object.assign(T.en, {
   vOk:"In your palette", vNear:"Easy to combine", vOff:"Not your colour: wear it away from the face",
   mineErr:"The photo could not be saved. Is the storage full?"
 });
+/* ---------- Trends: autumn/winter 2026 (now) and spring/summer 2027 (next) ----------
+   Sources: runway reports FW26 / SS27 (Coveteur, W, Net-a-Porter, InStyle, Numéro, Who What Wear,
+   FashionUnited, H&M editorial). Each trend: signature colours [hex, de, ro, en], fabric, key piece to search. */
+const TR_TABS = {now: L3("Jetzt","Acum","Now"), next: L3("Was kommt","Ce urmează","Coming next")};
+const TR_SEASONS = {now: L3("Herbst/Winter 2026","Toamnă–iarnă 2026","Autumn/Winter 2026"), next: L3("Frühjahr/Sommer 2027","Primăvară–vară 2027","Spring/Summer 2027")};
+const TRENDS_NEW = [
+ {s:"now",g:"b",fab:"knit",name:L3("Textur, die man fühlen will","Textură pe care vrei s-o atingi","Texture you want to touch"),
+  desc:L3("Kunstfell, Shearling und grober Strick waren der Schwerpunkt der Laufstege, auch bei Männern.","Blana artificială, shearlingul și tricotul gros au fost în centrul podiumurilor, și la bărbați.","Faux fur, shearling and chunky knits were the focus of the runways, menswear included."),
+  piece:L3("Shearlingjacke","Geacă shearling","Shearling jacket"),
+  cols:[["#EDE6DA","Ecru","Ecru","Ecru"],["#4A3426","Schoko","Ciocolată","Chocolate"],["#B08457","Camel","Camel","Camel"]]},
+ {s:"now",g:"b",fab:"twill",name:L3("Rot ist die Farbe der Saison","Roșul e culoarea sezonului","Red is the colour of the season"),
+  desc:L3("Von Valentino bis Saint Laurent: Tomatenrot und Purpur auf Mänteln, Strick und Anzügen.","De la Valentino la Saint Laurent: roșu-tomată și purpuriu pe paltoane, tricotaje și costume.","From Valentino to Saint Laurent: tomato red and crimson on coats, knits and suits."),
+  piece:L3("Mantel","Palton","Coat"),
+  cols:[["#B3122E","Purpurrot","Roșu purpuriu","Crimson"],["#7A1E2A","Ochsenblut","Bordo închis","Oxblood"],["#F2EDE6","Cremeweiß","Alb crem","Cream"]]},
+ {s:"now",g:"b",fab:"silk",name:L3("Flaschengrün, Ocker und Lila","Verde sticlă, ocru și mov","Bottle green, ochre and purple"),
+  desc:L3("Die neue Herbstpalette: satte, erwachsene Töne statt der Primärfarben vom Frühjahr.","Noua paletă de toamnă: tonuri bogate, mature, în locul culorilor primare din primăvară.","The new autumn palette: rich, grown-up shades instead of spring's primaries."),
+  piece:L3("Pullover","Pulover","Jumper"),
+  cols:[["#1F4D3A","Flaschengrün","Verde sticlă","Bottle green"],["#C8922E","Ocker","Ocru","Ochre"],["#5B2C6F","Lila","Mov","Purple"]]},
+ {s:"now",g:"b",fab:"twill",name:L3("Karo, Tartan, Vichy","Carouri, tartan, vichy","Checks, tartan, gingham"),
+  desc:L3("Karomuster tauchten in unzähligen Pariser Kollektionen auf: auf Blazern, Röcken und Mänteln.","Carourile au apărut în nenumărate colecții la Paris: pe sacouri, fuste și paltoane.","Checks appeared in countless Paris collections: on blazers, skirts and coats."),
+  piece:L3("Karo Blazer","Sacou în carouri","Check blazer"),
+  cols:[["#7A1E2A","Weinrot","Vișiniu","Wine"],["#1F4D3A","Tannengrün","Verde brad","Forest green"],["#C8B79A","Sand","Nisip","Sand"]]},
+ {s:"now",g:"w",fab:"twill",name:L3("Das schmale Power-Kostüm","Costumul cu fustă, ajustat","The slim skirt suit"),
+  desc:L3("Nach Jahren in Oversize kommt der schmale Schnitt zurück: Kostüm mit Rock, Hemd und sogar Krawatte.","După ani de oversize revine croiala strâmtă: costum cu fustă, cămașă și chiar cravată.","After years of oversize the slim cut is back: skirt suit, shirt, even a tie."),
+  piece:L3("Kostüm Rock Blazer","Costum cu fustă","Skirt suit"),
+  cols:[["#2E3340","Anthrazit","Antracit","Charcoal"],["#1E2A44","Marine","Bleumarin","Navy"],["#F4F1EC","Weiß","Alb","White"]]},
+ {s:"now",g:"w",fab:"silk",name:L3("Dunkle Romantik","Romantism întunecat","Dark romance"),
+  desc:L3("Spitze, dunkle Blumen und viktorianische Details. Romantisch, aber mit Schatten.","Dantelă, flori întunecate și detalii victoriene. Romantic, dar cu umbre.","Lace, dark florals and Victorian details. Romantic, but with shadows."),
+  piece:L3("Spitzenbluse","Bluză din dantelă","Lace blouse"),
+  cols:[["#2A1A22","Aubergine","Vânătă","Aubergine"],["#4A1E2C","Burgund","Burgund","Burgundy"],["#EDE3E3","Puder","Pudră","Powder"]]},
+ {s:"now",g:"w",fab:"silk",name:L3("Das schlichte 90er-Kleid","Rochia simplă anii '90","The minimal '90s dress"),
+  desc:L3("Ein gerades Midikleid mit Trägerausschnitt: das neue Abendkleid, bei Gucci wie bei Alaïa.","O rochie midi dreaptă, cu decolteu tip maiou: noua rochie de seară, la Gucci și la Alaïa.","A straight midi dress with a tank neckline: the new evening dress, at Gucci and Alaïa alike."),
+  piece:L3("Midikleid schlicht","Rochie midi simplă","Minimal midi dress"),
+  cols:[["#1C1B1F","Tinte","Cerneală","Ink"],["#6E6259","Taupe","Taupe","Taupe"],["#D9CBB8","Haferbeige","Bej ovăz","Oat"]]},
+ {s:"now",g:"w",fab:"leather",name:L3("Stiefel über dem Knie","Cizme peste genunchi","Over-the-knee boots"),
+  desc:L3("So lang, dass sie fast wie Hosen wirken. Dazu ein kurzer Rock oder ein langer Mantel.","Atât de lungi încât par aproape pantaloni. Cu fustă scurtă sau palton lung.","So long they almost read as trousers. Wear with a short skirt or a long coat."),
+  piece:L3("Overknee Stiefel","Cizme peste genunchi","Over-the-knee boots"),
+  cols:[["#3B2A20","Espresso","Espresso","Espresso"],["#1C1C1C","Schwarz","Negru","Black"],["#8A6A4F","Cognac","Coniac","Cognac"]]},
+ {s:"now",g:"w",fab:"knit",name:L3("Strumpfhosen in Farbe","Ciorapi colorați","Coloured tights"),
+  desc:L3("Strumpfhosen und Socken sind kein Detail mehr: farbig, als Mittelpunkt des Looks.","Ciorapii și șosetele nu mai sunt un detaliu: colorați, ca centru al ținutei.","Tights and socks are no afterthought: in colour, as the centre of the look."),
+  piece:L3("Strumpfhose","Ciorapi","Tights"),
+  cols:[["#B3122E","Rot","Roșu","Red"],["#5B2C6F","Lila","Mov","Purple"],["#1F4D3A","Grün","Verde","Green"]]},
+ {s:"now",g:"m",fab:"twill",name:L3("Lässiger Anzug als Set","Costum lejer, purtat ca set","The relaxed suit"),
+  desc:L3("Ungefüttert, ohne Schulterpolster, lang und locker. Mit T-Shirt und Sneakern statt nur zur Hochzeit.","Fără căptușeală și umeri, lung și lejer. Cu tricou și sneakers, nu doar la nuntă.","Unlined, no shoulder pads, long and loose. With a T-shirt and trainers, not just for weddings."),
+  piece:L3("Anzug locker","Costum lejer","Relaxed suit"),
+  cols:[["#6B5A4B","Taupe","Taupe","Taupe"],["#3A2C24","Schoko","Ciocolată","Chocolate"],["#E9E2D6","Ecru","Ecru","Ecru"]]},
+ {s:"now",g:"m",fab:"leather",name:L3("Gewaschenes Leder, weite Jeans","Piele spălată, blugi largi","Washed leather, loose denim"),
+  desc:L3("Braune Lederjacke über weiter, mittelblauer Jeans. Ochsenblut als einziger Akzent.","Geacă maro din piele peste blugi largi, albastru mediu. Bordo ca singur accent.","A brown leather jacket over loose mid-blue jeans. Oxblood as the one accent."),
+  piece:L3("Lederjacke","Geacă de piele","Leather jacket"),
+  cols:[["#5A3A28","Braun","Maro","Brown"],["#5C7A99","Mittelblau","Albastru mediu","Mid blue"],["#7A1E2A","Ochsenblut","Bordo","Oxblood"]]},
+ {s:"now",g:"m",fab:"silk",name:L3("Die schmale Krawatte","Cravata îngustă","The skinny tie"),
+  desc:L3("Rock-Einfluss in Mailand und Paris: schmale Krawatten, auch zum Strick.","Influență rock la Milano și Paris: cravate înguste, chiar și peste tricot.","A rock influence in Milan and Paris: skinny ties, even over knitwear."),
+  piece:L3("Krawatte schmal","Cravată îngustă","Skinny tie"),
+  cols:[["#1E2A44","Marine","Bleumarin","Navy"],["#7A1E2A","Weinrot","Vișiniu","Wine"],["#DCE3EA","Hellblau","Bleu deschis","Pale blue"]]},
+ {s:"next",g:"w",fab:"silk",name:L3("Der Rock als Hauptteil","Fusta, piesa principală","The skirt takes the lead"),
+  desc:L3("Prada baute die Saison um knielange Röcke. Weich, leicht, zum Hemd oder Strick.","Prada a construit sezonul în jurul fustelor până la genunchi. Moi, ușoare, cu cămașă sau tricot.","Prada built the season around knee-length skirts. Soft and light, with a shirt or knit."),
+  piece:L3("Rock knielang","Fustă până la genunchi","Knee-length skirt"),
+  cols:[["#E8D9C4","Sand","Nisip","Sand"],["#9CAF88","Salbei","Salvie","Sage"],["#F3D9DC","Zartrosa","Roz pal","Blush"]]},
+ {s:"next",g:"w",fab:"twill",name:L3("Taille: Schößchen und Gürtel","Talia: peplum și curea","Waist: peplum and belts"),
+  desc:L3("In New York das Hauptthema: Schößchen, breite Gürtel und Kummerbund.","Tema principală la New York: peplum, curele late și brâu.","The main act in New York: peplums, wide belts and cummerbunds."),
+  piece:L3("Peplum Top","Top peplum","Peplum top"),
+  cols:[["#F4F1EC","Weiß","Alb","White"],["#1C1B1F","Schwarz","Negru","Black"],["#C9A27E","Karamell","Caramel","Caramel"]]},
+ {s:"next",g:"b",fab:"knit",name:L3("Häkeln und Handarbeit","Croșetat și lucru de mână","Crochet and visible craft"),
+  desc:L3("Häkelröcke, Lochstickerei, offene Strickarten: man soll sehen, dass es von Hand gemacht ist.","Fuste croșetate, broderie, tricot ajurat: să se vadă că e lucrat de mână.","Crochet skirts, openwork, airy knits: you should see the handwork."),
+  piece:L3("Häkel Top","Top croșetat","Crochet top"),
+  cols:[["#EDE3D2","Natur","Natur","Natural"],["#C8922E","Honig","Miere","Honey"],["#7D8B6A","Olive","Oliv","Olive"]]},
+ {s:"next",g:"b",fab:"silk",name:L3("Weiche, zarte Farben","Culori moi, dulci","Soft, sweet colours"),
+  desc:L3("Nach den kräftigen Herbsttönen wird das Frühjahr weicher: Zartrosa, Mint, Butter.","După tonurile puternice ale toamnei, primăvara devine mai blândă: roz pal, mentă, unt.","After autumn's bold shades spring turns softer: blush, mint, butter."),
+  piece:L3("Bluse","Bluză","Blouse"),
+  cols:[["#F3D9DC","Zartrosa","Roz pal","Blush"],["#DCE8D5","Mint","Mentă","Mint"],["#F6E7B5","Butter","Galben unt","Butter"]]},
+ {s:"next",g:"b",fab:"twill",name:L3("Pflaume als neue Basis","Pruna, noul neutru","Plum is the new neutral"),
+  desc:L3("Für Vorherbst 2027: Pflaume, Aubergine und Violett ersetzen Schwarz und Marine.","Pentru pre-toamna 2027: prună, vânătă și violet înlocuiesc negrul și bleumarinul.","For pre-fall 2027: plum, aubergine and violet replace black and navy."),
+  piece:L3("Pullover","Pulover","Jumper"),
+  cols:[["#4B2338","Pflaume","Prună","Plum"],["#6E3B5A","Beere","Fructe de pădure","Berry"],["#2E1A2A","Aubergine","Vânătă","Aubergine"]]},
+ {s:"next",g:"b",fab:"twill",name:L3("Schmal geschnittene Blazer","Sacouri ajustate","Slim-cut blazers"),
+  desc:L3("In Mailand kaum noch Oversize: Blazer sitzen wieder nah am Körper.","La Milano aproape deloc oversize: sacourile stau din nou aproape de corp.","Barely any oversize in Milan: blazers sit close to the body again."),
+  piece:L3("Blazer tailliert","Sacou ajustat","Slim blazer"),
+  cols:[["#2E3340","Anthrazit","Antracit","Charcoal"],["#A9A39A","Steingrau","Gri piatră","Stone"],["#F2EDE6","Creme","Crem","Cream"]]}
+];
+/* how a trend fits a profile: colours mapped onto the personal palette */
+TRENDS_NEW.forEach(tr => {
+  tr.mine = p => {
+    const s = SEASONS[p.season], pal = [...s.best, ...s.neutral];
+    return tr.cols.map(c => { let b = pal[0], d = 1e9; pal.forEach(x => { const e = dE(c[0], x[0]); if(e < d){ d = e; b = x; } }); return {trend:c, mine:b, d}; });
+  };
+  tr.fit = p => {
+    const m = tr.mine(p), ok = m[0].d <= 18;
+    const nm = (sw, l) => sw[{de:1,ro:2,en:3}[l]];
+    const tip = l => ok
+      ? ({de:"Steht dir: trag es in ",ro:"Ți se potrivește: poartă-l în ",en:"Suits you: wear it in "})[l] + m.map(x => nm(x.mine,l)).filter((v,i,a)=>a.indexOf(v)===i).slice(0,2).join(({de:" und ",ro:" și ",en:" and "})[l]) + "."
+      : ({de:"Statt ",ro:"În loc de ",en:"Instead of "})[l] + nm(m[0].trend,l) + ({de:" nimm ",ro:" alege ",en:" choose "})[l] + nm(m[0].mine,l) + ".";
+    return [ok ? "yes" : "adapt", {de:tip("de"), ro:tip("ro"), en:tip("en")}];
+  };
+});
+TRENDS.length = 0; TRENDS.push(...TRENDS_NEW);
 /* ---------- landing page ---------- */
 const store = { get(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } }, set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} } };
 const LANGS = ["de","ro","en"], saved = store.get("styleai-lang");

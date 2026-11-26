@@ -42,5 +42,7 @@ Konzept und Design: Raluca Jidvian, 2026.
 Schriftarten: Bodoni Moda, Jost, DM Mono (SIL Open Font License, siehe `fonts/`).
 Fotos: Pexels (Pexels-Lizenz), von Nadin Sh, Criativa Pix Fotografia, Warona Rasetshwane, Alena Evseenko, Shiny Diamond, Thang Nguyen, Gursher Gill, Leszek Czyzewski, Karolina Ostrzolek, Atlantic Ambience.
 
+Trends (Stand November 2026): Herbst/Winter 2026 und Frühjahr/Sommer 2027 nach Laufsteg-Berichten von Coveteur, W Magazine, Net-a-Porter, InStyle, Numéro, Who What Wear und FashionUnited. Die Trendfarben werden automatisch auf die Palette jedes Farbtyps übertragen.
+
 Stoffmuster der Look-Karten (`img/tex/`, Pexels-Lizenz, in Graustufen umgewandelt und in der Farbe jedes Teils eingefärbt): [Strick](https://www.pexels.com/photo/6843269/), [Seide](https://www.pexels.com/photo/7946623/), [Leinen](https://www.pexels.com/photo/8774406/), [Köper/Denim](https://www.pexels.com/photo/10912871/), [Leder](https://www.pexels.com/photo/6045262/), [Metall](https://www.pexels.com/photo/35058966/).
 Trendquellen: Who What Wear, Harrods, FashionUnited, Net-a-Porter, H&M, The Wed.
